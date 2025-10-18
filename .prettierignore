@@ -92,3 +92,12 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Lock files
+package-lock.json
+yarn.lock
+bun.lockb
+
+# Generated files
+*.min.js
+*.min.css
