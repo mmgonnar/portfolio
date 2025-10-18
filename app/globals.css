@@ -4,5 +4,18 @@
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-consolas: 'Consolas', 'Monaco', 'Courier New', monospace;
+    --color-green-brutalist: #008857;
+  }
+
+  /* Clase personalizada para Consolas */
+  .font-consolas {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* Clase personalizada para hover con color brutalist */
+  .hover-green-brutalist:hover {
+    color: var(--color-green-brutalist);
   }
 }
