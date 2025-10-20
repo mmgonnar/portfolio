@@ -24,15 +24,20 @@ export default function Navbar() {
           </Link>
         ))}
       </nav>
-      <button className="cursor-pointer" onClick={toggleMenu}>
+      <button className="block cursor-pointer md:hidden" onClick={toggleMenu}>
         {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
-      <nav className={cn("bg-white border-t-1 border-neutral-200 absolute top-13 left-0 z-10 flex w-full transform flex-col items-center gap-2 py-2 shadow-md transition-all duration-200", !isMenuOpen && "hidden")}>
+      <nav
+        className={cn(
+          'border-t-1 top-13 absolute left-0 z-10 flex w-full transform flex-col items-center gap-2 border-neutral-200 bg-white py-2 shadow-md transition-all duration-200',
+          !isMenuOpen && 'hidden'
+        )}
+      >
         {headerItems.map(item => (
           <Link
             key={item.name}
             href={item.href}
-            className="hover-green-brutalist text-lg p-3 cursor-pointer font-mono transition-colors duration-200 hover:font-semibold"
+            className="hover-green-brutalist hover:border-b-1 cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:font-semibold"
           >
             {item.name}
           </Link>

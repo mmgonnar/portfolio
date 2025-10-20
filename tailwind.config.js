@@ -22,6 +22,10 @@ module.exports = {
       colors: {
         'green-brutalist': '#008857',
       },
+      screens: {
+        'custom-sm': '570px',
+        'custom-lg': '915px',
+      },
     },
   },
   plugins: [],

@@ -1,10 +1,15 @@
 @import 'tailwindcss';
 
+@theme inline {
+  --breakpoint-custom-md:59rem
+}
+
 @layer base {
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-consolas: 'Consolas', 'Monaco', 'Courier New', monospace;
     --color-green-brutalist: #008857;
+    --color-neon: #00E593
   }
 
   /* Clase personalizada para Consolas */
