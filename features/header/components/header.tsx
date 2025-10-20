@@ -1,8 +1,6 @@
 'use client';
 
-import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
-import Logo from './logo';
-import Navbar from './navbar';
+import { NeobrutalistButton, Logo, Navbar } from '../index';
 
 export default function Header() {
   return (

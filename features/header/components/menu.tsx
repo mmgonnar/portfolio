@@ -2,10 +2,7 @@
 import Image from 'next/image';
 import MenuIcon from '../svg/jam_menu.svg';
 import { cn } from '@/utils/functions';
-
-interface MenuProps {
-  className?: string;
-}
+import { MenuProps } from '../types/types';
 
 export default function Menu({ className }: MenuProps) {
   return (
