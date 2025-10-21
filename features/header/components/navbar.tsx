@@ -6,21 +6,23 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import Menu from './menu';
 import { cn } from '@/utils/functions';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
     <>
-      <nav className="hidden space-x-10 text-lg md:block">
+      <nav className="hidden space-x-10 text-base md:flex">
         {headerItems.map(item => (
           <Link
             key={item.name}
             href={item.href}
-            className="hover-green-brutalist cursor-pointer font-mono text-xl transition-colors duration-200 hover:font-semibold"
+            className="hover-green-brutalist cursor-pointer font-mono text-lg transition-colors duration-200 hover:font-semibold"
           >
-            {item.name}
+            {t(item.name)}
           </Link>
         ))}
       </nav>
@@ -39,7 +41,7 @@ export default function Navbar() {
             href={item.href}
             className="hover-green-brutalist hover:border-b-1 cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:font-semibold"
           >
-            {item.name}
+            {t(item.name)}
           </Link>
         ))}
       </nav>

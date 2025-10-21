@@ -1,6 +1,6 @@
 export const headerItems = [
-  { name: 'about me', href: '/' },
-  { name: 'projects', href: '/' },
-  { name: 'curriculum', href: '/' },
-  { name: 'contact', href: '/' },
+  { name: 'navigation.aboutMe', href: '/' },
+  { name: 'navigation.projects', href: '/' },
+  { name: 'navigation.curriculum', href: '/' },
+  { name: 'navigation.contact', href: '/' },
 ];
