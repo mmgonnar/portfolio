@@ -1,5 +1,4 @@
 export const enTranslations = {
-  welcomeMessage: 'Welcome to React and react-i18next',
   navigation: {
     aboutMe: 'about me',
     projects: 'projects',
@@ -12,7 +11,6 @@ export const enTranslations = {
 };
 
 export const esTranslations = {
-  welcomeMessage: 'Bienvenido a React y Next.js',
   navigation: {
     aboutMe: 'acerca de mi',
     projects: 'proyectos',

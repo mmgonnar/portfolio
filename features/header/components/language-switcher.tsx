@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="hidden items-center gap-2 md:flex">
+    <div className="hidden items-center gap-2 custom-lg:flex">
       <Globe className="h-4 w-4" />
       <button
         onClick={() => changeLanguage('es')}

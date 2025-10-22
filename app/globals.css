@@ -2,17 +2,17 @@
 
 @theme inline {
   --breakpoint-custom-md: 59rem;
+  --color-green-brutalist: #008857;
+  --color-neon: #00e593;
+  --breakpoint-custom-lg: 68rem;
+  --breakpoint-custom-md: 54rem;
+  --breakpoint-custom-sm: 28rem;
 }
 
 @layer base {
   :root {
     --font-inter: 'Inter', sans-serif;
     --font-consolas: 'Consolas', 'Monaco', 'Courier New', monospace;
-    --color-green-brutalist: #008857;
-    --color-neon: #00e593;
-    --breakpoint-custom-lg: 62rem;
-    --breakpoint-custom-md: 59rem;
-    --breakpoint-custom-sm: 28rem;
   }
 
   /* Clase personalizada para Consolas */

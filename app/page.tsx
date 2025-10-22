@@ -1,5 +1,6 @@
 'use client';
 
+import Banner from '@/features/banner/components/banner';
 import Header from '@/features/header/components/header';
 import { useTranslation } from 'react-i18next';
 
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <main>
       <Header />
+      {/* <Banner /> */}
     </main>
   );
 }

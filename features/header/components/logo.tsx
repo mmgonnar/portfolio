@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Logotipo from '../svg/mmgonnar.svg';
+import Logotipo from '../assets/mmgonnar.svg';
 import Link from 'next/link';
 
 export default function Logo() {

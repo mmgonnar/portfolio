@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import MenuIcon from '../svg/jam_menu.svg';
+import MenuIcon from '../assets/jam_menu.svg';
 import { cn } from '@/utils/functions';
 import { MenuProps } from '../types/types';
 

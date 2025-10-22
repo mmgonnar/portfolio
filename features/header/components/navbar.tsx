@@ -14,13 +14,13 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
-    <>
-      <nav className="hidden space-x-10 text-base md:flex">
+    <div className="flex">
+      <nav className="hidden shrink-0 space-x-10 text-base custom-md:flex">
         {headerItems.map(item => (
           <Link
             key={item.name}
             href={item.href}
-            className="hover-green-brutalist cursor-pointer font-mono text-lg transition-colors duration-200 hover:font-semibold"
+            className="hover-green-brutalist shrink-0 cursor-pointer font-mono text-lg transition-colors duration-200 hover:font-semibold"
           >
             {t(item.name)}
           </Link>
@@ -45,6 +45,6 @@ export default function Navbar() {
           </Link>
         ))}
       </nav>
-    </>
+    </div>
   );
 }
