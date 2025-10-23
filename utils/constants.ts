@@ -8,6 +8,11 @@ export const enTranslations = {
   button: {
     switchDesign: 'switch design',
   },
+  language: {
+    changeLanguage: 'change language',
+    en: 'inglés',
+    es: 'español',
+  },
 };
 
 export const esTranslations = {
@@ -19,5 +24,10 @@ export const esTranslations = {
   },
   button: {
     switchDesign: 'rediseñar web',
+  },
+  language: {
+    changeLanguage: 'cambiar idioma',
+    en: 'english',
+    es: 'spanish',
   },
 };
