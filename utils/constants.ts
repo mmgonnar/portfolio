@@ -30,4 +30,5 @@ export const esTranslations = {
     en: 'english',
     es: 'spanish',
   },
+  bannerText: {},
 };

@@ -9,7 +9,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <section className="max-w-8xl flex items-center justify-between px-5 py-6 md:px-10 md:py-8">
+    <section className="max-w-8xl flex items-center justify-between pb-4">
       <Logo />
       <Navbar />
       <div className="hidden flex-shrink-0 items-center gap-6 custom-md:flex">

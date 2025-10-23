@@ -832,6 +832,8 @@ function DropDrawerSubTrigger({
   if (isMobile) {
     // Find the parent submenu ID
     const handleClick = (e: React.MouseEvent) => {
+      // console.log('handle');
+      // console.log(navigateToSubmenu);
       e.preventDefault();
       e.stopPropagation();
 

@@ -8,7 +8,7 @@ interface BannerProps {
 
 export default function Banner({ text }: BannerProps) {
   return (
-    <section>
+    <section className="grid grid-cols-2">
       <div>
         <p className="text-2xl">Hello world!</p>
         <h1 className="text-4xl font-black">Mariela Gonzalez</h1>
