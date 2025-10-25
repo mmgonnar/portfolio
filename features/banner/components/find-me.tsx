@@ -6,6 +6,7 @@ import GithubIcon from './icons/github-icon';
 import LinkedinIcon from './icons/linkedin-icon';
 import MailIcon from './icons/mail-icon';
 import Image from 'next/image';
+import { t } from 'i18next';
 
 // Asegúrate de que no haya ninguna importación de Image si no se usa
 // import Image from 'next/image';
@@ -13,16 +14,11 @@ import Image from 'next/image';
 export default function FindMe() {
   return (
     <>
-      <p>Find me in:</p>
-      {/* <div className="flex">
-        <GithubIcon />
-        <LinkedinIcon />
-        <MailIcon />
-      </div> */}
-      <div className="flex gap-4">
+      <p className="pb-3 text-lg">{t('bannerText.findMe')}</p>
+      <div className="flex gap-3">
         {findMeIcons.map(item => {
           return (
-            <Link key={item.name} href="/">
+            <Link key={item.name} href={item.href} target="_blank">
               <Image
                 src={item.icon}
                 alt="Email"

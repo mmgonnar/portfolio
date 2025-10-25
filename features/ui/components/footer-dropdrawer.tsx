@@ -34,7 +34,7 @@ export function FooterDropdrawer() {
   return (
     <DropDrawer>
       <DropDrawerTrigger asChild className="">
-        <button className=" fixed bottom-6 right-6 block cursor-pointer rounded-full hover:bg-neutral-100 md:hidden">
+        <button className=" fixed bottom-6 right-6 block cursor-pointer rounded-full bg-white shadow hover:shadow-sm md:hidden">
           <Menu className="h-10 w-10" />
         </button>
       </DropDrawerTrigger>
