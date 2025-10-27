@@ -6,3 +6,8 @@ export interface NeobrutalistButtonProps {
   href?: string;
   variant?: keyof typeof variants;
 }
+
+export interface ContetnSectionProps {
+  title: string;
+  text: string;
+}

@@ -4,6 +4,7 @@ import { t } from 'i18next';
 import Image from 'next/image';
 import AboutMeImg from '../assets/about-me.svg';
 import { NeobrutalistButton } from '@/features/header';
+import ContentSection from '@/features/ui/components/content-section';
 
 export default function AboutMe() {
   return (
@@ -12,10 +13,10 @@ export default function AboutMe() {
       className="md:pt-15 m-auto flex max-w-7xl flex-col items-center justify-between gap-4 p-10 md:flex-row md:gap-10"
     >
       <div className="flex flex-col gap-6">
-        <h3 className="text-4xl font-bold">{t('aboutMe.title')}</h3>
-        <p className="max-w-2xl text-balance text-xl md:pb-5">
-          {t('aboutMe.description')}
-        </p>
+        <ContentSection
+          title={t('aboutMe.title')}
+          text={t('aboutMe.description')}
+        />
         <NeobrutalistButton variant="white" href="/" text="Know me better" />
       </div>
       <div>
