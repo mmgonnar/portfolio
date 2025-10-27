@@ -23,6 +23,11 @@ export const enTranslations = {
       'Fullstack Web Developer Jr. with 2 years of experience in web development (MERN Stack, Next.js, React, Node.js,MongoDB, Express) and 5 years in web design and UX/UI, blending technical and creative skills to deliver scalable, user-centric digital solutions. ',
     findMe: 'Find me in:',
   },
+  aboutMe: {
+    title: 'About me',
+    description:
+      'After years as an educator and digital consultant constantly optimizing processes, I discovered my true calling in tech. Web development became the perfect intersection where my problem-solving curiosity meets the balance between creative vision and technical logic.',
+  },
 };
 
 export const esTranslations = {
@@ -49,5 +54,10 @@ export const esTranslations = {
     description:
       'Desarrolladora Web Fullstack Jr. con 2 años de experiencia en desarrollo web y 5 años en diseño web y UX/UI, combinando lo técnico con lo creativo para entregar soluciones digitales escalables y centradas en el usuario.',
     findMe: 'Encuentrame en:',
+  },
+  aboutMe: {
+    title: 'Acerca de mi',
+    description:
+      'Decidí entrar al mundo tech después de varios años como docente y consultora digital, donde siempre buscaba herramientas para simplificar procesos. Mi curiosidad por resolver problemas me llevó al desarrollo web, donde encontré el equilibrio entre creatividad y lógica.',
   },
 };

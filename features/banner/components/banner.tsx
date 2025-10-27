@@ -1,7 +1,6 @@
 'use client';
 
 import DescriptionSection from './description-section';
-import FindMe from './find-me';
 import NameSection from './name-section';
 import VerticalBar from './vertical-bar';
 
