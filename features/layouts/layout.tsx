@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto] ">
+    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
       <Header />
       <main className="h-full w-full">{children}</main>
       <footer></footer>

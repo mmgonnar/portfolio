@@ -7,10 +7,15 @@ import { NeobrutalistButton } from '@/features/header';
 
 export default function AboutMe() {
   return (
-    <section className="max-w-8xl flex flex-col justify-between p-10 md:flex-row">
-      <div>
-        <h3 className="pb-6 text-4xl font-bold">{t('aboutMe.title')}</h3>
-        <p className="max-w-2xl pb-5 text-lg">{t('aboutMe.description')}</p>
+    <section
+      id="about-me"
+      className="md:pt-15 m-auto flex max-w-7xl flex-col items-center justify-between gap-4 p-10 md:flex-row md:gap-10"
+    >
+      <div className="flex flex-col gap-6">
+        <h3 className="text-4xl font-bold">{t('aboutMe.title')}</h3>
+        <p className="max-w-2xl text-balance text-xl md:pb-5">
+          {t('aboutMe.description')}
+        </p>
         <NeobrutalistButton variant="white" href="/" text="Know me better" />
       </div>
       <div>
