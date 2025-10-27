@@ -1,12 +1,7 @@
 import { cn } from '@/utils/functions';
 import Link from 'next/link';
 import React from 'react';
-
-interface NeobrutalistButtonProps {
-  className?: string;
-  text: string;
-  href?: string;
-}
+import { NeobrutalistButtonProps } from '../types/type';
 
 export default function NeobrutalistButton({
   className,

@@ -16,4 +16,25 @@ export const findMeIcons = [
   { name: 'Email icon', href: 'mailto:mm.gonnar@gmail.com', icon: MailIcon },
 ];
 
-export const toolsLogos = [];
+export const languagesTools = [
+  {
+    name: 'HTML',
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg',
+  },
+  {
+    name: 'CSS',
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg',
+  },
+  {
+    name: 'JavaScript',
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
+  },
+  {
+    name: 'TypeScript',
+    src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
+  },
+  {
+    name: 'TailWind',
+    src: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg',
+  },
+];
