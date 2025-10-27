@@ -11,6 +11,7 @@ export const enTranslations = {
   },
   button: {
     switchDesign: 'switch design',
+    knowMeBetter: 'Know me better',
   },
   language: {
     changeLanguage: 'change language',
@@ -43,6 +44,7 @@ export const esTranslations = {
   },
   button: {
     switchDesign: 'rediseñar web',
+    knowMeBetter: 'Conóceme mejor',
   },
   language: {
     changeLanguage: 'cambiar idioma',

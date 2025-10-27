@@ -4,8 +4,8 @@ import React from 'react';
 import { NeobrutalistButtonProps } from '../types/type';
 
 export const variants = {
-  default: '',
-  white: 'bg- white hover:bg-neon',
+  default: 'px-7',
+  white: 'bg- white hover:bg-neon px-8',
 };
 
 export default function NeobrutalistButton({
