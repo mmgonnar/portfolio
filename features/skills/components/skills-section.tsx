@@ -1,6 +1,7 @@
 import Label from '@/features/ui/components/label';
 import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import React from 'react';
+import { designSkills, frontendSkills } from '../utils/constants';
 
 export default function SkillsSection() {
   return (
@@ -11,8 +12,12 @@ export default function SkillsSection() {
           Creación de interfaces visuales centradas en el usuario, con
           experiencia en diseño gráfico y prototipado digital.
         </p>
+        <div className="flex w-full flex-wrap justify-center gap-3">
+          {frontendSkills.map(item => (
+            <Label key={item.name} labelText={item.name} variant="default" />
+          ))}
+        </div>
       </NeobrutalistCard>
-      <Label labelText="sadasd" />
       <div></div>
     </div>
   );
