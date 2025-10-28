@@ -142,3 +142,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.card {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+}

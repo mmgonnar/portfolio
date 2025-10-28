@@ -1,0 +1,165 @@
+/* CyberpunkForm.css */
+
+/* --- Colores como variables CSS para fácil ajuste --- */
+:root {
+  --orange: #ff7a01; /* Color de acento para hover/sombra del reset */
+  --neon-green: #caf438; /* Color principal de acento */
+  --dark-blue: #001925; /* Fondo principal */
+  --mid-blue: #002733; /* Fondo de input */
+  --light-blue: #013747; /* Fondo de textarea */
+}
+
+/* ---------------------------------------------------- */
+/* 1. CONTENEDOR PRINCIPAL (CARD) */
+/* ---------------------------------------------------- */
+
+.form-container {
+  max-width: 700px;
+  width: 100%; /* Tailwind w-full */
+  margin: 30px auto; /* Tailwind m-8 */
+  background-color: var(--dark-blue); /* Tailwind bg-[--dark-blue] */
+  padding: 30px; /* Tailwind p-8 */
+
+  /* Borde izquierdo distintivo */
+  border-left: 5px solid var(--neon-green);
+
+  /* El corte diagonal que Tailwind no puede hacer */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+}
+
+/* ---------------------------------------------------- */
+/* 2. ESTILOS DE TEXTO E INPUTS */
+/* ---------------------------------------------------- */
+
+.heading {
+  display: block;
+  color: white;
+  font-size: 1.5rem; /* Tailwind text-2xl/xl */
+  font-weight: 800; /* Tailwind font-extrabold */
+  margin-bottom: 20px; /* Tailwind mb-5 */
+}
+
+.c1 {
+  display: block;
+  color: var(--neon-green); /* Tailwind text-[--neon-green] */
+  font-size: 1rem; /* Tailwind text-base */
+  font-weight: 600; /* Tailwind font-semibold */
+  margin-bottom: 20px;
+}
+
+.c2 {
+  display: block;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el campo de entrada (input) */
+.form-container .form .input {
+  color: #87a4b6;
+  width: 100%;
+  background-color: var(--mid-blue);
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  border-left: 1px solid transparent;
+}
+
+/* Efecto de focus para input: cambia el borde izquierdo */
+.form-container .form .input:focus {
+  border-left: 5px solid var(--neon-green);
+}
+
+/* Estilos para el área de texto (textarea) */
+.form-container .form .textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--light-blue);
+  color: var(--neon-green);
+  font-weight: bold;
+  resize: none;
+  max-height: 150px;
+  margin-bottom: 20px;
+  border-left: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efecto de focus para textarea: cambia el borde izquierdo */
+.form-container .form .textarea:focus {
+  border-left: 5px solid var(--neon-green);
+}
+
+/* ---------------------------------------------------- */
+/* 3. ESTILOS DE BOTONES */
+/* ---------------------------------------------------- */
+
+.form-container .form .button-container {
+  display: flex; /* Tailwind flex */
+  gap: 10px; /* Tailwind gap-3 (approx) */
+}
+
+/* Botón de Enviar */
+.form-container .form .button-container .send-button {
+  flex-basis: 70%;
+  background: var(--neon-green);
+  padding: 10px;
+  color: var(--dark-blue);
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-container .form .button-container .send-button:hover {
+  background: transparent;
+  border: 1px solid var(--orange);
+  color: var(--neon-green);
+}
+
+/* Contenedor del Botón Reset (Usa drop-shadow) */
+.form-container .form .button-container .reset-button-container {
+  /* FILTRO CSS NECESARIO: drop-shadow */
+  filter: drop-shadow(1px 1px 0px var(--orange));
+  flex-basis: 30%;
+}
+
+/* Botón Reset */
+.form-container .form .button-container .reset-button-container .reset-button {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  color: var(--neon-green);
+  font-weight: bold;
+  background: var(--dark-blue);
+
+  /* El corte diagonal del botón */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+  transition: all 0.2s ease-in-out;
+}
+
+.form-container
+  .form
+  .button-container
+  .reset-button-container
+  .reset-button:hover {
+  background: var(--neon-green);
+  color: var(--dark-blue);
+}

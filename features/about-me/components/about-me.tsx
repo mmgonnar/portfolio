@@ -14,14 +14,11 @@ export default function AboutMe() {
     >
       <div className="flex flex-col gap-6">
         <ContentSection
+          align="left"
           title={t('aboutMe.title')}
           text={t('aboutMe.description')}
         />
-        <NeobrutalistButton
-          variant="white"
-          href="/"
-          text={t('button.knowMeBetter')}
-        />
+        <NeobrutalistButton href="/" text={t('button.knowMeBetter')} />
       </div>
       <div>
         <Image width={400} height={400} src={AboutMeImg} alt="asdad" />

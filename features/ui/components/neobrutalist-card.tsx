@@ -1,0 +1,17 @@
+'use client';
+
+import { cn } from '@/utils/functions';
+import { NeobrutalistCardProps } from '../types/type';
+
+export default function NeobrutalistCard({ children }: NeobrutalistCardProps) {
+  return (
+    <div
+      className={cn(
+        ' cursor-pointer rounded-none border-[4px] border-black bg-white p-5 text-[18px] font-semibold text-black shadow-[8px_8px_0_#000] outline-none transition duration-300 ease-in-out hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0_#000]',
+        'flex flex-col items-center justify-center gap-5'
+      )}
+    >
+      {children}
+    </div>
+  );
+}
