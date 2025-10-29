@@ -20,6 +20,7 @@ export interface ContetnSectionProps {
 }
 export interface NeobrutalistCardProps {
   children: ReactNode;
+  className?: string;
 }
 export interface LabelProps {
   children?: ReactNode;
@@ -27,4 +28,16 @@ export interface LabelProps {
   variant?: keyof typeof labelVariants;
   icon?: keyof typeof labelIcons;
   className?: String;
+}
+
+export type SkillItem = {
+  name: string;
+};
+
+export interface SlikllCardProps {
+  title: string;
+  description: string;
+  skillsMap: SkillItem[];
+  IconComponent: React.ElementType;
+  iconClassName?: string;
 }

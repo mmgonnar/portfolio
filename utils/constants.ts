@@ -29,6 +29,20 @@ export const enTranslations = {
     description:
       'After years as an educator and digital consultant constantly optimizing processes, I discovered my true calling in tech. Web development became the perfect intersection where my problem-solving curiosity meets the balance between creative vision and technical logic.',
   },
+  skills: {
+    uiDesign: 'UI/Diseño',
+    front: 'frontend',
+    back: 'backend',
+    other: 'tools',
+    design:
+      'Created user-centric visual interfaces, with experience in graphic design and digital prototyping',
+    frontend:
+      'Development of dynamic and responsive interfaces, optimized for accessibility and performance.',
+    backend:
+      'Building scalable APIs and managing databases for robust applications.',
+    tools:
+      'Version control, API testing, and content management for complete projects.',
+  },
 };
 
 export const esTranslations = {
@@ -61,5 +75,19 @@ export const esTranslations = {
     title: 'Acerca de mi',
     description:
       'Decidí entrar al mundo tech después de varios años como docente y consultora digital, donde siempre buscaba herramientas para simplificar procesos. Mi curiosidad por resolver problemas me llevó al desarrollo web, donde encontré el equilibrio entre creatividad y lógica.',
+  },
+  skills: {
+    uiDesign: 'UI/Diseño',
+    front: 'frontend',
+    back: 'backend',
+    other: 'herramientas',
+    design:
+      'Creación de interfaces visuales centradas en el usuario, con experiencia en diseño gráfico y prototipado digital.',
+    frontend:
+      'Desarrollo de interfaces dinámicas y responsivas, optimizadas para accesibilidad y rendimiento.',
+    backend:
+      'Construcción de APIs escalables y manejo de bases de datos para aplicaciones robustas.',
+    tools:
+      'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
   },
 };

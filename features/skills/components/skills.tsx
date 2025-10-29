@@ -7,16 +7,14 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="md:pt-15 m-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 bg-neutral-100 p-10 md:gap-10"
+      className="md:pt-15 border-y-3 flex w-full flex-col items-center justify-between gap-4 border-solid border-neutral-300 bg-neutral-100 p-10 md:gap-10"
     >
       <ContentSection
         title="Skills"
         text="Stack principal orientado a frontend, APIs y UX."
         align="center"
       />
-      <div>
-        <SkillsSection />
-      </div>
+      <SkillsSection />
     </section>
   );
 }

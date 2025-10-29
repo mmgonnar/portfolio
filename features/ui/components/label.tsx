@@ -16,7 +16,7 @@ export default function Label({
     <div className="max-w-150">
       <div
         className={cn(
-          'm-auto flex items-center justify-center gap-1 rounded-full px-5 py-1 text-xs',
+          'm-auto flex items-center justify-center gap-1 rounded-full px-5 py-1 text-[10px]',
           labelVariants[variant],
           IconComponent != null && 'gap-2',
           className
