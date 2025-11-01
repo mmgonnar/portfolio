@@ -30,7 +30,7 @@ export const enTranslations = {
       'After years as an educator and digital consultant constantly optimizing processes, I discovered my true calling in tech. Web development became the perfect intersection where my problem-solving curiosity meets the balance between creative vision and technical logic.',
   },
   skills: {
-    uiDesign: 'UI/Diseño',
+    uiDesign: 'ui/design',
     front: 'frontend',
     back: 'backend',
     other: 'tools',
@@ -77,7 +77,7 @@ export const esTranslations = {
       'Decidí entrar al mundo tech después de varios años como docente y consultora digital, donde siempre buscaba herramientas para simplificar procesos. Mi curiosidad por resolver problemas me llevó al desarrollo web, donde encontré el equilibrio entre creatividad y lógica.',
   },
   skills: {
-    uiDesign: 'UI/Diseño',
+    uiDesign: 'ui/diseño',
     front: 'frontend',
     back: 'backend',
     other: 'herramientas',
