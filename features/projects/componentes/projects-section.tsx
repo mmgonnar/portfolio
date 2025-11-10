@@ -6,7 +6,7 @@ import ProjectCard from './project-card';
 export default function ProjectsSection() {
   return (
     <div>
-      <div className="bg-neon w-full">
+      <div className=" grid w-full grid-cols-1 gap-6 custom-sm:grid-cols-2">
         {projects.map(item => (
           <ProjectCard
             key={item.name}

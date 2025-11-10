@@ -3,7 +3,6 @@
 import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import Image from 'next/image';
 import { ProjectCardProps } from '../types/types';
-import { cn } from '@/utils/functions';
 
 export default function ProjectCard({
   title,
@@ -12,14 +11,13 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <>
-      <NeobrutalistCard className="flex-col items-center justify-center gap-5 text-center custom-sm:flex-row custom-sm:text-left">
-        {}
+      <NeobrutalistCard className="flex items-center justify-center gap-5 text-center custom-sm:grid-cols-2 custom-sm:flex-row custom-sm:text-left">
         <div className="flex max-w-sm flex-col gap-3">
           <h3 className="text-lg text-green-brutalist">{title}</h3>
-          <p className="line-clamp-2 overflow-hidden text-sm font-normal ">
+          <p className="line-clamp-2 overflow-hidden text-sm font-normal">
             {description}
           </p>
-          <div className="flex gap-3">
+          <div className="flex justify-center gap-2 custom-sm:justify-start">
             {icons.map((item, i) => (
               <Image
                 key={i}
@@ -34,7 +32,7 @@ export default function ProjectCard({
         <div>
           <Image
             src="https://picsum.photos/id/237/300/300"
-            width={100}
+            width={300}
             height={100}
             alt="adfafa"
             className="w-full bg-cover"
