@@ -7,6 +7,7 @@ import Git from '../assets/git.svg';
 import Express from '../assets/expressjs.svg';
 import Node from '../assets/nodejs.svg';
 import React from '../assets/react_light.svg';
+import Classaid from '../assets/projects-preview/classaid_preview.png';
 
 export const classAidTools = [
   { icon: Javascript, name: "Javascript's icon" },
@@ -31,6 +32,7 @@ export const projects = [
     description:
       'Plataforma fullstack para docentes, con gestión de clases, usuarios y asistencia. ',
     icons: classAidTools,
+    image: Classaid,
   },
   {
     name: 'Web Project Around Us',

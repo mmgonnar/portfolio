@@ -8,10 +8,14 @@ export default function ProjectCard({
   title,
   description,
   icons,
+  onClick,
 }: ProjectCardProps) {
   return (
     <>
-      <NeobrutalistCard className="flex items-center justify-center gap-5 text-center custom-sm:grid-cols-2 custom-sm:flex-row custom-sm:text-left">
+      <NeobrutalistCard
+        onClick={onClick}
+        className="flex cursor-pointer items-center justify-center gap-5 text-center custom-sm:grid-cols-2 custom-sm:flex-row custom-sm:text-left"
+      >
         <div className="flex max-w-sm flex-col gap-3">
           <h3 className="text-lg text-green-brutalist">{title}</h3>
           <p className="line-clamp-2 overflow-hidden text-sm font-normal">

@@ -6,6 +6,7 @@ import Layout from '@/features/layouts/layout';
 import Projects from '@/features/projects/componentes/projects';
 import Skills from '@/features/skills/components/skills';
 import { FooterDropdrawer } from '@/features/ui/components/footer-dropdrawer';
+import Modal from '@/features/ui/components/modal';
 
 import { useTranslation } from 'react-i18next';
 

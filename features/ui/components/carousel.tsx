@@ -164,7 +164,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
   //     console.log(params);
   //   });
   api?.on('slidesInView', (...params) => {
-    console.log(api.slidesInView());
+    //console.log(api.slidesInView());
   });
 
   return (

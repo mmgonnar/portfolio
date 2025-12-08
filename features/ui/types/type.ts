@@ -21,6 +21,7 @@ export interface ContetnSectionProps {
 export interface NeobrutalistCardProps {
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 export interface LabelProps {
   children?: ReactNode;
@@ -40,4 +41,10 @@ export interface SlikllCardProps {
   skillsMap: SkillItem[];
   IconComponent: React.ElementType;
   iconClassName?: string;
+}
+
+export interface ModalProps {
+  children: ReactNode;
+  toggleModal: () => void;
+  modalOpen: boolean;
 }
