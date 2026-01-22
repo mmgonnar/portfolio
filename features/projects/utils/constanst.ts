@@ -33,23 +33,46 @@ export const projects = [
       'Plataforma fullstack para docentes, con gestión de clases, usuarios y asistencia. ',
     icons: classAidTools,
     image: Classaid,
+    href: 'https://classaidfrontend.vercel.app/',
+    features: [
+      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
+      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+    ],
   },
   {
     name: 'Web Project Around Us',
     description:
       'Interactive application that allows users to explore and share interesting locations across the United States.',
     icons: aroundTools,
+    image: Classaid,
+    href: 'https://classaidfrontend.vercel.app/',
+    features: [
+      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
+      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+    ],
   },
   {
     name: 'Prepa 4',
     description:
       'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
     icons: aroundTools,
+    image: Classaid,
+    href: 'https://classaidfrontend.vercel.app/',
+    features: [
+      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
+      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+    ],
   },
   {
     name: 'Portfolio',
     description:
       'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
     icons: aroundTools,
+    image: Classaid,
+    href: 'https://classaidfrontend.vercel.app/',
+    features: [
+      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
+      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+    ],
   },
 ];
