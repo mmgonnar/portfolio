@@ -43,10 +43,16 @@ export const enTranslations = {
     tools:
       'Version control, API testing, and content management for complete projects.',
   },
+  projects: {
+    title: "Featured Projects",
+    description: "A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.",
+  },
   footer: {
     name: "Mariela Gonzalez"
   }
 };
+
+//! Spanish Translation starts here
 
 export const esTranslations = {
   data: {
@@ -92,6 +98,10 @@ export const esTranslations = {
       'Construcción de APIs escalables y manejo de bases de datos para aplicaciones robustas.',
     tools:
       'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
+  },
+  projects: {
+    title: "Proyectos Destacados",
+    description: "Una selección de soluciones digitales desarrolladas con un enfoque integral. Desde la arquitectura del lado del servidor hasta interfaces de usuario intuitivas, priorizando siempre la escalabilidad, el rendimiento y una experiencia de usuario excepcional.",
   },
   footer: {
     name: "Mariela González"

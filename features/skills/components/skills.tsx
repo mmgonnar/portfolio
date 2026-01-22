@@ -1,7 +1,6 @@
 import ContentSection from '@/features/ui/components/content-section';
-import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
-import React from 'react';
 import SkillsSection from './skills-section';
+import { t } from 'i18next';
 
 export default function Skills() {
   return (

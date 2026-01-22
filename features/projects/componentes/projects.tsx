@@ -2,6 +2,7 @@
 
 import ContentSection from '@/features/ui/components/content-section';
 import ProjectsSection from './projects-section';
+import { t } from 'i18next';
 
 export default function Projects() {
   return (
@@ -11,8 +12,8 @@ export default function Projects() {
     >
       ,
       <ContentSection
-        title="Projects"
-        text="Stack principal orientado a frontend, APIs y UX."
+        title={t("projects.title")}
+        text={t("projects.description")}
         align="center"
       />
       <ProjectsSection />
