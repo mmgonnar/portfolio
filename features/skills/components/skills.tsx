@@ -9,8 +9,8 @@ export default function Skills() {
       className="md:pt-15 border-y-3 flex w-full flex-col items-center justify-between gap-4 border-solid border-neutral-300 bg-neutral-100 p-10 md:gap-10"
     >
       <ContentSection
-        title="Skills"
-        text="Stack principal orientado a frontend, APIs y UX."
+        title={t("skills.title")}
+        text={t("skills.text")}
         align="center"
       />
       <SkillsSection />
