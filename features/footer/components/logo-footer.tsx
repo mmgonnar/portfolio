@@ -7,9 +7,10 @@ export default function LogoFooter() {
   return (
     <div>
       <Link href="#header">
-      <Image  src={Logotipo}
+        <Image src={Logotipo}
           alt="Portfolio's logo"
-          className="w-5 flex-shrink-0 md:w-30"  />
+          className="flex-shrink-0 cursor-pointer w-30 opacity-70"
+        />
       </Link>
     </div>
   )

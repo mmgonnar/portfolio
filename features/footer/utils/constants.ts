@@ -1,3 +1,9 @@
+import Github from "../assets/github.svg"
+import Linkedin from "../assets/linkedin.svg"
+import Mail from "../assets/mail.svg"
+
 export const footerIcons =[
-    {icon: "", name: "", href: ""}
+    {icon: Github, name: "Github", href: "https://github.com/mmgonnar"},
+    {icon: Linkedin, name: "Linkedin", href: "https://www.linkedin.com/in/mmgonnar/"},
+    {icon: Mail, name: "Email", href: 'mailto:mm.gonnar@gmail.com'},
 ]

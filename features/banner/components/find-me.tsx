@@ -1,15 +1,10 @@
 'use client';
 
+import { t } from 'i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { findMeIcons } from '../utils/constants';
-import GithubIcon from './icons/github-icon';
-import LinkedinIcon from './icons/linkedin-icon';
-import MailIcon from './icons/mail-icon';
-import Image from 'next/image';
-import { t } from 'i18next';
 
-// Asegúrate de que no haya ninguna importación de Image si no se usa
-// import Image from 'next/image';
 
 export default function FindMe() {
   return (
