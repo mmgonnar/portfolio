@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Logotipo from "../assets/mmgonnar.svg"
 
 export default function LogoFooter() {
+
   return (
     <div>
       <Link href="#header">

@@ -43,6 +43,9 @@ export const enTranslations = {
     tools:
       'Version control, API testing, and content management for complete projects.',
   },
+  footer: {
+    name: "Mariela Gonzalez"
+  }
 };
 
 export const esTranslations = {
@@ -90,4 +93,7 @@ export const esTranslations = {
     tools:
       'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
   },
+  footer: {
+    name: "Mariela González"
+  }
 };

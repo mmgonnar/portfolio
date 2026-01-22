@@ -4,6 +4,6 @@ import Mail from "../assets/mail.svg"
 
 export const footerIcons =[
     {icon: Github, name: "Github", href: "https://github.com/mmgonnar"},
-    {icon: Linkedin, name: "Linkedin", href: "https://www.linkedin.com/in/mmgonnar/"},
+    {icon: Linkedin, name: "LinkedIn", href: "https://www.linkedin.com/in/mmgonnar/"},
     {icon: Mail, name: "Email", href: 'mailto:mm.gonnar@gmail.com'},
 ]
