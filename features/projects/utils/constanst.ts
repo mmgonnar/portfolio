@@ -30,8 +30,7 @@ export const aroundTools = [
 export const projects = [
   {
     name: 'ClassAid',
-    description:
-      'Plataforma fullstack para docentes, con gestión de clases, usuarios y asistencia. ',
+    description: 'projects.classaid',
     icons: classAidTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -43,8 +42,7 @@ export const projects = [
   },
   {
     name: 'Web Project Around Us',
-    description:
-      'Interactive application that allows users to explore and share interesting locations across the United States.',
+    description: 'projects.around',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -56,8 +54,7 @@ export const projects = [
   },
   {
     name: 'Prepa 4',
-    description:
-      'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
+    description: 'projects.highschool',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -69,8 +66,7 @@ export const projects = [
   },
   {
     name: 'Portfolio',
-    description:
-      'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
+    description: 'projects.portfolio',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,

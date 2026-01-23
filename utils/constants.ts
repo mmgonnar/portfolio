@@ -30,8 +30,8 @@ export const enTranslations = {
       'After years as an educator and digital consultant constantly optimizing processes, I discovered my true calling in tech. Web development became the perfect intersection where my problem-solving curiosity meets the balance between creative vision and technical logic.',
   },
   skills: {
-    title: "Skills", 
-    text: "Technical expertise focused on building scalable digital products, with a strong emphasis on user experience and software architecture.",
+    title: 'Skills',
+    text: 'Technical expertise focused on building scalable digital products, with a strong emphasis on user experience and software architecture.',
     uiDesign: 'ui/design',
     front: 'frontend',
     back: 'backend',
@@ -46,12 +46,19 @@ export const enTranslations = {
       'Version control, API testing, and content management for complete projects.',
   },
   projects: {
-    title: "Featured Projects",
-    description: "A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.",
+    title: 'Featured Projects',
+    description:
+      'A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.',
+    classaid:
+      'ClassAid is a modern web application designed to help teachers streamline daily classroom management. It provides essential tools for organizing classes, managing students, and tracking progress, all within a clean, modern interface.',
+    around:
+      'Full Stack project that includes responsive design, component-based architecture, and API integration.',
+    highschool:
+      'Official website for "Pablo Neruda" High School No. 4 at UAGro, Taxco.',
+    portfolio:
+      'This repository showcases my work as a Fullstack Web Developer, specializing in the MERN Stack (MongoDB, Express, React, Node.js) and Next.js. My portfolio emphasizes the intersection of robust engineering and user-centric design.',
   },
-  footer: {
-    name: "Mariela Gonzalez"
-  }
+  footer: {},
 };
 
 //! Spanish Translation starts here
@@ -88,8 +95,8 @@ export const esTranslations = {
       'Decidí entrar al mundo tech después de varios años como docente y consultora digital, donde siempre buscaba herramientas para simplificar procesos. Mi curiosidad por resolver problemas me llevó al desarrollo web, donde encontré el equilibrio entre creatividad y lógica.',
   },
   skills: {
-    title: "Habilidades", 
-    text: "Especialización técnica enfocada en la creación de productos digitales escalables, con un fuerte énfasis en la experiencia de usuario y arquitectura de software.",
+    title: 'Habilidades',
+    text: 'Especialización técnica enfocada en la creación de productos digitales escalables, con un fuerte énfasis en la experiencia de usuario y arquitectura de software.',
     uiDesign: 'ui/diseño',
     front: 'frontend',
     back: 'backend',
@@ -104,10 +111,17 @@ export const esTranslations = {
       'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
   },
   projects: {
-    title: "Proyectos Destacados",
-    description: "Una selección de soluciones digitales desarrolladas con un enfoque integral. Desde la arquitectura del lado del servidor hasta interfaces de usuario intuitivas, priorizando siempre la escalabilidad, el rendimiento y una experiencia de usuario excepcional.",
+    title: 'Proyectos Destacados',
+    description:
+      'Una selección de soluciones digitales desarrolladas con un enfoque integral. Desde la arquitectura del lado del servidor hasta interfaces de usuario intuitivas, priorizando siempre la escalabilidad, el rendimiento y una experiencia de usuario excepcional.',
+    classaid:
+      'ClassAid es una aplicación web moderna diseñada para optimizar la gestión escolar diaria. Ofrece herramientas esenciales para organizar clases, gestionar alumnos y monitorear progresos, todo bajo una interfaz limpia y moderna.',
+    around:
+      'Proyecto Full Stack que incluye diseño responsivo, arquitectura basada en componentes e integración de APIs.',
+    highschool:
+      'Official website for "Pablo Neruda" High School No. 4 at UAGro, Taxco.',
+    portfolio:
+      'Este repositorio exhibe mi trabajo como Desarrollador Web Fullstack, especializado en MERN Stack (MongoDB, Express, React, Node.js) y Next.js. Mi portafolio destaca la intersección entre ingeniería robusta y diseño centrado en el usuario.',
   },
-  footer: {
-    name: "Mariela González"
-  }
+  footer: {},
 };

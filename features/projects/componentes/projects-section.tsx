@@ -6,6 +6,7 @@ import ProjectCard from './project-card';
 import ProjectModal from '@/features/ui/components/project-modal';
 import { useState } from 'react';
 import { Project } from '../types/types';
+import { t } from 'i18next';
 
 export default function ProjectsSection() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function ProjectsSection() {
         <ProjectCard
           key={item.name}
           title={item.name}
-          description={item.description}
+          description={t(item.description)}
           icons={item.icons}
           logo={item.logo}
           onClick={() => toggleModal(item)}
