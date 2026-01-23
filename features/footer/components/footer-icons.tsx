@@ -13,7 +13,7 @@ export default function FooterIcons() {
                         <Image
                             src={item.icon}
                             alt={`${item.name} icon`}
-                            className="w-8 flex-shrink-0 transition duration-200 opacity-40 hover:scale-110"
+                            className="md:w-7 w-8 flex-shrink-0 transition duration-200 opacity-40 hover:scale-110"
                         />
                     </Link>
                 );

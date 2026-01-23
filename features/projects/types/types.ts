@@ -11,6 +11,7 @@ export type Project = {
   name: string;
   description: string;
   icons: IconItem[];
+  logo: string;
   image?: string | StaticImageData;
   href?: string;
   features: string[];
@@ -20,6 +21,7 @@ export interface ProjectCardProps {
   title: string;
   description: string;
   icons: IconItem[];
+  logo: string | StaticImageData;
   IconComponent?: React.ElementType;
   onClick?: () => void;
 }

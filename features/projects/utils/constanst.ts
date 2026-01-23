@@ -8,6 +8,7 @@ import Express from '../assets/expressjs.svg';
 import Node from '../assets/nodejs.svg';
 import React from '../assets/react_light.svg';
 import Classaid from '../assets/projects-preview/classaid_preview.png';
+import ClassaidLogo from '../assets/project-logos/classaid_favicon.svg';
 
 export const classAidTools = [
   { icon: Javascript, name: "Javascript's icon" },
@@ -33,6 +34,7 @@ export const projects = [
       'Plataforma fullstack para docentes, con gestión de clases, usuarios y asistencia. ',
     icons: classAidTools,
     image: Classaid,
+    logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
@@ -45,6 +47,7 @@ export const projects = [
       'Interactive application that allows users to explore and share interesting locations across the United States.',
     icons: aroundTools,
     image: Classaid,
+    logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
@@ -57,6 +60,7 @@ export const projects = [
       'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
     icons: aroundTools,
     image: Classaid,
+    logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
@@ -69,6 +73,7 @@ export const projects = [
       'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco',
     icons: aroundTools,
     image: Classaid,
+    logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',

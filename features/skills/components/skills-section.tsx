@@ -13,7 +13,7 @@ import SkillCard from './skill-card';
 
 export default function SkillsSection() {
   return (
-    <div className="grid grid-cols-1 justify-between gap-7  font-mono custom-sm:grid-cols-2 md:grid-cols-[auto] md:flex-row custom-lg:grid-cols-4">
+    <div className="grid grid-cols-1 justify-between gap-7  font-mono custom-sm:grid-cols-1 md:grid-cols-2 md:flex-row custom-lg:grid-cols-4">
       {skillCards.map(item => (
         <SkillCard
           key={item.title}

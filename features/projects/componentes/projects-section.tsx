@@ -21,13 +21,14 @@ export default function ProjectsSection() {
     }
   };
   return (
-    <div className="grid  w-full max-w-7xl grid-cols-1 gap-6 custom-sm:grid-cols-2">
+    <div id='project__section' className="grid w-full max-w-7xl grid-cols-1 gap-6 custom-md:grid-cols-2 md:grid-cols-1">
       {projects.map(item => (
         <ProjectCard
           key={item.name}
           title={item.name}
           description={item.description}
           icons={item.icons}
+          logo={item.logo}
           onClick={() => toggleModal(item)}
         />
       ))}
