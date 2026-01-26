@@ -35,6 +35,7 @@ export const projects = [
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
+    github: 'https://github.com/mmgonnar/classaid_frontend',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
@@ -47,18 +48,20 @@ export const projects = [
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
+    github: 'https://github.com/mmgonnar/web_project_api_full',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
     ],
   },
   {
-    name: 'Prepa 4',
+    name: "Preparatoria No.4 'Pablo Neruda'",
     description: 'projects.highschool',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
+    github: 'https://github.com/mmgonnar/web_uagro_prepa4',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
@@ -71,6 +74,7 @@ export const projects = [
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
+    github: 'https://github.com/mmgonnar/portfolio',
     features: [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',

@@ -119,7 +119,7 @@ export const esTranslations = {
     around:
       'Proyecto Full Stack que incluye diseño responsivo, arquitectura basada en componentes e integración de APIs.',
     highschool:
-      'Official website for "Pablo Neruda" High School No. 4 at UAGro, Taxco.',
+      'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco.',
     portfolio:
       'Este repositorio exhibe mi trabajo como Desarrollador Web Fullstack, especializado en MERN Stack (MongoDB, Express, React, Node.js) y Next.js. Mi portafolio destaca la intersección entre ingeniería robusta y diseño centrado en el usuario.',
   },
