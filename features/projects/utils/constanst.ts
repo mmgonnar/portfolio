@@ -30,7 +30,7 @@ export const aroundTools = [
 export const projects = [
   {
     name: 'ClassAid',
-    description: 'projects.classaid',
+    description: 'projects.projectDescription.classaid',
     icons: classAidTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -43,7 +43,7 @@ export const projects = [
   },
   {
     name: 'Web Project Around Us',
-    description: 'projects.around',
+    description: 'projects.projectDescription.around',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -56,7 +56,7 @@ export const projects = [
   },
   {
     name: "Preparatoria No.4 'Pablo Neruda'",
-    description: 'projects.highschool',
+    description: 'projects.projectDescription.highschool',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
@@ -69,7 +69,7 @@ export const projects = [
   },
   {
     name: 'Portfolio',
-    description: 'projects.portfolio',
+    description: 'projects.projectDescription.portfolio',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,

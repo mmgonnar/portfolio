@@ -6,9 +6,11 @@ import ProjectCard from './project-card';
 import ProjectModal from '@/features/ui/components/project-modal';
 import { useState } from 'react';
 import { Project } from '../types/types';
-import { t } from 'i18next';
+// import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function ProjectsSection() {
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -34,6 +36,7 @@ export default function ProjectsSection() {
           icons={item.icons}
           logo={item.logo}
           onClick={() => toggleModal(item)}
+          className="hover:translate-x-none hover:translate-y-none"
         />
       ))}
       <Modal toggleModal={() => toggleModal()} modalOpen={modalOpen}>

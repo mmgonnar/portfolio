@@ -3,19 +3,25 @@
 import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import Image from 'next/image';
 import { ProjectCardProps } from '../types/types';
+import { cn } from '@/utils/functions';
 
 export default function ProjectCard({
   title,
   description,
   icons,
   logo,
+  className,
+  projectDescription,
   onClick,
 }: ProjectCardProps) {
   return (
     <>
       <NeobrutalistCard
         onClick={onClick}
-        className="m-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 sm:w-sm md:w-full md:grid-cols-[1fr_auto]"
+        className={cn(
+          'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 sm:w-sm md:w-full md:grid-cols-[1fr_auto]',
+          className
+        )}
       >
         <div
           id="card_content"
@@ -38,7 +44,6 @@ export default function ProjectCard({
               />
             </div>
           </div>
-
           <p
             id="card__description"
             className="line-clamp-2 text-sm font-normal"

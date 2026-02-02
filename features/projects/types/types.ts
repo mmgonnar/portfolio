@@ -10,6 +10,7 @@ export type IconItem = {
 export type Project = {
   name: string;
   description: string;
+  descriptionKey?: string;
   icons: IconItem[];
   logo: string;
   image?: string | StaticImageData;
@@ -20,8 +21,10 @@ export type Project = {
 export interface ProjectCardProps {
   title: string;
   description: string;
+  projectDescription?: string;
   icons: IconItem[];
   logo: string | StaticImageData;
   IconComponent?: React.ElementType;
   onClick?: () => void;
+  className?: string;
 }
