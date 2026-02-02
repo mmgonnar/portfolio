@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { findMeIcons } from '../utils/constants';
 
-
 export default function FindMe() {
   return (
     <>

@@ -12,9 +12,7 @@
   },
   "usages": {
     "paths": {
-      "include": [
-        "**/*.{vue,js,ts,jsx,tsx,vue,svelte,html}"
-      ],
+      "include": ["**/*.{vue,js,ts,jsx,tsx,vue,svelte,html}"],
       "exclude": []
     },
     "tFunction": {

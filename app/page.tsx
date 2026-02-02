@@ -2,6 +2,7 @@
 
 import AboutMe from '@/features/about-me/components/about-me';
 import Banner from '@/features/banner/components/banner';
+import ContactMe from '@/features/contact-me/components/contact-me';
 import Footer from '@/features/footer/components/footer';
 import Layout from '@/features/layouts/layout';
 import Projects from '@/features/projects/componentes/projects';
@@ -20,7 +21,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <FooterDropdrawer />
-      <Footer/>
+      <ContactMe />
+      <Footer />
     </Layout>
   );
 }

@@ -10,7 +10,7 @@ export default function NameSection() {
         <h1 className="max-w-3xl text-5xl font-black md:text-8xl">
           {t('data.name')}
         </h1>
-        <h2 className="text-lg font-medium text-green-brutalist  md:text-3xl">
+        <h2 className="text-green-brutalist text-lg font-medium md:text-3xl">
           {t('data.profesion')}
         </h2>
       </div>

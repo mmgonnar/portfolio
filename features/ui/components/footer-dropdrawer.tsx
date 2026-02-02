@@ -34,7 +34,7 @@ export function FooterDropdrawer() {
   return (
     <DropDrawer>
       <DropDrawerTrigger asChild className="">
-        <button className=" fixed bottom-6 right-6 block cursor-pointer rounded-full bg-white shadow hover:shadow-sm md:hidden">
+        <button className="fixed right-6 bottom-6 block cursor-pointer rounded-full bg-white shadow hover:shadow-sm md:hidden">
           <Menu className="h-10 w-10" />
         </button>
       </DropDrawerTrigger>
@@ -42,18 +42,18 @@ export function FooterDropdrawer() {
         {headerItems.map(item => (
           <DropDrawerItem
             key={item.name}
-            className="hover-green-brutalist hover:border-b-1 cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:font-semibold"
+            className="hover-green-brutalist cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:border-b-1 hover:font-semibold"
           >
             <Link href={item.href}>{t(item.name)}</Link>
           </DropDrawerItem>
         ))}
         <DropDrawerSub>
-          <DropDrawerSubTrigger className="hover-green-brutalist hover:border-b-1 cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:font-semibold">
+          <DropDrawerSubTrigger className="hover-green-brutalist cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:border-b-1 hover:font-semibold">
             {t('language.changeLanguage')}
           </DropDrawerSubTrigger>
           <DropDrawerSubContent>
             <DropDrawerItem
-              className="hover-green-brutalist hover:border-b-1 cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:font-semibold"
+              className="hover-green-brutalist cursor-pointer p-3 font-mono text-lg transition-colors duration-200 hover:border-b-1 hover:font-semibold"
               onClick={handleLanguageChange}
             >
               {currentLanguage === 'es' ? t('language.en') : t('language.es')}

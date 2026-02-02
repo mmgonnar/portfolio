@@ -11,7 +11,7 @@ export default function GithubIcon() {
         <Image
           src={Github}
           alt="Portfolio's logo"
-          className="w-8  flex-shrink-0 transition-colors duration-200 hover:scale-110"
+          className="w-8 flex-shrink-0 transition-colors duration-200 hover:scale-110"
         />
       </Link>
     </div>

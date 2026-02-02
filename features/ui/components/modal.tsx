@@ -15,7 +15,7 @@ export default function Modal({
   return (
     <div
       onClick={toggleModal}
-      className="absolute inset-[150] z-50 flex w-full items-start justify-start transition-all duration-300 "
+      className="absolute inset-[150] z-50 flex w-full items-start justify-start transition-all duration-300"
       // className="fixed inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[3px] transition-all duration-300 ease-in-out"
     >
       <div
@@ -24,7 +24,7 @@ export default function Modal({
       >
         <button
           onClick={toggleModal}
-          className="v absolute right-5 top-2 z-10 cursor-pointer text-xl font-bold transition-transform hover:scale-110"
+          className="v absolute top-2 right-5 z-10 cursor-pointer text-xl font-bold transition-transform hover:scale-110"
         >
           X
         </button>

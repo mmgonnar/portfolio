@@ -3,7 +3,8 @@ import { History, CircleAlert, Newspaper, UserStar } from 'lucide-react';
 
 export const buttonVariants = {
   default: 'px-7',
-  white: 'bg- white hover:bg-neon px-8',
+  white: 'bg-white hover:bg-neon px-7',
+  secondary: 'bg-white hover:bg-neutral-100 px-7',
 };
 
 export const alignmets = {

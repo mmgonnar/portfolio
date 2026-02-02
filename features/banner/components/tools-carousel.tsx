@@ -26,7 +26,7 @@ export function ToolsCarousel() {
       orientation="vertical"
       className="w-full max-w-xs"
     >
-      <CarouselContent className="h-65 -mt-1">
+      <CarouselContent className="-mt-1 h-65">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className="pt-1 md:basis-1/4">
             {languagesTools.map(item => {
@@ -37,7 +37,7 @@ export function ToolsCarousel() {
                     height={60}
                     src={item.src}
                     alt={`${item.name} Logo`}
-                    className="w-8 flex-shrink-0 pb-6  transition duration-200 hover:scale-110"
+                    className="w-8 flex-shrink-0 pb-6 transition duration-200 hover:scale-110"
                   />
                 </div>
               );

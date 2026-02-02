@@ -15,7 +15,7 @@ export default function SkillCard({
 }: SlikllCardProps) {
   return (
     <>
-      <NeobrutalistCard className="max-w-75 h-auto justify-start py-6">
+      <NeobrutalistCard className="h-auto max-w-75 justify-start py-6">
         {IconComponent && (
           <div className="mb-3">
             <IconComponent
@@ -24,7 +24,7 @@ export default function SkillCard({
             />
           </div>
         )}
-        <h4 className=" text-green-brutalist ">{title}</h4>
+        <h4 className="text-green-brutalist">{title}</h4>
         <p className="max-w-[300px] text-center text-sm font-normal text-neutral-600">
           {t(description)}
         </p>

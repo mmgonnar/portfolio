@@ -9,10 +9,13 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <section id='header' className="max-w-8xl flex items-center justify-between px-5 py-6 pb-4 md:px-10 md:py-8">
+    <section
+      id="header"
+      className="max-w-8xl flex items-center justify-between px-5 py-6 pb-4 md:px-10 md:py-8"
+    >
       <Logo />
       <Navbar />
-      <div className="hidden flex-shrink-0 items-center gap-6 custom-md:flex">
+      <div className="custom-md:flex hidden flex-shrink-0 items-center gap-6">
         <LanguageSwitcher />
         <NeobrutalistButton text={t(buttonActions[0].text)} className="" />
       </div>
