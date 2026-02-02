@@ -1,13 +1,12 @@
 'use client';
 
 import Modal from '@/features/ui/components/modal';
-import { projects } from '../utils/constanst';
-import ProjectCard from './project-card';
 import ProjectModal from '@/features/ui/components/project-modal';
 import { useState } from 'react';
-import { Project } from '../types/types';
-// import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { Project } from '../types/types';
+import { projects } from '../utils/constanst';
+import ProjectCard from './project-card';
 
 export default function ProjectsSection() {
   const { t } = useTranslation();

@@ -1,8 +1,9 @@
 import ContentSection from '@/features/ui/components/content-section';
+import { useTranslation } from 'react-i18next';
 import SkillsSection from './skills-section';
-import { t } from 'i18next';
 
 export default function Skills() {
+  const { t } = useTranslation();
   return (
     <section
       id="skills"

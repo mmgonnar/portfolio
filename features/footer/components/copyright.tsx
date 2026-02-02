@@ -1,7 +1,9 @@
 'use client';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function Copyright() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex">
       <div>

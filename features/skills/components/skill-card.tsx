@@ -4,7 +4,7 @@ import Label from '@/features/ui/components/label';
 import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import { SlikllCardProps } from '@/features/ui/types/type';
 import { cn } from '@/utils/functions';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function SkillCard({
   title,
@@ -13,6 +13,8 @@ export default function SkillCard({
   IconComponent,
   iconClassName,
 }: SlikllCardProps) {
+  const { t } = useTranslation();
+
   return (
     <>
       <NeobrutalistCard className="h-auto max-w-75 justify-start py-6">

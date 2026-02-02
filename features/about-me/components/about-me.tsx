@@ -1,12 +1,13 @@
 'use-client';
 
-import { t } from 'i18next';
-import Image from 'next/image';
-import AboutMeImg from '../assets/about-me.svg';
 import { NeobrutalistButton } from '@/features/header';
 import ContentSection from '@/features/ui/components/content-section';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import AboutMeImg from '../assets/about-me.svg';
 
 export default function AboutMe() {
+  const { t } = useTranslation();
   return (
     <section
       id="about-me"

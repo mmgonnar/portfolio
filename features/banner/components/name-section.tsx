@@ -1,8 +1,10 @@
 'use-client';
 
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function NameSection() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-start md:m-auto md:items-center md:justify-center">
       <div className="flex flex-col justify-center gap-3">

@@ -3,8 +3,10 @@
 import ContentSection from '@/features/ui/components/content-section';
 import ProjectsSection from './projects-section';
 import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  const { t } = useTranslation();
   return (
     <section
       id="projects"

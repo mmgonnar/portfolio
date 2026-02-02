@@ -1,16 +1,18 @@
 'use client';
 
-import Image from 'next/image';
 import { Project } from '@/features/projects/types/types';
-import Link from 'next/link';
 import { ExternalLinkIcon } from 'lucide-react';
-import { t } from 'i18next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectModalProps {
   project: Project;
 }
 
 export default function ProjectModal({ project }: ProjectModalProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex w-full flex-col gap-2">
       <div className="w-full overflow-hidden border-b-2 border-black bg-green-100">
