@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { ModalProps } from '../types/type';
 import NeobrutalistCard from './neobrutalist-card';
 
@@ -8,6 +9,14 @@ export default function Modal({
   toggleModal,
   modalOpen,
 }: ModalProps) {
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [modalOpen]);
+
   if (!modalOpen) {
     return null;
   }
@@ -15,8 +24,8 @@ export default function Modal({
   return (
     <div
       onClick={toggleModal}
-      className="absolute inset-[150] z-50 flex w-full items-start justify-start transition-all duration-300"
-      // className="fixed inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[3px] transition-all duration-300 ease-in-out"
+      // className="absolute inset-[150] z-50 flex w-full items-start justify-start transition-all duration-300"
+      className="fixed inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[3px] transition-all duration-300 ease-in-out"
     >
       <div
         className="relative w-full max-w-2xl"
