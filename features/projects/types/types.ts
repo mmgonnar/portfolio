@@ -17,6 +17,7 @@ export type Project = {
   href?: string;
   features: string[];
   className?: string;
+  classNameModal?: string;
 };
 
 export interface ProjectCardProps {

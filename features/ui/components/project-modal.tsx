@@ -54,9 +54,9 @@ export default function ProjectModal({ project }: ProjectModalProps) {
             <Link
               href={project.href}
               target="_blank"
-              className="hover:text-green-brutalist m-auto flex items-center gap-2 p-4 text-sm font-normal hover:font-bold"
+              className="hover:text-green-brutalist m-auto flex items-center gap-2 p-4 text-right text-sm font-normal hover:font-bold"
             >
-              Check Site{''}
+              <p>Check Site</p>
               <ExternalLinkIcon />
             </Link>
           ) : (

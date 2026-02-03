@@ -21,7 +21,7 @@ export interface ContetnSectionProps {
 export interface NeobrutalistCardProps {
   children: ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: any) => any;
 }
 export interface LabelProps {
   children?: ReactNode;

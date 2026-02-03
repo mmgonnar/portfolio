@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { Project } from '../types/types';
 import { projects } from '../utils/constanst';
 import ProjectCard from './project-card';
-import { cn } from '@/utils/functions';
 
 export default function ProjectsSection() {
   const { t } = useTranslation();
@@ -23,33 +22,38 @@ export default function ProjectsSection() {
       setSelectedProject(null);
     }
   };
-  //si ya se renderizó no renderice las demas hacer constante
+
   return (
     <div
       id="project__section"
       className="custom-md:grid-cols-2 custom-md:grid-rows-2 relative grid w-full max-w-7xl grid-cols-1 grid-rows-1 gap-7 md:grid-cols-1"
     >
-      {projects.map((item, index) => (
-        <div key={item.name}>
-          <ProjectCard
-            title={item.name}
-            description={t(item.description)}
-            icons={item.icons}
-            logo={item.logo}
-            onClick={() => toggleModal(item)}
-            className={item.className}
-          />
-          {index === 0 && (
-            <Modal
-              toggleModal={() => toggleModal()}
-              modalOpen={modalOpen}
-              className={cn('w-full', item.classNameModal)}
-            >
-              {selectedProject && <ProjectModal project={selectedProject} />}
-            </Modal>
-          )}
-        </div>
+      {projects.map(item => (
+        <ProjectCard
+          key={item.name}
+          title={item.name}
+          description={t(item.description)}
+          icons={item.icons}
+          logo={item.logo}
+          onClick={() => toggleModal(item)}
+          className={item.className}
+        />
       ))}
+      {modalOpen && (
+        <div
+          className="absolute inset-0 z-10 backdrop-blur-[2px]"
+          onClick={() => toggleModal()}
+          aria-hidden
+        />
+      )}
+
+      <Modal
+        toggleModal={() => toggleModal()}
+        modalOpen={modalOpen}
+        className={selectedProject?.classNameModal ?? ''}
+      >
+        {selectedProject && <ProjectModal project={selectedProject} />}
+      </Modal>
     </div>
   );
 }

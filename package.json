@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "kill -9 $(lsof -ti tcp:3000) || true",
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
