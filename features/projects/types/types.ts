@@ -16,6 +16,7 @@ export type Project = {
   image?: string | StaticImageData;
   href?: string;
   features: string[];
+  className?: string;
 };
 
 export interface ProjectCardProps {

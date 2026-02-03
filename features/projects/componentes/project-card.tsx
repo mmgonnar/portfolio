@@ -1,9 +1,9 @@
 'use client';
 
 import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
+import { cn } from '@/utils/functions';
 import Image from 'next/image';
 import { ProjectCardProps } from '../types/types';
-import { cn } from '@/utils/functions';
 
 export default function ProjectCard({
   title,
@@ -11,7 +11,6 @@ export default function ProjectCard({
   icons,
   logo,
   className,
-  projectDescription,
   onClick,
 }: ProjectCardProps) {
   return (
@@ -19,7 +18,7 @@ export default function ProjectCard({
       <NeobrutalistCard
         onClick={onClick}
         className={cn(
-          'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 sm:w-sm md:w-full md:grid-cols-[1fr_auto]',
+          'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 md:w-full md:grid-cols-[1fr_auto]',
           className
         )}
       >

@@ -22,13 +22,15 @@ export default function ProjectModal({ project }: ProjectModalProps) {
             alt={`${project.name} preview`}
             width={100}
             height={100}
-            className="h-70 w-full rotate-3 object-cover"
+            className="h-50 w-full rotate-3 object-cover"
           />
         )}
       </div>
       <div className="flex flex-col gap-3 px-4">
         <h4 className="text-lg font-semibold">{project.name}</h4>
-        <p className="text-sm font-normal">{t(project.description)}</p>
+        <p className="line-clamp-3 text-sm font-normal">
+          {t(project.description)}
+        </p>
         <ul className="list-disc border-t border-black/10 pt-2 pl-3 text-sm font-normal">
           {project.features.map((feature, index) => (
             <li key={index}>{feature}</li>

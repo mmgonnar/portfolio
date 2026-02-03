@@ -47,4 +47,5 @@ export interface ModalProps {
   children: ReactNode;
   toggleModal: () => void;
   modalOpen: boolean;
+  className?: string;
 }

@@ -40,6 +40,8 @@ export const projects = [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
     ],
+    className: 'col-start-1 row-start-1',
+    classNameModal: 'col-span-1 col-start-1',
   },
   {
     name: 'Web Project Around Us',
@@ -53,6 +55,8 @@ export const projects = [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
     ],
+    className: 'col-start-2 row-start-2 ',
+    classNameModal: 'col-span-1 col-start-3',
   },
   {
     name: "Preparatoria No.4 'Pablo Neruda'",
@@ -66,6 +70,8 @@ export const projects = [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
     ],
+    className: 'col-start-1 row-start-2 ',
+    classNameModal: 'col-span-1 col-start-3',
   },
   {
     name: 'Portfolio',
@@ -79,5 +85,7 @@ export const projects = [
       'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
       'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
     ],
+    className: 'col-start-2 row-start-2 ',
+    classNameModal: 'col-start-2 row-start-2 ',
   },
 ];
