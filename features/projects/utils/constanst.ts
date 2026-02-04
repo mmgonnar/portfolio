@@ -43,7 +43,7 @@ export const projects = [
     className:
       'custom-md:col-start-1 custom-md:row-start-1 col-start-1 row-start-1',
     classNameModal:
-      'col-span-1 custom-md:col-start-1 custom-md:col-end-2 custom-md:row-start-1 custom-md:-row-end-1  ',
+      'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-1 row-end-3',
   },
   {
     name: 'Web Project Around Us',
@@ -59,7 +59,8 @@ export const projects = [
     ],
     className:
       'custom-md:col-start-2 custom-md:row-start-1 col-start-1 row-start-2',
-    classNameModal: 'col-span-1 col-start-2 col-end-2 row-start-1 -row-end-1',
+    classNameModal:
+      'col-span-1 custom-md:col-start-2 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 col-start-1 row-start-2 row-end-4',
   },
   {
     name: "Preparatoria No.4 'Pablo Neruda'",
@@ -75,7 +76,8 @@ export const projects = [
     ],
     className:
       'custom-md:col-start-1 custom-md:row-start-2 col-start-1 row-start-3',
-    classNameModal: 'col-span-1 col-start-1 col-end-2 row-start-1 -row-end-1',
+    classNameModal:
+      'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-3 row-end-5',
   },
   {
     name: 'Portfolio',
@@ -91,6 +93,7 @@ export const projects = [
     ],
     className:
       'custom-md:col-start-2 custom-md:row-start-2 col-start-1 row-start-4',
-    classNameModal: 'col-span-1 col-start-2 col-end-2 row-start-1 -row-end-1',
+    classNameModal:
+      'col-span-1 custom-md:col-start-2 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-3 row-end-5',
   },
 ];
