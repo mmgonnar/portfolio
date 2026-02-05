@@ -51,7 +51,7 @@ export const enTranslations = {
       'A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.',
     projectDescription: {
       classaid:
-        'ClassAid is a modern web application designed to help teachers streamline daily classroom management. It provides essential tools for organizing classes, managing students, and tracking progress, all within a clean, modern interface.',
+        'ClassAid is a modern web application designed to help teachers. It provides essential tools for organizing classes, managing students, and tracking progress, all within a clean, modern interface.',
       around:
         'Full Stack project that includes responsive design, component-based architecture, and API integration.',
       highschool:

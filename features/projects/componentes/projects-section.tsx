@@ -26,7 +26,7 @@ export default function ProjectsSection() {
   return (
     <div
       id="project__section"
-      className="custom-md:grid-cols-2 custom-md:grid-rows-2 relative grid w-full max-w-7xl grid-cols-1 grid-rows-1 gap-7 md:grid-cols-1"
+      className="custom-md:grid-cols-2 custom-md:grid-rows-2 relative grid w-full max-w-7xl grid-cols-1 grid-rows-1 items-center gap-7 md:grid-cols-1"
     >
       {projects.map(item => (
         <ProjectCard
