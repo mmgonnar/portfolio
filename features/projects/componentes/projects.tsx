@@ -1,9 +1,7 @@
 'use client';
 
-import ContentSection from '@/features/ui/components/content-section';
-import ProjectsSection from './projects-section';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { ContentSection, ProjectsSection } from '../index';
 
 export default function Projects() {
   const { t } = useTranslation();

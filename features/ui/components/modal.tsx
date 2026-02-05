@@ -38,7 +38,7 @@ export default function Modal({
           >
             X
           </button>
-          <div onClick={e => e.stopPropagation()} className="mx-4 w-full">
+          <div onClick={e => e.stopPropagation()} className="size-full">
             {children}
           </div>
         </NeobrutalistCard>

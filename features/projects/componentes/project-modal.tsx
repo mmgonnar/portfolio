@@ -14,20 +14,20 @@ export default function ProjectModal({ project }: ProjectModalProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col gap-2">
-      <div className="h-40 w-full overflow-hidden border-b-2 border-black bg-green-100 md:h-55">
+    <div className="flex h-full w-full flex-col gap-2">
+      <div className="custom-md:aspect-video overflow-hidden border-b-2 border-black bg-green-100">
         {project.image && (
           <Image
             src={project.image}
             alt={`${project.name} preview`}
             width={150}
             height={150}
-            sizes="100vw"
-            className="h-full w-full object-cover"
+            className="w-full object-cover"
+            priority
           />
         )}
       </div>
-      <div className="flex flex-col gap-3 px-4">
+      <div className="flex grow flex-col gap-3 px-4">
         <div className="flex justify-between">
           <h4 className="text-lg font-semibold">{project.name}</h4>
           {project.href && (
@@ -49,7 +49,7 @@ export default function ProjectModal({ project }: ProjectModalProps) {
           ))}
         </ul>
       </div>
-      <div className="mt-2 flex items-center justify-between border-t border-black/10 pt-2">
+      <div className="mt-2 mb-4 flex items-center justify-between border-t border-black/10 pt-2">
         <div className="line-clamp-1 flex gap-2 px-4">
           {project.icons.map((icon, i) => (
             <Image
