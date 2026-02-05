@@ -14,19 +14,20 @@ export default function ProjectModal({ project }: ProjectModalProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex h-full w-full flex-col gap-2">
-      <div className="w-full overflow-hidden border-b-2 border-black bg-green-100 sm:h-[70%]">
+    <div className="flex w-full flex-col gap-2">
+      <div className="h-40 w-full overflow-hidden border-b-2 border-black bg-green-100 md:h-55">
         {project.image && (
           <Image
             src={project.image}
             alt={`${project.name} preview`}
             width={150}
             height={150}
-            className="w-full object-cover"
+            sizes="100vw"
+            className="h-full w-full object-cover"
           />
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-3 px-4">
+      <div className="flex flex-col gap-3 px-4">
         <div className="flex justify-between">
           <h4 className="text-lg font-semibold">{project.name}</h4>
           {project.href && (
