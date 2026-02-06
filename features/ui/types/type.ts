@@ -17,6 +17,7 @@ export interface ContetnSectionProps {
   title: string;
   text: string;
   align: keyof typeof alignmets;
+  id: string;
 }
 export interface NeobrutalistCardProps {
   children: ReactNode;
@@ -48,4 +49,13 @@ export interface ModalProps {
   toggleModal: () => void;
   modalOpen: boolean;
   className?: string;
+}
+
+export interface TerminalBannerProps {
+  children?: ReactNode;
+  terminalContent?: ReactNode;
+  className?: string;
+  childrenClassName?: string;
+  terminalContentClassName?: string;
+  id?: string;
 }

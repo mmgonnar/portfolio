@@ -2,31 +2,33 @@
 
 import { NeobrutalistButton } from '@/features/footer';
 import ContentSection from '@/features/ui/components/content-section';
+import TerminalBanner from '@/features/ui/components/terminal-banner';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function ContactMe() {
   return (
     <section
       id="contact-me"
-      className="gap-4p-10 flex w-full flex-col items-center justify-between md:gap-10 md:pt-15 md:pb-15"
+      className="mb-15 flex w-full flex-col items-center justify-between gap-4 md:gap-10 md:pt-15 md:pb-15"
     >
       <ContentSection
+        id="contact-me__section"
         title="Contact"
         text="¿Tienes un proyecto? Hablemos. Disponible para colaborar en proyectos web y diseño de interfaces. Enfoque en React/Next.js, Tailwind y buenas prácticas."
         align="center"
       />
-
-      <div className="bg-neon custom-sm:flex-row flex h-40 w-full flex-col items-center justify-between px-4 md:h-80 md:px-20">
-        <div className="custom-md:text-lg custom-sm:text-sm flex items-start gap-4 font-mono text-[10px] text-neutral-700">
+      <TerminalBanner
+        className="h-50 md:h-60"
+        childrenClassName="block text-left m-auto md:m-0"
+        terminalContentClassName="hidden md:block text-sm md:text-sm custom-md:text-lg md:max-w-full"
+        terminalContent={
           <TypeAnimation
             sequence={[
-              'console> git init contact',
+              'console> node connect.js',
               1000,
-              'console> git add .',
+              'console> status: 200 OK',
               1000,
-              'console> git clone mmgonnar',
-              1000,
-              'console> git pull',
+              'console> say: "Hello!"',
               1000,
             ]}
             wrapper="span"
@@ -34,15 +36,14 @@ export default function ContactMe() {
             style={{ fontSize: '2em', display: 'inline-block' }}
             repeat={Infinity}
           />
-        </div>
-        <div className="block">
-          <NeobrutalistButton
-            text="Contact me"
-            variant="secondary"
-            className="hover:bg-amber-400"
-          />
-        </div>
-      </div>
+        }
+      >
+        <NeobrutalistButton
+          text="Contact me ;)"
+          variant="secondary"
+          className="hover:bg-amber-400"
+        />
+      </TerminalBanner>
     </section>
   );
 }
