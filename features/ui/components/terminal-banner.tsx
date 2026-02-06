@@ -14,7 +14,7 @@ export default function TerminalBanner({
     <section
       id={id}
       className={cn(
-        'bg-neon flex h-40 w-full items-center justify-between px-4 md:h-80 md:px-10',
+        'bg-neon flex h-40 w-full items-center justify-between px-4 md:h-80 md:px-14',
         className
       )}
     >
