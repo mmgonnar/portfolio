@@ -1,8 +1,10 @@
 'use client';
 
+import { TypeAnimation } from 'react-type-animation';
 import DescriptionSection from './description-section';
 import NameSection from './name-section';
-import VerticalBar from './vertical-bar';
+import TerminalBanner from '../../ui/components/terminal-banner';
+import { ToolsCarousel } from './tools-carousel';
 
 interface BannerProps {
   text?: string;
@@ -15,7 +17,29 @@ export default function Banner({ text }: BannerProps) {
         <NameSection />
         <DescriptionSection />
       </section>
-      <VerticalBar />
+      <TerminalBanner
+        childrenClassName="hidden md:block"
+        terminalContent={
+          <TypeAnimation
+            sequence={[
+              'console> git init portfolio',
+              1000,
+              'console> git add .',
+              1000,
+              'console> git clone mmgonnar',
+              1000,
+              'console> git pull',
+              1000,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{ fontSize: '2em', display: 'inline-block' }}
+            repeat={Infinity}
+          />
+        }
+      >
+        <ToolsCarousel />
+      </TerminalBanner>
     </>
   );
 }

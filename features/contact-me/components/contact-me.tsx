@@ -15,8 +15,9 @@ export default function ContactMe() {
         text="¿Tienes un proyecto? Hablemos. Disponible para colaborar en proyectos web y diseño de interfaces. Enfoque en React/Next.js, Tailwind y buenas prácticas."
         align="center"
       />
-      <div className="bg-neon flex h-40 w-full items-center justify-between px-4 md:h-80 md:px-20">
-        <div className="flex items-start gap-4 font-mono text-[10px] text-neutral-700 md:text-lg">
+
+      <div className="bg-neon custom-sm:flex-row flex h-40 w-full flex-col items-center justify-between px-4 md:h-80 md:px-20">
+        <div className="custom-md:text-lg custom-sm:text-sm flex items-start gap-4 font-mono text-[10px] text-neutral-700">
           <TypeAnimation
             sequence={[
               'console> git init contact',
@@ -34,7 +35,7 @@ export default function ContactMe() {
             repeat={Infinity}
           />
         </div>
-        <div className="hidden md:block">
+        <div className="block">
           <NeobrutalistButton
             text="Contact me"
             variant="secondary"
