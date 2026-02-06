@@ -29,7 +29,7 @@ export const aroundTools = [
 
 export const projects = [
   {
-    name: 'ClassAid',
+    name: 'projects.projectTitle.classAid',
     description: 'projects.projectDescription.classaid',
     icons: classAidTools,
     image: Classaid,
@@ -37,8 +37,8 @@ export const projects = [
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/classaid_frontend',
     features: [
-      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
-      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+      'projects.features.classaid.f1',
+      'projects.features.classaid.f2',
     ],
     className:
       'custom-md:col-start-1 custom-md:row-start-1 col-start-1 row-start-1',
@@ -46,24 +46,21 @@ export const projects = [
       'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-1 row-end-3',
   },
   {
-    name: 'Web Project Around Us',
+    name: 'projects.projectTitle.around',
     description: 'projects.projectDescription.around',
     icons: aroundTools,
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_project_api_full',
-    features: [
-      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
-      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
-    ],
+    features: ['projects.features.around.f1', 'projects.features.around.f2'],
     className:
       'custom-md:col-start-2 custom-md:row-start-1 col-start-1 row-start-2',
     classNameModal:
       'col-span-1 custom-md:col-start-2 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 col-start-1 row-start-2 row-end-4',
   },
   {
-    name: "Preparatoria No.4 'Pablo Neruda'",
+    name: 'projects.projectTitle.highschool',
     description: 'projects.projectDescription.highschool',
     icons: aroundTools,
     image: Classaid,
@@ -71,8 +68,8 @@ export const projects = [
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_uagro_prepa4',
     features: [
-      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
-      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+      'projects.features.highschool.f1',
+      'projects.features.highschool.f2',
     ],
     className:
       'custom-md:col-start-1 custom-md:row-start-2 col-start-1 row-start-3',
@@ -80,7 +77,7 @@ export const projects = [
       'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-3 row-end-5',
   },
   {
-    name: 'Portfolio',
+    name: 'projects.projectTitle.portfolio',
     description: 'projects.projectDescription.portfolio',
     icons: aroundTools,
     image: Classaid,
@@ -88,8 +85,8 @@ export const projects = [
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/portfolio',
     features: [
-      'Desarrollo FullStack con Next.js, MongoDB y autenticación JWT.',
-      'Diseño de interfaz intuitiva y responsive con Tailwind CSS.',
+      'projects.features.portfolio.f1',
+      'projects.features.portfolio.f2',
     ],
     className:
       'custom-md:col-start-2 custom-md:row-start-2 col-start-1 row-start-4',

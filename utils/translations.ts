@@ -51,13 +51,38 @@ export const enTranslations = {
       'A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.',
     projectDescription: {
       classaid:
-        'ClassAid is a modern web application designed to help teachers. It provides essential tools for organizing classes, managing students, and tracking progress, all within a clean, modern interface.',
+        'Educational platform to optimize class management, attendance tracking, and teacher workflow efficiency.',
       around:
-        'Full Stack project that includes responsive design, component-based architecture, and API integration.',
+        'Interactive social network for sharing locations through a dynamic content management system.',
       highschool:
-        'Official website for "Pablo Neruda" High School No. 4 at UAGro, Taxco.',
+        'Modern institutional website for High School No. 4, optimizing academic communication and information delivery.',
       portfolio:
-        'This repository showcases my work as a Fullstack Web Developer, specializing in the MERN Stack (MongoDB, Express, React, Node.js) and Next.js. My portfolio emphasizes the intersection of robust engineering and user-centric design.',
+        'Professional portfolio developed with Next.js 15 and React 19 following clean architecture principles.',
+    },
+    checkSite: 'Check Site',
+    projectTitle: {
+      classAid: 'ClassAid',
+      around: 'Web Project Around Us',
+      highschool: "'Pablo Neruda' Highschool No. 4",
+      portfolio: 'Portfolio',
+    },
+    features: {
+      classaid: {
+        f1: 'Next.js 14 and MongoDB Atlas architecture for scalable data management.',
+        f2: 'Responsive Tailwind CSS interface with advanced loading states and modular logic.',
+      },
+      around: {
+        f1: 'React 19 and Node.js stack featuring secure JWT token-based authentication.',
+        f2: 'Optimized Vite frontend with protected routes and integrated data validation.',
+      },
+      highschool: {
+        f1: 'Feature-based architecture using Next.js 15, React 19, and robust TypeScript integration.',
+        f2: 'Modular interface with Shadcn UI, reusable components, and mobile-first responsive design.',
+      },
+      portfolio: {
+        f1: 'Feature-based architecture, multi-language i18n support, and strict TypeScript typing system.',
+        f2: 'Modular interface with Shadcn UI, reusable components, and mobile-first responsive design.',
+      },
     },
   },
 
@@ -119,13 +144,38 @@ export const esTranslations = {
       'Una selección de soluciones digitales desarrolladas con un enfoque integral. Desde la arquitectura del lado del servidor hasta interfaces de usuario intuitivas, priorizando siempre la escalabilidad, el rendimiento y una experiencia de usuario excepcional.',
     projectDescription: {
       classaid:
-        'ClassAid es una aplicación web moderna diseñada para optimizar la gestión escolar diaria. Ofrece herramientas esenciales para organizar clases, gestionar alumnos y monitorear progresos, todo bajo una interfaz limpia y moderna.',
+        'Plataforma educativa para optimizar la gestión de clases, asistencia y seguimiento del progreso docente.',
       around:
-        'Proyecto Full Stack que incluye diseño responsivo, arquitectura basada en componentes e integración de APIs.',
+        'Red social interactiva para compartir locaciones mediante un sistema de contenido dinámico.',
       highschool:
-        'Sitio web para la Preparatoria No.4 "Pablo Neruda" de la UAGro, Taxco.',
+        'Sitio institucional moderno para la Preparatoria No. 4, optimizando la comunicación y difusión académica.',
       portfolio:
-        'Este repositorio exhibe mi trabajo como Desarrollador Web Fullstack, especializado en MERN Stack (MongoDB, Express, React, Node.js) y Next.js. Mi portafolio destaca la intersección entre ingeniería robusta y diseño centrado en el usuario.',
+        'Portafolio profesional desarrollado con Next.js 15 y React 19 bajo principios de arquitectura limpia.',
+    },
+    checkSite: 'Visitar Sitio',
+    projectTitle: {
+      classAid: 'ClassAid',
+      around: 'Proyecto Web Around Us',
+      highschool: "Preparatoria No.4 'Pablo Neruda'",
+      portfolio: 'Portafolio',
+    },
+    features: {
+      classaid: {
+        f1: 'Arquitectura Fullstack con Next.js 14 y MongoDB Atlas para una gestión de datos escalable.',
+        f2: 'Interfaz responsiva en Tailwind CSS con estados de carga optimizados y lógica modular.',
+      },
+      around: {
+        f1: 'Stack React 19 y Node.js con autenticación segura mediante tokens JWT.',
+        f2: 'Frontend optimizado con Vite, rutas protegidas y validación de datos integrada.',
+      },
+      highschool: {
+        f1: 'Arquitectura basada en features utilizando Next.js 15, React 19 y TypeScript.',
+        f2: 'Interfaz modular con Shadcn UI, componentes reutilizables y diseño mobile-first responsivo.',
+      },
+      portfolio: {
+        f1: 'Arquitectura basada en features, soporte multiidioma i18n y tipado estricto con TypeScript.',
+        f2: 'Interfaz responsiva con Tailwind CSS 4, Framer Motion y componentes Radix UI.',
+      },
     },
   },
   footer: {},

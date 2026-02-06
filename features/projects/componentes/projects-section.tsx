@@ -29,7 +29,7 @@ export default function ProjectsSection() {
       {projects.map(item => (
         <ProjectCard
           key={item.name}
-          title={item.name}
+          title={t(item.name)}
           description={t(item.description)}
           icons={item.icons}
           logo={item.logo}

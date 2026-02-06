@@ -4,6 +4,7 @@ import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import { cn } from '@/utils/functions';
 import Image from 'next/image';
 import { ProjectCardProps } from '../types/types';
+import { useTranslation } from 'react-i18next';
 
 export default function ProjectCard({
   title,
@@ -13,6 +14,8 @@ export default function ProjectCard({
   className,
   onClick,
 }: ProjectCardProps) {
+  const { t } = useTranslation();
+
   return (
     <>
       <NeobrutalistCard
@@ -31,7 +34,7 @@ export default function ProjectCard({
               id="card__title"
               className="text-green-brutalist line-clamp-1 w-full text-lg tracking-tight md:tracking-normal"
             >
-              {title}
+              {t(title)}
             </h3>
             <div>
               <Image

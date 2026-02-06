@@ -20,16 +20,16 @@ export default function ProjectModal({ project }: ProjectModalProps) {
           <Image
             src={project.image}
             alt={`${project.name} preview`}
-            width={150}
-            height={150}
+            width={400}
+            height={225}
             className="w-full object-cover"
             priority
           />
         )}
       </div>
-      <div className="flex grow flex-col gap-3 px-4">
+      <div className="flex grow flex-col gap-3 overflow-y-auto px-4">
         <div className="flex justify-between">
-          <h4 className="text-lg font-semibold">{project.name}</h4>
+          <h4 className="text-lg font-semibold">{t(project.name)}</h4>
           {project.href && (
             <Link
               href={project.href}
@@ -45,7 +45,7 @@ export default function ProjectModal({ project }: ProjectModalProps) {
         </p>
         <ul className="list-disc border-t border-black/10 pt-2 pl-3 text-sm font-normal">
           {project.features.map((feature, index) => (
-            <li key={index}>{feature}</li>
+            <li key={index}>{t(feature)}</li>
           ))}
         </ul>
       </div>
@@ -69,7 +69,7 @@ export default function ProjectModal({ project }: ProjectModalProps) {
             className="hover:text-green-brutalist custom-md:block hidden items-center gap-2 p-4 text-right text-sm font-normal hover:font-bold"
           >
             <div className="flex flex-row items-center justify-center gap-2">
-              <p className="line-clamp-1">Check Site</p>
+              <p className="line-clamp-1">{t('projects.checkSite')}</p>
               <ExternalLinkIcon />
             </div>
           </Link>
