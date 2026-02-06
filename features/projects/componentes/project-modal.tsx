@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 interface ProjectModalProps {
   project: Project;
+  modalOpen: boolean;
 }
 
 export default function ProjectModal({ project }: ProjectModalProps) {

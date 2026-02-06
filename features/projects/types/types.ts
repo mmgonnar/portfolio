@@ -18,6 +18,7 @@ export type Project = {
   features: string[];
   className?: string;
   classNameModal?: string;
+  modalOpen?: boolean;
 };
 
 export interface ProjectCardProps {
@@ -29,4 +30,5 @@ export interface ProjectCardProps {
   IconComponent?: React.ElementType;
   onClick?: () => void;
   className?: string;
+  modalOpen?: boolean;
 }

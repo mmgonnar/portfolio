@@ -11,6 +11,14 @@ export default function Modal({
   modalOpen,
   className,
 }: ModalProps) {
+  // useEffect(()=>{
+  //   const handleKeyPress = evt => {
+  //     if (evt.key === 'Escape' && modalOpen) {
+  //       toggleModal();
+  //     }
+  //   };
+  // })
+
   // useEffect(() => {
   //   if (modalOpen) {
   //     document.body.style.overflow = 'hidden';

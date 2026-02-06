@@ -1,25 +1,21 @@
 'use client';
 
-import { Modal, ProjectCard, ProjectModal } from '../index';
-import { useState } from 'react';
+import { useEscapeKeyClose } from '@/hooks/useEscKeyClose';
+import { useModal } from '@/hooks/useModa';
+import { useOnClickOutside } from '@/hooks/useOnClickOutside';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Project } from '../types/types';
+import { Modal, ProjectCard, ProjectModal } from '../index';
 import { projects } from '../utils/constanst';
 
 export default function ProjectsSection() {
   const { t } = useTranslation();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const toggleModal = (project?: Project) => {
-    if (project) {
-      setSelectedProject(project);
-      setModalOpen(true);
-    } else {
-      setModalOpen(false);
-      setSelectedProject(null);
-    }
-  };
+  const { modalOpen, selectedProject, toggleModal } = useModal();
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEscapeKeyClose(() => toggleModal(), modalOpen);
+  useOnClickOutside(modalRef, () => toggleModal(), modalOpen);
 
   return (
     <div
@@ -35,13 +31,14 @@ export default function ProjectsSection() {
           logo={item.logo}
           onClick={() => toggleModal(item)}
           className={item.className}
+          modalOpen={modalOpen}
         />
       ))}
       {modalOpen && (
         <div
           className="absolute inset-0 z-10 backdrop-blur-[2px]"
           onClick={() => toggleModal()}
-          aria-hidden
+          aria-hidden="true"
         />
       )}
 
@@ -50,7 +47,11 @@ export default function ProjectsSection() {
         modalOpen={modalOpen}
         className={selectedProject?.classNameModal ?? ''}
       >
-        {selectedProject && <ProjectModal project={selectedProject} />}
+        <div ref={modalRef}>
+          {selectedProject && (
+            <ProjectModal project={selectedProject} modalOpen={modalOpen} />
+          )}
+        </div>
       </Modal>
     </div>
   );

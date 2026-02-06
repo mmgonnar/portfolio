@@ -7,24 +7,41 @@ import Git from '../assets/git.svg';
 import Express from '../assets/expressjs.svg';
 import Node from '../assets/nodejs.svg';
 import React from '../assets/react_light.svg';
+import Jwt from '../assets/jwt.svg';
+import ShadCn from '../assets/shadcn-ui.svg';
+import Vite from '../assets/vite.svg';
+import i18n from '../assets/i18next-icon.svg';
+import Phyton from '../assets/python.svg';
 import Classaid from '../assets/projects-preview/classaid_preview.png';
 import ClassaidLogo from '../assets/project-logos/classaid_favicon.svg';
 
 export const classAidTools = [
-  { icon: Javascript, name: "Javascript's icon" },
   { icon: Next, name: "Next's icon" },
+  { icon: React, name: "Javascript's icon" },
   { icon: MongoDB, name: "MongoDB's icon" },
   { icon: Tailwind, name: "Tailwind's icon" },
-  { icon: Express, name: "Express' icon" },
-  { icon: Git, name: "Express' icon" },
+  { icon: Node, name: "Node' icon" },
 ];
 export const aroundTools = [
-  { icon: Javascript, name: "Javascript's icon" },
   { icon: React, name: "React's icon" },
-  { icon: MongoDB, name: "MongoDB's icon" },
-  { icon: Express, name: "Express' icon" },
   { icon: Node, name: "Node' icon" },
-  { icon: Git, name: "Express' icon" },
+  { icon: Express, name: "Express' icon" },
+  { icon: Jwt, name: "Jwt's icon" },
+  { icon: Vite, name: "Vite's icon" },
+];
+export const highschoolTools = [
+  { icon: Next, name: "Next's icon" },
+  { icon: Typescript, name: "Typescript's icon" },
+  { icon: Tailwind, name: "Tailwind's icon" },
+  { icon: ShadCn, name: "Shadcn's icon" },
+  { icon: React, name: "React's icon" },
+];
+export const portfolioTools = [
+  { icon: Next, name: "Next's icon" },
+  { icon: Typescript, name: "Typescript's icon" },
+  { icon: Tailwind, name: "Tailwind's icon" },
+  { icon: i18n, name: "i18next's icon" },
+  { icon: Phyton, name: "React's icon" },
 ];
 
 export const projects = [
@@ -62,7 +79,7 @@ export const projects = [
   {
     name: 'projects.projectTitle.highschool',
     description: 'projects.projectDescription.highschool',
-    icons: aroundTools,
+    icons: highschoolTools,
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
@@ -79,7 +96,7 @@ export const projects = [
   {
     name: 'projects.projectTitle.portfolio',
     description: 'projects.projectDescription.portfolio',
-    icons: aroundTools,
+    icons: portfolioTools,
     image: Classaid,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
