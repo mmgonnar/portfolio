@@ -11,29 +11,13 @@ export default function Modal({
   modalOpen,
   className,
 }: ModalProps) {
-  // useEffect(()=>{
-  //   const handleKeyPress = evt => {
-  //     if (evt.key === 'Escape' && modalOpen) {
-  //       toggleModal();
-  //     }
-  //   };
-  // })
-
-  // useEffect(() => {
-  //   if (modalOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'unset';
-  //   }
-  // }, [modalOpen]);
-
   if (!modalOpen) {
     return null;
   }
 
   return (
     <div onClick={toggleModal} className={cn('z-10 h-full', className)}>
-      <div className={cn('z-20 h-full')} onClick={e => e.stopPropagation()}>
+      <div className={cn('h-full')} onClick={e => e.stopPropagation()}>
         <NeobrutalistCard
           className="relative h-full p-0 hover:transition-none"
           onClick={e => e.stopPropagation()}
@@ -41,7 +25,7 @@ export default function Modal({
           <button
             onClick={toggleModal}
             className={cn(
-              'absolute top-2 right-3 z-10 cursor-pointer text-xl font-bold transition-transform hover:scale-110'
+              'absolute top-2 right-3 z-11 cursor-pointer text-xl font-bold transition-transform hover:scale-110'
             )}
           >
             X

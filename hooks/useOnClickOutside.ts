@@ -1,9 +1,9 @@
 import { RefObject, useEffect } from 'react';
 
 export const useOnClickOutside = (
+  isOpen: boolean,
   ref: RefObject<HTMLElement | null>,
-  handler: () => void,
-  isOpen: boolean
+  handler: () => void
 ) => {
   useEffect(() => {
     if (!isOpen) return;

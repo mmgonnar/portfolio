@@ -15,7 +15,7 @@ export default function Header() {
     >
       <Logo />
       <Navbar />
-      <div className="custom-md:flex hidden shrink-0 items-center gap-6">
+      <div className="custom-md:flex hidden shrink-0 items-center gap-3">
         <LanguageSwitcher />
         <NeobrutalistButton text={t(buttonActions[0].text)} className="" />
       </div>

@@ -11,6 +11,7 @@ export interface NeobrutalistButtonProps {
   text: string;
   href?: string;
   variant?: keyof typeof buttonVariants;
+  onClick?: () => void;
 }
 
 export interface ContetnSectionProps {

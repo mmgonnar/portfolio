@@ -12,12 +12,12 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="custom-lg:flex hidden items-center gap-2">
-      <Globe className="h-4 w-4" />
+    <div className="custom-lg:flex custom-md:block hidden items-center justify-end gap-1 font-mono">
+      <Globe className="h-4 w-4 text-gray-600" />
       <button
         onClick={() => changeLanguage('es')}
         className={cn(
-          'px-2 py-1 font-mono text-sm transition-colors',
+          'font-mono text-sm transition-colors',
           i18n.language === 'es'
             ? 'font-semibold text-green-600'
             : 'text-gray-600 hover:text-gray-800'

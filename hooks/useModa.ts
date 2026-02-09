@@ -10,7 +10,7 @@ export const useModal = () => {
       setSelectedProject(project);
       setModalOpen(true);
     } else {
-      setModalOpen(false);
+      setModalOpen(prev => !prev);
       setSelectedProject(null);
     }
   }, []);

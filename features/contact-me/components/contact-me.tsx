@@ -1,11 +1,15 @@
 'use client';
 
 import { NeobrutalistButton } from '@/features/footer';
+import { Modal } from '@/features/projects';
 import ContentSection from '@/features/ui/components/content-section';
 import TerminalBanner from '@/features/ui/components/terminal-banner';
+import { useModal } from '@/hooks/useModa';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function ContactMe() {
+  const { modalOpen, toggleModal } = useModal();
+  console.log(modalOpen, 'clic');
   return (
     <section
       id="contact-me"
@@ -42,8 +46,21 @@ export default function ContactMe() {
           text="Contact me ;)"
           variant="secondary"
           className="hover:bg-amber-400"
+          onClick={() => {
+            (console.log('clic'), toggleModal());
+          }}
         />
       </TerminalBanner>
+      <Modal
+        modalOpen={modalOpen}
+        toggleModal={() => {
+          console.log('clic', modalOpen);
+          toggleModal();
+        }}
+        className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
+      >
+        <div className="">adscsdfsdf</div>
+      </Modal>
     </section>
   );
 }

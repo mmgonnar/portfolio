@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <div className="flex">
       {/* Desktop Navigation */}
-      <nav className="hidden shrink-0 space-x-10 text-base sm:flex">
+      <nav className="custom-md:hidden hidden shrink-0 space-x-10 text-base md:flex lg:flex">
         {headerItems.map(item => (
           <Link
             key={item.name}

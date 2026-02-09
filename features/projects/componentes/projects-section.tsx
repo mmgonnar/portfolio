@@ -15,7 +15,7 @@ export default function ProjectsSection() {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEscapeKeyClose(() => toggleModal(), modalOpen);
-  useOnClickOutside(modalRef, () => toggleModal(), modalOpen);
+  useOnClickOutside(modalOpen, modalRef, () => toggleModal());
 
   return (
     <div

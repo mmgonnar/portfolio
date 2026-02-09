@@ -97,7 +97,7 @@ export const esTranslations = {
     profesion: '<Desarrolladora Web Fullstack />',
   },
   navigation: {
-    aboutMe: 'acerca de mi',
+    aboutMe: 'sobre mi',
     projects: 'proyectos',
     curriculum: 'currículum',
     contact: 'contacto',
