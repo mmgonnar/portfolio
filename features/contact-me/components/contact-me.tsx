@@ -56,10 +56,10 @@ export default function ContactMe() {
       <Modal
         modalOpen={modalOpen}
         toggleModal={() => {
-          console.log('clic', modalOpen);
           toggleModal();
         }}
-        className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
+        className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-[3px]"
+        // classNameBackgrpound='fixed inset-0 z-40 flex h-40 items-center justify-center bg-black/40'
       >
         <Form />
       </Modal>

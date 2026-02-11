@@ -46,6 +46,7 @@ export default function ProjectsSection() {
         toggleModal={() => toggleModal()}
         modalOpen={modalOpen}
         className={selectedProject?.classNameModal ?? ''}
+        classNameBackgrpound="h-full"
       >
         <div ref={modalRef}>
           {selectedProject && (

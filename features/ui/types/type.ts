@@ -50,6 +50,7 @@ export interface ModalProps {
   toggleModal: () => void;
   modalOpen: boolean;
   className?: string;
+  classNameBackgrpound?: string;
 }
 
 export interface TerminalBannerProps {
