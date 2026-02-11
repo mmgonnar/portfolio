@@ -6,6 +6,8 @@ import ContentSection from '@/features/ui/components/content-section';
 import TerminalBanner from '@/features/ui/components/terminal-banner';
 import { useModal } from '@/hooks/useModa';
 import { TypeAnimation } from 'react-type-animation';
+import Form from './form';
+import CyberpunkFormCard from '@/features/ui/components/form-inspo';
 
 export default function ContactMe() {
   const { modalOpen, toggleModal } = useModal();
@@ -59,7 +61,7 @@ export default function ContactMe() {
         }}
         className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
       >
-        <div className="">adscsdfsdf</div>
+        <Form />
       </Modal>
     </section>
   );

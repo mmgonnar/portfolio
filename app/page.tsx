@@ -16,7 +16,6 @@ export default function Home() {
       <Skills />
       <Projects />
       <ContactMe />
-      <FooterDropdrawer />
     </Layout>
   );
 }

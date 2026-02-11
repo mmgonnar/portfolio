@@ -60,3 +60,15 @@ export interface TerminalBannerProps {
   terminalContentClassName?: string;
   id?: string;
 }
+
+type InputType = 'text' | 'email' | 'textarea';
+
+export interface InputsProps {
+  label: string;
+  classNameLabel?: string;
+  className?: string;
+  type?: InputType;
+  id: string;
+  required?: boolean;
+  placeholder?: string;
+}
