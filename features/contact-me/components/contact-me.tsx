@@ -8,8 +8,11 @@ import { useModal } from '@/hooks/useModa';
 import { TypeAnimation } from 'react-type-animation';
 import Form from './form';
 import CyberpunkFormCard from '@/features/ui/components/form-inspo';
+import { useTranslation } from 'react-i18next';
+import { buttonActions } from '@/features/ui/utils/constants';
 
 export default function ContactMe() {
+  const { t } = useTranslation();
   const { modalOpen, toggleModal } = useModal();
   console.log(modalOpen, 'clic');
   return (
@@ -19,8 +22,8 @@ export default function ContactMe() {
     >
       <ContentSection
         id="contact-me__section"
-        title="Contact"
-        text="¿Tienes un proyecto? Hablemos. Disponible para colaborar en proyectos web y diseño de interfaces. Enfoque en React/Next.js, Tailwind y buenas prácticas."
+        title={t('contact.title')}
+        text={t('contact.description')}
         align="center"
       />
       <TerminalBanner
@@ -45,7 +48,7 @@ export default function ContactMe() {
         }
       >
         <NeobrutalistButton
-          text="Contact me ;)"
+          text={t(buttonActions[0].text)}
           variant="secondary"
           className="hover:bg-amber-400"
           onClick={() => {
@@ -59,7 +62,6 @@ export default function ContactMe() {
           toggleModal();
         }}
         className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-[3px]"
-        // classNameBackgrpound='fixed inset-0 z-40 flex h-40 items-center justify-center bg-black/40'
       >
         <Form />
       </Modal>

@@ -13,6 +13,7 @@ export const enTranslations = {
     switchDesign: 'switch design',
     contact: 'contact me ;)',
     knowMeBetter: 'Know me better',
+    submit: 'submit',
   },
   language: {
     changeLanguage: 'change language',
@@ -87,7 +88,21 @@ export const enTranslations = {
     },
   },
 
-  footer: {},
+  contact: {
+    title: 'Contact',
+    description:
+      'Have an idea? Let’s bring it to life. Technical collaboration focused on transforming complex concepts into scalable digital products, clean architectures, and seamless user experiences.',
+  },
+  form: {
+    heading: '// Send a message',
+    name: 'name',
+    namePlaceholder: 'Your name',
+    email: 'email',
+    emailPlaceholder: 'your@email.com',
+    message: 'message',
+    messagePlaceholder: 'Tell me about your project...',
+    footerCopy: 'I usually reply faster than npm i',
+  },
 };
 
 //! Spanish Translation starts here
@@ -105,8 +120,9 @@ export const esTranslations = {
   },
   button: {
     switchDesign: 'rediseñar web',
-    contact: 'contact me ;)',
+    contact: 'contáctame ;)',
     knowMeBetter: 'Conóceme mejor',
+    submit: 'submit',
   },
   language: {
     changeLanguage: 'cambiar idioma',
@@ -180,5 +196,19 @@ export const esTranslations = {
       },
     },
   },
-  footer: {},
+  contact: {
+    title: 'Contacto',
+    description:
+      '¿Tienes una idea? Démosle vida. Colaboración técnica centrada en transformar conceptos complejos en productos digitales escalables, arquitecturas limpias y experiencias de usuario fluidas.',
+  },
+  form: {
+    heading: '// Envía un mensaje',
+    name: 'nombre',
+    namePlaceholder: '¿Cómo te llamas?',
+    email: 'correo',
+    emailPlaceholder: 'tu@correo.com',
+    message: 'Mensaje',
+    messagePlaceholder: 'Cuéntame sobre tu proyecto...',
+    footerCopy: 'Respondo más rápido que un npm i',
+  },
 };
