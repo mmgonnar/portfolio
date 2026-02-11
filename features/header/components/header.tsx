@@ -17,7 +17,11 @@ export default function Header() {
       <Navbar />
       <div className="custom-md:flex hidden shrink-0 items-center gap-3">
         <LanguageSwitcher />
-        <NeobrutalistButton text={t(buttonActions[0].text)} className="" />
+        <NeobrutalistButton
+          text={t(buttonActions[0].text)}
+          className=""
+          href={buttonActions[0].href}
+        />
       </div>
     </section>
   );

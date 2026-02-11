@@ -2,7 +2,6 @@
 
 import { NeobrutalistButton } from '@/features/footer';
 import Input from '@/features/ui/components/input';
-import NeobrutalistInput from '@/features/ui/components/input';
 
 import { formFIelds } from '../utils/constants';
 

@@ -1,4 +1,5 @@
-export const buttonActions = [{ text: 'button.switchDesign', href: '/' }];
+//export const buttonActions = [{ text: 'button.switchDesign', href: '/' }];
+export const buttonActions = [{ text: 'button.contact', href: '#contact' }];
 import { History, CircleAlert, Newspaper, UserStar } from 'lucide-react';
 
 export const buttonVariants = {

@@ -14,7 +14,7 @@ export default function ContactMe() {
   console.log(modalOpen, 'clic');
   return (
     <section
-      id="contact-me"
+      id="contact"
       className="mb-15 flex w-full flex-col items-center justify-between gap-4 md:gap-10 md:pt-15 md:pb-15"
     >
       <ContentSection
