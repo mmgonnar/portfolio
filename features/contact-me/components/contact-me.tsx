@@ -4,17 +4,15 @@ import { NeobrutalistButton } from '@/features/footer';
 import { Modal } from '@/features/projects';
 import ContentSection from '@/features/ui/components/content-section';
 import TerminalBanner from '@/features/ui/components/terminal-banner';
+import { buttonActions } from '@/features/ui/utils/constants';
 import { useModal } from '@/hooks/useModa';
+import { useTranslation } from 'react-i18next';
 import { TypeAnimation } from 'react-type-animation';
 import Form from './form';
-import CyberpunkFormCard from '@/features/ui/components/form-inspo';
-import { useTranslation } from 'react-i18next';
-import { buttonActions } from '@/features/ui/utils/constants';
 
 export default function ContactMe() {
   const { t } = useTranslation();
   const { modalOpen, toggleModal } = useModal();
-  console.log(modalOpen, 'clic');
   return (
     <section
       id="contact"

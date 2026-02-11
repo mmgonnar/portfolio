@@ -12,8 +12,14 @@ import ShadCn from '../assets/shadcn-ui.svg';
 import Vite from '../assets/vite.svg';
 import i18n from '../assets/i18next-icon.svg';
 import Phyton from '../assets/python.svg';
-import Classaid from '../assets/projects-preview/classaid_preview.png';
 import ClassaidLogo from '../assets/project-logos/classaid_favicon.svg';
+import UagroLogo from '../assets/project-logos/uagro.svg';
+import AUSLogo from '../assets/project-logos/logo_aus.svg';
+import PortfolioLogo from '../assets/project-logos/mmgn.svg';
+import ClassaidImage from '../assets/projects-preview/clasaid_preview.png';
+import AUS from '../assets/projects-preview/aus_preview.png';
+import Uagro from '../assets/projects-preview/prepa_preview.png';
+import Portfolio from '../assets/projects-preview/portfolii_preview.png';
 
 export const classAidTools = [
   { icon: Next, name: "Next's icon" },
@@ -49,7 +55,7 @@ export const projects = [
     name: 'projects.projectTitle.classAid',
     description: 'projects.projectDescription.classaid',
     icons: classAidTools,
-    image: Classaid,
+    image: ClassaidImage,
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/classaid_frontend',
@@ -66,8 +72,8 @@ export const projects = [
     name: 'projects.projectTitle.around',
     description: 'projects.projectDescription.around',
     icons: aroundTools,
-    image: Classaid,
-    logo: ClassaidLogo,
+    image: AUS,
+    logo: AUSLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_project_api_full',
     features: ['projects.features.around.f1', 'projects.features.around.f2'],
@@ -80,8 +86,8 @@ export const projects = [
     name: 'projects.projectTitle.highschool',
     description: 'projects.projectDescription.highschool',
     icons: highschoolTools,
-    image: Classaid,
-    logo: ClassaidLogo,
+    image: Uagro,
+    logo: UagroLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_uagro_prepa4',
     features: [
@@ -97,8 +103,8 @@ export const projects = [
     name: 'projects.projectTitle.portfolio',
     description: 'projects.projectDescription.portfolio',
     icons: portfolioTools,
-    image: Classaid,
-    logo: ClassaidLogo,
+    image: Portfolio,
+    logo: PortfolioLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/portfolio',
     features: [
