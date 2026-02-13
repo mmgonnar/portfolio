@@ -11,7 +11,7 @@ export default function Logo() {
         <Image
           src={Logotipo}
           alt="Portfolio's logo"
-          className="w-30 flex-shrink-0 md:w-full"
+          className="w-30 shrink-0 md:w-full"
         />
       </Link>
     </div>

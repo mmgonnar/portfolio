@@ -8,7 +8,7 @@ export default function DescriptionSection() {
 
   return (
     <div>
-      <p className="max-w-2xl pb-5 text-xl text-balance">
+      <p className="max-w-2xl pb-5 text-lg text-balance">
         {t('bannerText.description')}
       </p>
       <FindMe />

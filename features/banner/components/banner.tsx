@@ -13,7 +13,7 @@ interface BannerProps {
 export default function Banner({ text }: BannerProps) {
   return (
     <>
-      <section className="m-auto grid max-w-7xl items-center gap-6 px-5 py-15 md:grid-cols-2 md:px-10 md:py-25">
+      <section className="m-auto grid max-w-7xl items-center gap-6 px-5 py-15 md:grid-cols-2 md:px-10 md:py-15">
         <NameSection />
         <DescriptionSection />
       </section>
@@ -33,7 +33,7 @@ export default function Banner({ text }: BannerProps) {
             ]}
             wrapper="span"
             speed={50}
-            style={{ fontSize: '2em', display: 'inline-block' }}
+            style={{ fontSize: '1.5em', display: 'inline-block' }}
             repeat={Infinity}
           />
         }

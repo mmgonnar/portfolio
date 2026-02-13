@@ -74,7 +74,7 @@ export const projects = [
     icons: aroundTools,
     image: AUS,
     logo: AUSLogo,
-    href: 'https://classaidfrontend.vercel.app/',
+    href: 'https://18-web-project-api-full-frontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_project_api_full',
     features: ['projects.features.around.f1', 'projects.features.around.f2'],
     className:
@@ -88,7 +88,7 @@ export const projects = [
     icons: highschoolTools,
     image: Uagro,
     logo: UagroLogo,
-    href: 'https://classaidfrontend.vercel.app/',
+    href: 'https://web-uagro-prepa4.vercel.app/',
     github: 'https://github.com/mmgonnar/web_uagro_prepa4',
     features: [
       'projects.features.highschool.f1',
@@ -105,7 +105,7 @@ export const projects = [
     icons: portfolioTools,
     image: Portfolio,
     logo: PortfolioLogo,
-    href: 'https://classaidfrontend.vercel.app/',
+    href: 'https://portfolio-six-phi-849ndn28g0.vercel.app/',
     github: 'https://github.com/mmgonnar/portfolio',
     features: [
       'projects.features.portfolio.f1',

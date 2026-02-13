@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link
             key={item.name}
             href={item.href}
-            className="hover-green-brutalist shrink-0 cursor-pointer font-mono text-lg transition-colors duration-200 hover:font-semibold"
+            className="hover-green-brutalist shrink-0 cursor-pointer font-mono text-base transition-colors duration-200 hover:font-semibold"
           >
             {t(item.name)}
           </Link>
