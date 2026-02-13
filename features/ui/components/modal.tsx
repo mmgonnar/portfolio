@@ -29,7 +29,7 @@ export default function Modal({
           <button
             onClick={toggleModal}
             className={cn(
-              'absolute top-2 right-3 z-11 cursor-pointer text-xl font-bold transition-transform hover:scale-110'
+              'absolute -top-8 -right-4 z-11 cursor-pointer text-xl font-bold transition-transform hover:scale-110'
             )}
           >
             X

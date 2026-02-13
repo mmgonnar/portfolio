@@ -13,20 +13,19 @@ export default function TerminalBanner({
   return (
     <section
       id={id}
-      className={cn(
-        'bg-neon flex h-40 w-full items-center justify-between px-4 md:h-80 md:px-14',
-        className
-      )}
+      className={cn(className, 'bg-neon flex h-40 w-full items-center md:h-70')}
     >
-      <div
-        className={cn(
-          'flex items-start justify-between gap-4 font-mono text-[10px] text-neutral-700 md:text-lg',
-          terminalContentClassName
-        )}
-      >
-        {terminalContent}
+      <div className="m-auto flex w-full max-w-7xl items-center justify-between px-4 md:h-70 md:px-14">
+        <div
+          className={cn(
+            'flex items-start justify-between gap-4 font-mono text-[10px] text-neutral-700 md:text-lg',
+            terminalContentClassName
+          )}
+        >
+          {terminalContent}
+        </div>
+        <div className={cn(childrenClassName)}>{children}</div>
       </div>
-      <div className={cn(childrenClassName)}>{children}</div>
     </section>
   );
 }

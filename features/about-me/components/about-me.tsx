@@ -15,6 +15,7 @@ export default function AboutMe() {
     >
       <div className="flex flex-col gap-6">
         <ContentSection
+          id="about__section"
           align="left"
           title={t('aboutMe.title')}
           text={t('aboutMe.description')}

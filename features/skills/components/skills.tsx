@@ -10,6 +10,7 @@ export default function Skills() {
       className="flex w-full flex-col items-center justify-between gap-4 border-y-3 border-solid border-neutral-300 bg-neutral-100 p-10 md:gap-10 md:pt-15"
     >
       <ContentSection
+        id="skills__section"
         title={t('skills.title')}
         text={t('skills.text')}
         align="center"
