@@ -18,7 +18,7 @@ export default function FindMe() {
               <Image
                 src={item.icon}
                 alt="Email"
-                className="w-8 shrink-0 transition duration-200 hover:scale-110"
+                className="w-7 shrink-0 transition duration-200 hover:scale-110"
               />
             </Link>
           );

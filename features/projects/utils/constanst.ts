@@ -74,7 +74,7 @@ export const projects = [
     icons: aroundTools,
     image: AUS,
     logo: AUSLogo,
-    href: 'https://18-web-project-api-full-frontend.vercel.app/',
+    href: 'https://18-web-project-api-full-frontend.vercel.app/signup',
     github: 'https://github.com/mmgonnar/web_project_api_full',
     features: ['projects.features.around.f1', 'projects.features.around.f2'],
     className:
