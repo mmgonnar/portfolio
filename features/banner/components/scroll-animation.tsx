@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { gameCovers, languagesTools } from '../utils/constants'; // Asegúrate de que esta constante exista y tenga tus datos
+import { languagesTools } from '../utils/constants'; // Asegúrate de que esta constante exista y tenga tus datos
 import Image from 'next/image'; // Usa el componente Image si las carátulas son archivos locales
 
 // Duplicamos el array para que el scroll sea continuo (Lista A + Lista B)
