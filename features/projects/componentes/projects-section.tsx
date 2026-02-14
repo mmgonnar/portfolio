@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, ProjectCard, ProjectModal } from '../index';
 import { projects } from '../utils/constanst';
+import TerminalBanner from '@/features/ui/components/terminal-banner';
 
 export default function ProjectsSection() {
   const { t } = useTranslation();

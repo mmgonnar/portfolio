@@ -16,7 +16,7 @@ export default function ContactMe() {
   return (
     <section
       id="contact"
-      className="mb-15 flex w-full flex-col items-center justify-between gap-4 md:gap-10 md:pt-15 md:pb-15"
+      className="m-auto mb-15 flex w-full flex-col items-center justify-between gap-4 md:gap-10 md:pt-15 md:pb-15"
     >
       <ContentSection
         id="contact-me__section"
@@ -27,7 +27,7 @@ export default function ContactMe() {
       <TerminalBanner
         className="h-50 md:h-60"
         childrenClassName="block text-left m-auto md:m-0"
-        terminalContentClassName="hidden md:block text-sm md:text-sm custom-md:text-lg md:max-w-full"
+        terminalContentClassName="hidden md:block  text-sm md:text-sm custom-md:text-lg md:max-w-full"
         terminalContent={
           <TypeAnimation
             sequence={[

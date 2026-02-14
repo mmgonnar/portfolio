@@ -24,7 +24,7 @@ export default function ProjectCard({
         className={cn(
           'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 md:w-full md:grid-cols-[1fr_auto]',
           className,
-          modalOpen ? 'opacity-40' : 'opacity-100',
+          modalOpen ? 'opacity-80' : 'opacity-100',
           'transition-all duration-500 ease-in-out'
         )}
       >

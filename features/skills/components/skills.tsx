@@ -7,15 +7,17 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="flex w-full flex-col items-center justify-between gap-4 border-y-3 border-solid border-neutral-300 bg-neutral-100 p-10 md:gap-10 md:pt-15"
+      className="flex w-full flex-col items-center justify-between gap-4 border-y-4 border-solid border-neutral-900 bg-neutral-200 p-10 md:gap-10 md:pt-15"
     >
-      <ContentSection
-        id="skills__section"
-        title={t('skills.title')}
-        text={t('skills.text')}
-        align="center"
-      />
-      <SkillsSection />
+      <div className="m-auto flex w-full max-w-6xl flex-col items-center justify-between">
+        <ContentSection
+          id="skills__section"
+          title={t('skills.title')}
+          text={t('skills.text')}
+          align="center"
+        />
+        <SkillsSection />
+      </div>
     </section>
   );
 }

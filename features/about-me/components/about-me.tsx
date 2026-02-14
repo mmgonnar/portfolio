@@ -11,7 +11,7 @@ export default function AboutMe() {
   return (
     <section
       id="about-me"
-      className="m-auto flex max-w-7xl flex-col items-center justify-between gap-4 p-10 md:flex-row md:gap-10 md:pt-15"
+      className="m-auto flex max-w-6xl flex-col items-center justify-between gap-4 p-10 md:flex-row md:gap-10 md:pt-15"
     >
       <div className="flex flex-col gap-6">
         <ContentSection

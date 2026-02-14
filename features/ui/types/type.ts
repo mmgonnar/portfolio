@@ -19,6 +19,7 @@ export interface ContetnSectionProps {
   text: string;
   align: keyof typeof alignmets;
   id: string;
+  className?: string;
 }
 export interface NeobrutalistCardProps {
   children: ReactNode;

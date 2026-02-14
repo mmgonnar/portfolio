@@ -21,18 +21,23 @@ export default function SkillCard({
         {IconComponent && (
           <div className="mb-3">
             <IconComponent
-              className={cn('h-8 w-8 text-neutral-400', iconClassName)}
+              className={cn('h-8 w-8 text-green-500', iconClassName)}
               aria-hidden="true"
             />
           </div>
         )}
         <h4 className="text-green-brutalist">{title}</h4>
-        <p className="max-w-[300px] text-center text-sm font-normal text-neutral-600">
+        <p className="max-w-[300px] text-center text-xs font-normal text-neutral-600">
           {t(description)}
         </p>
         <div className="flex w-full flex-wrap justify-center gap-2">
           {skillsMap.map(item => (
-            <Label key={item.name} labelText={item.name} variant="default" />
+            <Label
+              key={item.name}
+              labelText={item.name}
+              variant="default"
+              className="bg-neon border border-black text-black"
+            />
           ))}
         </div>
       </NeobrutalistCard>

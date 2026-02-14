@@ -133,7 +133,7 @@ export const esTranslations = {
     helloWorld: '¡Hola mundo! Soy',
     description:
       'Desarrolladora Web Fullstack Jr. con 2 años de experiencia en desarrollo web y 5 años en diseño web y UX/UI, combinando lo técnico con lo creativo para entregar soluciones digitales escalables y centradas en el usuario.',
-    findMe: 'Encuentrame en:',
+    findMe: 'Encuéntrame en:',
   },
   aboutMe: {
     title: 'Acerca de mi',
