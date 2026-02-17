@@ -11,7 +11,7 @@ export default function TerminalBanner({
   id,
 }: TerminalBannerProps) {
   return (
-    <section
+    <div
       id={id}
       className={cn(className, 'bg-neon flex h-40 w-full items-center md:h-68')}
     >
@@ -26,6 +26,6 @@ export default function TerminalBanner({
         </div>
         <div className={cn(childrenClassName)}>{children}</div>
       </div>
-    </section>
+    </div>
   );
 }
