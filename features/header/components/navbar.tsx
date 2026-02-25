@@ -20,6 +20,7 @@ export default function Navbar() {
       <nav className="custom-md:hidden hidden shrink-0 space-x-10 text-base md:flex lg:flex">
         {headerItems.map(item => (
           <Link
+            target={item.external ? '_blank' : undefined}
             key={item.name}
             href={item.href}
             className="hover-green-brutalist shrink-0 cursor-pointer font-mono text-base transition-colors duration-200 hover:font-semibold"
