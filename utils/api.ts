@@ -1,4 +1,4 @@
-const API_URL = process.env.SUPABASE_URI || 'http://127.0.0.1:8000';
+const API_URL = process.env.NEXT_PUBLIC_SUPABASE_URI || 'http://127.0.0.1:8000';
 
 export interface ContactMessage {
   name: string;
@@ -16,10 +16,7 @@ export const api = {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.detail || 'Error sending message');
-    }
+    if (!response.ok) throw new Error('Error sending message');
     return response.json();
   },
 };
