@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.SUPABASE_URI || 'http://127.0.0.1:8000';
 
 export interface ContactMessage {
   name: string;
