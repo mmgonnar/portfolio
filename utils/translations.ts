@@ -104,6 +104,11 @@ export const enTranslations = {
     messagePlaceholder: 'Tell me about your project...',
     footerCopy: 'I usually reply faster than npm i',
   },
+  toast: {
+    sending: 'Sending message...',
+    success_msg: "Message sent! I'll get back to you soon",
+    error_msg: 'Something went wrong. Please try again.',
+  },
 };
 
 //! Spanish Translation starts here
@@ -212,5 +217,10 @@ export const esTranslations = {
     message: 'Mensaje',
     messagePlaceholder: 'Cuéntame sobre tu proyecto...',
     footerCopy: 'Respondo más rápido que un npm i',
+  },
+  toast: {
+    sending: 'Enviando mensaje...',
+    success_msg: '¡Mensaje enviado! Te contactaré pronto.',
+    error_msg: 'Algo salió mal. Inténtalo de nuevo.',
   },
 };

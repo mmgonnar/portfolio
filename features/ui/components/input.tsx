@@ -30,7 +30,7 @@ export default function Input({
           placeholder={placeholder}
           rows={4}
           className={cn(
-            'border-[3px] border-black bg-white p-3 font-mono outline-none',
+            'text-green-brutalist border-[3px] border-black bg-white p-3 font-mono outline-none',
             'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all focus:translate-x-1 focus:translate-y-1 focus:shadow-none',
             className
           )}
@@ -43,7 +43,7 @@ export default function Input({
           required={required}
           placeholder={placeholder}
           className={cn(
-            'border-[3px] border-black bg-white p-3 font-mono outline-none',
+            'text-green-brutalist border-[3px] border-black bg-white p-3 font-mono outline-none',
             'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all focus:translate-x-1 focus:translate-y-1 focus:shadow-none',
             className
           )}

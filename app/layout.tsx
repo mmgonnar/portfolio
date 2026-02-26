@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 import LanguageProvider from '@/context/language-provider';
 
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans`}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>{children}</LanguageProvider> <Toaster />
       </body>
     </html>
   );

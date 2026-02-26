@@ -6,6 +6,7 @@ import { api, ContactMessage } from '@/utils/api';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { formFields } from '../utils/constants';
+import { apiCallToast } from '@/utils/functions';
 
 interface FormProps {
   toggleModal: () => void;
@@ -24,16 +25,19 @@ export default function Form({ toggleModal }: FormProps) {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
       message: formData.get('message') as string,
+      phone_extension: (formData.get('phone_extension') as string) || '',
     };
 
     try {
-      await api.sendContact(data);
+      await apiCallToast(api.sendContact(data), {
+        loading: t('toast.sending'),
+        successMessage: t('toast.success_msg'),
+        errorMessage: t('toast.error_msg'),
+      });
       form.reset();
       toggleModal();
-      alert('¡Mensaje enviado con éxito!');
     } catch (error) {
       console.error('Error sending form:', error);
-      alert('Hubo un fallo al enviar. Revisa los datos.');
     } finally {
       setLoading(false);
     }
