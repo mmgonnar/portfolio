@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { formFields } from '../utils/constants';
 import { apiCallToast } from '@/utils/functions';
+import { contactSchema } from '@/utils/schema';
+import toast from 'react-hot-toast';
 
 interface FormProps {
   toggleModal: () => void;
@@ -21,15 +23,31 @@ export default function Form({ toggleModal }: FormProps) {
     setLoading(true);
 
     const formData = new FormData(evt.currentTarget);
-    const data: ContactMessage = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      message: formData.get('message') as string,
-      phone_extension: (formData.get('phone_extension') as string) || '',
+    const rawData = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      phone_extension: formData.get('phone_extension'),
     };
 
+    const result = contactSchema.safeParse(rawData);
+
+    if (!result.success) {
+      const firstError = result.error.issues[0];
+      toast.error(t(firstError.message));
+      return;
+    }
+
+    const validatedData = result.data;
+    // const data: ContactMessage = {
+    //   name: formData.get('name') as string,
+    //   email: formData.get('email') as string,
+    //   message: formData.get('message') as string,
+    //   phone_extension: (formData.get('phone_extension') as string) || '',
+    // };
+
     try {
-      await apiCallToast(api.sendContact(data), {
+      await apiCallToast(api.sendContact(validatedData), {
         loading: t('toast.sending'),
         successMessage: t('toast.success_msg'),
         errorMessage: t('toast.error_msg'),
