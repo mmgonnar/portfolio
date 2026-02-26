@@ -103,6 +103,11 @@ export const enTranslations = {
     message: 'message',
     messagePlaceholder: 'Tell me about your project...',
     footerCopy: 'I usually reply faster than npm i',
+    errors: {
+      error_name_short: 'Name is too short',
+      error_email_invalid: 'Introduce a valid email',
+      error_message_short: 'The message needs to be at least 10 characteres',
+    },
   },
   toast: {
     sending: 'Sending message...',
@@ -217,6 +222,11 @@ export const esTranslations = {
     message: 'Mensaje',
     messagePlaceholder: 'Cuéntame sobre tu proyecto...',
     footerCopy: 'Respondo más rápido que un npm i',
+    errors: {
+      error_name_short: 'El nombre es demasiado corto',
+      error_email_invalid: 'Introduce un correo válido',
+      error_message_short: 'El mensaje debe tener al menos 10 caracteres',
+    },
   },
   toast: {
     sending: 'Enviando mensaje...',
