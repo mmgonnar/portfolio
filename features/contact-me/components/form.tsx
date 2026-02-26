@@ -51,8 +51,20 @@ export default function Form({ toggleModal }: FormProps) {
           type={field.type}
           placeholder={t(field.placeholder)}
           name={field.name}
+          required
         />
       ))}
+      <div
+        className="absolute -z-1 h-0 w-0 overflow-hidden opacity-0"
+        aria-hidden="true"
+      >
+        <input
+          type="text"
+          name="phone_extension"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <NeobrutalistButton
         className="w-full"
