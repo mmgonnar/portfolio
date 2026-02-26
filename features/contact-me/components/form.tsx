@@ -2,16 +2,21 @@
 
 import { NeobrutalistButton } from '@/features/footer';
 import Input from '@/features/ui/components/input';
-import { formFields } from '../utils/constants';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 import { api, ContactMessage } from '@/utils/api';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { formFields } from '../utils/constants';
 
-export default function Form() {
+interface FormProps {
+  toggleModal: () => void;
+}
+
+export default function Form({ toggleModal }: FormProps) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+    const form = evt.currentTarget;
     setLoading(true);
 
     const formData = new FormData(evt.currentTarget);
@@ -23,9 +28,12 @@ export default function Form() {
 
     try {
       await api.sendContact(data);
-      evt.currentTarget.reset();
+      form.reset();
+      toggleModal();
+      alert('¡Mensaje enviado con éxito!');
     } catch (error) {
-      console.error('ERROR');
+      console.error('Error sending form:', error);
+      alert('Hubo un fallo al enviar. Revisa los datos.');
     } finally {
       setLoading(false);
     }
@@ -46,7 +54,10 @@ export default function Form() {
         />
       ))}
 
-      <NeobrutalistButton className="w-full" text="Submit" />
+      <NeobrutalistButton
+        className="w-full"
+        text={loading ? t('button.sending') : t('button.submit')}
+      />
 
       <p className="text-center text-neutral-400">{t('form.footerCopy')}</p>
     </form>

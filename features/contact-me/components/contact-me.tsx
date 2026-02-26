@@ -61,7 +61,7 @@ export default function ContactMe() {
         }}
         className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-[3px]"
       >
-        <Form />
+        <Form toggleModal={toggleModal} />
       </Modal>
     </section>
   );

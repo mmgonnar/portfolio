@@ -14,6 +14,7 @@ export const enTranslations = {
     contact: 'contact me ;)',
     knowMeBetter: 'Know me better',
     submit: 'submit',
+    sending: 'sending...',
   },
   language: {
     changeLanguage: 'change language',
@@ -122,7 +123,8 @@ export const esTranslations = {
     switchDesign: 'rediseñar web',
     contact: 'contáctame ;)',
     knowMeBetter: 'Conóceme mejor',
-    submit: 'submit',
+    submit: 'enviar',
+    sending: 'enviando...',
   },
   language: {
     changeLanguage: 'cambiar idioma',
