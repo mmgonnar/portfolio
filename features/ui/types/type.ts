@@ -73,4 +73,5 @@ export interface InputsProps {
   id: string;
   required?: boolean;
   placeholder?: string;
+  name: string;
 }

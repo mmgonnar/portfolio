@@ -1,18 +1,18 @@
-export const formFIelds = [
+export const formFields = [
   {
-    name: 'form.name',
+    name: 'name',
     label: 'form.name',
     type: 'text',
     placeholder: 'form.namePlaceholder',
   },
   {
-    name: 'form.email',
+    name: 'email',
     label: 'form.email',
     type: 'email',
     placeholder: 'form.emailPlaceholder',
   },
   {
-    name: 'form.message',
+    name: 'message',
     label: 'Message',
     type: 'textarea',
     placeholder: 'form.messagePlaceholder',

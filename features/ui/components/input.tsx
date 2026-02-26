@@ -10,6 +10,7 @@ export default function Input({
   id,
   required,
   placeholder,
+  name,
 }: InputsProps) {
   return (
     <div className="flex w-full flex-col gap-2">
@@ -21,7 +22,35 @@ export default function Input({
       >
         {label}
       </label>
-      <input
+      {type === 'textarea' ? (
+        <textarea
+          name={name}
+          id={id}
+          required={required}
+          placeholder={placeholder}
+          rows={4}
+          className={cn(
+            'border-[3px] border-black bg-white p-3 font-mono outline-none',
+            'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all focus:translate-x-1 focus:translate-y-1 focus:shadow-none',
+            className
+          )}
+        />
+      ) : (
+        <input
+          name={name}
+          id={id}
+          type={type}
+          required={required}
+          placeholder={placeholder}
+          className={cn(
+            'border-[3px] border-black bg-white p-3 font-mono outline-none',
+            'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all focus:translate-x-1 focus:translate-y-1 focus:shadow-none',
+            className
+          )}
+        />
+      )}
+      {/* <input
+        name={name}
         required={required}
         placeholder={placeholder}
         id={id}
@@ -31,7 +60,7 @@ export default function Input({
           'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all focus:translate-x-1 focus:translate-y-1 focus:shadow-none',
           className
         )}
-      />
+      /> */}
     </div>
   );
 }
