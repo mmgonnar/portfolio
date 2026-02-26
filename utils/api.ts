@@ -9,6 +9,7 @@ export interface ContactMessage {
 
 export const api = {
   sendContact: async (data: ContactMessage) => {
+    console.log('Enviando a:', API_URL);
     const response = await fetch(`${API_URL}/contact`, {
       method: 'POST',
       headers: {
