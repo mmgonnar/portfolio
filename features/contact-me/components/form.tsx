@@ -82,7 +82,7 @@ export default function Form({ toggleModal }: { toggleModal: () => void }) {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mb-4 flex w-105 flex-col gap-4 p-4"
+      className="mb-4 flex flex-col gap-4 p-4 md:w-105"
     >
       <h5 className="text-neutral-700">{t('form.heading')}</h5>
       {formFields.map(field => (
