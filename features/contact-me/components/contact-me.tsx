@@ -50,7 +50,7 @@ export default function ContactMe() {
           variant="secondary"
           className="hover:bg-amber-400"
           onClick={() => {
-            (console.log('clic'), toggleModal());
+            toggleModal();
           }}
         />
       </TerminalBanner>

@@ -10,10 +10,14 @@ export default function NeobrutalistButton({
   href,
   variant = 'default',
   onClick,
+  disabled,
+  type = 'button',
 }: NeobrutalistButtonProps) {
   return href ? (
     <Link href={href}>
       <button
+        type={type}
+        disabled={disabled}
         className={cn(
           className,
           'bg-neon h-15 cursor-pointer rounded-none border-4 border-black p-3 font-mono text-base font-semibold text-black shadow-[8px_8px_0_#000] transition duration-300 ease-in-out outline-none hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0_#000]',
@@ -26,9 +30,11 @@ export default function NeobrutalistButton({
     </Link>
   ) : (
     <button
+      type={type}
+      disabled={disabled}
       className={cn(
         className,
-        'bg-neon h-15 cursor-pointer rounded-none border-4 border-black p-3 font-mono text-base font-semibold text-black shadow-[8px_8px_0_#000] transition duration-300 ease-in-out outline-none hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0_#000]',
+        'bg-neon cursor-poi nter h-15 rounded-none border-4 border-black p-3 font-mono text-base font-semibold text-black shadow-[8px_8px_0_#000] transition duration-300 ease-in-out outline-none hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0_#000]',
         buttonVariants[variant]
       )}
       onClick={onClick}

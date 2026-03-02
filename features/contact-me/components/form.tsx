@@ -1,99 +1,120 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
+import { useContactForm } from '../hooks/useContactForm';
+import { formFields } from '../utils/constants';
 import { NeobrutalistButton } from '@/features/footer';
 import Input from '@/features/ui/components/input';
-import { api, ContactMessage } from '@/utils/api';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { formFields } from '../utils/constants';
-import { apiCallToast } from '@/utils/functions';
-import { contactSchema } from '@/utils/schema';
-import toast from 'react-hot-toast';
+import { ContactFormData, contactSchema } from '../utils/schema';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-interface FormProps {
-  toggleModal: () => void;
-}
+// export default function Form({ toggleModal }: { toggleModal: () => void }) {
+//   const { t } = useTranslation();
+//   const {
+//     register,
+//     handleSubmit,
+//     onSubmit,
+//     formState: { errors, isSubmitting },
+//   } = useContactForm(toggleModal);
 
-export default function Form({ toggleModal }: FormProps) {
+//   return (
+//     <form
+//       className="flex w-105 flex-col gap-8 p-4"
+//       onSubmit={handleSubmit(onSubmit)}
+//       noValidate
+//     >
+//       <h5 className="text-neutral-700">{t('form.heading')}</h5>
+
+//       {formFields.map(field => (
+//         <div key={field.name} className="flex flex-col gap-1">
+//           <Input
+//             id={field.name}
+//             label={t(field.label)}
+//             type={field.type}
+//             placeholder={t(field.placeholder)}
+//             {...register(field.name as any)}
+//           />
+
+//           {errors[field.name as keyof typeof errors] && (
+//             <span className="text-xs font-bold text-red-500 uppercase">
+//               {t(
+//                 errors[field.name as keyof ContactFormData]?.message as string
+//               )}
+//             </span>
+//           )}
+//         </div>
+//       ))}
+//       <div
+//         className="absolute -z-1 h-0 w-0 overflow-hidden opacity-0"
+//         aria-hidden="true"
+//       >
+//         <input
+//           type="text"
+//           {...register('phone_extension')}
+//           tabIndex={-1}
+//           autoComplete="off"
+//         />
+//       </div>
+
+//       <NeobrutalistButton
+//         className="w-full"
+//         text={isSubmitting ? t('button.sending') : t('button.submit')}
+//         disabled={isSubmitting}
+//       />
+
+//       <p className="text-center text-neutral-400">{t('form.footerCopy')}</p>
+//     </form>
+//   );
+// }
+
+export default function Form({ toggleModal }: { toggleModal: () => void }) {
   const { t } = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const handleSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-    const form = evt.currentTarget;
-    setLoading(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    mode: 'onChange', // Valida mientras escribes
+  });
 
-    const formData = new FormData(evt.currentTarget);
-    const rawData = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-      phone_extension: formData.get('phone_extension'),
-    };
-
-    const result = contactSchema.safeParse(rawData);
-
-    if (!result.success) {
-      const firstError = result.error.issues[0];
-      toast.error(t(firstError.message));
-      return;
-    }
-
-    const validatedData = result.data;
-    // const data: ContactMessage = {
-    //   name: formData.get('name') as string,
-    //   email: formData.get('email') as string,
-    //   message: formData.get('message') as string,
-    //   phone_extension: (formData.get('phone_extension') as string) || '',
-    // };
-
-    try {
-      await apiCallToast(api.sendContact(validatedData), {
-        loading: t('toast.sending'),
-        successMessage: t('toast.success_msg'),
-        errorMessage: t('toast.error_msg'),
-      });
-      form.reset();
-      toggleModal();
-    } catch (error) {
-      console.error('Error sending form:', error);
-    } finally {
-      setLoading(false);
-    }
+  const onSubmit = (data: ContactFormData) => {
+    // Aquí llamas a tu apiCallToast con 'data'
+    console.log('Datos listos para enviar:', data);
   };
 
   return (
-    <form className="flex w-105 flex-col gap-8 p-4" onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className="mb-4 flex w-105 flex-col gap-2 p-4"
+    >
       <h5 className="text-neutral-700">{t('form.heading')}</h5>
-
       {formFields.map(field => (
-        <Input
-          key={field.name}
-          label={t(field.label)}
-          id={field.name}
-          type={field.type}
-          placeholder={t(field.placeholder)}
-          name={field.name}
-          required
-        />
+        <div key={field.name} className="mb-4">
+          <Input
+            id={field.name}
+            label={t(field.label)}
+            type={field.type}
+            placeholder={t(field.placeholder)}
+            {...register(field.name as any)}
+          />
+          {errors[field.name as keyof ContactFormData] && (
+            <p className="mt-1 text-xs font-bold text-red-500 uppercase">
+              {t(
+                errors[field.name as keyof ContactFormData]?.message as string
+              )}
+            </p>
+          )}
+        </div>
       ))}
-      <div
-        className="absolute -z-1 h-0 w-0 overflow-hidden opacity-0"
-        aria-hidden="true"
-      >
-        <input
-          type="text"
-          name="phone_extension"
-          tabIndex={-1}
-          autoComplete="off"
-        />
-      </div>
-
       <NeobrutalistButton
-        className="w-full"
-        text={loading ? t('button.sending') : t('button.submit')}
+        type="submit"
+        className="mt-2 w-full"
+        text={isSubmitting ? t('button.sending') : t('button.submit')}
+        disabled={isSubmitting}
       />
-
-      <p className="text-center text-neutral-400">{t('form.footerCopy')}</p>
     </form>
   );
 }

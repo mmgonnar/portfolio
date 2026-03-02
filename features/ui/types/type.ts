@@ -12,6 +12,8 @@ export interface NeobrutalistButtonProps {
   href?: string;
   variant?: keyof typeof buttonVariants;
   onClick?: () => void;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export interface ContetnSectionProps {
@@ -74,4 +76,6 @@ export interface InputsProps {
   required?: boolean;
   placeholder?: string;
   name: string;
+  // ref: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+  // ...props: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 }
