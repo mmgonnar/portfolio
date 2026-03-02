@@ -55,6 +55,7 @@ export default function ContactMe() {
         />
       </TerminalBanner>
       <Modal
+        closeButtonVariant="inside"
         modalOpen={modalOpen}
         toggleModal={() => {
           toggleModal();

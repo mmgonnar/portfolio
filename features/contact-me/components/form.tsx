@@ -70,29 +70,23 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function Form({ toggleModal }: { toggleModal: () => void }) {
   const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
+    onSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    mode: 'onChange', // Valida mientras escribes
-  });
-
-  const onSubmit = (data: ContactFormData) => {
-    // Aquí llamas a tu apiCallToast con 'data'
-    console.log('Datos listos para enviar:', data);
-  };
+  } = useContactForm(toggleModal);
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mb-4 flex w-105 flex-col gap-2 p-4"
+      className="mb-4 flex w-105 flex-col gap-4 p-4"
     >
       <h5 className="text-neutral-700">{t('form.heading')}</h5>
       {formFields.map(field => (
-        <div key={field.name} className="mb-4">
+        <div key={field.name} className="relative mb-4">
           <Input
             id={field.name}
             label={t(field.label)}
@@ -101,7 +95,7 @@ export default function Form({ toggleModal }: { toggleModal: () => void }) {
             {...register(field.name as any)}
           />
           {errors[field.name as keyof ContactFormData] && (
-            <p className="mt-1 text-xs font-bold text-red-500 uppercase">
+            <p className="absolute left-1 mt-[6px] text-xs font-bold text-red-500">
               {t(
                 errors[field.name as keyof ContactFormData]?.message as string
               )}

@@ -53,7 +53,8 @@ export interface ModalProps {
   toggleModal: () => void;
   modalOpen: boolean;
   className?: string;
-  classNameBackgrpound?: string;
+  classNameBackground?: string;
+  closeButtonVariant?: 'inside' | 'outside';
 }
 
 export interface TerminalBannerProps {
