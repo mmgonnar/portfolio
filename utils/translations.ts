@@ -60,14 +60,14 @@ export const enTranslations = {
       highschool:
         'Modern institutional website for High School No. 4, optimizing academic communication and information delivery.',
       portfolio:
-        'Professional portfolio developed with Next.js 15 and React 19 following clean architecture principles.',
+        'A high-performance distributed system combining a Next.js 15 frontend with a Python-based FastAPI backend and Supabase cloud storage.',
     },
     checkSite: 'Check Site',
     projectTitle: {
       classAid: 'ClassAid',
       around: 'Web Project Around Us',
       highschool: "'Pablo Neruda' Highschool No. 4",
-      portfolio: 'Portfolio',
+      portfolio: 'Portfolio UI',
     },
     features: {
       classaid: {
@@ -83,8 +83,8 @@ export const enTranslations = {
         f2: 'Modular interface with Shadcn UI, reusable components, and mobile-first responsive design.',
       },
       portfolio: {
-        f1: 'Feature-based architecture, multi-language i18n support, and strict TypeScript typing system.',
-        f2: 'Modular interface with Shadcn UI, reusable components, and mobile-first responsive design.',
+        f1: 'Distributed architecture: Next.js 15 frontend integrated with a Python (FastAPI) backend.',
+        f2: 'Scalable ecosystem featuring multi-language i18n, strict TypeScript typing, and Supabase persistence.',
       },
     },
   },
@@ -180,14 +180,14 @@ export const esTranslations = {
       highschool:
         'Sitio institucional moderno para la Preparatoria No. 4, optimizando la comunicación y difusión académica.',
       portfolio:
-        'Portafolio profesional desarrollado con Next.js 15 y React 19 bajo principios de arquitectura limpia.',
+        'Sistema distribuido de alto rendimiento que combina un frontend en Next.js 15 con un backend en Python (FastAPI) y almacenamiento en Supabase.',
     },
     checkSite: 'Visitar Sitio',
     projectTitle: {
       classAid: 'ClassAid',
       around: 'Proyecto Web Around Us',
       highschool: "Preparatoria No.4 'Pablo Neruda'",
-      portfolio: 'Portafolio',
+      portfolio: 'Portafolio UI',
     },
     features: {
       classaid: {
@@ -203,8 +203,8 @@ export const esTranslations = {
         f2: 'Interfaz modular con Shadcn UI, componentes reutilizables y diseño mobile-first responsivo.',
       },
       portfolio: {
-        f1: 'Arquitectura basada en features, soporte multiidioma i18n y tipado estricto con TypeScript.',
-        f2: 'Interfaz responsiva con Tailwind CSS 4, Framer Motion y componentes Radix UI.',
+        f1: 'Arquitectura distribuida: Frontend en Next.js 15 integrado con un backend en Python (FastAPI).',
+        f2: 'Ecosistema escalable con soporte multiidioma i18n, tipado estricto con TypeScript y persistencia en Supabase.',
       },
     },
   },

@@ -105,8 +105,8 @@ export const projects = [
     icons: portfolioTools,
     image: Portfolio,
     logo: PortfolioLogo,
-    href: 'https://portfolio-six-phi-849ndn28g0.vercel.app/',
-    github: 'https://github.com/mmgonnar/portfolio',
+    href: 'https://github.com/mmgonnar/portfolio_backend',
+    github: 'https://github.com/mmgonnar/portfolio_backend',
     features: [
       'projects.features.portfolio.f1',
       'projects.features.portfolio.f2',
