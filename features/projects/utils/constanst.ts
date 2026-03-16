@@ -59,12 +59,8 @@ export const projects = [
     logo: ClassaidLogo,
     href: 'https://classaidfrontend.vercel.app/',
     github: 'https://github.com/mmgonnar/classaid_frontend',
-    features: [
-      'projects.features.classaid.f1',
-      'projects.features.classaid.f2',
-    ],
-    className:
-      'custom-md:col-start-1 custom-md:row-start-1 col-start-1 row-start-1',
+    features: ['projects.features.classaid.f1', 'projects.features.classaid.f2'],
+    className: 'custom-md:col-start-1 custom-md:row-start-1 col-start-1 row-start-1',
     classNameModal:
       'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-1 row-end-3',
   },
@@ -74,11 +70,10 @@ export const projects = [
     icons: aroundTools,
     image: AUS,
     logo: AUSLogo,
-    href: 'https://18-web-project-api-full-frontend.vercel.app/signup',
+    href: 'https://18-web-project-api-full-frontend.vercel.app/signin',
     github: 'https://github.com/mmgonnar/web_project_api_full',
     features: ['projects.features.around.f1', 'projects.features.around.f2'],
-    className:
-      'custom-md:col-start-2 custom-md:row-start-1 col-start-1 row-start-2',
+    className: 'custom-md:col-start-2 custom-md:row-start-1 col-start-1 row-start-2',
     classNameModal:
       'col-span-1 custom-md:col-start-2 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 col-start-1 row-start-2 row-end-4',
   },
@@ -90,12 +85,8 @@ export const projects = [
     logo: UagroLogo,
     href: 'https://web-uagro-prepa4.vercel.app/',
     github: 'https://github.com/mmgonnar/web_uagro_prepa4',
-    features: [
-      'projects.features.highschool.f1',
-      'projects.features.highschool.f2',
-    ],
-    className:
-      'custom-md:col-start-1 custom-md:row-start-2 col-start-1 row-start-3',
+    features: ['projects.features.highschool.f1', 'projects.features.highschool.f2'],
+    className: 'custom-md:col-start-1 custom-md:row-start-2 col-start-1 row-start-3',
     classNameModal:
       'col-span-1 col-start-1 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-3 row-end-5',
   },
@@ -107,12 +98,8 @@ export const projects = [
     logo: PortfolioLogo,
     href: 'https://github.com/mmgonnar/portfolio_backend',
     github: 'https://github.com/mmgonnar/portfolio_backend',
-    features: [
-      'projects.features.portfolio.f1',
-      'projects.features.portfolio.f2',
-    ],
-    className:
-      'custom-md:col-start-2 custom-md:row-start-2 col-start-1 row-start-4',
+    features: ['projects.features.portfolio.f1', 'projects.features.portfolio.f2'],
+    className: 'custom-md:col-start-2 custom-md:row-start-2 col-start-1 row-start-4',
     classNameModal:
       'col-span-1 custom-md:col-start-2 col-end-2 custom-md:row-start-1 custom-md:-row-end-1 row-start-3 row-end-5',
   },
