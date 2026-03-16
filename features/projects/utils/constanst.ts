@@ -70,7 +70,7 @@ export const projects = [
     icons: aroundTools,
     image: AUS,
     logo: AUSLogo,
-    href: 'https://18-web-project-api-full-frontend.vercel.app/signin',
+    href: 'https://18-web-project-api-full-frontend.vercel.app/',
     github: 'https://github.com/mmgonnar/web_project_api_full',
     features: ['projects.features.around.f1', 'projects.features.around.f2'],
     className: 'custom-md:col-start-2 custom-md:row-start-1 col-start-1 row-start-2',
