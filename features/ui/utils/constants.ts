@@ -1,11 +1,12 @@
 //export const buttonActions = [{ text: 'button.switchDesign', href: '/' }];
 export const buttonActions = [{ text: 'button.contact', href: '#contact' }];
-import { History, CircleAlert, Newspaper, UserStar } from 'lucide-react';
+import { History, CircleAlert, Newspaper, UserStar, Clock, ShieldCheck, Save } from 'lucide-react';
 
 export const buttonVariants = {
   default: 'px-7',
   white: 'bg-white hover:bg-neon px-7',
   secondary: 'bg-white hover:bg-neutral-100 px-7',
+  ghost: 'bg-transparent hover:bg-neutral-100 px-7',
 };
 
 export const alignmets = {
@@ -18,6 +19,7 @@ export const labelVariants = {
   default: ' text-neutral-600 bg-neutral-200',
   secondary: 'text-main-red bg-main-red/20',
   announcement: 'bg-main-red text-white font-semibold',
+  ghost: 'bg-transparent hover:bg-neutral-100 px-7',
 };
 
 export const labelIcons = {
@@ -25,4 +27,7 @@ export const labelIcons = {
   CircleAlert: CircleAlert,
   Newspaper: Newspaper,
   UserStar: UserStar,
+  Clock: Clock,
+  ShieldCheck: ShieldCheck,
+  Save: Save,
 };

@@ -15,6 +15,7 @@ export const enTranslations = {
     knowMeBetter: 'Know me better',
     submit: 'submit',
     sending: 'sending...',
+    beginTheBrief: 'Begin the brief >',
   },
   language: {
     changeLanguage: 'change language',
@@ -43,10 +44,8 @@ export const enTranslations = {
       'Created user-centric visual interfaces, with experience in graphic design and digital prototyping',
     frontend:
       'Development of dynamic and responsive interfaces, optimized for accessibility and performance.',
-    backend:
-      'Building scalable APIs and managing databases for robust applications.',
-    tools:
-      'Version control, API testing, and content management for complete projects.',
+    backend: 'Building scalable APIs and managing databases for robust applications.',
+    tools: 'Version control, API testing, and content management for complete projects.',
   },
   projects: {
     title: 'Featured Projects',
@@ -114,6 +113,11 @@ export const enTranslations = {
     success_msg: "Message sent! I'll get back to you soon",
     error_msg: 'Something went wrong. Please try again.',
   },
+  brief: {
+    minutes: '~8 Minutes',
+    autosaved: 'Auto-saved',
+    confidential: 'Confidential',
+  },
 };
 
 //! Spanish Translation starts here
@@ -135,6 +139,7 @@ export const esTranslations = {
     knowMeBetter: 'Conóceme mejor',
     submit: 'enviar',
     sending: 'enviando...',
+    beginTheBrief: 'Iniciar el brief >',
   },
   language: {
     changeLanguage: 'cambiar idioma',
@@ -165,8 +170,7 @@ export const esTranslations = {
       'Desarrollo de interfaces dinámicas y responsivas, optimizadas para accesibilidad y rendimiento.',
     backend:
       'Construcción de APIs escalables y manejo de bases de datos para aplicaciones robustas.',
-    tools:
-      'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
+    tools: 'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
   },
   projects: {
     title: 'Proyectos Destacados',
@@ -232,5 +236,10 @@ export const esTranslations = {
     sending: 'Enviando mensaje...',
     success_msg: '¡Mensaje enviado! Te contactaré pronto.',
     error_msg: 'Algo salió mal. Inténtalo de nuevo.',
+  },
+  brief: {
+    minutes: '~8 Minutos',
+    autosaved: 'Guardado Automatico',
+    confidential: 'Confidencial',
   },
 };

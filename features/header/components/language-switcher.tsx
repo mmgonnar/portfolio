@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="custom-lg:flex custom-md:block hidden items-center justify-end gap-1 font-mono">
+    <div className="custom-lg:flex custom-md:flex hidden items-center justify-end gap-1 font-mono">
       <Globe className="h-4 w-4 text-gray-600" />
       <button
         onClick={() => changeLanguage('es')}
@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
           'font-mono text-sm transition-colors',
           i18n.language === 'es'
             ? 'font-semibold text-green-600'
-            : 'text-gray-600 hover:text-gray-800'
+            : 'text-gray-600 hover:text-gray-800',
         )}
       >
         ES
@@ -32,7 +32,7 @@ export default function LanguageSwitcher() {
           'px-2 py-1 font-mono text-sm transition-colors',
           i18n.language === 'en'
             ? 'font-semibold text-green-600'
-            : 'text-gray-600 hover:text-gray-800'
+            : 'text-gray-600 hover:text-gray-800',
         )}
       >
         EN

@@ -9,10 +9,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <section
-      id="header"
-      className="m-auto w-full max-w-7xl items-center justify-center"
-    >
+    <header id="header" className="m-auto w-full max-w-7xl items-center justify-center">
       <div className="flex w-full items-center justify-between px-5 py-6 pb-4 md:px-10 md:py-5">
         <Logo />
         <Navbar />
@@ -25,6 +22,6 @@ export default function Header() {
           />
         </div>
       </div>
-    </section>
+    </header>
   );
 }
