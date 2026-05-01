@@ -11,28 +11,32 @@ export default function LanguageSwitcher() {
     i18n.changeLanguage(lng);
   };
 
+  const isSpanish = i18n.language?.startsWith('es');
+  const isEnglish = i18n.language?.startsWith('en');
+
   return (
-    <div className="custom-lg:flex custom-md:flex hidden items-center justify-end gap-1 font-mono">
-      <Globe className="h-4 w-4 text-gray-600" />
+    <div className="flex min-w-fit items-center justify-end gap-1 font-mono">
+      <Globe className="h-4 w-4 text-gray-400" />
+
       <button
         onClick={() => changeLanguage('es')}
         className={cn(
-          'font-mono text-sm transition-colors',
-          i18n.language === 'es'
-            ? 'font-semibold text-green-600'
-            : 'text-gray-600 hover:text-gray-800',
+          'px-1 py-1 text-xs transition-colors md:text-sm',
+
+          isSpanish ? 'text-green-brutalist font-bold' : 'text-gray-400 hover:text-black',
         )}
       >
         ES
       </button>
-      <span className="text-gray-400">|</span>
+
+      <span className="text-gray-300">|</span>
+
       <button
         onClick={() => changeLanguage('en')}
         className={cn(
-          'px-2 py-1 font-mono text-sm transition-colors',
-          i18n.language === 'en'
-            ? 'font-semibold text-green-600'
-            : 'text-gray-600 hover:text-gray-800',
+          'px-1 py-1 text-xs transition-colors md:text-sm',
+
+          isEnglish ? 'text-green-brutalist font-bold' : 'text-gray-400 hover:text-black',
         )}
       >
         EN

@@ -114,9 +114,20 @@ export const enTranslations = {
     error_msg: 'Something went wrong. Please try again.',
   },
   brief: {
-    minutes: '~8 Minutes',
-    autosaved: 'Auto-saved',
-    confidential: 'Confidential',
+    tag: '< Web Design Brief />',
+    title: 'A quiet conversation about your ',
+    titleAccent: 'project',
+    description:
+      "I listen carefully before I propose. Take eight unhurried minutes to share more details about your project. I'll respond with a tailored approach.",
+    minutes: '~8 MINUTES',
+    confidential: 'CONFIDENTIAL',
+    steps: {
+      '01': { title: 'You', desc: 'Contact info' },
+      '02': { title: 'Project', desc: 'Type & goals' },
+      '03': { title: 'Scope', desc: 'Features' },
+      '04': { title: 'Investment', desc: 'Budget & timeline' },
+      '05': { title: 'Confirm', desc: 'Review & submit' },
+    },
   },
 };
 
@@ -238,8 +249,19 @@ export const esTranslations = {
     error_msg: 'Algo salió mal. Inténtalo de nuevo.',
   },
   brief: {
-    minutes: '~8 Minutos',
-    autosaved: 'Guardado Automatico',
-    confidential: 'Confidencial',
+    tag: '< Brief Diseño Web />',
+    title: 'Conversemos un poco  sobre tu ',
+    titleAccent: 'proyecto',
+    description:
+      'Escucho cuidadosamente antes de proponer. Tómate ocho minutos tranquilos para compartir más detalles sobre tu proyecto. Responderé con un enfoque a medida.',
+    minutes: '~8 MINUTOS',
+    confidential: 'CONFIDENCIAL',
+    steps: {
+      '01': { title: 'Tú', desc: 'Información de contacto' },
+      '02': { title: 'Proyecto', desc: 'Tipo y objetivos' },
+      '03': { title: 'Alcance', desc: 'Funcionalidades' },
+      '04': { title: 'Inversión', desc: 'Presupuesto y tiempo' },
+      '05': { title: 'Confirmar', desc: 'Revisar y enviar' },
+    },
   },
 };
