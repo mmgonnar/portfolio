@@ -1,30 +1,36 @@
 'use client';
 
+import BriefInput from '@/features/ui/components/brief-input';
 import { useTranslation } from 'react-i18next';
 
 export default function BriefIntroCards() {
   const { t } = useTranslation();
 
+  const stepKeys = ['one', 'two', 'three', 'four', 'five'];
+
+  const stepNumbers = ['01', '02', '03', '04', '05'];
+
   return (
-    <div>
-      <div className="custom-sm:grid-cols-3 mb-6 grid grid-cols-1 gap-0 md:grid-cols-5">
-        {[
-          { id: '01', title: 'You', desc: 'Contact info' },
-          { id: '02', title: 'Project', desc: 'Type & goals' },
-          { id: '03', title: 'Scope', desc: 'Features' },
-          { id: '04', title: 'Investment', desc: 'Budget & timeline' },
-          { id: '05', title: 'Confirm', desc: 'Review & submit' },
-        ].map(item => (
+    <div className="mb-10">
+      <div className="grid grid-cols-1 border-t border-l border-gray-200 sm:grid-cols-3 md:grid-cols-5">
+        {stepKeys.map((key, index) => (
           <div
-            key={item.id}
-            className="group flex flex-col gap-3 border border-gray-200 p-8 transition-colors hover:bg-gray-50"
+            key={key}
+            className="group flex flex-col gap-3 border-r border-b border-gray-200 p-8 transition-colors hover:bg-gray-50"
           >
-            <span className="text-green-brutalist font-mono text-sm font-bold">{item.id}</span>
-            <h3 className="text-xl font-bold">{item.title}</h3>
-            <p className="text-sm leading-snug text-gray-400">{item.desc}</p>
+            <span className="text-green-brutalist font-mono text-sm font-bold">
+              {stepNumbers[index]}
+            </span>
+
+            <h3 className="text-xl font-bold tracking-tight text-black uppercase">
+              {t(`brief.steps.0.${key}.title`)}
+            </h3>
+
+            <p className="text-sm leading-snug text-gray-400">{t(`brief.steps.0.${key}.desc`)}</p>
           </div>
         ))}
       </div>
+      <BriefInput label="dasda" id="asdad" name="sfasfsa" />
     </div>
   );
 }

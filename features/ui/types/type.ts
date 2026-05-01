@@ -1,9 +1,4 @@
-import {
-  alignmets,
-  buttonVariants,
-  labelIcons,
-  labelVariants,
-} from '../utils/constants';
+import { alignmets, buttonVariants, labelIcons, labelVariants } from '../utils/constants';
 import { ReactNode } from 'react';
 
 export interface NeobrutalistButtonProps {
@@ -77,6 +72,7 @@ export interface InputsProps {
   required?: boolean;
   placeholder?: string;
   name: string;
+  error?: any;
   // ref: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   // ...props: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 }

@@ -121,13 +121,15 @@ export const enTranslations = {
       "I listen carefully before I propose. Take eight unhurried minutes to share more details about your project. I'll respond with a tailored approach.",
     minutes: '~8 MINUTES',
     confidential: 'CONFIDENTIAL',
-    steps: {
-      '01': { title: 'You', desc: 'Contact info' },
-      '02': { title: 'Project', desc: 'Type & goals' },
-      '03': { title: 'Scope', desc: 'Features' },
-      '04': { title: 'Investment', desc: 'Budget & timeline' },
-      '05': { title: 'Confirm', desc: 'Review & submit' },
-    },
+    steps: [
+      {
+        one: { title: 'You', desc: 'Contact info' },
+        two: { title: 'Project', desc: 'Type & goals' },
+        three: { title: 'Scope', desc: 'Features' },
+        four: { title: 'Investment', desc: 'Budget & timeline' },
+        five: { title: 'Confirm', desc: 'Review & submit' },
+      },
+    ],
   },
 };
 
@@ -253,15 +255,17 @@ export const esTranslations = {
     title: 'Conversemos un poco  sobre tu ',
     titleAccent: 'proyecto',
     description:
-      'Escucho cuidadosamente antes de proponer. Tómate ocho minutos tranquilos para compartir más detalles sobre tu proyecto. Responderé con un enfoque a medida.',
+      'Te leo cuidadosamente antes de proponer. Tómate unos minutos para compartir más detalles sobre tu proyecto. Responderé con un enfoque a medida.',
     minutes: '~8 MINUTOS',
     confidential: 'CONFIDENCIAL',
-    steps: {
-      '01': { title: 'Tú', desc: 'Información de contacto' },
-      '02': { title: 'Proyecto', desc: 'Tipo y objetivos' },
-      '03': { title: 'Alcance', desc: 'Funcionalidades' },
-      '04': { title: 'Inversión', desc: 'Presupuesto y tiempo' },
-      '05': { title: 'Confirmar', desc: 'Revisar y enviar' },
-    },
+    steps: [
+      {
+        one: { title: 'Tú', desc: 'Información de contacto' },
+        two: { title: 'Proyecto', desc: 'Tipo y objetivos' },
+        three: { title: 'Alcance', desc: 'Funcionalidades' },
+        four: { title: 'Inversión', desc: 'Presupuesto y tiempo' },
+        five: { title: 'Confirmar', desc: 'Revisar y enviar' },
+      },
+    ],
   },
 };
