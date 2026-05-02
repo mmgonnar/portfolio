@@ -16,6 +16,9 @@ export const enTranslations = {
     submit: 'submit',
     sending: 'sending...',
     beginTheBrief: 'Begin the brief >',
+    continue: 'Continue >',
+    back: 'Back',
+    next: 'Next',
   },
   language: {
     changeLanguage: 'change language',
@@ -121,7 +124,7 @@ export const enTranslations = {
       "I listen carefully before I propose. Take eight unhurried minutes to share more details about your project. I'll respond with a tailored approach.",
     minutes: '~8 MINUTES',
     confidential: 'CONFIDENTIAL',
-    steps: [
+    introCards: [
       {
         one: { title: 'You', desc: 'Contact info' },
         two: { title: 'Project', desc: 'Type & goals' },
@@ -130,6 +133,18 @@ export const enTranslations = {
         five: { title: 'Confirm', desc: 'Review & submit' },
       },
     ],
+    steps: {
+      step1: {
+        name: 'What´s your Name?',
+        namePlaceholder: 'Enter your full name',
+        email: 'How can I reach you?',
+        emailPlaceholder: 'Enter your email address',
+        project: 'And your company or brand?',
+        projectPlaceholder: 'Enter your company or project name (Optional)',
+      },
+      step2: {},
+      step3: {},
+    },
   },
 };
 
@@ -153,6 +168,9 @@ export const esTranslations = {
     submit: 'enviar',
     sending: 'enviando...',
     beginTheBrief: 'Iniciar el brief >',
+    continue: 'Continuar >',
+    back: 'Atrás',
+    next: 'Siguiente',
   },
   language: {
     changeLanguage: 'cambiar idioma',
@@ -258,7 +276,7 @@ export const esTranslations = {
       'Te leo cuidadosamente antes de proponer. Tómate unos minutos para compartir más detalles sobre tu proyecto. Responderé con un enfoque a medida.',
     minutes: '~8 MINUTOS',
     confidential: 'CONFIDENCIAL',
-    steps: [
+    introCards: [
       {
         one: { title: 'Tú', desc: 'Información de contacto' },
         two: { title: 'Proyecto', desc: 'Tipo y objetivos' },
@@ -267,5 +285,17 @@ export const esTranslations = {
         five: { title: 'Confirmar', desc: 'Revisar y enviar' },
       },
     ],
+    steps: {
+      step1: {
+        name: '¿Cúal es tu nombre?',
+        namePlaceholder: 'Ingresa tu nombre completo',
+        email: '¿Cómo te puedo contactar?',
+        emailPlaceholder: 'Ingresa tu correo',
+        project: '¿Cómo se llama tu negocio o proyecto?',
+        projectPlaceholder: 'Ingresa el nombre de tu negocio o proyecto (Opcional)',
+      },
+      step2: {},
+      step3: {},
+    },
   },
 };

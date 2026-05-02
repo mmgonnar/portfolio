@@ -22,7 +22,7 @@ const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProp
     return (
       <div className="flex w-full flex-col">
         {label && (
-          <label className="mb-1 font-mono text-[10px] font-bold tracking-widest text-neutral-400 uppercase">
+          <label className="mb-1 font-mono text-sm font-bold tracking-widest text-neutral-400 uppercase">
             {label}
           </label>
         )}
@@ -44,9 +44,9 @@ const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProp
           />
         )}
 
-        {/* Manejo de errores visuales */}
+        {/* Manejo de errores  */}
         {error && (
-          <span className="mt-2 font-mono text-[10px] font-bold tracking-tighter text-red-500 uppercase italic">
+          <span className="mt-2 font-mono text-xs font-bold tracking-tighter text-red-500 uppercase">
             {error}
           </span>
         )}

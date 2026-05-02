@@ -2,16 +2,19 @@
 
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
+import { StepPersonalData } from './steps/StepPersonalData';
 
 export const BriefManager = () => {
   const currentStep = useBriefStore(state => state.currentStep);
+  console.log('Renderizando paso:', currentStep);
 
   switch (currentStep) {
     case 0:
       return <BriefIntro />;
     case 1:
-      return <div className="p-20 text-center">Paso 1: Datos Personales (Próximamente)</div>;
+      return <StepPersonalData />;
     default:
+      console.warn('Paso no definido:', currentStep);
       return <BriefIntro />;
   }
 };

@@ -10,6 +10,8 @@ interface BriefState {
   nextStep: () => void;
   prevStep: () => void;
   resetBrief: () => void;
+  isStepValid: boolean;
+  setStepValid: (isValid: boolean) => void;
 }
 
 export const useBriefStore = create<BriefState>()(
@@ -24,6 +26,7 @@ export const useBriefStore = create<BriefState>()(
         features: [],
         budget: '',
         timeline: '',
+        isStepValid: false,
       },
       currentStep: 0, //Intro
 
@@ -32,8 +35,20 @@ export const useBriefStore = create<BriefState>()(
           formData: { ...state.formData, [field]: value },
         })),
 
-      nextStep: () => set(state => ({ currentStep: state.currentStep + 1 })),
-      prevStep: () => set(state => ({ currentStep: state.currentStep - 1 })),
+      nextStep: () =>
+        set(state => {
+          const next = state.currentStep + 1;
+          const MAX_STEPS = 11;
+
+          return {
+            currentStep: next <= MAX_STEPS ? next : state.currentStep,
+          };
+        }),
+
+      prevStep: () =>
+        set(state => ({
+          currentStep: state.currentStep > 0 ? state.currentStep - 1 : 0,
+        })),
 
       resetBrief: () =>
         set({
@@ -49,6 +64,8 @@ export const useBriefStore = create<BriefState>()(
             timeline: '',
           },
         }),
+      isStepValid: false,
+      setStepValid: isValid => set({ isStepValid: isValid }),
     }),
     {
       name: 'brief-storage',

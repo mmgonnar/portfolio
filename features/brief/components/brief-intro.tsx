@@ -19,7 +19,11 @@ export const BriefIntro = () => {
         <BriefIntroCards />
 
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-          <NeobrutalistButton onClick={nextStep} text={t('button.beginTheBrief')} />
+          <NeobrutalistButton
+            type="button"
+            onClick={() => nextStep()}
+            text={t('button.beginTheBrief')}
+          />
 
           <div className="flex flex-col items-start gap-2 text-gray-400 sm:flex-row sm:items-center md:gap-4">
             <Label variant="ghost" labelText={t('brief.minutes')} icon="Clock" className="px-0" />

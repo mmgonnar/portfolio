@@ -23,10 +23,12 @@ export default function BriefIntroCards() {
             </span>
 
             <h3 className="text-xl font-bold tracking-tight text-black uppercase">
-              {t(`brief.steps.0.${key}.title`)}
+              {t(`brief.introCards.0.${key}.title`)}
             </h3>
 
-            <p className="text-sm leading-snug text-gray-400">{t(`brief.steps.0.${key}.desc`)}</p>
+            <p className="text-sm leading-snug text-gray-400">
+              {t(`brief.introCards.0.${key}.desc`)}
+            </p>
           </div>
         ))}
       </div>
