@@ -12,8 +12,8 @@ export const BriefIntro = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 py-4 font-sans text-black lg:py-8">
-      <div className="flex flex-col gap-4 md:gap-6 lg:gap-10">
+    <section className="mx-auto w-full max-w-5xl px-4 py-4 font-sans text-black lg:py-6">
+      <div className="flex flex-col gap-4 md:gap-6">
         <BriefDescription />
 
         <BriefIntroCards />

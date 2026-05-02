@@ -11,7 +11,7 @@ export default function BriefIntroCards() {
   const stepNumbers = ['01', '02', '03', '04', '05'];
 
   return (
-    <div className="mb-10">
+    <div className="mb-8">
       <div className="grid grid-cols-1 border-t border-l border-gray-200 sm:grid-cols-3 md:grid-cols-5">
         {stepKeys.map((key, index) => (
           <div
@@ -30,7 +30,6 @@ export default function BriefIntroCards() {
           </div>
         ))}
       </div>
-      <BriefInput label="dasda" id="asdad" name="sfasfsa" />
     </div>
   );
 }
