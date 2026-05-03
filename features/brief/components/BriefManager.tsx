@@ -1,10 +1,12 @@
 'use client';
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
+import { StepBudget } from './steps/StepBudget';
 import { StepFeatures } from './steps/StepFeatures';
 
 import { StepPersonalData } from './steps/StepPersonalData';
 import { StepProjectDefinition } from './steps/StepProjectDefinition';
+import { StepReferences } from './steps/StepReferences';
 import { StepVision } from './steps/StepVision';
 import { BriefProgressBar } from './ui/brief-progress-bar';
 
@@ -24,6 +26,10 @@ export const BriefManager = () => {
         return <StepFeatures />;
       case 4:
         return <StepVision />;
+      case 5:
+        return <StepReferences />;
+      case 6:
+        return <StepBudget />;
 
       default:
         return <BriefIntro />;

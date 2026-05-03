@@ -46,7 +46,7 @@ export default function Page() {
 
           {/* COLUMNA 2: COPYRIGHT (Oculto en móvil) */}
           <div className="hidden justify-center md:flex">
-            <Copyright className="text-sm tracking-tighter text-neutral-400 uppercase" />
+            <Copyright className="text-sm tracking-tighter text-neutral-700 uppercase" />
           </div>
 
           {/* COLUMNA 3: BOTÓN SIGUIENTE (Oculto en Step 0) */}
