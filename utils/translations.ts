@@ -230,7 +230,13 @@ export const enTranslations = {
         placeholder: 'https://example.com/...',
         addMore: '+ Add Link',
       },
-      step10: {},
+      step10: {
+        title: 'Is there anything else I should know?',
+        description:
+          "This is the space for any details, questions, or technical requirements that we haven't covered before",
+        placeholder:
+          'Eg:  I need the site to be compatible with X tool, or I have questions about...',
+      },
       step11: {},
     },
   },
@@ -407,7 +413,7 @@ export const esTranslations = {
         title: '¿Qué funcionalidades necesitas?',
         description:
           'Selecciona todas las que apliquen. Si no estás seguro de qué significa algún término o necesitas algo diferente, no dudes en escribirme.',
-        selectedLabel: 'Selected',
+        selectedLabel: 'Seleccionado',
         options: {
           cms: { title: 'Gestión de Contenidos', desc: 'Edita el contenido tú mismo' },
           auth: { title: 'Autenticación de Usuario', desc: 'Login y cuentas de usuario' },
@@ -473,7 +479,13 @@ export const esTranslations = {
         placeholder: 'https://dribbble.com/... o cualquier otro enlace',
         addMore: '+ Agregar otro enlace',
       },
-      step10: {},
+      step10: {
+        title: '¿Algo más que deba saber?',
+        description:
+          'Este es el espacio para cualquier detalle, duda o requerimiento técnico que no hayamos cubierto antes.',
+        placeholder:
+          'Ej: Necesito que el sitio sea compatible con X herramienta, o tengo dudas sobre...',
+      },
       step11: {},
     },
   },

@@ -1,6 +1,7 @@
 'use client';
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
+import { StepAdditionalNotes } from './steps/StepAdditionalNotes';
 import { StepBudget } from './steps/StepBudget';
 import { StepFeatures } from './steps/StepFeatures';
 import { StepFiles } from './steps/StepFiles';
@@ -29,13 +30,15 @@ export const BriefManager = () => {
       case 4:
         return <StepVision />;
       case 5:
-        return <StepReferences />;
-      case 6:
         return <StepBudget />;
-      case 7:
+      case 6:
         return <StepTimeline />;
-      case 8:
+      case 7:
         return <StepFiles />;
+      case 8:
+        return <StepReferences />;
+      case 9:
+        return <StepAdditionalNotes />;
 
       default:
         return <BriefIntro />;
