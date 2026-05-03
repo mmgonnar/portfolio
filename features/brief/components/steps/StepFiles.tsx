@@ -73,7 +73,7 @@ export const StepFiles = () => {
               </div>
               <button
                 onClick={() => removeFile(index)}
-                className="text-gray-400 transition-colors hover:text-red-500"
+                className="cursor-pointer text-gray-400 transition-colors hover:text-red-500"
               >
                 <X size={14} strokeWidth={3} />
               </button>

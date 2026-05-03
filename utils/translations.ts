@@ -111,6 +111,7 @@ export const enTranslations = {
       error_message_short: 'The message needs to be at least 10 characteres',
       error_project: 'Project type is required',
       error_goals: 'Please be a bit more descriptive about your goals',
+      error_invalid_url: 'Plase, add a valid URL (eg: https://...)',
     },
   },
   toast: {
@@ -189,8 +190,8 @@ export const enTranslations = {
       step5: {
         title: 'Any websites or designs that inspire you?',
         description: "Share URLs or describe the aesthetic you're aiming for",
-        placeholder: 'https://example.com - I love the clean layout...',
-        counter: 'minimum characters',
+        placeholder: 'https://example.com/...',
+        addMore: '+ Agregar otro enlace',
       },
       step6: {
         title: "What's your budget range? (uds)",
@@ -222,7 +223,13 @@ export const enTranslations = {
           info: 'Images, PDFs, Documents (Max 10MB each)',
         },
       },
-      step9: {},
+      step9: {
+        title: '¿Tienes alguna referencia visual?',
+        description:
+          'Pega enlaces a sitios web, tableros de Pinterest o perfiles de Dribbble que te inspiren.',
+        placeholder: 'https://example.com/...',
+        addMore: '+ Add Link',
+      },
       step10: {},
       step11: {},
     },
@@ -342,6 +349,7 @@ export const esTranslations = {
       error_name_short: 'El nombre es demasiado corto',
       error_email_invalid: 'Introduce un correo válido',
       error_message_short: 'El mensaje debe tener al menos 10 caracteres',
+      error_invalid_url: 'Por favor, ingresa una URL válida (ej: https://...)',
     },
   },
   toast: {
@@ -458,7 +466,13 @@ export const esTranslations = {
           info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
         },
       },
-      step9: {},
+      step9: {
+        title: '¿Tienes alguna referencia visual?',
+        description:
+          'Pega enlaces a sitios web, tableros de Pinterest o perfiles de Dribbble que te inspiren.',
+        placeholder: 'https://dribbble.com/... o cualquier otro enlace',
+        addMore: '+ Agregar otro enlace',
+      },
       step10: {},
       step11: {},
     },
