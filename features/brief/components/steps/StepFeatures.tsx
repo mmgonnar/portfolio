@@ -53,7 +53,6 @@ export const StepFeatures = () => {
         })}
       </div>
 
-      {/* Resumen dinámico de seleccionados */}
       {selectedFeatures.length > 0 && (
         <div className="animate-in fade-in slide-in-from-left-2 mt-4">
           <p className="font-mono text-[11px] leading-relaxed tracking-wider uppercase">

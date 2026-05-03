@@ -10,7 +10,6 @@ export const StepAdditionalNotes = () => {
   const { formData, updateField, setStepValid } = useBriefStore();
 
   useEffect(() => {
-    // Este paso es totalmente opcional, así que siempre es válido para avanzar
     setStepValid(true);
   }, [setStepValid]);
 

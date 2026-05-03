@@ -2,7 +2,7 @@
 
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { useBriefStore } from '@/features/brief/store/useBriefStore';
-import { Copyright } from '@/features/footer';
+import { Copyright, NeobrutalistButton } from '@/features/footer';
 import { Logo } from '@/features/header';
 import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { cn } from '@/utils/functions';
@@ -12,9 +12,8 @@ export default function Page() {
   const { currentStep, prevStep, nextStep, isStepValid, formData } = useBriefStore();
   const { t } = useTranslation();
 
-  // Definición de constantes de estado
   const isReviewStep = currentStep === 10;
-  const isLastStep = currentStep === 11; // La pantalla de Gracias
+  const isLastStep = currentStep === 11;
 
   // Función simulada para el envío (Sustitúyela por tu lógica de API real)
   const sendBriefData = async (data: any) => {
@@ -51,7 +50,6 @@ export default function Page() {
         </div>
       </main>
 
-      {/* Ocultamos el footer por completo si ya estamos en la pantalla de éxito */}
       {!isLastStep && (
         <footer className="mt-auto w-full border-t border-gray-100 px-6 py-6 md:px-10">
           <div className="mx-auto grid max-w-7xl grid-cols-2 items-center md:grid-cols-3">
@@ -80,14 +78,13 @@ export default function Page() {
                     isStepValid
                       ? cn(
                           'bg-white text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]',
-                          'hover:bg-green-brutalist hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+                          'hover:bg-neon hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
                           'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none',
-                          isReviewStep && 'bg-neon', // En el review el botón ya resalta
+                          isReviewStep && 'bg-neon',
                         )
                       : 'cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400 shadow-none',
                   )}
                 >
-                  {/* Si está en el review (paso 10), el botón dice Enviar */}
                   {isReviewStep ? t('button.submitBrief') : t('button.next')}
                 </button>
               )}

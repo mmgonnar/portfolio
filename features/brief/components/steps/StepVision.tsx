@@ -15,7 +15,6 @@ export const StepVision = () => {
   const minLength = 50;
 
   useEffect(() => {
-    // Es válido si tiene al menos 50 caracteres para asegurar una buena descripción
     setStepValid(description.length >= minLength);
   }, [description, setStepValid]);
 

@@ -15,16 +15,13 @@ export const StepFiles = () => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
       setFiles(prev => [...prev, ...newFiles]);
-      setStepValid(true); // Permitimos avanzar si hay o no archivos (es opcional)
+      setStepValid(true);
     }
   };
 
   const removeFile = (index: number) => {
     setFiles(prev => prev.filter((_, i) => i !== index));
   };
-
-  // Nota: Los archivos no suelen persistirse en Zustand porque no son serializables.
-  // Se enviarán directamente en el FormData final al backend.
 
   return (
     <BriefContainer>
@@ -57,7 +54,6 @@ export const StepFiles = () => {
         </p>
       </div>
 
-      {/* Lista de archivos seleccionados */}
       {files.length > 0 && (
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {files.map((file, index) => (

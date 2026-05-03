@@ -15,7 +15,6 @@ export const StepReferences = () => {
   const [links, setLinks] = useState<string[]>(initialLinks);
   const [showError, setShowError] = useState(false);
 
-  // Validación de URL
   const isValidUrl = (url: string) => {
     try {
       new URL(url.startsWith('http') ? url : `https://${url}`);
@@ -28,7 +27,6 @@ export const StepReferences = () => {
   useEffect(() => {
     const filteredLinks = links.filter(link => link.trim() !== '');
 
-    // Validación obligatoria: El primer campo debe tener una URL válida
     const isFirstLinkValid = links[0].trim() !== '' && isValidUrl(links[0]);
 
     setShowError(links[0].trim() !== '' && !isValidUrl(links[0]));
@@ -94,7 +92,6 @@ export const StepReferences = () => {
               )}
             </div>
 
-            {/* El error ahora solo se muestra para el primer input si es inválido */}
             {idx === 0 && showError && (
               <p className="font-mono text-[10px] font-bold tracking-widest text-red-500 uppercase">
                 {t('form.errors.error_invalid_url')}

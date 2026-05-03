@@ -9,7 +9,6 @@ export const StepReview = () => {
   const { formData, setStepValid, setCurrentStep } = useBriefStore();
 
   useEffect(() => {
-    // En el review siempre es válido para que puedan dar clic en "Enviar"
     setStepValid(true);
   }, [setStepValid]);
 
@@ -41,7 +40,7 @@ export const StepReview = () => {
   const DataItem = ({ label, value }: { label: string; value?: string | string[] }) => (
     <div className="flex flex-col gap-1">
       <p className="text-[13px] text-gray-500">{label}</p>
-      <p className="text-sm font-bold break-words text-black italic">
+      <p className="text-sm font-bold wrap-break-word text-black italic">
         {Array.isArray(value) ? value.join(', ') : value || t('brief.steps.step11.labels.no_data')}
       </p>
     </div>

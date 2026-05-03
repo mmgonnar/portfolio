@@ -31,7 +31,7 @@ export const StepSuccess = () => {
         />
 
         {/* FIRMA EDITORIAL */}
-        <Copyright className="text-neutral-700" />
+        <Copyright className="pt-10 text-neutral-700" />
       </div>
     </BriefContainer>
   );

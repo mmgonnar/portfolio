@@ -13,7 +13,6 @@ export const StepTimeline = () => {
   const options: TimelineKey[] = ['asap', 'one_month', 'two_three_months', 'flexible'];
 
   useEffect(() => {
-    // Es válido si hay una opción seleccionada
     setStepValid(formData.timeline !== '');
   }, [formData.timeline, setStepValid]);
 

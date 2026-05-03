@@ -9,7 +9,6 @@ export const StepBudget = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
 
-  // 1. Memorizamos las opciones para que la referencia sea estable
   const budgetOptions = useMemo(
     () => [
       { label: t('brief.steps.step6.ranges.r1'), value: 'r1' },
@@ -21,24 +20,21 @@ export const StepBudget = () => {
     [t],
   );
 
-  // 2. Buscamos el índice inicial una sola vez
   const initialIndex = useMemo(() => {
     const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
     return idx !== -1 ? idx : 2;
-  }, []); // Solo al montar el componente
+  }, []);
 
   const [sliderValue, setSliderValue] = useState(initialIndex);
 
-  // 3. Efecto para validar el paso (sin dependencias que causen bucles)
   useEffect(() => {
     setStepValid(true);
   }, [setStepValid]);
 
-  // 4. Manejador de cambio manual para evitar el bucle del useEffect
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value);
     setSliderValue(newValue);
-    // Solo actualizamos el store cuando el usuario mueve el slider
+
     updateField('budget', budgetOptions[newValue].value);
   };
 
@@ -69,7 +65,7 @@ export const StepBudget = () => {
           <div className="flex w-full justify-between px-2">
             {budgetOptions.map((opt, index) => (
               <span
-                key={`budget-opt-${opt.value}-${index}`} // Llave garantizada y única
+                key={`budget-opt-${opt.value}-${index}`}
                 className={cn(
                   'font-mono text-sm tracking-tighter uppercase transition-all duration-300',
                   sliderValue === index
