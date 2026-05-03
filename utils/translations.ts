@@ -124,6 +124,8 @@ export const enTranslations = {
       "I listen carefully before I propose. Take eight unhurried minutes to share more details about your project. I'll respond with a tailored approach.",
     minutes: '~8 MINUTES',
     confidential: 'CONFIDENTIAL',
+    step: 'Step',
+    of: 'of',
     introCards: [
       {
         one: { title: 'You', desc: 'Contact info' },
@@ -276,6 +278,8 @@ export const esTranslations = {
       'Te leo cuidadosamente antes de proponer. Tómate unos minutos para compartir más detalles sobre tu proyecto. Responderé con un enfoque a medida.',
     minutes: '~8 MINUTOS',
     confidential: 'CONFIDENCIAL',
+    step: 'Paso',
+    of: 'de',
     introCards: [
       {
         one: { title: 'Tú', desc: 'Información de contacto' },
