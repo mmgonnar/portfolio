@@ -5,29 +5,28 @@ import { useBriefStore } from '@/features/brief/store/useBriefStore';
 import { Copyright, NeobrutalistButton } from '@/features/footer';
 import { Logo } from '@/features/header';
 import LanguageSwitcher from '@/features/header/components/language-switcher';
-import { cn } from '@/utils/functions';
+import { sendBriefData } from '@/utils/apiBrief';
+import { apiCallToast, cn } from '@/utils/functions';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
 export default function Page() {
-  const { currentStep, prevStep, nextStep, isStepValid, formData } = useBriefStore();
+  const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief } = useBriefStore();
   const { t } = useTranslation();
 
   const isReviewStep = currentStep === 10;
   const isLastStep = currentStep === 11;
 
-  // Función simulada para el envío (Sustitúyela por tu lógica de API real)
-  const sendBriefData = async (data: any) => {
-    console.log('Enviando datos al backend MERN...', data);
-    // Simulación de delay de red
-    return new Promise(resolve => setTimeout(() => resolve(true), 1500));
-  };
-
   const handleAction = async () => {
     if (isReviewStep) {
-      const success = await sendBriefData(formData);
-      if (success) {
-        nextStep();
-      }
+      await apiCallToast(sendBriefData(formData), {
+        loading: t('toast.sending'),
+        successMessage: t('toast.success_msg'),
+        errorMessage: t('toast.error_msg'),
+      });
+
+      resetBrief();
+      nextStep();
     } else {
       nextStep();
     }

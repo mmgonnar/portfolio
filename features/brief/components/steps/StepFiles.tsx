@@ -1,27 +1,31 @@
 'use client';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import { Upload, File, X } from 'lucide-react';
-import { cn } from '@/utils/functions';
 
 export const StepFiles = () => {
   const { t } = useTranslation();
-  const { setStepValid } = useBriefStore();
-  const [files, setFiles] = useState<File[]>([]);
+
+  const { files, setFiles, setStepValid } = useBriefStore();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
-      setFiles(prev => [...prev, ...newFiles]);
-      setStepValid(true);
+
+      setFiles([...files, ...newFiles]);
     }
   };
 
   const removeFile = (index: number) => {
-    setFiles(prev => prev.filter((_, i) => i !== index));
+    setFiles(files.filter((_, i) => i !== index));
   };
+
+  useEffect(() => {
+    files.length > 0;
+    setStepValid(true);
+  }, [setStepValid]);
 
   return (
     <BriefContainer>
@@ -55,7 +59,7 @@ export const StepFiles = () => {
       </div>
 
       {files.length > 0 && (
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+        <div className="animate-in fade-in slide-in-from-bottom-2 grid grid-cols-1 gap-2 md:grid-cols-2">
           {files.map((file, index) => (
             <div
               key={`${file.name}-${index}`}
@@ -68,6 +72,7 @@ export const StepFiles = () => {
                 </span>
               </div>
               <button
+                type="button"
                 onClick={() => removeFile(index)}
                 className="cursor-pointer text-gray-400 transition-colors hover:text-red-500"
               >

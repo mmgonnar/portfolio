@@ -226,9 +226,8 @@ export const enTranslations = {
         },
       },
       step9: {
-        title: '¿Tienes alguna referencia visual?',
-        description:
-          'Pega enlaces a sitios web, tableros de Pinterest o perfiles de Dribbble que te inspiren.',
+        title: 'Any websites or designs that inspire you?',
+        description: "Share URLs or describe the aesthetic you're aiming for",
         placeholder: 'https://example.com/...',
         addMore: '+ Add Link',
       },

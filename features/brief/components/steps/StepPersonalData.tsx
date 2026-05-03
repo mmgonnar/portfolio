@@ -70,10 +70,6 @@ export const StepPersonalData = () => {
           {...register('company')}
         />
       </div>
-
-      <div className="pt-6">
-        <NeobrutalistButton type="submit" text={t('button.continue')} disabled={!isValid} />
-      </div>
     </form>
   );
 };

@@ -6,7 +6,9 @@ interface BriefState {
   formData: BriefData;
   currentStep: number;
   isStepValid: boolean;
+  files: File[]; // Los archivos viven aquí en memoria
   updateField: (field: keyof BriefData, value: any) => void;
+  setFiles: (files: File[]) => void;
   toggleFeature: (featureTitle: string) => void;
   nextStep: () => void;
   prevStep: () => void;
@@ -23,7 +25,7 @@ export const useBriefStore = create<BriefState>()(
         name: '',
         email: '',
         projectName: '',
-        projectType: '', // Recuerda actualizar esto a '' en tu type si es necesario
+        projectType: '',
         description: '',
         features: [],
         budget: '',
@@ -31,6 +33,7 @@ export const useBriefStore = create<BriefState>()(
         referenceLinks: '',
         additionalNotes: '',
       },
+      files: [], // Inicialmente vacío
       currentStep: 0,
       isStepValid: false,
 
@@ -40,7 +43,9 @@ export const useBriefStore = create<BriefState>()(
           formData: { ...state.formData, [field]: value },
         })),
 
-      toggleFeature: (featureTitle: string) =>
+      setFiles: files => set({ files }),
+
+      toggleFeature: featureTitle =>
         set(state => {
           const currentFeatures = state.formData.features || [];
           const updatedFeatures = currentFeatures.includes(featureTitle)
@@ -74,6 +79,7 @@ export const useBriefStore = create<BriefState>()(
         set({
           currentStep: 0,
           isStepValid: false,
+          files: [], // Limpiamos archivos al resetear
           formData: {
             name: '',
             email: '',
@@ -90,6 +96,11 @@ export const useBriefStore = create<BriefState>()(
     }),
     {
       name: 'brief-storage',
+
+      partialize: state => {
+        const { files, ...rest } = state;
+        return rest;
+      },
     },
   ),
 );
