@@ -7,6 +7,7 @@ import { StepFeatures } from './steps/StepFeatures';
 import { StepPersonalData } from './steps/StepPersonalData';
 import { StepProjectDefinition } from './steps/StepProjectDefinition';
 import { StepReferences } from './steps/StepReferences';
+import { StepTimeline } from './steps/StepTimeline';
 import { StepVision } from './steps/StepVision';
 import { BriefProgressBar } from './ui/brief-progress-bar';
 
@@ -30,6 +31,8 @@ export const BriefManager = () => {
         return <StepReferences />;
       case 6:
         return <StepBudget />;
+      case 7:
+        return <StepTimeline />;
 
       default:
         return <BriefIntro />;

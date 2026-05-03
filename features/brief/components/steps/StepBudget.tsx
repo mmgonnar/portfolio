@@ -9,7 +9,7 @@ export const StepBudget = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
 
-  // Generamos los rangos dinámicamente según el idioma activo
+  // 1. Memorizamos las opciones para que la referencia sea estable
   const budgetOptions = useMemo(
     () => [
       { label: t('brief.steps.step6.ranges.r1'), value: 'r1' },
@@ -21,15 +21,26 @@ export const StepBudget = () => {
     [t],
   );
 
-  // Buscamos el índice basado en el 'value' (r1, r2, etc) para que sea persistente
-  const initialIndex = budgetOptions.findIndex(opt => opt.value === formData.budget);
-  const [sliderValue, setSliderValue] = useState(initialIndex !== -1 ? initialIndex : 2);
+  // 2. Buscamos el índice inicial una sola vez
+  const initialIndex = useMemo(() => {
+    const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
+    return idx !== -1 ? idx : 2;
+  }, []); // Solo al montar el componente
 
+  const [sliderValue, setSliderValue] = useState(initialIndex);
+
+  // 3. Efecto para validar el paso (sin dependencias que causen bucles)
   useEffect(() => {
-    // Guardamos el 'value' (ej: 'r1') para el backend, pero mostramos el 'label' en la UI
-    updateField('budget', budgetOptions[sliderValue].value);
     setStepValid(true);
-  }, [sliderValue, budgetOptions]);
+  }, [setStepValid]);
+
+  // 4. Manejador de cambio manual para evitar el bucle del useEffect
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseInt(e.target.value);
+    setSliderValue(newValue);
+    // Solo actualizamos el store cuando el usuario mueve el slider
+    updateField('budget', budgetOptions[newValue].value);
+  };
 
   return (
     <BriefContainer>
@@ -40,9 +51,8 @@ export const StepBudget = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center space-y-12 py-16">
-        {/* El Label cambia automáticamente según el idioma */}
         <h3 className="font-mono text-6xl font-black tracking-tighter text-black transition-all duration-300">
-          {budgetOptions[sliderValue].label}
+          {budgetOptions[sliderValue]?.label}
         </h3>
 
         <div className="w-full space-y-8">
@@ -52,14 +62,14 @@ export const StepBudget = () => {
             max="4"
             step="1"
             value={sliderValue}
-            onChange={e => setSliderValue(parseInt(e.target.value))}
-            className="[&::-webkit-slider-thumb]:bg-neon h-[2px] w-full cursor-pointer appearance-none bg-gray-200 [&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-black [&::-webkit-slider-thumb]:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+            onChange={handleSliderChange}
+            className="accent-green-brutalist [&::-webkit-slider-thumb]:bg-green-brutalist h-[2px] w-full cursor-pointer appearance-none bg-gray-200 [&::-webkit-slider-thumb]:h-8 [&::-webkit-slider-thumb]:w-8 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-black [&::-webkit-slider-thumb]:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
           />
 
           <div className="flex w-full justify-between px-2">
             {budgetOptions.map((opt, index) => (
               <span
-                key={opt.value}
+                key={`budget-opt-${opt.value}-${index}`} // Llave garantizada y única
                 className={cn(
                   'font-mono text-sm tracking-tighter uppercase transition-all duration-300',
                   sliderValue === index
