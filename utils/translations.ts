@@ -109,6 +109,8 @@ export const enTranslations = {
       error_name_short: 'Name is too short',
       error_email_invalid: 'Introduce a valid email',
       error_message_short: 'The message needs to be at least 10 characteres',
+      error_project: 'Project type is required',
+      error_goals: 'Please be a bit more descriptive about your goals',
     },
   },
   toast: {
@@ -144,8 +146,50 @@ export const enTranslations = {
         project: 'And your company or brand?',
         projectPlaceholder: 'Enter your company or project name (Optional)',
       },
-      step2: {},
-      step3: {},
+      step2: {
+        title: 'What type of project are you looking for?',
+        description: 'Select the option that best describes your needs',
+        options: {
+          website: { title: 'Website', desc: 'Corporate, portfolio or informational site' },
+          web_app: { title: 'Web Application', desc: 'Complex functionality & user interactions' },
+          wordpress: {
+            title: 'Wordpress Website',
+            desc: 'Self-managed site with Wordpress',
+          },
+          landing: { title: 'Landing Page', desc: 'Single-page conversion focused' },
+          redesign: { title: 'Redesign', desc: 'Refresh an existing digital product' },
+          other: { title: 'Other', desc: 'Something unique in mind' },
+        },
+      },
+      step3: {
+        title: 'Which features do you need?',
+        description:
+          "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
+        selectedLabel: 'Selected',
+        options: {
+          cms: { title: 'Content Management', desc: 'Edit content yourself' },
+          auth: { title: 'User Authentication', desc: 'Login & accounts' },
+          payments: { title: 'Payment Processing', desc: 'Accept online payments' },
+          analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
+          seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
+          multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
+          integrations: {
+            title: 'Third-party Integrations',
+            desc: 'Connect with external services',
+          },
+          mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
+        },
+      },
+      step4: {
+        title: 'Tell me about your vision.',
+        description: 'Describe your project, goals, and any specific requirements',
+        placeholder: 'My project is about...',
+        counter: 'minimum characters',
+      },
+      step5: {},
+      step6: {},
+      step7: {},
+      step8: {},
     },
   },
 };
@@ -298,8 +342,54 @@ export const esTranslations = {
         project: '¿Cómo se llama tu negocio o proyecto?',
         projectPlaceholder: 'Ingresa el nombre de tu negocio o proyecto (Opcional)',
       },
-      step2: {},
-      step3: {},
+      step2: {
+        title: '¿Qué tipo de proyecto buscas?',
+        description: 'Selecciona la opción que mejor describa tus necesidades',
+        options: {
+          website: { title: 'Website', desc: 'Sitio corporativo, portafolio o informativo' },
+          web_app: {
+            title: 'Web Application',
+            desc: 'Funcionalidad compleja e interacción de usuario',
+          },
+          wordpress: {
+            title: 'Sitio en Wordpress',
+            desc: 'Sitio autogestionable en Wordpress',
+          },
+          landing: { title: 'Landing Page', desc: 'Una sola página enfocado en conversión' },
+          redesign: { title: 'Redesign', desc: 'Refrescar un producto digital existente' },
+          other: { title: 'Other', desc: 'Algo único en mente' },
+        },
+      },
+      step3: {
+        title: '¿Qué funcionalidades necesitas?',
+        description:
+          'Selecciona todas las que apliquen. Si no estás seguro de qué significa algún término o necesitas algo diferente, no dudes en escribirme.',
+        selectedLabel: 'Selected',
+        options: {
+          cms: { title: 'Gestión de Contenidos', desc: 'Edita el contenido tú mismo' },
+          auth: { title: 'Autenticación de Usuario', desc: 'Login y cuentas de usuario' },
+          payments: { title: 'Pasarela de Pagos', desc: 'Acepta pagos en línea' },
+          analytics: { title: 'Analytics & Tracking', desc: 'Monitorea el rendimiento' },
+          seo: { title: 'Optimización SEO', desc: 'Visibilidad en buscadores' },
+          multi_language: { title: 'Multi-lenguaje', desc: 'Soporte para múltiples idiomas' },
+          integrations: {
+            title: 'Integraciones de terceros',
+            desc: 'Conexión con servicios externos',
+          },
+          mobile: { title: 'Diseño Mobile-first', desc: 'Optimizado para todos los dispositivos' },
+        },
+      },
+      step4: {
+        title: 'Cuéntame tu visión',
+        description:
+          'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente.',
+        placeholder: 'Mi proyecto trata sobre...',
+        counter: 'caracteres mínimos',
+      },
+      step5: {},
+      step6: {},
+      step7: {},
+      step8: {},
     },
   },
 };

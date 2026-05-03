@@ -1,4 +1,11 @@
-export type ProjectType = 'webapp' | 'mobile' | 'branding' | 'other';
+export type ProjectType =
+  | 'website'
+  | 'webapp'
+  | 'wordpress'
+  | 'landing'
+  | 'redesign'
+  | 'other'
+  | '';
 
 export interface BriefData {
   name: string;

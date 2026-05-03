@@ -10,7 +10,7 @@ export const BriefProgressBar = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mx-auto mb-10 w-full space-y-4">
+    <div className="mx-auto mb-8 w-full space-y-4">
       <div className="flex items-end justify-between font-mono text-[10px] font-bold tracking-widest uppercase">
         <span className="text-gray-400">
           {t('brief.step')} <span className="text-black">{currentStep}</span> {t('brief.of')}{' '}

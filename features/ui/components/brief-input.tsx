@@ -6,14 +6,11 @@ import { InputsProps } from '../types/type';
 const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProps>(
   ({ label, className, type, placeholder, error, ...props }, ref) => {
     const styles = cn(
-      // 1. Estado Base: Minimalista (Línea inferior gris)
-      'w-full bg-transparent border-b border-gray-300 py-4 px-4 text-2xl font-light transition-all outline-none',
+      'w-full bg-transparent border-b border-gray-300 py-4 px-4 text-xl font-light transition-all outline-none',
       'placeholder:text-gray-300',
 
-      // 2. Estado Focus: El efecto de borde completo y doble línea inferior
       'focus:border-green-brutalist focus:ring-1 focus:ring-green-brutalist focus:border-b-4',
 
-      // 3. Estado de Error
       error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
 
       className,

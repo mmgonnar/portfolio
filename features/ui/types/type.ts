@@ -63,16 +63,19 @@ export interface TerminalBannerProps {
 
 type InputType = 'text' | 'email' | 'textarea';
 
-export interface InputsProps {
-  label: string;
+export interface InputsProps extends React.InputHTMLAttributes<
+  HTMLInputElement | HTMLTextAreaElement
+> {
+  label?: string;
   classNameLabel?: string;
   className?: string;
   type?: InputType;
-  id: string;
+  id?: string;
   required?: boolean;
   placeholder?: string;
-  name: string;
+  name?: string;
   error?: any;
+  description?: string;
   // ref: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   // ...props: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 }
