@@ -9,12 +9,15 @@ import { StepFiles } from './steps/StepFiles';
 import { StepPersonalData } from './steps/StepPersonalData';
 import { StepProjectDefinition } from './steps/StepProjectDefinition';
 import { StepReferences } from './steps/StepReferences';
+import { StepReview } from './steps/StepReview';
 import { StepTimeline } from './steps/StepTimeline';
 import { StepVision } from './steps/StepVision';
 import { BriefProgressBar } from './ui/brief-progress-bar';
+import { StepSuccess } from './ui/StepSuccess';
 
 export const BriefManager = () => {
   const currentStep = useBriefStore(state => state.currentStep);
+  const isSuccess = currentStep === 11;
 
   // Función para renderizar el paso actual
   const renderStep = () => {
@@ -39,6 +42,10 @@ export const BriefManager = () => {
         return <StepReferences />;
       case 9:
         return <StepAdditionalNotes />;
+      case 10:
+        return <StepReview />;
+      case 11:
+        return <StepSuccess />;
 
       default:
         return <BriefIntro />;
@@ -47,7 +54,7 @@ export const BriefManager = () => {
 
   return (
     <section className="flex w-full flex-col px-6 py-4 md:px-6">
-      {currentStep > 0 && <BriefProgressBar />}
+      {currentStep > 0 && !isSuccess && <BriefProgressBar />}
 
       <div className="w-full max-w-5xl transition-all duration-300 ease-in-out">{renderStep()}</div>
     </section>

@@ -6,11 +6,11 @@ interface BriefState {
   formData: BriefData;
   currentStep: number;
   isStepValid: boolean;
-  // Acciones
   updateField: (field: keyof BriefData, value: any) => void;
   toggleFeature: (featureTitle: string) => void;
   nextStep: () => void;
   prevStep: () => void;
+  setCurrentStep: (step: number) => void;
   setStepValid: (isValid: boolean) => void;
   resetBrief: () => void;
 }
@@ -18,25 +18,28 @@ interface BriefState {
 export const useBriefStore = create<BriefState>()(
   persist(
     set => ({
+      // --- ESTADO INICIAL ---
       formData: {
         name: '',
         email: '',
         projectName: '',
-        projectType: '',
+        projectType: '', // Recuerda actualizar esto a '' en tu type si es necesario
         description: '',
         features: [],
         budget: '',
         timeline: '',
+        referenceLinks: '',
+        additionalNotes: '',
       },
       currentStep: 0,
       isStepValid: false,
 
+      // --- ACCIONES ---
       updateField: (field, value) =>
         set(state => ({
           formData: { ...state.formData, [field]: value },
         })),
 
-      // Nueva acción para el Paso 3 (Multiselect)
       toggleFeature: (featureTitle: string) =>
         set(state => {
           const currentFeatures = state.formData.features || [];
@@ -63,6 +66,8 @@ export const useBriefStore = create<BriefState>()(
           currentStep: state.currentStep > 0 ? state.currentStep - 1 : 0,
         })),
 
+      setCurrentStep: step => set({ currentStep: step }),
+
       setStepValid: isValid => set({ isStepValid: isValid }),
 
       resetBrief: () =>
@@ -78,11 +83,13 @@ export const useBriefStore = create<BriefState>()(
             features: [],
             budget: '',
             timeline: '',
+            referenceLinks: '',
+            additionalNotes: '',
           },
         }),
     }),
     {
-      name: 'brief-storage', // Nombre de la llave en localStorage
+      name: 'brief-storage',
     },
   ),
 );

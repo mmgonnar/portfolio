@@ -9,15 +9,36 @@ import { cn } from '@/utils/functions';
 import { useTranslation } from 'react-i18next';
 
 export default function Page() {
-  const { currentStep, prevStep, nextStep, isStepValid } = useBriefStore();
+  const { currentStep, prevStep, nextStep, isStepValid, formData } = useBriefStore();
   const { t } = useTranslation();
+
+  // Definición de constantes de estado
+  const isReviewStep = currentStep === 10;
+  const isLastStep = currentStep === 11; // La pantalla de Gracias
+
+  // Función simulada para el envío (Sustitúyela por tu lógica de API real)
+  const sendBriefData = async (data: any) => {
+    console.log('Enviando datos al backend MERN...', data);
+    // Simulación de delay de red
+    return new Promise(resolve => setTimeout(() => resolve(true), 1500));
+  };
+
+  const handleAction = async () => {
+    if (isReviewStep) {
+      const success = await sendBriefData(formData);
+      if (success) {
+        nextStep();
+      }
+    } else {
+      nextStep();
+    }
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <header id="header" className="mx-auto w-full max-w-7xl shrink-0">
         <div className="flex w-full items-center justify-between px-5 py-6 pb-4 md:px-10 md:py-5">
           <Logo />
-
           <div className="flex shrink-0 items-center gap-3">
             <LanguageSwitcher />
           </div>
@@ -30,44 +51,50 @@ export default function Page() {
         </div>
       </main>
 
-      <footer className="mt-auto w-full border-t border-gray-100 px-6 py-6 md:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 items-center md:grid-cols-3">
-          {/* COLUMNA 1: BOTÓN ATRÁS (Oculto en Step 0) */}
-          <div className="flex justify-start">
-            {currentStep > 0 && (
-              <button
-                onClick={prevStep}
-                className="font-mono text-sm font-bold tracking-widest text-gray-400 uppercase transition-colors hover:text-black"
-              >
-                [ ← {t('button.back')} ]
-              </button>
-            )}
-          </div>
+      {/* Ocultamos el footer por completo si ya estamos en la pantalla de éxito */}
+      {!isLastStep && (
+        <footer className="mt-auto w-full border-t border-gray-100 px-6 py-6 md:px-10">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 items-center md:grid-cols-3">
+            <div className="flex justify-start">
+              {currentStep > 0 && (
+                <button
+                  onClick={prevStep}
+                  className="font-mono text-sm font-bold tracking-widest text-gray-400 uppercase transition-colors hover:text-black"
+                >
+                  [ ← {t('button.back')} ]
+                </button>
+              )}
+            </div>
 
-          {/* COLUMNA 2: COPYRIGHT (Oculto en móvil) */}
-          <div className="hidden justify-center md:flex">
-            <Copyright className="text-sm tracking-tighter text-neutral-700 uppercase" />
-          </div>
+            <div className="hidden justify-center md:flex">
+              <Copyright className="text-sm tracking-tighter text-neutral-700 uppercase" />
+            </div>
 
-          {/* COLUMNA 3: BOTÓN SIGUIENTE (Oculto en Step 0) */}
-          <div className="flex justify-end">
-            {currentStep > 0 && (
-              <button
-                onClick={nextStep}
-                disabled={!isStepValid}
-                className={cn(
-                  'flex items-center gap-2 font-mono text-sm font-bold tracking-widest uppercase transition-colors',
-                  isStepValid
-                    ? 'hover:text-green-brutalist text-black'
-                    : 'cursor-not-allowed text-gray-300',
-                )}
-              >
-                [ {t('button.next')} → ]
-              </button>
-            )}
+            <div className="flex justify-end">
+              {currentStep > 0 && (
+                <button
+                  onClick={handleAction}
+                  disabled={!isStepValid}
+                  className={cn(
+                    'border-2 border-black px-6 py-3 font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all',
+                    isStepValid
+                      ? cn(
+                          'bg-white text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]',
+                          'hover:bg-green-brutalist hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+                          'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none',
+                          isReviewStep && 'bg-neon', // En el review el botón ya resalta
+                        )
+                      : 'cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400 shadow-none',
+                  )}
+                >
+                  {/* Si está en el review (paso 10), el botón dice Enviar */}
+                  {isReviewStep ? t('button.submitBrief') : t('button.next')}
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 }

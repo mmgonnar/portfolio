@@ -19,6 +19,8 @@ export const enTranslations = {
     continue: 'Continue >',
     back: 'Back',
     next: 'Next',
+    submitBrief: 'Submit Brieffing ;)',
+    backHome: 'Regresar a Inicio',
   },
   language: {
     changeLanguage: 'change language',
@@ -237,7 +239,28 @@ export const enTranslations = {
         placeholder:
           'Eg:  I need the site to be compatible with X tool, or I have questions about...',
       },
-      step11: {},
+      step11: {
+        title: '¿Todo listo para enviar tu briefing?',
+        description: 'Revisa tus respuestas antes de enviarlas.',
+        sections: {
+          contact: 'Información de Contacto',
+          project: 'Detalles del Proyecto',
+          vision: 'Visión y Requerimientos',
+          budget_time: 'Presupuesto y Tiempo',
+          files: 'Archivos y Referencias',
+        },
+        labels: {
+          no_data: 'No proporcionado',
+          edit: 'Editar',
+        },
+      },
+    },
+
+    success: {
+      title: 'Brief Sent!',
+      message:
+        "I've received your information. I'll analyze your project details and get back to you soon to schedule our first session.",
+      button: 'Back to Home',
     },
   },
 };
@@ -265,6 +288,8 @@ export const esTranslations = {
     continue: 'Continuar >',
     back: 'Atrás',
     next: 'Siguiente',
+    submitBrief: 'Enviar Brieffing ;)',
+    backHome: 'Back to Home',
   },
   language: {
     changeLanguage: 'cambiar idioma',
@@ -486,7 +511,26 @@ export const esTranslations = {
         placeholder:
           'Ej: Necesito que el sitio sea compatible con X herramienta, o tengo dudas sobre...',
       },
-      step11: {},
+      step11: {
+        title: '¿Todo listo para enviar tu briefing?',
+        description: 'Revisa tus respuestas antes de enviarlas.',
+        sections: {
+          contact: 'Información de Contacto',
+          project: 'Detalles del Proyecto',
+          vision: 'Visión y Requerimientos',
+          budget_time: 'Presupuesto y Tiempo',
+          files: 'Archivos y Referencias',
+        },
+        labels: {
+          no_data: 'No proporcionado',
+          edit: 'Editar',
+        },
+      },
     },
+  },
+  success: {
+    title: '¡Brief Enviado!',
+    message:
+      'He recibido su información. Analizaré los detalles de su proyecto y me pondré en contacto a la brevedad posible para programar una sesión.',
   },
 };
