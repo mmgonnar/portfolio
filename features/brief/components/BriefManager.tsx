@@ -3,6 +3,7 @@ import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import { StepBudget } from './steps/StepBudget';
 import { StepFeatures } from './steps/StepFeatures';
+import { StepFiles } from './steps/StepFiles';
 
 import { StepPersonalData } from './steps/StepPersonalData';
 import { StepProjectDefinition } from './steps/StepProjectDefinition';
@@ -33,6 +34,8 @@ export const BriefManager = () => {
         return <StepBudget />;
       case 7:
         return <StepTimeline />;
+      case 8:
+        return <StepFiles />;
 
       default:
         return <BriefIntro />;
@@ -43,7 +46,7 @@ export const BriefManager = () => {
     <section className="flex w-full flex-col px-6 py-4 md:px-6">
       {currentStep > 0 && <BriefProgressBar />}
 
-      <div className="w-full max-w-4xl transition-all duration-300 ease-in-out">{renderStep()}</div>
+      <div className="w-full max-w-5xl transition-all duration-300 ease-in-out">{renderStep()}</div>
     </section>
   );
 };

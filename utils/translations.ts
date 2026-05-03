@@ -213,7 +213,18 @@ export const enTranslations = {
           flexible: { title: 'Flexible', desc: 'No strict timeline' },
         },
       },
-      step8: {},
+      step8: {
+        title: 'Have any files to share?',
+        description: 'Upload logos, brand guidelines, wireframes, or reference images',
+        dropzone: {
+          title: 'Drag & Drop',
+          subtitle: 'or click to browse',
+          info: 'Images, PDFs, Documents (Max 10MB each)',
+        },
+      },
+      step9: {},
+      step10: {},
+      step11: {},
     },
   },
 };
@@ -438,7 +449,18 @@ export const esTranslations = {
           flexible: { title: 'Flexible', desc: 'Sin fecha límite estricta' },
         },
       },
-      step8: {},
+      step8: {
+        title: '¿Tienes archivos para compartir?',
+        description: 'Sube logos, manuales de marca, wireframes o imágenes de referencia.',
+        dropzone: {
+          title: 'Arrastra y suelta archivos',
+          subtitle: 'o haz clic para buscar',
+          info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
+        },
+      },
+      step9: {},
+      step10: {},
+      step11: {},
     },
   },
 };
