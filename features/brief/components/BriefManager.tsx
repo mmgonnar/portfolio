@@ -8,10 +8,12 @@ import { StepFiles } from './steps/StepFiles';
 
 import { StepPersonalData } from './steps/StepPersonalData';
 import { StepProjectDefinition } from './steps/StepProjectDefinition';
+import { StepProjectDetails } from './steps/StepProjectDetails';
 import { StepReferences } from './steps/StepReferences';
 import { StepReview } from './steps/StepReview';
 import { StepTimeline } from './steps/StepTimeline';
 import { StepVision } from './steps/StepVision';
+import { StepProjectDetalles } from './steps/StpDetaillllls';
 import { BriefProgressBar } from './ui/brief-progress-bar';
 import { StepSuccess } from './ui/StepSuccess';
 
@@ -29,23 +31,26 @@ export const BriefManager = () => {
       case 2:
         return <StepProjectDefinition />;
       case 3:
-        return <StepFeatures />;
-      case 4:
-        return <StepVision />;
-      case 5:
-        return <StepBudget />;
-      case 6:
-        return <StepTimeline />;
-      case 7:
-        return <StepFiles />;
-      case 8:
-        return <StepReferences />;
-      case 9:
-        return <StepAdditionalNotes />;
-      case 10:
-        return <StepReview />;
-      case 11:
-        return <StepSuccess />;
+        return <StepProjectDetalles />;
+
+      //   case 3:
+      //   return <StepFeatures />;
+      // case 4:
+      //   return <StepVision />;
+      // case 5:
+      //   return <StepBudget />;
+      // case 6:
+      //   return <StepTimeline />;
+      // case 7:
+      //   return <StepFiles />;
+      // case 8:
+      //   return <StepReferences />;
+      // case 9:
+      //   return <StepAdditionalNotes />;
+      // case 10:
+      //   return <StepReview />;
+      // case 11:
+      //   return <StepSuccess />;
 
       default:
         return <BriefIntro />;

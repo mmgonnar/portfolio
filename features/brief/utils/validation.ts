@@ -14,12 +14,29 @@ export const stepOneSchema = z.object({
 
 export type StepOneData = z.infer<typeof stepOneSchema>;
 
-export const stepTwoSchema = (t: any) =>
-  z.object({
-    projectType: z.string().min(1, { message: t('forms.errors.error_project') }),
-    projectDescription: z.string().min(10, { message: t('forms.errors.error_message_short') }),
-    features: z.string().min(5, { message: t('forms.errors.error_goals') }),
-  });
+export const stepTwoSchema = z
+  .object({
+    projectName: z.string().min(2, { message: 'form.errors.error_name_short' }),
+    projectDescription: z.string().min(50, { message: 'form.errors.error_message_short' }),
+    hasExistingSite: z.boolean(),
+    existingSiteUrl: z.string().optional().or(z.literal('')),
+  })
+  .refine(
+    data => {
+      if (data.hasExistingSite) {
+        return (
+          data.existingSiteUrl &&
+          data.existingSiteUrl.length > 0 &&
+          /^https?:\/\/.+\..+/.test(data.hasExistingSite ? data.existingSiteUrl : '')
+        );
+      }
+      return true;
+    },
+    {
+      message: 'form.errors.invalid_url',
+      path: ['existingSiteUrl'],
+    },
+  );
 
 export type StepTwoData = z.infer<typeof stepTwoSchema>;
 

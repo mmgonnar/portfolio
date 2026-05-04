@@ -110,7 +110,7 @@ export const enTranslations = {
     errors: {
       error_name_short: 'Name is too short',
       error_email_invalid: 'Introduce a valid email',
-      error_message_short: 'The message needs to be at least 10 characteres',
+      error_message_short: 'The message needs to be at least 50 characteres',
       error_project: 'Project type is required',
       error_goals: 'Please be a bit more descriptive about your goals',
       error_invalid_url: 'Please, add a valid URL (eg: https://...)',
@@ -168,25 +168,36 @@ export const enTranslations = {
           other: { title: 'Other', desc: 'Something unique in mind' },
         },
       },
+
       step3: {
-        title: 'Which features do you need?',
-        description:
-          "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
-        selectedLabel: 'Selected',
-        options: {
-          cms: { title: 'Content Management', desc: 'Edit content yourself' },
-          auth: { title: 'User Authentication', desc: 'Login & accounts' },
-          payments: { title: 'Payment Processing', desc: 'Accept online payments' },
-          analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
-          seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
-          multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
-          integrations: {
-            title: 'Third-party Integrations',
-            desc: 'Connect with external services',
-          },
-          mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
-        },
+        title: 'Tell me a bit more about your project.',
+        description: 'Describe your project, goals, and any specific requirements',
+        projectName: "What is your project's name?",
+        projectDecription: 'Describe your project...',
+        projectPlaceholder: 'My project is about...',
+        counter: 'minimum characters',
+        hasExistingSite: 'Do you have an existing website?',
+        existingSiteUrl: 'Please share your Website URL',
       },
+      // step3: {
+      //   title: 'Which features do you need?',
+      //   description:
+      //     "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
+      //   selectedLabel: 'Selected',
+      //   options: {
+      //     cms: { title: 'Content Management', desc: 'Edit content yourself' },
+      //     auth: { title: 'User Authentication', desc: 'Login & accounts' },
+      //     payments: { title: 'Payment Processing', desc: 'Accept online payments' },
+      //     analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
+      //     seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
+      //     multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
+      //     integrations: {
+      //       title: 'Third-party Integrations',
+      //       desc: 'Connect with external services',
+      //     },
+      //     mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
+      //   },
+      // },
       step4: {
         title: 'Tell me about your vision.',
         description: 'Describe your project, goals, and any specific requirements',
