@@ -23,26 +23,42 @@ export default function Page() {
 
       const dataToSend = new FormData();
 
-      dataToSend.append('projectName', formData.company || 'Proyecto Sin Nombre');
-
-      dataToSend.append('name', formData.name || '');
-      dataToSend.append('email', formData.email || '');
+      // Paso 1 - Contacto
+      dataToSend.append('name', formData.name);
+      dataToSend.append('email', formData.email);
+      dataToSend.append('phone', formData.phone || '');
       dataToSend.append('company', formData.company || '');
-      // dataToSend.append('projectName', formData.projectName || '');
-      dataToSend.append('projectType', formData.projectType || '');
-      dataToSend.append('description', formData.description || '');
-      dataToSend.append('budget', formData.budget || '');
-      dataToSend.append('timeline', formData.timeline || '');
 
-      // Para arrays, siempre enviamos el string del JSON
-      dataToSend.append('features', JSON.stringify(formData.features || []));
+      // Paso 2 - Proyecto
+      dataToSend.append('projectType', formData.projectType);
+      dataToSend.append('projectName', formData.projectName);
+      dataToSend.append('projectDescription', formData.projectDescription); // Nombre exacto de Pydantic
+      dataToSend.append('hasExistingSite', String(formData.hasExistingSite));
+      dataToSend.append('existingSiteUrl', formData.existingSiteUrl || '');
 
-      dataToSend.append('referenceLinks', formData.referenceLinks || '');
+      // Paso 3 - Features (Como string para el backend)
+      dataToSend.append('features', JSON.stringify(formData.features));
+      dataToSend.append('featuresDetail', formData.featuresDetail || '');
+
+      // Paso 4 - Estilo y Audiencia
+      dataToSend.append('targetAudience', formData.targetAudience);
+      dataToSend.append('competitors', formData.competitors || '');
+      dataToSend.append('visualStyle', formData.visualStyle);
+      dataToSend.append('visualReferences', formData.visualReferences || '');
+      dataToSend.append('brandColors', String(formData.brandColors));
+      dataToSend.append('brandAssetsReady', String(formData.brandAssetsReady));
+
+      // Paso 5 - Presupuesto y Notas
+      dataToSend.append('budget', formData.budget);
+      dataToSend.append('timeline', formData.timeline);
+      dataToSend.append('flexibleBudget', String(formData.flexibleBudget));
       dataToSend.append('additionalNotes', formData.additionalNotes || '');
 
+      // Paso 6 - Archivos (adjuntos reales)
       files.forEach(file => {
-        dataToSend.append('attachments', file);
+        dataToSend.append('attachments', file); // Asegúrate que el backend reciba 'attachments'
       });
+
       console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
       await apiCallToast(sendBriefData(dataToSend), {
         loading: t('toast.sending'),

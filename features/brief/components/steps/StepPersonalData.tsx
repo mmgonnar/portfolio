@@ -6,11 +6,11 @@ import { useBriefStore } from '../../store/useBriefStore';
 import { StepOneData, stepOneSchema } from '../../utils/validation';
 import BriefInput from '@/features/ui/components/brief-input';
 import { useEffect, useRef } from 'react';
+import { useFormSync } from '@/hooks/useFormSync';
 
 export const StepPersonalData = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
-
   const {
     register,
     watch,
@@ -20,39 +20,17 @@ export const StepPersonalData = () => {
     defaultValues: {
       name: formData.name,
       email: formData.email,
+      phone: formData.phone,
       company: formData.company,
     },
     mode: 'onChange',
   });
 
-  // 1. Sincronizar validez (esto está bien)
+  useFormSync(watch, updateField, formData);
+
   useEffect(() => {
     setStepValid(isValid);
   }, [isValid, setStepValid]);
-
-  // 2. VIGILANCIA INTELIGENTE:
-  // Usamos watch pero solo actualizamos si hay una diferencia real con el Store
-  const watchedName = watch('name');
-  const watchedEmail = watch('email');
-  const watchedCompany = watch('company');
-
-  useEffect(() => {
-    if (watchedName !== formData.name) {
-      updateField('name', watchedName || '');
-    }
-  }, [watchedName, formData.name, updateField]);
-
-  useEffect(() => {
-    if (watchedEmail !== formData.email) {
-      updateField('email', watchedEmail || '');
-    }
-  }, [watchedEmail, formData.email, updateField]);
-
-  useEffect(() => {
-    if (watchedCompany !== formData.company) {
-      updateField('company', watchedCompany || '');
-    }
-  }, [watchedCompany, formData.company, updateField]);
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 flex w-full max-w-5xl flex-col gap-12 px-6 py-10">
@@ -60,24 +38,31 @@ export const StepPersonalData = () => {
         <BriefInput
           label={t('brief.steps.step1.name')}
           placeholder={t('brief.steps.step1.namePlaceholder')}
-          error={errors.name?.message}
+          error={errors.name?.message ? t(errors.name.message) : undefined}
           {...register('name')}
         />
-
-        <BriefInput
-          label={t('brief.steps.step1.email')}
-          placeholder={t('brief.steps.step1.emailPlaceholder')}
-          type="email"
-          error={errors.email?.message}
-          {...register('email')}
-        />
-
         <BriefInput
           label={t('brief.steps.step1.project')}
           placeholder={t('brief.steps.step1.projectPlaceholder')}
-          error={errors.company?.message}
+          error={errors.company?.message ? t(errors.company.message) : undefined}
           {...register('company')}
         />
+
+        <div className="flex flex-col gap-10 sm:flex-row">
+          <BriefInput
+            label={t('brief.steps.step1.email')}
+            placeholder={t('brief.steps.step1.emailPlaceholder')}
+            type="email"
+            error={errors.email?.message ? t(errors.email.message) : undefined}
+            {...register('email')}
+          />
+          <BriefInput
+            label={t('brief.steps.step1.phone')}
+            placeholder={t('brief.steps.step1.phonePlaceholder')}
+            error={errors.phone?.message ? t(errors.phone.message) : undefined}
+            {...register('phone')}
+          />
+        </div>
       </div>
     </div>
   );

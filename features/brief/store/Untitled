@@ -1,0 +1,121 @@
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { BriefData } from '../types/type';
+
+interface BriefState {
+  formData: BriefData;
+  currentStep: number;
+  isStepValid: boolean;
+  files: File[]; 
+  updateField: (field: keyof BriefData, value: any) => void;
+  setFiles: (files: File[]) => void;
+  toggleFeature: (featureTitle: string) => void;
+  nextStep: () => void;
+  prevStep: () => void;
+  setCurrentStep: (step: number) => void;
+  setStepValid: (isValid: boolean) => void;
+  resetBrief: () => void;
+}
+
+// Valores iniciales alineados con el modelo de Pydantic
+const initialFormData: BriefData = {
+  // Paso 1 — Contacto
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+
+  // Paso 2 — Proyecto
+  projectType: '',
+  projectName: '',
+  projectDescription: '', // Antes era 'description'
+  hasExistingSite: false,
+  existingSiteUrl: '',
+
+  // Paso 3 — Features
+  features: [],
+  featuresDetail: '',
+
+  // Paso 4 — Estilo y audiencia
+  targetAudience: '',
+  competitors: '',
+  visualStyle: '',
+  visualReferences: '',
+  brandColors: false,
+  brandAssetsReady: false,
+
+  // Paso 5 — Presupuesto y Tiempos
+  budget: 'r3', // Valor por defecto del slider
+  timeline: 'flexible',
+  flexibleBudget: false,
+  additionalNotes: '',
+  
+  // Metadata
+  locale: 'es'
+};
+
+export const useBriefStore = create<BriefState>()(
+  persist(
+    set => ({
+      // --- ESTADO ---
+      formData: initialFormData,
+      files: [], 
+      currentStep: 0,
+      isStepValid: false,
+
+      // --- ACCIONES ---
+      updateField: (field, value) =>
+        set(state => ({
+          formData: { ...state.formData, [field]: value },
+        })),
+
+      setFiles: files => set({ files }),
+
+      toggleFeature: featureTitle =>
+        set(state => {
+          const currentFeatures = state.formData.features || [];
+          const updatedFeatures = currentFeatures.includes(featureTitle)
+            ? currentFeatures.filter(f => f !== featureTitle)
+            : [...currentFeatures, featureTitle];
+
+          return {
+            formData: { ...state.formData, features: updatedFeatures },
+          };
+        }),
+
+      nextStep: () =>
+        set(state => {
+          const next = state.currentStep + 1;
+          const MAX_STEPS = 10; // Ajusta según el total de tus pantallas
+          return {
+            currentStep: next <= MAX_STEPS ? next : state.currentStep,
+          };
+        }),
+
+      prevStep: () =>
+        set(state => ({
+          currentStep: state.currentStep > 0 ? state.currentStep - 1 : 0,
+        })),
+
+      setCurrentStep: step => set({ currentStep: step }),
+
+      setStepValid: isValid => set({ isStepValid: isValid }),
+
+      resetBrief: () =>
+        set({
+          currentStep: 0,
+          isStepValid: false,
+          files: [], 
+          formData: initialFormData,
+        }),
+    }),
+    {
+      name: 'brief-storage',
+      // No persistimos los archivos porque son objetos complejos
+      partialize: state => {
+        const { files, ...rest } = state;
+        return rest;
+      },
+    },
+  ),
+);

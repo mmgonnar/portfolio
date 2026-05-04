@@ -53,7 +53,7 @@ export const BriefManager = () => {
   };
 
   return (
-    <section className="flex w-full flex-col px-6 py-4 md:px-6">
+    <section className="flex w-full flex-col px-6">
       {currentStep > 0 && !isSuccess && <BriefProgressBar />}
 
       <div className="w-full max-w-5xl transition-all duration-300 ease-in-out">{renderStep()}</div>

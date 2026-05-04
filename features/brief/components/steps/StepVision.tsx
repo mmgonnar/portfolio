@@ -11,7 +11,7 @@ export const StepVision = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
 
-  const description = formData.description || '';
+  const description = formData.projectDescription || '';
   const minLength = 50;
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const StepVision = () => {
           type="textarea"
           placeholder={t('brief.steps.step4.placeholder')}
           value={description}
-          onChange={e => updateField('description', e.target.value)}
+          onChange={e => updateField('projectDescription', e.target.value)}
         />
 
         {/* Contador de caracteres estilo mono */}

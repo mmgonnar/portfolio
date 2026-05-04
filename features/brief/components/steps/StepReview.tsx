@@ -81,7 +81,7 @@ export const StepReview = () => {
 
         {/* VISION */}
         <ReviewSection title={t('brief.steps.step11.sections.vision')} stepTarget={4}>
-          <DataItem label="Descripción de la visión" value={formData.description} />
+          <DataItem label="Descripción de la visión" value={formData.projectDescription} />
         </ReviewSection>
 
         {/* BUDGET & TIMELINE */}
@@ -96,7 +96,7 @@ export const StepReview = () => {
         {/* ATTACHMENTS & LINKS */}
         <ReviewSection title={t('brief.steps.step11.sections.files')} stepTarget={7}>
           {/* Enlaces de referencia (Texto) */}
-          <DataItem label={t('brief.steps.step9.title')} value={formData.referenceLinks} />
+          <DataItem label={t('brief.steps.step9.title')} value={formData.visualReferences} />
 
           {/* Lista de Archivos Físicos */}
           <div className="mt-4 flex flex-col gap-1">

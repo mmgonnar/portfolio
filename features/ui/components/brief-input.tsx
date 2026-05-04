@@ -6,7 +6,7 @@ import { InputsProps } from '../types/type';
 const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProps>(
   ({ label, className, type, placeholder, error, ...props }, ref) => {
     const styles = cn(
-      'w-full bg-transparent border-b border-gray-300 py-4 px-4 text-xl font-light transition-all outline-none',
+      'w-full bg-transparent border-b border-gray-300 py-4 px-2 text-xl font-light transition-all outline-none',
       'placeholder:text-gray-300',
 
       'focus:border-green-brutalist focus:ring-1 focus:ring-green-brutalist focus:border-b-4',
