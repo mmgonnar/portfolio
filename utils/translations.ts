@@ -223,6 +223,7 @@ export const enTranslations = {
           title: 'Drag & Drop',
           subtitle: 'or click to browse',
           info: 'Images, PDFs, Documents (Max 10MB each)',
+          files: 'Files shared',
         },
       },
       step9: {
@@ -242,15 +243,15 @@ export const enTranslations = {
         title: '¿Todo listo para enviar tu briefing?',
         description: 'Revisa tus respuestas antes de enviarlas.',
         sections: {
-          contact: 'Información de Contacto',
-          project: 'Detalles del Proyecto',
-          vision: 'Visión y Requerimientos',
-          budget_time: 'Presupuesto y Tiempo',
-          files: 'Archivos y Referencias',
+          contact: 'Contact Information',
+          project: 'Project Details',
+          vision: 'Vision and Requirements',
+          budget_time: 'Budget and Time',
+          files: 'Files and References',
         },
         labels: {
-          no_data: 'No proporcionado',
-          edit: 'Editar',
+          no_data: 'Not provided',
+          edit: 'Edit',
         },
       },
     },
@@ -494,6 +495,7 @@ export const esTranslations = {
           title: 'Arrastra y suelta archivos',
           subtitle: 'o haz clic para buscar',
           info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
+          files: 'Archivos Compartidos',
         },
       },
       step9: {

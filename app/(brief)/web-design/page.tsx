@@ -19,7 +19,32 @@ export default function Page() {
 
   const handleAction = async () => {
     if (isReviewStep) {
-      await apiCallToast(sendBriefData(formData), {
+      const { formData, files } = useBriefStore.getState();
+
+      const dataToSend = new FormData();
+
+      dataToSend.append('projectName', formData.company || 'Proyecto Sin Nombre');
+
+      dataToSend.append('name', formData.name || '');
+      dataToSend.append('email', formData.email || '');
+      dataToSend.append('company', formData.company || '');
+      // dataToSend.append('projectName', formData.projectName || '');
+      dataToSend.append('projectType', formData.projectType || '');
+      dataToSend.append('description', formData.description || '');
+      dataToSend.append('budget', formData.budget || '');
+      dataToSend.append('timeline', formData.timeline || '');
+
+      // Para arrays, siempre enviamos el string del JSON
+      dataToSend.append('features', JSON.stringify(formData.features || []));
+
+      dataToSend.append('referenceLinks', formData.referenceLinks || '');
+      dataToSend.append('additionalNotes', formData.additionalNotes || '');
+
+      files.forEach(file => {
+        dataToSend.append('attachments', file);
+      });
+      console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
+      await apiCallToast(sendBriefData(dataToSend), {
         loading: t('toast.sending'),
         successMessage: t('toast.success_msg'),
         errorMessage: t('toast.error_msg'),

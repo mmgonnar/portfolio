@@ -23,13 +23,17 @@ export const StepBudget = () => {
   const initialIndex = useMemo(() => {
     const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
     return idx !== -1 ? idx : 2;
-  }, []);
+  }, [formData.budget, budgetOptions]); // Agregamos dependencias
 
   const [sliderValue, setSliderValue] = useState(initialIndex);
 
   useEffect(() => {
+    // Si no hay un presupuesto guardado, inicializamos el Store con el valor por defecto del slider (índice 2)
+    if (!formData.budget) {
+      updateField('budget', budgetOptions[2].value);
+    }
     setStepValid(true);
-  }, [setStepValid]);
+  }, [formData.budget, updateField, setStepValid, budgetOptions]);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value);

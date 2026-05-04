@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
+import { Paperclip, Pencil } from 'lucide-react';
 
 export const StepReview = () => {
   const { t } = useTranslation();
-  const { formData, setStepValid, setCurrentStep } = useBriefStore();
+  const { formData, files, setStepValid, setCurrentStep } = useBriefStore();
 
   useEffect(() => {
     setStepValid(true);
@@ -28,9 +29,16 @@ export const StepReview = () => {
         </h4>
         <button
           onClick={() => setCurrentStep(stepTarget)}
-          className="hover:text-green-brutalist cursor-pointer text-[10px] font-bold uppercase underline transition-colors"
+          className="group hover:text-green-brutalist flex cursor-pointer items-center gap-1.5 font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase transition-colors"
         >
-          {t('brief.steps.step11.labels.edit')}
+          <span className="underline underline-offset-2">
+            {t('brief.steps.step11.labels.edit')}
+          </span>
+          <Pencil
+            size={10}
+            strokeWidth={3}
+            className="transition-transform group-hover:-rotate-12"
+          />
         </button>
       </div>
       <div className="space-y-4">{children}</div>
@@ -86,8 +94,34 @@ export const StepReview = () => {
         </ReviewSection>
 
         {/* ATTACHMENTS & LINKS */}
-        <ReviewSection title={t('brief.steps.step11.sections.files')} stepTarget={9}>
-          <DataItem label="Enlaces de referencia" value={formData.referenceLinks} />
+        <ReviewSection title={t('brief.steps.step11.sections.files')} stepTarget={7}>
+          {/* Enlaces de referencia (Texto) */}
+          <DataItem label={t('brief.steps.step9.title')} value={formData.referenceLinks} />
+
+          {/* Lista de Archivos Físicos */}
+          <div className="mt-4 flex flex-col gap-1">
+            <DataItem label={t('brief.steps.step8.title')} />
+
+            {files.length > 0 ? (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {files.map((file, idx) => (
+                  <div
+                    key={`${file.name}-${idx}`}
+                    className="flex items-center gap-2 border border-black bg-gray-50 px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  >
+                    <Paperclip size={12} className="text-green-brutalist" />
+                    <span className="max-w-[200px] truncate font-mono text-[10px] uppercase italic">
+                      {file.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm font-bold text-black italic">
+                {t('brief.steps.step11.labels.no_data')}
+              </p>
+            )}
+          </div>
         </ReviewSection>
       </div>
     </BriefContainer>

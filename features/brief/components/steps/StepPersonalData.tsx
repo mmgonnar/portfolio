@@ -3,19 +3,17 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
-
-import { NeobrutalistButton } from '@/features/footer';
 import { StepOneData, stepOneSchema } from '../../utils/validation';
 import BriefInput from '@/features/ui/components/brief-input';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const StepPersonalData = () => {
   const { t } = useTranslation();
-  const { formData, updateField, nextStep } = useBriefStore();
+  const { formData, updateField, setStepValid } = useBriefStore();
 
   const {
     register,
-    handleSubmit,
+    watch,
     formState: { errors, isValid },
   } = useForm<StepOneData>({
     resolver: zodResolver(stepOneSchema),
@@ -27,26 +25,39 @@ export const StepPersonalData = () => {
     mode: 'onChange',
   });
 
-  const setStepValid = useBriefStore(state => state.setStepValid);
+  // 1. Sincronizar validez (esto está bien)
   useEffect(() => {
     setStepValid(isValid);
   }, [isValid, setStepValid]);
 
-  const onSubmit = (data: StepOneData) => {
-    updateField('name', data.name);
-    updateField('email', data.email);
-    updateField('company', data.company || '');
-    nextStep();
-  };
+  // 2. VIGILANCIA INTELIGENTE:
+  // Usamos watch pero solo actualizamos si hay una diferencia real con el Store
+  const watchedName = watch('name');
+  const watchedEmail = watch('email');
+  const watchedCompany = watch('company');
+
+  useEffect(() => {
+    if (watchedName !== formData.name) {
+      updateField('name', watchedName || '');
+    }
+  }, [watchedName, formData.name, updateField]);
+
+  useEffect(() => {
+    if (watchedEmail !== formData.email) {
+      updateField('email', watchedEmail || '');
+    }
+  }, [watchedEmail, formData.email, updateField]);
+
+  useEffect(() => {
+    if (watchedCompany !== formData.company) {
+      updateField('company', watchedCompany || '');
+    }
+  }, [watchedCompany, formData.company, updateField]);
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="animate-in fade-in slide-in-from-bottom-4 flex w-full max-w-5xl flex-col gap-12 px-6 py-10"
-    >
+    <div className="animate-in fade-in slide-in-from-bottom-4 flex w-full max-w-5xl flex-col gap-12 px-6 py-10">
       <div className="space-y-4">
         <BriefInput
-          id=""
           label={t('brief.steps.step1.name')}
           placeholder={t('brief.steps.step1.namePlaceholder')}
           error={errors.name?.message}
@@ -54,7 +65,6 @@ export const StepPersonalData = () => {
         />
 
         <BriefInput
-          id=""
           label={t('brief.steps.step1.email')}
           placeholder={t('brief.steps.step1.emailPlaceholder')}
           type="email"
@@ -63,13 +73,12 @@ export const StepPersonalData = () => {
         />
 
         <BriefInput
-          id=""
           label={t('brief.steps.step1.project')}
           placeholder={t('brief.steps.step1.projectPlaceholder')}
           error={errors.company?.message}
           {...register('company')}
         />
       </div>
-    </form>
+    </div>
   );
 };
