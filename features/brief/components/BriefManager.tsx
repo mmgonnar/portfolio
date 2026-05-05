@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import {
@@ -21,7 +22,15 @@ import { StepSuccess } from './ui/StepSuccess';
 
 export const BriefManager = () => {
   const currentStep = useBriefStore(state => state.currentStep);
-  const isSuccess = currentStep === 11;
+  const formData = useBriefStore(state => state.formData);
+  const setCurrentStep = useBriefStore(state => state.setCurrentStep);
+  const isSuccess = currentStep === 12;
+
+  useEffect(() => {
+    if (currentStep === 12 && !formData.name && !formData.email) {
+      setCurrentStep(0);
+    }
+  }, [currentStep, formData, setCurrentStep]);
 
   // Función para renderizar el paso actual
   const renderStep = () => {

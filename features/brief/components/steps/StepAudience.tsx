@@ -63,7 +63,7 @@ export const StepAudience = () => {
             </label>
             <textarea
               {...register('competitors')}
-              placeholder={t('brief.steps.audience.competitorsPlaceholder')}
+              placeholder={t('brief.steps.step5.competitors')}
               className="min-h-[100px] w-full border-2 border-black bg-white p-4 font-sans text-lg transition-all outline-none placeholder:text-neutral-300 focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             />
           </div>

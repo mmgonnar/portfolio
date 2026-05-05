@@ -1,6 +1,5 @@
 'use client';
 
-import { BriefManager } from '@/features/brief/components/BriefManager';
 import { useBriefStore } from '@/features/brief/store/useBriefStore';
 import { Copyright, NeobrutalistButton } from '@/features/footer';
 import { Logo } from '@/features/header';
@@ -9,10 +8,16 @@ import { sendBriefData } from '@/utils/apiBrief';
 import { apiCallToast, cn } from '@/utils/functions';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import { BriefManager } from '@/features/brief/components/BriefManager';
 
 export default function Page() {
-  const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief } = useBriefStore();
+  const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief, setCurrentStep } = useBriefStore();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setCurrentStep(0);
+  }, [setCurrentStep]);
 
   const isReviewStep = currentStep === 11;
   const isLastStep = currentStep === 12;
@@ -61,6 +66,7 @@ export default function Page() {
       files.forEach(file => {
         dataToSend.append('attachments', file); // Asegúrate que el backend reciba 'attachments'
       });
+      dataToSend.append('locale', formData.locale || 'en');
 
       console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
       await apiCallToast(sendBriefData(dataToSend), {
@@ -69,7 +75,6 @@ export default function Page() {
         errorMessage: t('toast.error_msg'),
       });
 
-      resetBrief();
       nextStep();
     } else {
       nextStep();

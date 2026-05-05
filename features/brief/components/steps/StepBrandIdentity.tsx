@@ -65,15 +65,9 @@ export const StepBrandIdentity = () => {
       <div className="space-y-12 pt-6">
         {/* SECCIÓN DE COLORES */}
         <div className="space-y-4">
-          {/* <BriefTextArea
-            label={t('brief.steps.step7.colorsLabel')}
-            placeholder={t('brief.steps.step7.colorsPlaceholder')}
-            error={errors.brandColors?.message ? t(errors.brandColors.message) : undefined}
-            {...register('brandColors')}
-          /> */}
           <BriefInput
             label={t('brief.steps.step7.colorsLabel')}
-            placeholder={t('brief.steps.step7.colorsPlaceholder')}
+            placeholder={t('brief.steps.step7.brandColors')}
             error={errors.brandColors?.message ? t(errors.brandColors.message) : undefined}
             {...register('brandColors')}
           />

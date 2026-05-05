@@ -2,13 +2,39 @@
 
 import BriefInput from '@/features/ui/components/brief-input';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 export default function BriefIntroCards() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const stepKeys = ['one', 'two', 'three', 'four', 'five'];
-
   const stepNumbers = ['01', '02', '03', '04', '05'];
+
+  if (!mounted) {
+    return (
+      <div className="mb-8">
+        <div className="grid grid-cols-1 border-t border-l border-gray-200 sm:grid-cols-3 md:grid-cols-5">
+          {stepKeys.map((key, index) => (
+            <div
+              key={key}
+              className="group flex flex-col gap-3 border-r border-b border-gray-200 p-8 transition-colors hover:bg-gray-50"
+            >
+              <span className="text-green-brutalist font-mono text-sm font-bold">
+                {stepNumbers[index]}
+              </span>
+              <h3 className="text-xl font-bold tracking-tight text-black uppercase" />
+              <p className="text-sm leading-snug text-gray-400" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mb-8">

@@ -3,16 +3,22 @@
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import { cn } from '@/utils/functions';
+import { useState, useEffect } from 'react';
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
 
-  const isSpanish = i18n.language?.startsWith('es');
-  const isEnglish = i18n.language?.startsWith('en');
+  const isSpanish = mounted && i18n.language?.startsWith('es');
+  const isEnglish = mounted && i18n.language?.startsWith('en');
 
   return (
     <div className="flex min-w-fit items-center justify-end gap-1 font-mono">

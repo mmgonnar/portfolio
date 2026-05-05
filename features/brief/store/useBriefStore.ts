@@ -92,12 +92,11 @@ export const useBriefStore = create<BriefState>()(
           currentStep: 0,
           isStepValid: false,
           files: [],
-          formData: INITIAL_FORM_DATA, // ✅ Usar la constante para evitar errores
+          formData: INITIAL_FORM_DATA,
         }),
     }),
     {
       name: 'brief-storage',
-      // No guardamos los archivos (Files) en LocalStorage porque daría error
       partialize: state => {
         const { files, ...rest } = state;
         return rest;

@@ -5,7 +5,7 @@ import { cn } from '@/utils/functions';
 
 export const BriefProgressBar = () => {
   const currentStep = useBriefStore(state => state.currentStep);
-  const totalSteps = 11;
+  const totalSteps = 12;
   const progress = Math.round((currentStep / totalSteps) * 100);
   const { t } = useTranslation();
 
