@@ -81,11 +81,11 @@ export const StepBrandIdentity = () => {
 
         {/* SECCIÓN DE ARCHIVOS */}
         <div className="space-y-4">
-          <label className="font-mono text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
+          <label className="mb-1 font-mono text-sm font-bold tracking-widest text-neutral-400 uppercase">
             {t('brief.steps.step7.assetsLabel')}
           </label>
 
-          <div className="group relative flex flex-col items-center justify-center space-y-4 border-2 border-dashed border-neutral-200 bg-neutral-50/30 py-12 transition-all hover:border-black hover:bg-white">
+          <div className="group relative mt-2 flex flex-col items-center justify-center space-y-4 border-2 border-dashed border-neutral-200 bg-neutral-50/30 py-12 transition-all hover:border-black hover:bg-white">
             <input
               type="file"
               multiple
