@@ -1,5 +1,5 @@
-const API_URL = 'http://127.0.0.1:8000';
-//const API_URL = process.env.NEXT_PUBLIC_RENDER_URI || 'http://127.0.0.1:8000';
+// API_URL = 'http://127.0.0.1:8000';
+const API_URL = process.env.NEXT_PUBLIC_RENDER_URI || 'http://127.0.0.1:8000';
 
 export const sendBriefData = async (data: FormData) => {
   const response = await fetch(`${API_URL}/api/v1/send-brief`, {
