@@ -6,3 +6,7 @@ export * from './StepAudience';
 export * from './StepReferences';
 export * from './StepTargetCompetitors';
 export * from './StepBrandIdentity';
+export * from './StepTimeline';
+export * from './StepBudget';
+export * from './StepAdditionalNotes';
+export * from './StepReview';

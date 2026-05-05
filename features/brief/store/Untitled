@@ -6,7 +6,7 @@ interface BriefState {
   formData: BriefData;
   currentStep: number;
   isStepValid: boolean;
-  files: File[]; 
+  files: File[];
   updateField: (field: keyof BriefData, value: any) => void;
   setFiles: (files: File[]) => void;
   toggleFeature: (featureTitle: string) => void;
@@ -28,7 +28,7 @@ const initialFormData: BriefData = {
   // Paso 2 — Proyecto
   projectType: '',
   projectName: '',
-  projectDescription: '', // Antes era 'description'
+  projectDescription: '',
   hasExistingSite: false,
   existingSiteUrl: '',
 
@@ -49,9 +49,9 @@ const initialFormData: BriefData = {
   timeline: 'flexible',
   flexibleBudget: false,
   additionalNotes: '',
-  
+
   // Metadata
-  locale: 'es'
+  locale: 'es',
 };
 
 export const useBriefStore = create<BriefState>()(
@@ -59,7 +59,7 @@ export const useBriefStore = create<BriefState>()(
     set => ({
       // --- ESTADO ---
       formData: initialFormData,
-      files: [], 
+      files: [],
       currentStep: 0,
       isStepValid: false,
 
@@ -105,7 +105,7 @@ export const useBriefStore = create<BriefState>()(
         set({
           currentStep: 0,
           isStepValid: false,
-          files: [], 
+          files: [],
           formData: initialFormData,
         }),
     }),

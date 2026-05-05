@@ -46,7 +46,7 @@ export const StepAudience = () => {
         <div className="group transition-all duration-300">
           <BriefTextArea
             label={t('brief.steps.audience.targetLabel')}
-            placeholder={t('brief.steps.audience.targetPlaceholder')}
+            placeholder={t('brief.steps.audience.targetAudience')}
             error={errors.targetAudience?.message ? t(errors.targetAudience.message) : undefined}
             {...register('targetAudience')}
           />
@@ -59,7 +59,7 @@ export const StepAudience = () => {
         <div className="space-y-4">
           <div className="flex flex-col gap-2">
             <label className="font-mono text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-              {t('brief.steps.audience.competitorsLabel')}
+              {t('brief.steps.audience.competitors')}
             </label>
             <textarea
               {...register('competitors')}

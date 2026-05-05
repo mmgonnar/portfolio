@@ -60,7 +60,7 @@ export const StepProjectDetails = () => {
 
         <div className="space-y-2">
           <BriefTextArea
-            label={t('brief.steps.step3.projectDecription')}
+            label={t('brief.steps.step3.projectDescription')}
             placeholder={t('brief.steps.step3.projectPlaceholder')}
             error={
               errors.projectDescription?.message ? t(errors.projectDescription.message) : undefined

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import { Paperclip, Pencil } from 'lucide-react';
+import { formatBudgetRange } from '@/utils/functions';
 
 export const StepReview = () => {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ export const StepReview = () => {
     </div>
   );
 
-  const DataItem = ({ label, value }: { label: string; value?: string | string[] }) => (
+  const DataItem = ({ label, value }: { label: string; value?: string | string[] | boolean }) => (
     <div className="flex flex-col gap-1">
       <p className="text-[13px] text-gray-500">{label}</p>
       <p className="text-sm font-bold wrap-break-word text-black italic">
@@ -60,48 +61,63 @@ export const StepReview = () => {
         <h2 className="text-4xl font-black tracking-tighter text-black uppercase">
           {t('brief.steps.step11.title')}
         </h2>
-        <p className="text-gray-500 italic">{t('brief.steps.step11.description')}</p>
+        <p className="text-gray-500">{t('brief.steps.step11.description')}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-2">
         {/* CONTACT INFO */}
         <ReviewSection title={t('brief.steps.step11.sections.contact')} stepTarget={1}>
-          <DataItem label="¿Cuál es tu nombre?" value={formData.name} />
-          <DataItem label="Correo electrónico" value={formData.email} />
+          <DataItem label={t('brief.steps.step1.name')} value={formData.name} />
+          <DataItem label={t('brief.steps.step1.project')} value={formData.company} />
+          <DataItem label={t('brief.steps.step1.email')} value={formData.email} />
+          <DataItem label={t('brief.steps.step1.phone')} value={formData.phone} />
         </ReviewSection>
 
         {/* PROJECT DETAILS */}
         <ReviewSection title={t('brief.steps.step11.sections.project')} stepTarget={2}>
           <DataItem
-            label="Tipo de proyecto"
+            label={t('brief.steps.step2.title')}
             value={t(`brief.steps.step2.options.${formData.projectType}.title`)}
           />
-          <DataItem label="Funcionalidades" value={formData.features} />
+          <DataItem label={t('brief.steps.step3.projectName')} value={formData.projectName} />
+          <DataItem
+            label={t('brief.steps.step3.projectDescription')}
+            value={formData.projectDescription}
+          />
+          <DataItem
+            label={t('brief.steps.step3.hasExistingSite')}
+            value={formData.hasExistingSite}
+          />
+          <DataItem
+            label={t('brief.steps.step3.hasExistingSite')}
+            value={formData.existingSiteUrl}
+          />
+          <DataItem label={t('brief.steps.step4.title')} value={formData.features} />
+          {formData.featuresDetail && (
+            <DataItem label="Additional details" value={formData.featuresDetail} />
+          )}
         </ReviewSection>
 
         {/* VISION */}
-        <ReviewSection title={t('brief.steps.step11.sections.vision')} stepTarget={4}>
-          <DataItem label="Descripción de la visión" value={formData.projectDescription} />
+        <ReviewSection title={t('brief.steps.step5.title')} stepTarget={4}>
+          <DataItem label={t('brief.steps.step5.targetTitle')} value={formData.targetAudience} />
+          <DataItem label={t('brief.steps.step5.competitorsLabel')} value={formData.competitors} />
         </ReviewSection>
 
-        {/* BUDGET & TIMELINE */}
-        <ReviewSection title={t('brief.steps.step11.sections.budget_time')} stepTarget={6}>
-          <DataItem label="Rango de presupuesto" value={formData.budget} />
+        {/* Style & references & branding*/}
+        <ReviewSection title={t('brief.steps.step11.sections.styleReferences')} stepTarget={6}>
           <DataItem
-            label="Timeline esperado"
-            value={t(`brief.steps.step7.options.${formData.timeline}.title`)}
+            label={t('brief.steps.step6.styleDescription')}
+            value={t(`brief.steps.step6.options.${formData.visualStyle}.title`)}
           />
+          <DataItem label={t('brief.steps.step6.description')} value={formData.visualReferences} />
         </ReviewSection>
+        {/* branding*/}
+        <ReviewSection title={t('brief.steps.step11.sections.styleReferences')} stepTarget={6}>
+          <DataItem label={t('brief.steps.step7.colorsLabel')} value={formData.brandColors} />
 
-        {/* ATTACHMENTS & LINKS */}
-        <ReviewSection title={t('brief.steps.step11.sections.files')} stepTarget={7}>
-          {/* Enlaces de referencia (Texto) */}
-          <DataItem label={t('brief.steps.step9.title')} value={formData.visualReferences} />
-
-          {/* Lista de Archivos Físicos */}
           <div className="mt-4 flex flex-col gap-1">
-            <DataItem label={t('brief.steps.step8.title')} />
-
+            <p className="text-[13px] text-gray-500">{t('brief.steps.step7.title')}</p>
             {files.length > 0 ? (
               <div className="flex flex-wrap gap-2 pt-2">
                 {files.map((file, idx) => (
@@ -122,6 +138,19 @@ export const StepReview = () => {
               </p>
             )}
           </div>
+        </ReviewSection>
+
+        {/* BUDGET & TIMELINE */}
+        <ReviewSection title={t('brief.steps.step11.sections.budget_time')} stepTarget={6}>
+          <DataItem label="Rango de presupuesto" value={formatBudgetRange(formData.budget)} />
+
+          <DataItem
+            label="Timeline esperado"
+            value={t(`brief.steps.step9.options.${formData.timeline}.title`)}
+          />
+          {formData.additionalNotes && (
+            <DataItem label={t('brief.steps.step10.title')} value={formData.additionalNotes} />
+          )}
         </ReviewSection>
       </div>
     </BriefContainer>

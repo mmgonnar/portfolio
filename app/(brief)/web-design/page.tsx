@@ -14,8 +14,8 @@ export default function Page() {
   const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief } = useBriefStore();
   const { t } = useTranslation();
 
-  const isReviewStep = currentStep === 10;
-  const isLastStep = currentStep === 11;
+  const isReviewStep = currentStep === 11;
+  const isLastStep = currentStep === 12;
 
   const handleAction = async () => {
     if (isReviewStep) {

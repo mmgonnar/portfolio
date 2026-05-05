@@ -50,7 +50,7 @@ export const StepTargetCompetitors = () => {
         <div className="space-y-2">
           <BriefTextArea
             label={t('brief.steps.step5.targetTitle')}
-            placeholder={t('brief.steps.step5.targetPlaceholder')}
+            placeholder={t('brief.steps.step5.targetAudience')}
             error={errors.targetAudience?.message ? t(errors.targetAudience.message) : undefined}
             {...register('targetAudience')}
           />

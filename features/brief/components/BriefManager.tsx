@@ -2,17 +2,22 @@
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import {
+  StepAdditionalNotes,
   StepAudience,
   StepBrandIdentity,
+  StepBudget,
   StepFeatures,
   StepPersonalData,
   StepProjectDefinition,
   StepProjectDetails,
   StepReferences,
+  StepReview,
   StepTargetCompetitors,
+  StepTimeline,
 } from './steps';
 
 import { BriefProgressBar } from './ui/brief-progress-bar';
+import { StepSuccess } from './ui/StepSuccess';
 
 export const BriefManager = () => {
   const currentStep = useBriefStore(state => state.currentStep);
@@ -37,22 +42,16 @@ export const BriefManager = () => {
         return <StepReferences />;
       case 7:
         return <StepBrandIdentity />;
-      // case 4:
-      //   return <StepVision />;
-      // case 5:
-      //   return <StepBudget />;
-      // case 6:
-      //   return <StepTimeline />;
-      // case 7:
-      //   return <StepFiles />;
-      // case 8:
-      //   return <StepReferences />;
-      // case 9:
-      //   return <StepAdditionalNotes />;
-      // case 10:
-      //   return <StepReview />;
-      // case 11:
-      //   return <StepSuccess />;
+      case 8:
+        return <StepBudget />;
+      case 9:
+        return <StepTimeline />;
+      case 10:
+        return <StepAdditionalNotes />;
+      case 11:
+        return <StepReview />;
+      case 12:
+        return <StepSuccess />;
 
       default:
         return <BriefIntro />;

@@ -72,7 +72,7 @@ export const useBriefStore = create<BriefState>()(
       nextStep: () =>
         set(state => {
           const next = state.currentStep + 1;
-          const MAX_STEPS = 16;
+          const MAX_STEPS = 12;
           return {
             currentStep: next <= MAX_STEPS ? next : state.currentStep,
           };

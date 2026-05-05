@@ -175,7 +175,7 @@ export const enTranslations = {
         title: 'Tell me a bit more about your project.',
         description: 'Describe your project, goals, and any specific requirements',
         projectName: "What is your project's name?",
-        projectDecription: 'Describe your project...',
+        projectDescription: 'Describe your project...',
         projectPlaceholder: 'My project is about...',
         counter: 'minimum characters',
         hasExistingSite: 'Do you have an existing website?',
@@ -203,11 +203,11 @@ export const enTranslations = {
       step5: {
         title: 'Target audience & competitors',
         description: "Describe your project's target audience and mention your main competitors.",
-        targetPlaceholder: 'Describe demographics, interests, and key points....',
+        targetAudience: 'Describe demographics, interests, and key points....',
         counter: 'minimum characters',
         targetTitle: 'Who is your target audience?',
         competitorsLabel: 'Who is your main competitor?',
-        competitorsPlaceholder: 'Mention at least 2, either names or social media profiles',
+        competitors: 'Mention at least 2, either names or social media profiles',
       },
       step0: {
         title: 'Tell me about your vision.',
@@ -218,6 +218,7 @@ export const enTranslations = {
       step6: {
         title: 'Any websites or designs that inspire you?',
         description: "Share URLs and select the aesthetic you're aiming for",
+        styleDescription: "Select the aesthetic you're aiming for",
         placeholder: 'https://example.com/...',
         addMore: '+ Add reference',
         references: 'Please share some references',
@@ -230,8 +231,8 @@ export const enTranslations = {
           modern: { title: 'moderno', desc: 'Sleek, futuristic, gradients' },
         },
       },
-      step000: {
-        title: "What's your budget range? (uds)",
+      step8: {
+        title: "What's your budget range? ",
         description: 'This helps us tailor the right solution for you',
         ranges: {
           r1: '$1K - $3K',
@@ -251,10 +252,10 @@ export const enTranslations = {
           files: 'Files shared',
         },
         colorsLabel: 'Which ones are the colors of your project or brand?',
-        colorsPlaceholder: 'Eg. blue, red, yellow, black..',
+        brandColors: 'Eg. blue, red, yellow, black..',
         assetsLabel: 'Share here your files',
       },
-      step0000: {
+      step9: {
         title: 'When do you need this completed?',
         description: 'Select your ideal timeline',
         options: {
@@ -264,7 +265,7 @@ export const enTranslations = {
           flexible: { title: 'Flexible', desc: 'No strict timeline' },
         },
       },
-      step8: {
+      step00000: {
         title: 'Have any files to share?',
         description: 'Upload logos, brand guidelines, wireframes, or reference images',
         dropzone: {
@@ -274,7 +275,7 @@ export const enTranslations = {
           files: 'Files shared',
         },
       },
-      step9: {
+      step000000: {
         title: 'Any websites or designs that inspire you?',
         description: "Share URLs or describe the aesthetic you're aiming for",
         placeholder: 'https://example.com/...',
@@ -293,7 +294,7 @@ export const enTranslations = {
         sections: {
           contact: 'Contact Information',
           project: 'Project Details',
-          vision: 'Vision and Requirements',
+          styleReferences: 'Style & References & Branding',
           budget_time: 'Budget and Time',
           files: 'Files and References',
         },
@@ -494,7 +495,7 @@ export const esTranslations = {
         description:
           'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente',
         projectName: '¿Cuál es el nombre de tu proyecto?',
-        projectDecription: 'Describe tu proyecto...',
+        projectDescription: 'Describe tu proyecto...',
         projectPlaceholder: 'Mi proyecto trata sobre...',
         counter: 'caracteres mínimos',
         hasExistingSite: '¿Tienes un sitio web actualmente?',
@@ -522,11 +523,11 @@ export const esTranslations = {
       step5: {
         title: 'Audiencia y competidores',
         description: 'Describe la audiencia de tu proyecto y menciona tus principales competidores',
-        targetPlaceholder: 'Describe demografía, intereses y puntos de clave.....',
+        targetAudience: 'Describe demografía, intereses y puntos de clave.....',
         counter: 'minimum characters',
         targetTitle: '¿Quién es tu audiencia objetivo?',
         competitorsLabel: '¿Quién es tu principal competidor?',
-        competitorsPlaceholder: 'Menciona al menos 2, ya sea nombres o perfiles de redes sociales',
+        competitors: 'Menciona al menos 2, ya sea nombres o perfiles de redes sociales',
       },
       step0: {
         title: 'Cuéntame tu visión',
@@ -538,6 +539,7 @@ export const esTranslations = {
       step6: {
         title: '¿Hay sitios web o diseños que te inspiren?',
         description: 'Comparte URLs y selecciona el estilo que buscas.',
+        styleDescription: 'Selecciona el estilo que buscas.',
         placeholder: 'https://example.com - Me gusta la estructura...',
         addMore: '+ Añadir referencia',
         references: 'Por favor comparte algunas referencias',
@@ -560,12 +562,12 @@ export const esTranslations = {
           files: 'Archivos Compartidos',
         },
         colorsLabel: '¿Cuáles son los colores de su marca o proyecto?',
-        colorsPlaceholder: 'Ej. azul, rojo, amarillo, negro..',
+        brandColors: 'Ej. azul, rojo, amarillo, negro..',
         assetsLabel: 'Comparte aqui tus archivos',
       },
 
-      step00: {
-        title: '¿Cuál es tu rango de presupuesto (MXN)?',
+      step8: {
+        title: '¿Cuál es tu rango de presupuesto?',
         description:
           'Esto me ayuda a proponer la solución tecnológica y de diseño más adecuada para ti.',
         ranges: {
@@ -576,7 +578,7 @@ export const esTranslations = {
           r5: '$30K+',
         },
       },
-      step000: {
+      step9: {
         title: '¿Para cuándo lo necesitas?',
         description: 'Selecciona tu cronograma ideal',
         options: {
@@ -586,7 +588,7 @@ export const esTranslations = {
           flexible: { title: 'Flexible', desc: 'Sin fecha límite estricta' },
         },
       },
-      step8: {
+      step0000: {
         title: '¿Tienes archivos para compartir?',
         description: 'Sube logos, manuales de marca, wireframes o imágenes de referencia.',
         dropzone: {
@@ -596,7 +598,7 @@ export const esTranslations = {
           files: 'Archivos Compartidos',
         },
       },
-      step9: {
+      step0000000: {
         title: '¿Tienes alguna referencia visual?',
         description:
           'Pega enlaces a sitios web, tableros de Pinterest o perfiles de Dribbble que te inspiren.',
@@ -616,7 +618,7 @@ export const esTranslations = {
         sections: {
           contact: 'Información de Contacto',
           project: 'Detalles del Proyecto',
-          vision: 'Visión y Requerimientos',
+          styleReferences: 'Estilo y referencias & Branding',
           budget_time: 'Presupuesto y Tiempo',
           files: 'Archivos y Referencias',
         },

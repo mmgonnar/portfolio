@@ -3,22 +3,35 @@ import { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
-import { cn } from '@/utils/functions';
+import { cn, isUserInMexico } from '@/utils/functions';
 
 export const StepBudget = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
+  const [isMexico, setIsMexico] = useState(false);
 
-  const budgetOptions = useMemo(
-    () => [
-      { label: t('brief.steps.step6.ranges.r1'), value: 'r1' },
-      { label: t('brief.steps.step6.ranges.r2'), value: 'r2' },
-      { label: t('brief.steps.step6.ranges.r3'), value: 'r3' },
-      { label: t('brief.steps.step6.ranges.r4'), value: 'r4' },
-      { label: t('brief.steps.step6.ranges.r5'), value: 'r5' },
-    ],
-    [t],
-  );
+  useEffect(() => {
+    setIsMexico(isUserInMexico());
+  }, []);
+
+  const budgetOptions = useMemo(() => {
+    const ranges = isMexico
+      ? [
+          { label: '$10K - $15K MXN', value: 'r1' },
+          { label: '$15K - $20K MXN', value: 'r2' },
+          { label: '$20K - $25K MXN', value: 'r3' },
+          { label: '$25K - $30K MXN', value: 'r4' },
+          { label: '$30K+ MXN', value: 'r5' },
+        ]
+      : [
+          { label: '$1K - $3K', value: 'r1' },
+          { label: '$3K - $5K', value: 'r2' },
+          { label: '$5K - $10K', value: 'r3' },
+          { label: '$10K - $25K', value: 'r4' },
+          { label: '$25K+', value: 'r5' },
+        ];
+    return ranges;
+  }, [isMexico]);
 
   const initialIndex = useMemo(() => {
     const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
@@ -45,9 +58,14 @@ export const StepBudget = () => {
   return (
     <BriefContainer>
       <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step6.title')}
-        </h2>
+        <div className="flex items-center gap-10">
+          <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
+            {t('brief.steps.step8.title')}{' '}
+            <span className="font-mono text-2xl font-bold tracking-widest text-gray-400 uppercase">
+              {isMexico ? '(MXN)' : '(USD)'}
+            </span>
+          </h2>
+        </div>
       </div>
 
       <div className="flex flex-col items-center justify-center space-y-12 py-16">
