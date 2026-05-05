@@ -40,6 +40,48 @@ export const stepTwoSchema = z
 
 export type StepTwoData = z.infer<typeof stepTwoSchema>;
 
+// export const stepThreeSchema = z.object({
+//   targetAudience: z.string().min(20, { message: 'form.errors.error_message_short_20' }),
+//   competitors: z.string().refine(val => val.length === 0 || val.length >= 20, {
+//     message: 'form.error.error_message_short_20',
+//   }),
+// });
+
+// export type StepThreeSchema = z.infer<typeof stepThreeSchema>;
+
+export const stepFiveSchema = z.object({
+  targetAudience: z.string().min(20, { message: 'form.errors.error_message_short_20' }),
+  competitors: z.string().refine(val => val.length === 0 || val.length >= 20, {
+    message: 'form.error.error_message_short_20',
+  }),
+});
+
+export type StepFiveSchema = z.infer<typeof stepFiveSchema>;
+
+export const stepSixSchema = z.object({
+  visualStyle: z.string().min(1).optional(),
+  visualReferences: z.string().refine(
+    val => {
+      if (!val) return false;
+      const urls = val
+        .split(',')
+        .map(u => u.trim())
+        .filter(u => u);
+      return urls.length > 0 && urls.every(u => u.startsWith('http'));
+    },
+    { message: 'form.errors.invalid_url' },
+  ),
+});
+
+export type StepSixSchema = z.infer<typeof stepSixSchema>;
+
+export const stepSevenSchema = z.object({
+  brandColors: z.string().min(5, { message: 'forms.errors.error_message_short' }),
+  brandAssetsReady: z.boolean().optional(),
+});
+
+export type stepSevenSchema = z.infer<typeof stepSevenSchema>;
+
 export interface BriefData {
   // Paso 1 — Contacto
   name: string;
@@ -49,21 +91,23 @@ export interface BriefData {
 
   // Paso 2 — Proyecto
   projectType: string;
+  // Paso 3 — Detalles del Proyecto
   projectName: string;
   projectDescription: string;
   hasExistingSite: boolean;
   existingSiteUrl?: string;
 
-  // Paso 3 — Funcionalidades
+  // Paso 4 — Funcionalidades
   features: string[];
   featuresDetail?: string;
 
-  // Paso 4 — Estilo y Audiencia
+  // Paso5  —  Audiencia y competidores
   targetAudience: string;
   competitors?: string;
+  // Pasp 6 Estilo y Brand
   visualStyle: string;
   visualReferences?: string;
-  brandColors: boolean;
+  brandColors?: string;
   brandAssetsReady: boolean;
 
   // Paso 5 — Presupuesto y Tiempos

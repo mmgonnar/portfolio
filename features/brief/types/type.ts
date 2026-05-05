@@ -19,7 +19,7 @@ export interface BriefData {
   company?: string;
 
   // Paso 2
-  projectType: string;
+  projectType: ProjectType;
   projectName: string;
   projectDescription: string; // Asegúrate de que no diga 'description'
   hasExistingSite: boolean;

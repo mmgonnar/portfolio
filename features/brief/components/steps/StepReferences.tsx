@@ -4,37 +4,59 @@ import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import BriefInput from '@/features/ui/components/brief-input';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Plus } from 'lucide-react';
 import { cn } from '@/utils/functions';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useFormSync } from '@/hooks/useFormSync';
+import { stepSixSchema, StepSixSchema } from '../../utils/validation';
+import { OptionCard } from '@/features/ui/components/OptionCard';
 
 export const StepReferences = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
 
-  const initialLinks = formData.referenceLinks ? formData.referenceLinks.split(',') : [''];
-  const [links, setLinks] = useState<string[]>(initialLinks);
-  const [showError, setShowError] = useState(false);
+  const styles = ['minimal', 'luxury', 'editorial', 'brutalist', 'darkLuxury', 'modern'];
 
-  const isValidUrl = (url: string) => {
-    try {
-      new URL(url.startsWith('http') ? url : `https://${url}`);
-      return url.includes('.');
-    } catch {
-      return false;
-    }
-  };
+  // --- Lógica de Enlaces Multinivel ---
+  const initialLinks = formData.visualReferences ? formData.visualReferences.split(',') : [''];
+  const [links, setLinks] = useState<string[]>(initialLinks);
+
+  const {
+    register,
+    watch,
+    setValue,
+    formState: { errors, isValid },
+  } = useForm<StepSixSchema>({
+    resolver: zodResolver(stepSixSchema),
+    defaultValues: {
+      visualStyle: formData.visualStyle,
+      visualReferences: formData.visualReferences,
+    },
+    mode: 'onChange',
+  });
+
+  useFormSync(watch, updateField, formData);
+
+  // Sincronizar links locales con React Hook Form y el Store
+  useEffect(() => {
+    const combinedLinks = links.filter(l => l.trim() !== '').join(',');
+
+    // 1. Actualizamos el valor en el formulario
+    setValue('visualReferences', combinedLinks, {
+      shouldValidate: true, // 👈 Esto es clave
+      shouldDirty: true,
+    });
+
+    // 2. Sincronizamos con Zustand
+    updateField('visualReferences', combinedLinks);
+  }, [links, setValue, updateField]);
 
   useEffect(() => {
-    const filteredLinks = links.filter(link => link.trim() !== '');
+    setStepValid(isValid);
+  }, [isValid, setStepValid]);
 
-    const isFirstLinkValid = links[0].trim() !== '' && isValidUrl(links[0]);
-
-    setShowError(links[0].trim() !== '' && !isValidUrl(links[0]));
-    updateField('referenceLinks', filteredLinks.join(','));
-    setStepValid(isFirstLinkValid);
-  }, [links, setStepValid, updateField]);
-
-  const addLink = () => setLinks([...links, '']);
+  const selectedStyle = watch('visualStyle');
 
   const updateLink = (idx: number, value: string) => {
     const newLinks = [...links];
@@ -42,70 +64,80 @@ export const StepReferences = () => {
     setLinks(newLinks);
   };
 
+  const addLink = () => setLinks([...links, '']);
   const removeLink = (idx: number) => {
-    if (links.length > 1) {
-      setLinks(links.filter((_, i) => i !== idx));
-    } else {
-      setLinks(['']);
-    }
+    const newLinks = links.filter((_, i) => i !== idx);
+    setLinks(newLinks.length ? newLinks : ['']);
   };
+
+  console.log('ERRORES:', errors);
+  console.log('¿ES VÁLIDO?:', isValid);
 
   return (
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step9.title')}
+          {t('brief.steps.step6.title')}
         </h2>
-        <p className="text-gray-500">{t('brief.steps.step9.description')}</p>
+        <p className="font-medium text-gray-500">{t('brief.steps.step6.description')}</p>
       </div>
 
-      <div className="flex flex-col gap-4">
-        {links.map((link, idx) => (
-          <div
-            key={`link-row-${idx}`}
-            className="animate-in fade-in slide-in-from-left-2 flex flex-col gap-2"
-          >
-            <div className="flex items-center gap-3">
+      {/* Grid de Estilos Visuales (Neobrutalista) */}
+      <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
+        {styles.map(style => (
+          <OptionCard
+            key={style}
+            title={t(`brief.steps.step6.options.${style}.title`)}
+            desc={t(`brief.steps.step6.options.${style}.desc`)}
+            selected={selectedStyle === style}
+            onClick={() => {
+              setValue('visualStyle', style, { shouldValidate: true });
+              updateField('visualStyle', style);
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Sección de Referencias (Links) */}
+      <div className="flex flex-col gap-6 border-t-2 border-black/5 pt-8">
+        <label className="font-mono text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
+          {t('brief.steps.step6.references')}
+        </label>
+
+        <div className="space-y-4">
+          {links.map((link, idx) => (
+            <div
+              key={`link-${idx}`}
+              className="animate-in fade-in slide-in-from-left-2 flex items-center gap-3"
+            >
               <div className="flex-1">
                 <BriefInput
-                  id={`link-${idx}`}
-                  name={`link-${idx}`}
-                  placeholder={t('brief.steps.step9.placeholder')}
+                  placeholder="https://pinterest.com/..."
                   value={link}
                   onChange={e => updateLink(idx, e.target.value)}
-                  className={cn(
-                    'font-mono text-xs',
-                    idx === 0 && showError
-                      ? 'border-red-500 shadow-[4px_4px_0px_0px_#ef4444] focus:border-b-4 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                      : '',
-                  )}
+                  className="font-mono text-xs"
                 />
               </div>
               {links.length > 1 && (
                 <button
                   type="button"
                   onClick={() => removeLink(idx)}
-                  className="border-2 border-black bg-white p-2 shadow-[2px_2px_0px_0px_#000] transition-colors hover:bg-red-50"
+                  className="border-2 border-black bg-white p-2 shadow-[2px_2px_0px_0px_#000] transition-all hover:bg-red-50 active:translate-x-1 active:translate-y-1 active:shadow-none"
                 >
-                  <Trash2 size={16} className="text-black" />
+                  <Trash2 size={16} />
                 </button>
               )}
             </div>
-
-            {idx === 0 && showError && (
-              <p className="font-mono text-[10px] font-bold tracking-widest text-red-500 uppercase">
-                {t('form.errors.error_invalid_url')}
-              </p>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
 
         <button
           type="button"
           onClick={addLink}
-          className="text-green-brutalist mt-2 self-start font-mono text-[10px] font-bold tracking-widest uppercase underline-offset-8 hover:underline"
+          className="flex items-center gap-2 self-start font-mono text-[10px] font-bold tracking-widest text-green-600 uppercase underline-offset-8 hover:underline"
         >
-          {t('brief.steps.step9.addMore')}
+          <Plus size={14} />
+          {t('brief.steps.step6.addMore')}
         </button>
       </div>
     </BriefContainer>

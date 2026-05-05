@@ -6,7 +6,7 @@ interface BriefState {
   formData: BriefData;
   currentStep: number;
   isStepValid: boolean;
-  files: File[]; // Los archivos viven aquí en memoria
+  files: File[];
   updateField: (field: keyof BriefData, value: any) => void;
   setFiles: (files: File[]) => void;
   toggleFeature: (featureTitle: string) => void;
@@ -17,27 +17,39 @@ interface BriefState {
   resetBrief: () => void;
 }
 
+const INITIAL_FORM_DATA: BriefData = {
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  projectName: '',
+  projectType: '',
+  projectDescription: '',
+  features: [],
+  featuresDetail: '',
+  targetAudience: '',
+  competitors: '',
+  visualStyle: '',
+  visualReferences: '',
+  brandColors: false,
+  brandAssetsReady: false,
+  budget: '',
+  timeline: '',
+  flexibleBudget: false,
+  additionalNotes: '',
+  hasExistingSite: false,
+  existingSiteUrl: '',
+  locale: '',
+};
+
 export const useBriefStore = create<BriefState>()(
   persist(
     set => ({
-      // --- ESTADO INICIAL ---
-      formData: {
-        name: '',
-        email: '',
-        projectName: '',
-        projectType: '',
-        description: '',
-        features: [],
-        budget: '',
-        timeline: '',
-        referenceLinks: '',
-        additionalNotes: '',
-      },
-      files: [], // Inicialmente vacío
+      formData: INITIAL_FORM_DATA,
+      files: [],
       currentStep: 0,
       isStepValid: false,
 
-      // --- ACCIONES ---
       updateField: (field, value) =>
         set(state => ({
           formData: { ...state.formData, [field]: value },
@@ -60,7 +72,7 @@ export const useBriefStore = create<BriefState>()(
       nextStep: () =>
         set(state => {
           const next = state.currentStep + 1;
-          const MAX_STEPS = 11;
+          const MAX_STEPS = 16;
           return {
             currentStep: next <= MAX_STEPS ? next : state.currentStep,
           };
@@ -79,24 +91,13 @@ export const useBriefStore = create<BriefState>()(
         set({
           currentStep: 0,
           isStepValid: false,
-          files: [], // Limpiamos archivos al resetear
-          formData: {
-            name: '',
-            email: '',
-            projectName: '',
-            projectType: '',
-            description: '',
-            features: [],
-            budget: '',
-            timeline: '',
-            referenceLinks: '',
-            additionalNotes: '',
-          },
+          files: [],
+          formData: INITIAL_FORM_DATA, // ✅ Usar la constante para evitar errores
         }),
     }),
     {
       name: 'brief-storage',
-
+      // No guardamos los archivos (Files) en LocalStorage porque daría error
       partialize: state => {
         const { files, ...rest } = state;
         return rest;

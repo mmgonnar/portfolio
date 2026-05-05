@@ -28,8 +28,12 @@ export const StepPersonalData = () => {
 
   useFormSync(watch, updateField, formData);
 
+  useEffect(() => {
+    setStepValid(isValid);
+  }, [isValid, setStepValid]);
+
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 flex w-full max-w-5xl flex-col gap-12 px-6 py-10">
+    <div className="animate-inå fade-in slide-in-from-bottom-4 flex w-full max-w-5xl flex-col gap-12 px-6 py-10">
       <div className="space-y-4">
         <BriefInput
           label={t('brief.steps.step1.name')}

@@ -19,7 +19,7 @@ export const enTranslations = {
     continue: 'Continue >',
     back: 'Back',
     next: 'Next',
-    submitBrief: 'Submit Brieffing ;)',
+    submitBrief: 'Submit Brief ;)',
     backHome: 'Regresar a Inicio',
   },
   language: {
@@ -110,7 +110,8 @@ export const enTranslations = {
     errors: {
       error_name_short: 'Name is too short',
       error_email_invalid: 'Introduce a valid email',
-      error_message_short: 'The message needs to be at least 50 characteres',
+      error_message_short: 'The message must be at least 50 characters long',
+      error_message_short_20: 'The message must be at least 20 characters long',
       error_project: 'Project type is required',
       error_goals: 'Please be a bit more descriptive about your goals',
       error_invalid_url: 'Please, add a valid URL (eg: https://...)',
@@ -177,40 +178,58 @@ export const enTranslations = {
         projectPlaceholder: 'My project is about...',
         counter: 'minimum characters',
         hasExistingSite: 'Do you have an existing website?',
-        existingSiteUrl: 'Please share your Website URL',
+        existingSiteUrl: 'Current URL',
       },
-      // step3: {
-      //   title: 'Which features do you need?',
-      //   description:
-      //     "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
-      //   selectedLabel: 'Selected',
-      //   options: {
-      //     cms: { title: 'Content Management', desc: 'Edit content yourself' },
-      //     auth: { title: 'User Authentication', desc: 'Login & accounts' },
-      //     payments: { title: 'Payment Processing', desc: 'Accept online payments' },
-      //     analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
-      //     seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
-      //     multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
-      //     integrations: {
-      //       title: 'Third-party Integrations',
-      //       desc: 'Connect with external services',
-      //     },
-      //     mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
-      //   },
-      // },
       step4: {
+        title: 'Which features do you need?',
+        description:
+          "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
+        selectedLabel: 'Selected',
+        options: {
+          cms: { title: 'Content Management', desc: 'Edit content yourself' },
+          auth: { title: 'User Authentication', desc: 'Login & accounts' },
+          payments: { title: 'Payment Processing', desc: 'Accept online payments' },
+          analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
+          seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
+          multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
+          integrations: {
+            title: 'Third-party Integrations',
+            desc: 'Connect with external services',
+          },
+          mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
+        },
+      },
+      step5: {
+        title: 'Target audience & competitors',
+        description: "Describe your project's target audience and mention your main competitors.",
+        targetPlaceholder: 'Describe demographics, interests, and key points....',
+        counter: 'minimum characters',
+        targetTitle: 'Who is your target audience?',
+        competitorsLabel: 'Who is your main competitor?',
+        competitorsPlaceholder: 'Mention at least 2, either names or social media profiles',
+      },
+      step0: {
         title: 'Tell me about your vision.',
         description: 'Describe your project, goals, and any specific requirements',
         placeholder: 'My project is about...',
         counter: 'minimum characters',
       },
-      step5: {
-        title: 'Any websites or designs that inspire you?',
-        description: "Share URLs or describe the aesthetic you're aiming for",
-        placeholder: 'https://example.com/...',
-        addMore: '+ Agregar otro enlace',
-      },
       step6: {
+        title: 'Any websites or designs that inspire you?',
+        description: "Share URLs and select the aesthetic you're aiming for",
+        placeholder: 'https://example.com/...',
+        addMore: '+ Add reference',
+        references: 'Please share some references',
+        options: {
+          minimal: { title: 'Minimal', desc: 'Clean, airy, focus on content' },
+          luxury: { title: 'Elegante', desc: 'Elegant, sophisticated, soft tones' },
+          editorial: { title: 'editorial', desc: 'Magazine-inspired, strong typography' },
+          brutalist: { title: 'Brutalista', desc: 'Bold, high contrast, raw edges' },
+          darkLuxury: { title: 'Lujoso', desc: 'Moody, deep tones, gold accents' },
+          modern: { title: 'moderno', desc: 'Sleek, futuristic, gradients' },
+        },
+      },
+      step000: {
         title: "What's your budget range? (uds)",
         description: 'This helps us tailor the right solution for you',
         ranges: {
@@ -303,7 +322,7 @@ export const esTranslations = {
     continue: 'Continuar >',
     back: 'Atrás',
     next: 'Siguiente',
-    submitBrief: 'Enviar Brieffing ;)',
+    submitBrief: 'Enviar Brief ;)',
     backHome: 'Back to Home',
   },
   language: {
@@ -394,7 +413,8 @@ export const esTranslations = {
     errors: {
       error_name_short: 'El nombre es demasiado corto',
       error_email_invalid: 'Introduce un correo válido',
-      error_message_short: 'El mensaje debe tener al menos 10 caracteres',
+      error_message_short: 'El mensaje debe tener al menos 50 caracteres',
+      error_message_short_20: 'El mensaje debe tener al menos 20 caracteres',
       error_invalid_url: 'Por favor, ingresa una URL válida (ej: https://...)',
       error_phone_numbers_only: 'Por favor, ingresa solo numeros',
       error_phone_too_short: 'Ingresa mínimo 10 digitos',
@@ -453,7 +473,19 @@ export const esTranslations = {
           other: { title: 'Other', desc: 'Algo único en mente' },
         },
       },
+
       step3: {
+        title: 'Cuéntame mas de tu proyecto',
+        description:
+          'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente',
+        projectName: '¿Cuál es el nombre de tu proyecto?',
+        projectDecription: 'Describe tu proyecto...',
+        projectPlaceholder: 'Mi proyecto trata sobre...',
+        counter: 'caracteres mínimos',
+        hasExistingSite: '¿Tienes un sitio web actualmente?',
+        existingSiteUrl: 'URL del sitio',
+      },
+      step4: {
         title: '¿Qué funcionalidades necesitas?',
         description:
           'Selecciona todas las que apliquen. Si no estás seguro de qué significa algún término o necesitas algo diferente, no dudes en escribirme.',
@@ -472,20 +504,38 @@ export const esTranslations = {
           mobile: { title: 'Diseño Mobile-first', desc: 'Optimizado para todos los dispositivos' },
         },
       },
-      step4: {
+      step5: {
+        title: 'Audiencia y competidores',
+        description: 'Describe la audiencia de tu proyecto y menciona tus principales competidores',
+        targetPlaceholder: 'Describe demografía, intereses y puntos de clave.....',
+        counter: 'minimum characters',
+        targetTitle: '¿Quién es tu audiencia objetivo?',
+        competitorsLabel: '¿Quién es tu principal competidor?',
+        competitorsPlaceholder: 'Menciona al menos 2, ya sea nombres o perfiles de redes sociales',
+      },
+      step0: {
         title: 'Cuéntame tu visión',
         description:
           'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente.',
         placeholder: 'Mi proyecto trata sobre...',
         counter: 'caracteres mínimos',
       },
-      step5: {
-        title: '¿Hay sitios web o diseños que te inspiren?',
-        description: 'Comparte las URL o describe el estilo que buscas.',
-        placeholder: 'https://example.com - Me gusta la estructura...',
-        counter: 'caracteres mínimos',
-      },
       step6: {
+        title: '¿Hay sitios web o diseños que te inspiren?',
+        description: 'Comparte URLs y selecciona el estilo que buscas.',
+        placeholder: 'https://example.com - Me gusta la estructura...',
+        addMore: '+ Añadir referencia',
+        references: 'Por favor comparte algunas referencias',
+        options: {
+          minimal: { title: 'Minimal', desc: 'Limpio, aireado, enfoque en el contenido' },
+          luxury: { title: 'Elegante', desc: 'Elegante, sofisticado, tonos suaves' },
+          editorial: { title: 'editorial', desc: 'Inspirado en revistas, tipografía fuerte' },
+          brutalist: { title: 'Brutalista', desc: 'Audaz, alto contraste, bordes crudos' },
+          darkLuxury: { title: 'Lujoso', desc: 'Atmosférico, tonos profundos, acentos dorados' },
+          modern: { title: 'moderno', desc: 'Fulido, futurista, degradados' },
+        },
+      },
+      step00: {
         title: '¿Cuál es tu rango de presupuesto (MXN)?',
         description:
           'Esto me ayuda a proponer la solución tecnológica y de diseño más adecuada para ti.',

@@ -19,7 +19,7 @@ const BriefTextArea = forwardRef<HTMLTextAreaElement, BriefTextAreaProps>(
             ref={ref}
             className={cn(
               // Base Styles: Minimalist & Clean
-              'min-h-[120px] w-full resize-none border-b border-gray-300 bg-transparent px-2 py-3 font-sans text-xl font-light transition-all duration-300 outline-none placeholder:text-gray-300',
+              'min-h-[120px] w-full resize-none border border-gray-300 bg-transparent px-2 py-3 font-sans text-xl font-light transition-all duration-300 outline-none placeholder:text-gray-300',
               // Neobrutalist Focus
               'focus:border-green-brutalist focus:ring-green-brutalist focus:border-b-4 focus:ring-1',
               // Autofill/Blue background fix

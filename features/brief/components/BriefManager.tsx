@@ -1,21 +1,18 @@
 'use client';
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
-import { StepAdditionalNotes } from './steps/StepAdditionalNotes';
-import { StepBudget } from './steps/StepBudget';
-import { StepFeatures } from './steps/StepFeatures';
-import { StepFiles } from './steps/StepFiles';
+import {
+  StepAudience,
+  StepBrandIdentity,
+  StepFeatures,
+  StepPersonalData,
+  StepProjectDefinition,
+  StepProjectDetails,
+  StepReferences,
+  StepTargetCompetitors,
+} from './steps';
 
-import { StepPersonalData } from './steps/StepPersonalData';
-import { StepProjectDefinition } from './steps/StepProjectDefinition';
-import { StepProjectDetails } from './steps/StepProjectDetails';
-import { StepReferences } from './steps/StepReferences';
-import { StepReview } from './steps/StepReview';
-import { StepTimeline } from './steps/StepTimeline';
-import { StepVision } from './steps/StepVision';
-import { StepProjectDetalles } from './steps/StpDetaillllls';
 import { BriefProgressBar } from './ui/brief-progress-bar';
-import { StepSuccess } from './ui/StepSuccess';
 
 export const BriefManager = () => {
   const currentStep = useBriefStore(state => state.currentStep);
@@ -31,10 +28,15 @@ export const BriefManager = () => {
       case 2:
         return <StepProjectDefinition />;
       case 3:
-        return <StepProjectDetalles />;
-
-      //   case 3:
-      //   return <StepFeatures />;
+        return <StepProjectDetails />;
+      case 4:
+        return <StepFeatures />;
+      case 5:
+        return <StepTargetCompetitors />;
+      case 6:
+        return <StepReferences />;
+      case 7:
+        return <StepBrandIdentity />;
       // case 4:
       //   return <StepVision />;
       // case 5:

@@ -33,11 +33,14 @@ export default function Page() {
       dataToSend.append('projectType', formData.projectType);
       dataToSend.append('projectName', formData.projectName);
       dataToSend.append('projectDescription', formData.projectDescription); // Nombre exacto de Pydantic
-      dataToSend.append('hasExistingSite', String(formData.hasExistingSite));
+      dataToSend.append('hasExistingSite', formData.hasExistingSite ? 'true' : 'false');
       dataToSend.append('existingSiteUrl', formData.existingSiteUrl || '');
 
       // Paso 3 - Features (Como string para el backend)
-      dataToSend.append('features', JSON.stringify(formData.features));
+
+      formData.features.forEach(feature => {
+        dataToSend.append('features', feature);
+      });
       dataToSend.append('featuresDetail', formData.featuresDetail || '');
 
       // Paso 4 - Estilo y Audiencia
