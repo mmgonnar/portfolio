@@ -31,7 +31,7 @@ const INITIAL_FORM_DATA: BriefData = {
   competitors: '',
   visualStyle: '',
   visualReferences: '',
-  brandColors: false,
+  brandColors: '',
   brandAssetsReady: false,
   budget: '',
   timeline: '',

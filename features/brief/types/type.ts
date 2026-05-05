@@ -34,7 +34,7 @@ export interface BriefData {
   competitors?: string;
   visualStyle: string;
   visualReferences?: string;
-  brandColors: boolean;
+  brandColors: string;
   brandAssetsReady: boolean;
 
   // Paso 5

@@ -112,6 +112,7 @@ export const enTranslations = {
       error_email_invalid: 'Introduce a valid email',
       error_message_short: 'The message must be at least 50 characters long',
       error_message_short_20: 'The message must be at least 20 characters long',
+      error_message_colors: 'Please add at least 2 colors',
       error_project: 'Project type is required',
       error_goals: 'Please be a bit more descriptive about your goals',
       error_invalid_url: 'Please, add a valid URL (eg: https://...)',
@@ -241,6 +242,19 @@ export const enTranslations = {
         },
       },
       step7: {
+        title: 'Have any files to share?',
+        description: 'Upload logos, brand guidelines, wireframes, or reference images.',
+        dropzone: {
+          title: 'Drag & Drop',
+          subtitle: 'or click to browse',
+          info: 'Images, PDFs, Documents (Max 10MB each)',
+          files: 'Files shared',
+        },
+        colorsLabel: 'Which ones are the colors of your project or brand?',
+        colorsPlaceholder: 'Eg. blue, red, yellow, black..',
+        assetsLabel: 'Share here your files',
+      },
+      step0000: {
         title: 'When do you need this completed?',
         description: 'Select your ideal timeline',
         options: {
@@ -415,6 +429,7 @@ export const esTranslations = {
       error_email_invalid: 'Introduce un correo válido',
       error_message_short: 'El mensaje debe tener al menos 50 caracteres',
       error_message_short_20: 'El mensaje debe tener al menos 20 caracteres',
+      error_message_colors: 'Por favor, comparte al menos 2 colores',
       error_invalid_url: 'Por favor, ingresa una URL válida (ej: https://...)',
       error_phone_numbers_only: 'Por favor, ingresa solo numeros',
       error_phone_too_short: 'Ingresa mínimo 10 digitos',
@@ -535,6 +550,20 @@ export const esTranslations = {
           modern: { title: 'moderno', desc: 'Fulido, futurista, degradados' },
         },
       },
+      step7: {
+        title: '¿Tienes archivos para compartir?',
+        description: 'Sube logos, manuales de marca, wireframes o imágenes de referencia.',
+        dropzone: {
+          title: 'Arrastra y suelta archivos',
+          subtitle: 'o haz clic para buscar',
+          info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
+          files: 'Archivos Compartidos',
+        },
+        colorsLabel: '¿Cuáles son los colores de su marca o proyecto?',
+        colorsPlaceholder: 'Ej. azul, rojo, amarillo, negro..',
+        assetsLabel: 'Comparte aqui tus archivos',
+      },
+
       step00: {
         title: '¿Cuál es tu rango de presupuesto (MXN)?',
         description:
@@ -547,7 +576,7 @@ export const esTranslations = {
           r5: '$30K+',
         },
       },
-      step7: {
+      step000: {
         title: '¿Para cuándo lo necesitas?',
         description: 'Selecciona tu cronograma ideal',
         options: {

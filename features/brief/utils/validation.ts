@@ -76,11 +76,11 @@ export const stepSixSchema = z.object({
 export type StepSixSchema = z.infer<typeof stepSixSchema>;
 
 export const stepSevenSchema = z.object({
-  brandColors: z.string().min(5, { message: 'forms.errors.error_message_short' }),
+  brandColors: z.string().min(5, { message: 'form.errors.error_message_colors' }),
   brandAssetsReady: z.boolean().optional(),
 });
 
-export type stepSevenSchema = z.infer<typeof stepSevenSchema>;
+export type StepSevenSchema = z.infer<typeof stepSevenSchema>;
 
 export interface BriefData {
   // Paso 1 — Contacto
