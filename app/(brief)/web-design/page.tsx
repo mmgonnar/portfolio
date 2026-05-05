@@ -5,7 +5,7 @@ import { Copyright, NeobrutalistButton } from '@/features/footer';
 import { Logo } from '@/features/header';
 import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { sendBriefData } from '@/utils/apiBrief';
-import { apiCallToast, cn } from '@/utils/functions';
+import { apiCallToast, cn, isUserInMexico } from '@/utils/functions';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
@@ -58,6 +58,7 @@ export default function Page() {
 
       // Paso 5 - Presupuesto y Notas
       dataToSend.append('budget', formData.budget);
+      dataToSend.append('currency', isUserInMexico() ? 'MXN' : 'USD');
       dataToSend.append('timeline', formData.timeline);
       dataToSend.append('flexibleBudget', String(formData.flexibleBudget));
       dataToSend.append('additionalNotes', formData.additionalNotes || '');
