@@ -18,7 +18,7 @@ export const StepSuccess = () => {
             {t('brief.success.title')}
           </h2>
           <p className="mx-auto max-w-md text-sm leading-relaxed font-medium text-gray-600 md:text-base">
-            {t('brief.success.message')}
+            {t('success.message')}
           </p>
         </div>
 

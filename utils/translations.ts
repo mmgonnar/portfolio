@@ -20,7 +20,7 @@ export const enTranslations = {
     back: 'Back',
     next: 'Next',
     submitBrief: 'Submit Brief ;)',
-    backHome: 'Regresar a Inicio',
+    backHome: 'Back to home',
   },
   language: {
     changeLanguage: 'change language',
@@ -338,7 +338,7 @@ export const esTranslations = {
     back: 'Atrás',
     next: 'Siguiente',
     submitBrief: 'Enviar Brief ;)',
-    backHome: 'Back to Home',
+    backHome: 'Regresar a Inicio',
   },
   language: {
     changeLanguage: 'cambiar idioma',
