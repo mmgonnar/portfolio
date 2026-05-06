@@ -64,9 +64,18 @@ export default function Page() {
       dataToSend.append('additionalNotes', formData.additionalNotes || '');
 
       // Paso 6 - Archivos (adjuntos reales)
-      files.forEach(file => {
-        dataToSend.append('attachments', file); // Asegúrate que el backend reciba 'attachments'
+      const fileList = files || [];
+      fileList.forEach(file => {
+        dataToSend.append('attachments', file);
       });
+      
+      // Send files - as multiple entries if files exist, or as empty string
+      if (fileList.length > 0) {
+        fileList.forEach(file => dataToSend.append('files', file.name));
+      } else {
+        dataToSend.append('files', '');
+      }
+      
       dataToSend.append('locale', formData.locale || 'en');
 
       console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
