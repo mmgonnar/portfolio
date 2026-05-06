@@ -69,12 +69,9 @@ export default function Page() {
         dataToSend.append('attachments', file);
       });
       
-      // Send files - as multiple entries if files exist, or as empty string
-      if (fileList.length > 0) {
-        fileList.forEach(file => dataToSend.append('files', file.name));
-      } else {
-        dataToSend.append('files', '');
-      }
+      // Send files - backend expects list, send as JSON
+      const fileNames = fileList.map(f => f.name);
+      dataToSend.append('files', JSON.stringify(fileNames));
       
       dataToSend.append('locale', formData.locale || 'en');
 

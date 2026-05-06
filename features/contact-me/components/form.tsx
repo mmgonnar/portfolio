@@ -17,9 +17,14 @@ export default function Form({ toggleModal }: { toggleModal: () => void }) {
     formState: { errors, isSubmitting },
   } = useContactForm(toggleModal);
 
+  const handleFormSubmit = (data: ContactFormData) => {
+    console.log('📝 FORM - Form submitted with data:', data);
+    onSubmit(data);
+  };
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleFormSubmit)}
       noValidate
       className="mb-4 flex flex-col gap-4 p-4 md:w-105"
     >
