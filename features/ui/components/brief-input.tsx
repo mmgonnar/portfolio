@@ -42,11 +42,11 @@ const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProp
         )}
 
         {/* Manejo de errores  */}
-        {error && (
+        {
           <span className="mt-2 font-mono text-xs font-bold tracking-tighter text-red-500 uppercase">
             {error}
           </span>
-        )}
+        }
       </div>
     );
   },
