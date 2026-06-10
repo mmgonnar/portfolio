@@ -17,33 +17,30 @@ export default function Banner() {
         <NameSection />
         <DescriptionSection />
       </section>
-      <div></div>
 
       <TerminalBanner
         childrenClassName=""
         terminalContent={
-          <div className="min-w-[500px] md:min-w-[700px]">
-            <ToolsCarousel />
-
-            <TypeAnimation
-              sequence={[
-                'console> git init portfolio',
-                1000,
-                'console> git add .',
-                1000,
-                'console> git clone mmgonnar',
-                1000,
-                'console> git pull',
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{ fontSize: '1.5em', display: 'inline-block' }}
-              repeat={Infinity}
-            />
-          </div>
+          <TypeAnimation
+            sequence={[
+              'console> git init portfolio',
+              1000,
+              'console> git add .',
+              1000,
+              'console> git clone mmgonnar',
+              1000,
+              'console> git pull',
+              1000,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{ fontSize: '1.5em', display: 'inline-block' }}
+            repeat={Infinity}
+          />
         }
-      ></TerminalBanner>
+      >
+        <ToolsCarousel />
+      </TerminalBanner>
     </>
   );
 }

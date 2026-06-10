@@ -1,12 +1,9 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { languagesTools } from '../utils/constants';
-
-// 🔧 MODIFICAR AQUÍ: tecnologías a mostrar — editar languagesTools en constants.ts
-// 🔧 MODIFICAR AQUÍ: velocidad de animación — cambiar "60s" en style.animation
-// 🔧 MODIFICAR AQUÍ: tamaño de iconos — clases w-* h-* en <img>
 
 const ALL_ITEMS = [...languagesTools, ...languagesTools];
 
@@ -23,7 +20,7 @@ export function ToolsCarousel() {
         }
       `}</style>
       <div
-        className="w-300 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
+        className="max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => {
           setIsPaused(false);
@@ -46,8 +43,14 @@ export function ToolsCarousel() {
               whileHover={{ scale: 1.15 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.src} alt={item.name} className="h-7 w-7 md:h-9 md:w-9" />
+              <Image
+                src={item.src}
+                alt={item.name}
+                width={36}
+                height={36}
+                unoptimized
+                className="h-7 w-7 md:h-9 md:w-9"
+              />
               <AnimatePresence>
                 {hoveredIndex === index && (
                   <motion.span
