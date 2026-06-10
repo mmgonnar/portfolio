@@ -20,7 +20,7 @@ export default function AboutMe() {
           title={t('aboutMe.title')}
           text={t('aboutMe.description')}
         />
-        <NeobrutalistButton href="/" text={t('button.knowMeBetter')} />
+        <NeobrutalistButton href="#cv" text={t('button.knowMeBetter')} />
       </div>
       <div>
         <Image width={400} height={400} src={AboutMeImg} alt="asdad" />

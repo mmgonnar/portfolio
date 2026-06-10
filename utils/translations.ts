@@ -6,7 +6,7 @@ export const enTranslations = {
   navigation: {
     aboutMe: 'about me',
     projects: 'projects',
-    curriculum: 'resume',
+    cv: 'resume',
     contact: 'contact',
   },
   button: {
@@ -51,6 +51,55 @@ export const enTranslations = {
       'Development of dynamic and responsive interfaces, optimized for accessibility and performance.',
     backend: 'Building scalable APIs and managing databases for robust applications.',
     tools: 'Version control, API testing, and content management for complete projects.',
+  },
+  cv: {
+    title: 'resume',
+    subtitle: 'professional experience, education & technical skills',
+    summary:
+      'Fullstack Web Developer with a strong background in graphic design, 2 years of experience building projects with React, Next.js, TypeScript, and the MERN stack, and over 5 years of experience in digital marketing and web design. Frontend-oriented with a solid understanding of UX/UI design, allowing for the seamless translation of visual prototypes into scalable, bilingual, and user-centered interfaces. Certified English proficiency: C2 Level (TOEFL iBT).',
+    skillsTitle: 'technical skills',
+    experienceTitle: 'experience',
+    educationTitle: 'education',
+    download: 'download CV (PDF)',
+    exp1: {
+      role: 'Fullstack Web Development',
+      company: 'TripleTen Bootcamp',
+      period: '09/2024 – 08/2025',
+      highlight1:
+        'Built fullstack applications with React, Next.js, Node.js, MongoDB and Express under Scrum methodology with code reviews on GitHub.',
+      highlight2:
+        'Developed dynamic interfaces with reusable React components, optimizing performance and reducing load times by 20%.',
+    },
+    exp2: {
+      role: 'Freelance Web Developer & Digital Consultant',
+      company: 'Independent',
+      period: 'Oct 2019 – Present',
+      highlight1:
+        'Developed and launched 10+ websites for SMEs, integrating Zoho CRM and achieving +20% lead conversion and 30% organic traffic growth.',
+      highlight2:
+        'Provided continuous technical support, web maintenance, and training for autonomous platform administration.',
+    },
+    exp3: {
+      role: 'Creative & IT Coordinator',
+      company: 'Yafah Express',
+      period: 'Jan 2017 – Feb 2020',
+      highlight1:
+        'Designed and developed the company website integrating tracking scripts, marketing tools, and digital analytics.',
+      highlight2:
+        'Led implementation of an internal operating system digitizing operational records across 14 branches, accelerating digital adoption by 40%.',
+    },
+    edu1: { degree: 'Web Development Bootcamp' },
+    edu2: { degree: 'Master of Business Administration (MBA)', year: 'In Progress' },
+    edu3: { degree: 'MA in Language Teaching' },
+    edu4: { degree: 'BA in Graphic Design' },
+    skills: {
+      lang: 'languages',
+      frameworks: 'frameworks & libraries',
+      databases: 'databases',
+      tools: 'tools & control',
+      design: 'design & interfaces',
+      methodologies: 'methodologies & management',
+    },
   },
   projects: {
     title: 'Featured Projects',
@@ -324,7 +373,7 @@ export const esTranslations = {
   navigation: {
     aboutMe: 'sobre mi',
     projects: 'proyectos',
-    curriculum: 'currículum',
+    cv: 'currículum',
     contact: 'contacto',
   },
   button: {
@@ -370,6 +419,55 @@ export const esTranslations = {
     backend:
       'Construcción de APIs escalables y manejo de bases de datos para aplicaciones robustas.',
     tools: 'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
+  },
+  cv: {
+    title: 'currículum',
+    subtitle: 'experiencia profesional, educación y habilidades técnicas',
+    summary:
+      'Desarrolladora Web Fullstack con formación en diseño, 2 años de experiencia desarrollando proyectos con React, Next.js, TypeScript y el stack MERN, y más de 5 años de trayectoria en marketing digital y diseño web. Orientada al desarrollo frontend con un fuerte entendimiento del diseño UX/UI, lo que me permite traducir prototipos visuales en interfaces escalables, bilingües y centradas en el usuario. Certificación de inglés C2 (TOEFL iBT).',
+    skillsTitle: 'habilidades técnicas',
+    experienceTitle: 'experiencia',
+    educationTitle: 'educación',
+    download: 'descargar CV (PDF)',
+    exp1: {
+      role: 'Desarrollo Web Fullstack',
+      company: 'TripleTen Bootcamp',
+      period: '09/2024 – 08/2025',
+      highlight1:
+        'Construí aplicaciones fullstack con React, Next.js, Node.js, MongoDB y Express bajo metodología Scrum con code reviews en GitHub.',
+      highlight2:
+        'Desarrollé interfaces dinámicas con componentes React reutilizables, optimizando rendimiento y reduciendo tiempos de carga en un 20%.',
+    },
+    exp2: {
+      role: 'Desarrolladora Web Freelance & Consultora Digital',
+      company: 'Independiente',
+      period: 'Oct 2019 – Presente',
+      highlight1:
+        'Desarrollé y lancé más de 10 sitios web para pymes, integrando CRM Zoho logrando +20% en conversión de leads y 30% de tráfico orgánico.',
+      highlight2:
+        'Brindé soporte técnico continuo, mantenimiento web y capacitación para la administración autónoma de plataformas.',
+    },
+    exp3: {
+      role: 'Coordinadora Creativa y IT',
+      company: 'Yafah Express',
+      period: 'Ene 2017 – Feb 2020',
+      highlight1:
+        'Diseñé y maqueté el sitio web corporativo integrando scripts de seguimiento, herramientas de marketing y analítica digital.',
+      highlight2:
+        'Implementé un sistema operativo interno digitalizando registros operativos de 14 sucursales, acelerando la adopción digital en un 40%.',
+    },
+    edu1: { degree: 'Bootcamp Desarrollo Web' },
+    edu2: { degree: 'Maestría en Administración de Negocios (MBA)', year: 'En curso' },
+    edu3: { degree: 'Maestría en Enseñanza de Lenguas' },
+    edu4: { degree: 'Licenciatura en Diseño Gráfico' },
+    skills: {
+      lang: 'lenguajes',
+      frameworks: 'frameworks y librerías',
+      databases: 'bases de datos',
+      tools: 'herramientas y control',
+      design: 'diseño e interfaces',
+      methodologies: 'metodologías y gestión',
+    },
   },
   projects: {
     title: 'Proyectos Destacados',
