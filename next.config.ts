@@ -8,15 +8,21 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media2.giphy.com', // <--- Dominio de Giphy
+        hostname: 'media2.giphy.com',
         port: '',
-        pathname: '/media/**', // Permite todas las rutas en el directorio media
+        pathname: '/media/**',
       },
       {
         protocol: 'https',
-        hostname: 'picsum.photos', // <--- ¡AÑADIDO ESTE DOMINIO!
+        hostname: 'picsum.photos',
         port: '',
-        pathname: '/**', // Permite cualquier ruta de imagen en este dominio
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mszggpdjafkzgnzthfne.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
       },
     ],
   },

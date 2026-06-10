@@ -67,6 +67,8 @@ export const enTranslations = {
         'A high-performance distributed system combining a Next.js 15 frontend with a Python-based FastAPI backend and Supabase cloud storage.',
     },
     checkSite: 'Check Site',
+    architecture: 'Architecture',
+    technicalDetails: 'Technical Details',
     projectTitle: {
       classAid: 'ClassAid',
       around: 'Web Project Around Us',
@@ -386,6 +388,8 @@ export const esTranslations = {
         'Sistema distribuido de alto rendimiento que combina un frontend en Next.js 15 con un backend en Python (FastAPI) y almacenamiento en Supabase.',
     },
     checkSite: 'Visitar Sitio',
+    architecture: 'Arquitectura',
+    technicalDetails: 'Detalles Técnicos',
     projectTitle: {
       classAid: 'ClassAid',
       around: 'Proyecto Web Around Us',

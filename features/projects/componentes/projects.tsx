@@ -9,6 +9,7 @@ import { cn } from '@/utils/functions';
 export default function Projects() {
   const { t } = useTranslation();
   const { modalOpen } = useModal();
+
   return (
     <section
       id="projects"

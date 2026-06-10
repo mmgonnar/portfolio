@@ -19,7 +19,7 @@ i18n
     resources,
     fallbackLng: 'en',
     detection: {
-      order: ['navigator', 'htmlTag'],
+      order: ['htmlTag', 'localStorage', 'navigator'],
       caches: ['localStorage'],
     },
     interpolation: {

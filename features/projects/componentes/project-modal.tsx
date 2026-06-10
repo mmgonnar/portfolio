@@ -17,20 +17,19 @@ export default function ProjectModal({ project }: ProjectModalProps) {
   return (
     <div className="flex h-full w-full flex-col gap-2">
       <div className="custom-md:aspect-video overflow-hidden border-b-2 border-black bg-green-100">
-        {project.image && (
-          <Image
-            src={project.image}
-            alt={`${project.name} preview`}
-            width={400}
-            height={225}
-            className="w-full object-cover"
-            priority
-          />
-        )}
+        <Image
+          src={project.image_url}
+          alt={project.title}
+          width={400}
+          height={225}
+          className="w-full object-cover"
+          priority
+          unoptimized
+        />
       </div>
       <div className="flex grow flex-col gap-3 overflow-y-auto px-4">
         <div className="flex justify-between">
-          <h4 className="text-lg font-semibold">{t(project.name)}</h4>
+          <h4 className="text-lg font-semibold">{project.title}</h4>
           {project.href && (
             <Link
               href={project.href}
@@ -41,25 +40,21 @@ export default function ProjectModal({ project }: ProjectModalProps) {
             </Link>
           )}
         </div>
-        <p className="line-clamp-3 text-sm font-normal">
-          {t(project.description)}
-        </p>
-        <ul className="list-disc border-t border-black/10 pt-2 pl-3 text-sm font-normal">
-          {project.features.map((feature, index) => (
-            <li key={index}>{t(feature)}</li>
-          ))}
-        </ul>
+        <p className="text-sm font-normal">{project.description}</p>
+
+        {project.architecture && (
+          <div className="border-t border-black/10 pt-2">
+            <p className="mb-1 text-xs font-bold tracking-wide uppercase">
+              {t('projects.architecture')}
+            </p>
+            <p className="text-sm font-normal">{project.architecture}</p>
+          </div>
+        )}
       </div>
       <div className="mt-2 mb-4 flex items-center justify-between border-t border-black/10 pt-2">
         <div className="line-clamp-1 flex gap-2 px-4">
-          {project.icons.map((icon, i) => (
-            <Image
-              key={i}
-              src={icon.icon}
-              width={30}
-              height={30}
-              alt={icon.name}
-            />
+          {project.technologies.map((item, i) => (
+            <Image key={i} src={item.icon} width={30} height={30} alt={item.name} />
           ))}
         </div>
 
@@ -75,7 +70,7 @@ export default function ProjectModal({ project }: ProjectModalProps) {
             </div>
           </Link>
         ) : (
-          <span>{project.name}</span>
+          <span>{project.title}</span>
         )}
       </div>
     </div>

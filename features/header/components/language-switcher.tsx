@@ -13,6 +13,10 @@ export default function LanguageSwitcher() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = i18n.language?.startsWith('es') ? 'es' : 'en';
+  }, [i18n.language]);
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
