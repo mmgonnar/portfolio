@@ -10,7 +10,7 @@ interface BannerProps {
   text?: string;
 }
 
-export default function Banner({ text }: BannerProps) {
+export default function Banner() {
   return (
     <>
       <section className="m-auto grid max-w-6xl items-center gap-6 px-5 py-15 md:grid-cols-2 md:px-10 md:py-15">

@@ -1,7 +1,7 @@
 import type { IconItem } from '../types/types';
 
 import expressjs from '../assets/expressjs.svg';
-import gitSvg from '../assets/git.svg';
+//import gitSvg from '../assets/git.svg';
 import i18nextIcon from '../assets/i18next-icon.svg';
 import javascript from '../assets/javascript.svg';
 import jwt from '../assets/jwt.svg';

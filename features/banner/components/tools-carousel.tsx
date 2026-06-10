@@ -1,20 +1,13 @@
 'use -client';
 import * as React from 'react';
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/features/ui/components/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/features/ui/components/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { languagesTools } from '../utils/constants';
-import Link from 'next/link';
 import Image from 'next/image';
 
 export function ToolsCarousel() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false })
-  );
+  const plugin = React.useRef(Autoplay({ delay: 3500, stopOnInteraction: false }));
   return (
     <Carousel
       plugins={[plugin.current]}
@@ -37,7 +30,7 @@ export function ToolsCarousel() {
                     height={60}
                     src={item.src}
                     alt={`${item.name} Logo`}
-                    className="w-8 flex-shrink-0 pb-6 transition duration-200 hover:scale-110"
+                    className="w-8 shrink-0 pb-6 transition duration-200 hover:scale-110"
                   />
                 </div>
               );
