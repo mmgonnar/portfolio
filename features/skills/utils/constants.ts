@@ -1,9 +1,4 @@
-import {
-  ChevronsLeftRightEllipsisIcon,
-  Palette,
-  SquareChevronRight,
-  Wrench,
-} from 'lucide-react';
+import { ChevronsLeftRightEllipsisIcon, Palette, SquareChevronRight, Wrench } from 'lucide-react';
 
 export const designSkills = [
   { name: 'Figma' },
@@ -19,24 +14,27 @@ export const frontendSkills = [
   { name: 'TypeScript' },
   { name: 'React.js' },
   { name: 'Next.js' },
-  { name: 'Tailwind' },
+  { name: 'Tailwind v4' },
 ];
 
 export const backendSkills = [
   { name: 'Node.js' },
   { name: 'Expres.js' },
-  { name: 'Postman' },
+  { name: 'Python' },
   { name: 'MongoDB' },
-  { name: 'Rest APIs' },
+  { name: 'Supabase' },
+  { name: 'Rest APIS' },
 ];
 
 export const otherSkills = [
-  { name: 'Scrum' },
-  { name: 'Kanban' },
+  { name: 'Git' },
   { name: 'GitFlow' },
   { name: 'SemVer' },
-  { name: 'CRM' },
-  { name: 'WordPress' },
+  { name: 'Postman' },
+  { name: 'Vercel' },
+  { name: 'Scrum' },
+  { name: 'Kanban' },
+  { name: 'Zoho CRM' },
 ];
 
 export const skillCards = [

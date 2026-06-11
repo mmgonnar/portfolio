@@ -40,7 +40,7 @@ export const enTranslations = {
   },
   skills: {
     title: 'Skills',
-    text: 'Technical expertise focused on building scalable digital products, with a strong emphasis on user experience and software architecture.',
+    text: 'Technical expertise focused on fullstack development, with a design background and product-oriented mindset.',
     uiDesign: 'ui/design',
     front: 'frontend',
     back: 'backend',
@@ -98,7 +98,7 @@ export const enTranslations = {
   contact: {
     title: 'Contact',
     description:
-      'Have an idea? Let’s bring it to life. Technical collaboration focused on transforming complex concepts into scalable digital products, clean architectures, and seamless user experiences.',
+      "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities — and to collaborations  here good code and good design need to work together.",
   },
   form: {
     heading: '// Send a message',
@@ -360,7 +360,7 @@ export const esTranslations = {
   },
   skills: {
     title: 'Habilidades',
-    text: 'Especialización técnica enfocada en la creación de productos digitales escalables, con un fuerte énfasis en la experiencia de usuario y arquitectura de software.',
+    text: 'Especialización técnica enfocada en desarrollo fullstack, con formación en diseño y criterio de producto.',
     uiDesign: 'ui/diseño',
     front: 'frontend',
     back: 'backend',
@@ -418,7 +418,7 @@ export const esTranslations = {
   contact: {
     title: 'Contacto',
     description:
-      '¿Tienes una idea? Démosle vida. Colaboración técnica centrada en transformar conceptos complejos en productos digitales escalables, arquitecturas limpias y experiencias de usuario fluidas.',
+      '¿Tienes un proyecto o una vacante en mente? Estoy disponible para oportunidades remotas fullstack y frontend y para colaboraciones donde el buen código y el buen diseño necesitan trabajar juntos.',
   },
   form: {
     heading: '// Envía un mensaje',
