@@ -12,7 +12,7 @@ export default function ContentSection({
   return (
     <div id={id} className={cn(alignmets[align], className)}>
       <h3 className="pb-6 text-4xl font-bold">{title}</h3>
-      <p className="max-w-2xl pb-8 text-xl text-balance">{text}</p>
+      <p className="max-w-2xl whitespace-pre-wrap pb-8 text-xl text-balance">{text}</p>
     </div>
   );
 }

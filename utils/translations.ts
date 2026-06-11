@@ -30,13 +30,13 @@ export const enTranslations = {
   bannerText: {
     helloWorld: 'Hello world! I am',
     description:
-      'Fullstack Web Developer Jr. with 2 years of experience in web development (MERN Stack, Next.js, React, Node.js,MongoDB, Express) and 5 years in web design and UX/UI, blending technical and creative skills to deliver scalable, user-centric digital solutions. ',
+      'Fullstack Web Developer with a strong background in graphic design, 2 years of experience building projects with React, Next.js, TypeScript, and the MERN stack, and over 5 years of experience in digital marketing and web design. Available for remote roles.',
     findMe: 'Find me in:',
   },
   aboutMe: {
     title: 'About me',
     description:
-      'After years as an educator and digital consultant constantly optimizing processes, I discovered my true calling in tech. Web development became the perfect intersection where my problem-solving curiosity meets the balance between creative vision and technical logic.',
+      'Frontend-oriented with a strong UX/UI background, I translate visual prototypes into scalable, bilingual, user-centered interfaces. \n\nOn the backend, I build servers with Node.js and FastAPI, design databases (MongoDB, Supabase) and integrate REST APIs with JWT. \n\nI understand the business context behind the code. \nCertified English: C2 (TOEFL iBT).',
   },
   skills: {
     title: 'Skills',
@@ -350,13 +350,13 @@ export const esTranslations = {
   bannerText: {
     helloWorld: '¡Hola mundo! Soy',
     description:
-      'Desarrolladora Web Fullstack Jr. con 2 años de experiencia en desarrollo web y 5 años en diseño web y UX/UI, combinando lo técnico con lo creativo para entregar soluciones digitales escalables y centradas en el usuario.',
+      'Desarrolladora Web Fullstack con formación en diseño gráfico, 2 años de experiencia desarrollando proyectos con React, Next.js, TypeScript y el stack MERN, y más de 5 años de trayectoria en marketing digital y diseño web. Disponible para trabajo remoto.',
     findMe: 'Encuéntrame en:',
   },
   aboutMe: {
     title: 'Acerca de mi',
     description:
-      'Decidí entrar al mundo tech después de varios años como docente y consultora digital, donde siempre buscaba herramientas para simplificar procesos. Mi curiosidad por resolver problemas me llevó al desarrollo web, donde encontré el equilibrio entre creatividad y lógica.',
+      'Orientada al frontend con una sólida base en UX/UI, traduzco prototipos visuales en interfaces escalables, bilingües y centradas en el usuario. \n\n En backend, construyo servidores con Node.js y FastAPI, diseño bases de datos (MongoDB, Supabase) e integro REST APIs con JWT. \n\nEntiendo el contexto de negocio detrás del código. Inglés certificado: C2 (TOEFL iBT).',
   },
   skills: {
     title: 'Habilidades',
