@@ -16,10 +16,26 @@ export default function ProjectsSection() {
   const { i18n } = useTranslation();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [slowLoading, setSlowLoading] = useState(false);
 
   useEffect(() => {
+    const lang = i18n.language;
     setLoading(true);
-    fetchProjects(i18n.language)
+    setSlowLoading(false);
+
+    const cached = sessionStorage.getItem(`projects_${lang}`);
+    if (cached) {
+      try {
+        const parsed: Project[] = JSON.parse(cached);
+        setProjects(parsed);
+        setLoading(false);
+        return;
+      } catch {}
+    }
+
+    const timer = setTimeout(() => setSlowLoading(true), 8000);
+
+    fetchProjects(lang)
       .then((raw: ProjectRaw[]) => {
         const mapped: Project[] = raw.map(item => {
           const layout = projectLayouts[item.id] ?? {};
@@ -39,9 +55,13 @@ export default function ProjectsSection() {
           };
         });
         setProjects(mapped);
+        sessionStorage.setItem(`projects_${lang}`, JSON.stringify(mapped));
       })
       .catch(() => setProjects([]))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        clearTimeout(timer);
+      });
   }, [i18n.language]);
 
   const { modalOpen, selectedProject, toggleModal } = useModal();
@@ -52,10 +72,17 @@ export default function ProjectsSection() {
 
   if (loading) {
     return (
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-7 md:grid-cols-2">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <SkeletonCard key={i} showFooter={false} showImage={false} variant="card" />
-        ))}
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-7">
+        <div className="grid w-full grid-cols-1 gap-7 md:grid-cols-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <SkeletonCard key={i} showFooter={false} showImage={false} variant="card" />
+          ))}
+        </div>
+        {slowLoading && (
+          <p className="animate-pulse text-sm text-gray-500">
+            The backend is waking up, hang tight...
+          </p>
+        )}
       </div>
     );
   }
@@ -100,9 +127,7 @@ export default function ProjectsSection() {
         classNameBackground="h-full"
       >
         <div ref={modalRef}>
-          {selectedProject && (
-            <ProjectModal project={selectedProject} modalOpen={modalOpen} />
-          )}
+          {selectedProject && <ProjectModal project={selectedProject} modalOpen={modalOpen} />}
         </div>
       </Modal>
     </div>
