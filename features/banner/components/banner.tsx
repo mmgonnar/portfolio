@@ -39,7 +39,8 @@ export default function Banner() {
           />
         }
       >
-        <ToolsCarousel />
+        {' '}
+        {/* <ToolsCarousel /> */}
       </TerminalBanner>
     </>
   );
