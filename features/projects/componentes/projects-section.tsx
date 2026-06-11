@@ -5,6 +5,7 @@ import { useModal } from '@/hooks/useModa';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { SkeletonCard } from '@/features/ui/components/skeleton';
 import { Modal, ProjectCard, ProjectModal } from '../index';
 import { Project } from '../types/types';
 import { fetchProjects, type ProjectRaw } from '../utils/apiProjects';
@@ -51,8 +52,10 @@ export default function ProjectsSection() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-10">
-        <p className="text-sm text-gray-500">Loading projects...</p>
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-7 md:grid-cols-2">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <SkeletonCard key={i} showFooter={false} showImage={false} variant="card" />
+        ))}
       </div>
     );
   }
