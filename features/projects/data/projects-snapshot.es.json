@@ -1,0 +1,86 @@
+[
+  {
+    "id": "3d6b8436-98a9-47b2-9a70-6fb9ab1e5d8c",
+    "title": "MMGN Boilerplate - CLI & Starter Kit",
+    "description": "Plantilla base y herramienta CLI publicada en npm (bunx mmgn@latest) que automatiza el arranque de proyectos, permitiendo elegir entre Dashboard completo (auth + i18n + CRUD) o Landing page standalone.",
+    "architecture": "Estructura feature-first con auth flow completo, traducción bilingüe ES/EN, dark mode con variables CSS y CRUD de ejemplo conectado a Supabase con Row Level Security.",
+    "technical_details": "Resolví tres bugs no triviales de integración: colisión entre el middleware de Supabase y next-intl (fusionando responses), imports dinámicos de locales fallando en Next.js (migrado a static imports con TypeScript record), y hook useId ejecutado condicionalmente. Prisma 7 configurado con adapter-pg desacoplado del schema; Tailwind v4 CSS-first para compatibilidad total con dark mode.",
+    "image_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/boilerplate_preview.png",
+    "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_boilerplate.svg",
+    "repository_url": "https://github.com/mmgonnar/boilerplate_mmgn",
+    "live_url": "http://boilerplate-mmgn.vercel.app/",
+    "technologies": [
+      "Next.js 15",
+      "TypeScript strict",
+      "Tailwind CSS 4",
+      "Supabase Auth",
+      "Prisma 7",
+      "next-intl",
+      "CLI",
+      "Bun",
+      "Zod"
+    ],
+    "created_at": "2026-06-01T00:00:00+00:00"
+  },
+  {
+    "id": "65db2558-802b-448e-99a9-b63711794ce8",
+    "title": "Portafolio Personal",
+    "description": "Portafolio personal bilingüe que combina un frontend en Next.js con un backend independiente en Python (FastAPI) y Supabase.",
+    "architecture": "Frontend responsivo con diseño neobrutalista y organización feature-based. Backend desacoplado en FastAPI con validación de esquemas Pydantic y persistencia en Supabase.",
+    "technical_details": "Stack de backend intencionalmente diferente al frontend para demostrar versatilidad con Python. Integración de Resend para automatización de notificaciones por correo. Soporte nativo de idiomas con i18next.",
+    "image_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/portfolio_preview.png",
+    "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_mmgn.svg",
+    "repository_url": "https://github.com/mmgonnar/portfolio_backend",
+    "live_url": "https://www.mmgonnar.com/",
+    "technologies": [
+      "Next.js 15",
+      "Python",
+      "FastAPI",
+      "TypeScript",
+      "Supabase",
+      "i18next",
+      "Resend"
+    ],
+    "created_at": "2026-05-15T00:00:00+00:00"
+  },
+  {
+    "id": "7740ef1a-7288-43eb-b436-8d57c6f998b2",
+    "title": "ClassAid - Plataforma Fullstack para Gestión Docente",
+    "description": "Aplicación diseñada para ayudar a docentes a llevar el control de sus clases, asistiendo en la organización de la información, evaluación y progreso de los alumnos durante el curso.",
+    "architecture": "Plataforma fullstack con un flujo de inicio de sesión seguro para los docentes mediante tokens JWT.",
+    "technical_details": "Servidor organizado por módulos de clase para facilitar mantenimiento y escalabilidad. Base de datos en MongoDB con rutas validadas en Postman. Arquitectura modular que redujo los tiempos de iteración en un 20%.",
+    "image_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/classaid_preview.png",
+    "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_classaid.svg",
+    "repository_url": "https://github.com/mmgonnar/classaid_frontend",
+    "live_url": "https://classaidfrontend.vercel.app/",
+    "technologies": [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS"
+    ],
+    "created_at": "2025-12-01T00:00:00+00:00"
+  },
+  {
+    "id": "b5030294-4a2a-48aa-a094-3510305f0408",
+    "title": "Web Around - Aplicación Interactiva",
+    "description": "Aplicación interactiva donde los usuarios pueden modificar el contenido de la página y ver las actualizaciones reflejadas de forma inmediata en la pantalla.",
+    "architecture": "Interfaz dinámica basada en componentes React con manejo de estado en tiempo real. Backend REST con Express y MongoDB para persistencia de datos por usuario autenticado.",
+    "technical_details": "Vite como bundler para optimización del entorno de desarrollo. Componentes reutilizables para reducir duplicación de código. Validación de formularios en frontend antes del envío al servidor.",
+    "image_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/aus_preview.png",
+    "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_aus.svg",
+    "repository_url": "https://github.com/mmgonnar/web_project_api_full",
+    "live_url": "https://18-web-project-api-full-frontend.vercel.app",
+    "technologies": [
+      "React 19",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Vite"
+    ],
+    "created_at": "2025-06-01T00:00:00+00:00"
+  }
+]
