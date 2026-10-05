@@ -98,7 +98,7 @@ export const enTranslations = {
   contact: {
     title: 'Contact',
     description:
-      "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities, and to collaborations  here good code and good design need to work together.",
+      "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities, and to collaborations where good code and good design need to work together.",
     briefCta: 'Have a web design project in mind?',
     briefLink: 'Fill out the project brief',
   },
