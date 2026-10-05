@@ -90,7 +90,7 @@ export const enTranslations = {
       },
       portfolio: {
         f1: 'Distributed architecture: Next.js 15 frontend integrated with a Python (FastAPI) backend.',
-        f2: 'Scalable ecosystem featuring multi-language i18n, strict TypeScript typing, and Supabase persistence.',
+        f2: 'Scalable ecosystem featuring multi-language i18n, strict TypeScript typing and Supabase persistence.',
       },
     },
   },
@@ -98,7 +98,7 @@ export const enTranslations = {
   contact: {
     title: 'Contact',
     description:
-      "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities — and to collaborations  here good code and good design need to work together.",
+      "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities, and to collaborations  here good code and good design need to work together.",
   },
   form: {
     heading: '// Send a message',
@@ -226,11 +226,11 @@ export const enTranslations = {
         references: 'Please share some references',
         options: {
           minimal: { title: 'Minimal', desc: 'Clean, airy, focus on content' },
-          luxury: { title: 'Elegante', desc: 'Elegant, sophisticated, soft tones' },
-          editorial: { title: 'editorial', desc: 'Magazine-inspired, strong typography' },
-          brutalist: { title: 'Brutalista', desc: 'Bold, high contrast, raw edges' },
-          darkLuxury: { title: 'Lujoso', desc: 'Moody, deep tones, gold accents' },
-          modern: { title: 'moderno', desc: 'Sleek, futuristic, gradients' },
+          luxury: { title: 'Elegant', desc: 'Elegant, sophisticated, soft tones' },
+          editorial: { title: 'Editorial', desc: 'Magazine-inspired, strong typography' },
+          brutalist: { title: 'Brutalist', desc: 'Bold, high contrast, raw edges' },
+          darkLuxury: { title: 'Luxury', desc: 'Moody, deep tones, gold accents' },
+          modern: { title: 'Modern', desc: 'Sleek, futuristic, gradients' },
         },
       },
       step8: {
@@ -632,10 +632,10 @@ export const esTranslations = {
         },
       },
     },
-  },
-  success: {
-    title: '¡Brief Enviado!',
-    message:
-      'He recibido su información. Analizaré los detalles de su proyecto y me pondré en contacto a la brevedad posible para programar una sesión.',
+    success: {
+      title: '¡Brief Enviado!',
+      message:
+        'He recibido su información. Analizaré los detalles de su proyecto y me pondré en contacto a la brevedad posible para programar una sesión.',
+    },
   },
 };
