@@ -4,12 +4,20 @@ import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import { OptionCard } from '@/features/ui/components/OptionCard';
 import BriefContainer from '../ui/brief-container';
+import { ProjectType } from '../../types/type';
 
 export const StepProjectDefinition = () => {
   const { t } = useTranslation();
   const { formData, updateField, setStepValid } = useBriefStore();
 
-  const options = ['website', 'web_app', 'wordpress', 'landing', 'redesign', 'other'];
+  const options: ProjectType[] = [
+    'website',
+    'web_app',
+    'wordpress',
+    'landing',
+    'redesign',
+    'other',
+  ];
 
   useEffect(() => {
     setStepValid(!!formData.projectType);

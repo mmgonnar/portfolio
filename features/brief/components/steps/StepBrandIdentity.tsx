@@ -1,21 +1,21 @@
 'use client';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useFormSync } from '@/hooks/useFormSync';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
-import { useFormSync } from '@/hooks/useFormSync';
 // Asegúrate de importar el Tipo (mayúscula) y el Esquema (minúscula)
+import BriefInput from '@/features/ui/components/brief-input';
+import { cn } from '@/utils/functions';
+import { File, Upload, X } from 'lucide-react';
 import { stepSevenSchema, StepSevenSchema } from '../../utils/validation';
 import BriefContainer from '../ui/brief-container';
-import BriefTextArea from '../ui/brief-text-area';
-import { Upload, File, X } from 'lucide-react';
-import { cn } from '@/utils/functions';
-import BriefInput from '@/features/ui/components/brief-input';
 
 export const StepBrandIdentity = () => {
   const { t } = useTranslation();
-  const { formData, updateField, setStepValid, files, setFiles } = useBriefStore();
+  const { formData, updateField, setStepValid, files, setFiles, addFiles } = useBriefStore();
+  const [duplicateNotice, setDuplicateNotice] = useState(false);
 
   const {
     register,
@@ -38,11 +38,11 @@ export const StepBrandIdentity = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const newFiles = Array.from(e.target.files);
-      setFiles([...files, ...newFiles]);
-      // Opcional: Marcar brandAssetsReady como true si hay archivos
+      const skipped = addFiles(Array.from(e.target.files));
+      setDuplicateNotice(skipped > 0);
       updateField('brandAssetsReady', true);
     }
+    e.target.value = '';
   };
 
   const removeFile = (index: number) => {
@@ -130,6 +130,11 @@ export const StepBrandIdentity = () => {
                   </button>
                 </div>
               ))}
+              {duplicateNotice && (
+                <p className="font-mono text-xs text-amber-600">
+                  {t('brief.steps.step7.dropzone.duplicate')}
+                </p>
+              )}
             </div>
           )}
         </div>
