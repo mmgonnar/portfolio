@@ -7,8 +7,9 @@ interface BriefState {
   currentStep: number;
   isStepValid: boolean;
   files: File[];
-  updateField: (field: keyof BriefData, value: any) => void;
+  updateField: <K extends keyof BriefData>(field: K, value: BriefData[K]) => void;
   setFiles: (files: File[]) => void;
+  addFiles: (files: File[]) => number;
   toggleFeature: (featureTitle: string) => void;
   nextStep: () => void;
   prevStep: () => void;
@@ -44,7 +45,7 @@ const INITIAL_FORM_DATA: BriefData = {
 
 export const useBriefStore = create<BriefState>()(
   persist(
-    set => ({
+    (set, get) => ({
       formData: INITIAL_FORM_DATA,
       files: [],
       currentStep: 0,
@@ -56,6 +57,14 @@ export const useBriefStore = create<BriefState>()(
         })),
 
       setFiles: files => set({ files }),
+
+      addFiles: (incoming: File[]) => {
+        const key = (f: File) => `${f.name}-${f.size}-${f.lastModified}`;
+        const existing = new Set(get().files.map(key));
+        const unique = incoming.filter(f => !existing.has(key(f)));
+        set({ files: [...get().files, ...unique] });
+        return incoming.length - unique.length; // cuántos se ignoraron
+      },
 
       toggleFeature: featureTitle =>
         set(state => {
