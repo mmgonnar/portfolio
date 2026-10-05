@@ -4,7 +4,6 @@ import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import {
   StepAdditionalNotes,
-  StepAudience,
   StepBrandIdentity,
   StepBudget,
   StepFeatures,
