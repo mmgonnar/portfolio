@@ -79,7 +79,12 @@ export const StepBrandIdentity = () => {
             {t('brief.steps.step7.assetsLabel')}
           </label>
 
-          <div className="group relative mt-2 flex flex-col items-center justify-center space-y-4 border-2 border-dashed border-neutral-200 bg-neutral-50/30 py-12 transition-all hover:border-black hover:bg-white">
+          <div
+            className={cn(
+              'group relative mt-2 flex flex-col items-center justify-center border-2 border-dashed border-neutral-200 bg-neutral-50/30 transition-all hover:border-black hover:bg-white',
+              files.length > 0 ? 'space-y-2 py-6' : 'space-y-4 py-12',
+            )}
+          >
             <input
               type="file"
               multiple

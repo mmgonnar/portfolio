@@ -9,6 +9,7 @@ import { useModal } from '@/hooks/useModa';
 import { useTranslation } from 'react-i18next';
 import { TypeAnimation } from 'react-type-animation';
 import Form from './form';
+import Link from 'next/link';
 
 export default function ContactMe() {
   const { t } = useTranslation();
@@ -54,6 +55,15 @@ export default function ContactMe() {
           }}
         />
       </TerminalBanner>
+      <p className="text-sm text-gray-600">
+        {t('contact.briefCta')}{' '}
+        <Link
+          href="/web-design"
+          className="font-semibold underline underline-offset-4 hover:text-amber-500"
+        >
+          {t('contact.briefLink')}
+        </Link>
+      </p>
       <Modal
         closeButtonVariant="inside"
         modalOpen={modalOpen}
