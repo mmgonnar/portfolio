@@ -99,6 +99,8 @@ export const enTranslations = {
     title: 'Contact',
     description:
       "Have a project or a role in mind? I'm open to remote fullstack and frontend opportunities, and to collaborations  here good code and good design need to work together.",
+    briefCta: 'Have a web design project in mind?',
+    briefLink: 'Fill out the project brief',
   },
   form: {
     heading: '// Send a message',
@@ -419,6 +421,8 @@ export const esTranslations = {
     title: 'Contacto',
     description:
       '¿Tienes un proyecto o una vacante en mente? Estoy disponible para oportunidades remotas fullstack y frontend y para colaboraciones donde el buen código y el buen diseño necesitan trabajar juntos.',
+    briefCta: '¿Tienes un proyecto de diseño web en mente?',
+    briefLink: 'Llena el brief del proyecto',
   },
   form: {
     heading: '// Envía un mensaje',
