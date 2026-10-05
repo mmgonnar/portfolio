@@ -1,6 +1,6 @@
 export type ProjectType =
   | 'website'
-  | 'webapp'
+  | 'web_app'
   | 'wordpress'
   | 'landing'
   | 'redesign'
