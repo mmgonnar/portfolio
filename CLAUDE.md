@@ -10,7 +10,8 @@ Shared UI lives in `features/ui/components/`. Read that folder first.
 
 Current shared components: NeobrutalistButton, NeobrutalistCard, Modal, CloseButton,
 Label, ContentSection, TerminalBanner, Input, BriefInput, OptionCard, Skeleton,
-FooterDropdrawer, and the dropdrawer primitives.
+StepHeader, FileDropzone, FileChip, FooterDropdrawer, and the dropdrawer
+primitives.
 
 Before adding any button, input, label, card, modal or section heading, confirm none
 of the above already covers it. Copying a class string from another file is a signal

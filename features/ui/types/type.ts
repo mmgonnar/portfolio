@@ -22,6 +22,11 @@ export interface NeobrutalistCardProps {
   children: ReactNode;
   className?: string;
   onClick?: (e: any) => any;
+  /**
+   * 'static' quita el cursor, el hover y el centrado: la tarjeta pasa a ser un
+   * panel de contenido, como las secciones de la revisión del brief.
+   */
+  variant?: 'interactive' | 'static';
 }
 export interface LabelProps {
   children?: ReactNode;
