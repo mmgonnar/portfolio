@@ -1,26 +1,27 @@
 'use client';
 
 import { useBriefStore } from '@/features/brief/store/useBriefStore';
-import { Copyright, NeobrutalistButton } from '@/features/footer';
+import { Copyright } from '@/features/footer';
 import { Logo } from '@/features/header';
 import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { sendBriefData } from '@/utils/apiBrief';
 import { apiCallToast, cn, isUserInMexico } from '@/utils/functions';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
+import { getScope } from '@/features/brief/utils/scope';
 
 export default function Page() {
-  const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief, setCurrentStep } = useBriefStore();
+  const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
   const { t } = useTranslation();
 
   useEffect(() => {
-    setCurrentStep(0);
-  }, [setCurrentStep]);
+    goToStep('intro');
+  }, [goToStep]);
 
-  const isReviewStep = currentStep === 11;
-  const isLastStep = currentStep === 12;
+  const isIntro = stepId === 'intro';
+  const isReviewStep = stepId === 'review';
+  const isLastStep = stepId === 'success';
 
   const handleAction = async () => {
     if (isReviewStep) {
@@ -48,13 +49,21 @@ export default function Page() {
       });
       dataToSend.append('featuresDetail', formData.featuresDetail || '');
 
-      // Paso 4 - Estilo y Audiencia
+      // Audiencia, estilo y diseño
       dataToSend.append('targetAudience', formData.targetAudience);
       dataToSend.append('competitors', formData.competitors || '');
       dataToSend.append('visualStyle', formData.visualStyle);
       dataToSend.append('visualReferences', formData.visualReferences || '');
       dataToSend.append('brandColors', String(formData.brandColors));
       dataToSend.append('brandAssetsReady', String(formData.brandAssetsReady));
+      dataToSend.append('designStatus', formData.designStatus);
+      dataToSend.append('designLink', formData.designLink || '');
+      dataToSend.append('wantsDesignQuote', String(formData.wantsDesignQuote));
+
+      // El alcance se calcula aquí, scope.ts es la única copia de los pesos
+      const scope = getScope(formData);
+      dataToSend.append('scopeLevel', scope.level);
+      dataToSend.append('scopeWeight', String(scope.weight));
 
       // Paso 5 - Presupuesto y Notas
       dataToSend.append('budget', formData.budget);
@@ -68,20 +77,22 @@ export default function Page() {
       fileList.forEach(file => {
         dataToSend.append('attachments', file);
       });
-      
+
       // Send files - backend expects list, send as JSON
       const fileNames = fileList.map(f => f.name);
       dataToSend.append('files', JSON.stringify(fileNames));
-      
+
       dataToSend.append('locale', formData.locale || 'en');
 
-      console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
       await apiCallToast(sendBriefData(dataToSend), {
         loading: t('toast.sending'),
         successMessage: t('toast.success_msg'),
         errorMessage: t('toast.error_msg'),
       });
 
+      // El borrador persistido se limpia en el partialize del store al entrar
+      // en 'success'. Hacerlo aqui no funcionaba: nextStep() vuelve a escribir
+      // el estado completo justo despues y revivia el brief ya enviado.
       nextStep();
     } else {
       nextStep();
@@ -99,7 +110,12 @@ export default function Page() {
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-start py-8 md:justify-center md:py-0">
+      {/*
+        justify-center centraba verticalmente y un paso mas alto que la ventana
+        se recortaba por arriba, sin forma de alcanzar el boton de siguiente.
+        El contenido crece hacia abajo y la pagina se desplaza.
+      */}
+      <main className="flex flex-1 flex-col items-center justify-start py-8 md:py-12">
         <div className="w-full max-w-5xl">
           <BriefManager />
         </div>
@@ -109,7 +125,7 @@ export default function Page() {
         <footer className="mt-auto w-full border-t border-gray-100 px-6 py-6 md:px-10">
           <div className="mx-auto grid max-w-7xl grid-cols-2 items-center md:grid-cols-3">
             <div className="flex justify-start">
-              {currentStep > 0 && (
+              {!isIntro && (
                 <button
                   onClick={prevStep}
                   className="font-mono text-sm font-bold tracking-widest text-gray-400 uppercase transition-colors hover:text-black"
@@ -124,7 +140,7 @@ export default function Page() {
             </div>
 
             <div className="flex justify-end">
-              {currentStep > 0 && (
+              {!isIntro && (
                 <button
                   onClick={handleAction}
                   disabled={!isStepValid}

@@ -1,14 +1,19 @@
 'use client';
+import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
+import { FileChip } from '@/features/ui/components/file-chip';
+import { StepHeader } from '@/features/ui/components/step-header';
+import { isUserInMexico } from '@/utils/functions';
+import { Pencil } from 'lucide-react';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
+import { needsStyleStep, StepId } from '../../utils/flow';
+import { formatBudgetBand } from '../../utils/scope';
 import BriefContainer from '../ui/brief-container';
-import { Paperclip, Pencil } from 'lucide-react';
-import { formatBudgetRange } from '@/utils/functions';
 
 export const StepReview = () => {
   const { t } = useTranslation();
-  const { formData, files, setStepValid, setCurrentStep } = useBriefStore();
+  const { formData, files, setStepValid, goToStep } = useBriefStore();
 
   useEffect(() => {
     setStepValid(true);
@@ -16,141 +21,188 @@ export const StepReview = () => {
 
   const ReviewSection = ({
     title,
-    children,
     stepTarget,
+    children,
   }: {
     title: string;
+    stepTarget: StepId;
     children: React.ReactNode;
-    stepTarget: number;
   }) => (
-    <div className="group relative mb-6 border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-      <div className="mb-4 flex items-start justify-between">
+    <NeobrutalistCard variant="static" className="mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="mb-4 flex items-start justify-between gap-4">
         <h4 className="font-mono text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
           {title}
         </h4>
         <button
-          onClick={() => setCurrentStep(stepTarget)}
-          className="group hover:text-green-brutalist flex cursor-pointer items-center gap-1.5 font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase transition-colors"
+          onClick={() => goToStep(stepTarget)}
+          className="group hover:text-green-brutalist flex shrink-0 cursor-pointer items-center gap-1.5 font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase transition-colors"
         >
           <span className="underline underline-offset-2">
-            {t('brief.steps.step11.labels.edit')}
+            {t('brief.steps.review.labels.edit')}
           </span>
-          <Pencil
-            size={10}
-            strokeWidth={3}
-            className="transition-transform group-hover:-rotate-12"
-          />
+          <Pencil size={10} strokeWidth={3} className="transition-transform group-hover:-rotate-12" />
         </button>
       </div>
       <div className="space-y-4">{children}</div>
-    </div>
+    </NeobrutalistCard>
   );
 
   const DataItem = ({ label, value }: { label: string; value?: string | string[] | boolean }) => (
     <div className="flex flex-col gap-1">
       <p className="text-[13px] text-gray-500">{label}</p>
       <p className="text-sm font-bold wrap-break-word text-black italic">
-        {Array.isArray(value) ? value.join(', ') : value || t('brief.steps.step11.labels.no_data')}
+        {Array.isArray(value)
+          ? value.join(', ')
+          : typeof value === 'boolean'
+            ? t(value ? 'form.yes' : 'form.no')
+            : value || t('brief.steps.review.labels.no_data')}
       </p>
     </div>
   );
 
+  const featureLabels = (formData.features || []).map(key =>
+    t(`brief.steps.features.options.${key}.title`),
+  );
+
   return (
     <BriefContainer>
-      <div className="mb-4 space-y-2">
-        <h2 className="text-4xl font-black tracking-tighter text-black uppercase">
-          {t('brief.steps.step11.title')}
-        </h2>
-        <p className="text-gray-500">{t('brief.steps.step11.description')}</p>
-      </div>
+      <StepHeader
+        title={t('brief.steps.review.title')}
+        description={t('brief.steps.review.description')}
+        size="large"
+        className="mb-4"
+      />
 
       <div className="grid grid-cols-1 gap-2">
-        {/* CONTACT INFO */}
-        <ReviewSection title={t('brief.steps.step11.sections.contact')} stepTarget={1}>
-          <DataItem label={t('brief.steps.step1.name')} value={formData.name} />
-          <DataItem label={t('brief.steps.step1.project')} value={formData.company} />
-          <DataItem label={t('brief.steps.step1.email')} value={formData.email} />
-          <DataItem label={t('brief.steps.step1.phone')} value={formData.phone} />
+        <ReviewSection title={t('brief.steps.review.sections.contact')} stepTarget="contact">
+          <DataItem label={t('brief.steps.contact.name')} value={formData.name} />
+          <DataItem label={t('brief.steps.contact.email')} value={formData.email} />
+          <DataItem label={t('brief.steps.contact.phone')} value={formData.phone} />
+          <DataItem label={t('brief.steps.contact.project')} value={formData.company} />
         </ReviewSection>
 
-        {/* PROJECT DETAILS */}
-        <ReviewSection title={t('brief.steps.step11.sections.project')} stepTarget={2}>
+        <ReviewSection title={t('brief.steps.review.sections.project')} stepTarget="type">
           <DataItem
-            label={t('brief.steps.step2.title')}
-            value={t(`brief.steps.step2.options.${formData.projectType}.title`)}
+            label={t('brief.steps.type.title')}
+            value={
+              formData.projectType
+                ? t(`brief.steps.type.options.${formData.projectType}.title`)
+                : undefined
+            }
           />
-          <DataItem label={t('brief.steps.step3.projectName')} value={formData.projectName} />
+          <DataItem label={t('brief.steps.details.projectName')} value={formData.projectName} />
           <DataItem
-            label={t('brief.steps.step3.projectDescription')}
+            label={t('brief.steps.details.projectDescription')}
             value={formData.projectDescription}
           />
           <DataItem
-            label={t('brief.steps.step3.hasExistingSite')}
+            label={t('brief.steps.details.hasExistingSite')}
             value={formData.hasExistingSite}
           />
-          <DataItem
-            label={t('brief.steps.step3.hasExistingSite')}
-            value={formData.existingSiteUrl}
-          />
-          <DataItem label={t('brief.steps.step4.title')} value={formData.features} />
-          {formData.featuresDetail && (
-            <DataItem label="Additional details" value={formData.featuresDetail} />
+          {formData.hasExistingSite && (
+            <DataItem
+              label={t('brief.steps.details.existingSiteUrl')}
+              value={formData.existingSiteUrl}
+            />
           )}
         </ReviewSection>
 
-        {/* VISION */}
-        <ReviewSection title={t('brief.steps.step5.title')} stepTarget={4}>
-          <DataItem label={t('brief.steps.step5.targetTitle')} value={formData.targetAudience} />
-          <DataItem label={t('brief.steps.step5.competitorsLabel')} value={formData.competitors} />
+        <ReviewSection title={t('brief.steps.review.sections.features')} stepTarget="features">
+          <DataItem label={t('brief.steps.features.title')} value={featureLabels} />
+          {formData.featuresDetail && (
+            <DataItem
+              label={t('brief.steps.features.selectedLabel')}
+              value={formData.featuresDetail}
+            />
+          )}
         </ReviewSection>
 
-        {/* Style & references & branding*/}
-        <ReviewSection title={t('brief.steps.step11.sections.styleReferences')} stepTarget={6}>
+        <ReviewSection title={t('brief.steps.review.sections.design')} stepTarget="design">
           <DataItem
-            label={t('brief.steps.step6.styleDescription')}
-            value={t(`brief.steps.step6.options.${formData.visualStyle}.title`)}
+            label={t('brief.steps.design.title')}
+            value={
+              formData.designStatus
+                ? t(`brief.steps.design.options.${formData.designStatus}.title`)
+                : undefined
+            }
           />
-          <DataItem label={t('brief.steps.step6.description')} value={formData.visualReferences} />
-        </ReviewSection>
-        {/* branding*/}
-        <ReviewSection title={t('brief.steps.step11.sections.styleReferences')} stepTarget={6}>
-          <DataItem label={t('brief.steps.step7.colorsLabel')} value={formData.brandColors} />
 
-          <div className="mt-4 flex flex-col gap-1">
-            <p className="text-[13px] text-gray-500">{t('brief.steps.step7.title')}</p>
+          {formData.designStatus === 'ready' && (
+            <DataItem label={t('brief.steps.design.linkLabel')} value={formData.designLink} />
+          )}
+
+          {formData.designStatus === 'brand_kit' && (
+            <DataItem label={t('brief.steps.design.colorsLabel')} value={formData.brandColors} />
+          )}
+
+          {formData.wantsDesignQuote && (
+            <p className="border-l-2 border-amber-400 bg-amber-50/40 py-2 pl-3 font-mono text-[11px] tracking-wide text-amber-700 uppercase">
+              {t('brief.steps.review.labels.designQuoteRequested')}
+            </p>
+          )}
+
+          {needsStyleStep(formData) && (
+            <>
+              <DataItem
+                label={t('brief.steps.style.styleDescription')}
+                value={
+                  formData.visualStyle
+                    ? t(`brief.steps.style.options.${formData.visualStyle}.title`)
+                    : undefined
+                }
+              />
+              <DataItem
+                label={t('brief.steps.style.references')}
+                value={formData.visualReferences}
+              />
+            </>
+          )}
+
+          <div className="flex flex-col gap-1">
+            <p className="text-[13px] text-gray-500">{t('brief.steps.design.assetsLabel')}</p>
             {files.length > 0 ? (
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="grid grid-cols-1 gap-2 pt-2 md:grid-cols-2">
                 {files.map((file, idx) => (
-                  <div
-                    key={`${file.name}-${idx}`}
-                    className="flex items-center gap-2 border border-black bg-gray-50 px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                  >
-                    <Paperclip size={12} className="text-green-brutalist" />
-                    <span className="max-w-[200px] truncate font-mono text-[10px] uppercase italic">
-                      {file.name}
-                    </span>
-                  </div>
+                  <FileChip
+                    key={`${file.name}-${file.lastModified}-${idx}`}
+                    name={file.name}
+                    className="shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  />
                 ))}
               </div>
             ) : (
               <p className="text-sm font-bold text-black italic">
-                {t('brief.steps.step11.labels.no_data')}
+                {t('brief.steps.review.labels.no_data')}
               </p>
             )}
           </div>
         </ReviewSection>
 
-        {/* BUDGET & TIMELINE */}
-        <ReviewSection title={t('brief.steps.step11.sections.budget_time')} stepTarget={6}>
-          <DataItem label="Rango de presupuesto" value={formatBudgetRange(formData.budget)} />
-
+        <ReviewSection title={t('brief.steps.review.sections.audience')} stepTarget="audience">
+          <DataItem label={t('brief.steps.audience.targetTitle')} value={formData.targetAudience} />
           <DataItem
-            label="Timeline esperado"
-            value={t(`brief.steps.step9.options.${formData.timeline}.title`)}
+            label={t('brief.steps.audience.competitorsLabel')}
+            value={formData.competitors}
           />
-          {formData.additionalNotes && (
-            <DataItem label={t('brief.steps.step10.title')} value={formData.additionalNotes} />
-          )}
+        </ReviewSection>
+
+        <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget="budget">
+          <DataItem
+            label={t('brief.steps.budget.title')}
+            value={formatBudgetBand(formData.budget, isUserInMexico() ? 'MXN' : 'USD', t)}
+          />
+          <DataItem
+            label={t('brief.steps.timeline.title')}
+            value={
+              formData.timeline
+                ? t(`brief.steps.timeline.options.${formData.timeline}.title`)
+                : undefined
+            }
+          />
+        </ReviewSection>
+
+        <ReviewSection title={t('brief.steps.review.sections.notes')} stepTarget="notes">
+          <DataItem label={t('brief.steps.notes.title')} value={formData.additionalNotes} />
         </ReviewSection>
       </div>
     </BriefContainer>

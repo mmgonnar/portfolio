@@ -13,9 +13,9 @@ export const StepProjectDefinition = () => {
   const options: ProjectType[] = [
     'website',
     'web_app',
-    'wordpress',
     'landing',
     'redesign',
+    'dashboard',
     'other',
   ];
 
@@ -27,17 +27,17 @@ export const StepProjectDefinition = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black">
-          {t('brief.steps.step2.title')}
+          {t('brief.steps.type.title')}
         </h2>
-        <p className="text-gray-500">{t('brief.steps.step2.description')}</p>
+        <p className="text-gray-500">{t('brief.steps.type.description')}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {options.map(key => (
           <OptionCard
             key={key}
-            title={t(`brief.steps.step2.options.${key}.title`)}
-            desc={t(`brief.steps.step2.options.${key}.desc`)}
+            title={t(`brief.steps.type.options.${key}.title`)}
+            desc={t(`brief.steps.type.options.${key}.desc`)}
             selected={formData.projectType === key}
             onClick={() => updateField('projectType', key)}
           />

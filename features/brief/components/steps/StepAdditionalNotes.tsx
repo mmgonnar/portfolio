@@ -18,9 +18,9 @@ export const StepAdditionalNotes = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step10.title')}
+          {t('brief.steps.notes.title')}
         </h2>
-        <p className="text-gray-500">{t('brief.steps.step10.description')}</p>
+        <p className="text-gray-500">{t('brief.steps.notes.description')}</p>
       </div>
 
       <div className="animate-in fade-in slide-in-from-bottom-2">
@@ -28,7 +28,7 @@ export const StepAdditionalNotes = () => {
           label=""
           id="additionalNotes"
           name="additionalNotes"
-          placeholder={t('brief.steps.step10.placeholder')}
+          placeholder={t('brief.steps.notes.placeholder')}
           value={formData.additionalNotes || ''}
           onChange={e => updateField('additionalNotes', e.target.value)}
           className="min-h-[200px]"
