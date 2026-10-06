@@ -459,6 +459,8 @@ export const esTranslations = {
       error_message_short: 'El mensaje debe tener al menos 50 caracteres',
       error_message_short_20: 'El mensaje debe tener al menos 20 caracteres',
       error_message_colors: 'Por favor, comparte al menos 2 colores',
+      error_project: 'El tipo de proyecto es obligatorio',
+      error_goals: 'Cuéntame un poco más sobre tus objetivos',
       error_invalid_url: 'Por favor, ingresa una URL válida (ej: https://...)',
       error_phone_numbers_only: 'Por favor, ingresa solo numeros',
       error_phone_too_short: 'Ingresa mínimo 10 digitos',
@@ -673,6 +675,7 @@ export const esTranslations = {
       title: '¡Brief Enviado!',
       message:
         'He recibido su información. Analizaré los detalles de su proyecto y me pondré en contacto a la brevedad posible para programar una sesión.',
+      button: 'Volver al inicio',
     },
   },
 };
