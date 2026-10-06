@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { BriefData, FeatureKey } from '../types/type';
+import { getFlow, StepId } from '../utils/flow';
 
 interface BriefState {
   formData: BriefData;
-  currentStep: number;
+  stepId: StepId;
   isStepValid: boolean;
   files: File[];
   updateField: <K extends keyof BriefData>(field: K, value: BriefData[K]) => void;
@@ -13,7 +14,7 @@ interface BriefState {
   toggleFeature: (feature: FeatureKey) => void;
   nextStep: () => void;
   prevStep: () => void;
-  setCurrentStep: (step: number) => void;
+  goToStep: (stepId: StepId) => void;
   setStepValid: (isValid: boolean) => void;
   resetBrief: () => void;
 }
@@ -51,7 +52,7 @@ export const useBriefStore = create<BriefState>()(
     (set, get) => ({
       formData: INITIAL_FORM_DATA,
       files: [],
-      currentStep: 0,
+      stepId: 'intro',
       isStepValid: false,
 
       updateField: (field, value) =>
@@ -83,27 +84,37 @@ export const useBriefStore = create<BriefState>()(
           };
         }),
 
+      // El flujo se deriva de formData en cada movimiento, asi que el paso de
+      // estilo aparece o desaparece sin que nadie recalcule indices.
       nextStep: () =>
         set(state => {
-          const next = state.currentStep + 1;
-          const MAX_STEPS = 12;
-          return {
-            currentStep: next <= MAX_STEPS ? next : state.currentStep,
-          };
+          if (state.stepId === 'intro') return { stepId: getFlow(state.formData)[0] };
+          if (state.stepId === 'review') return { stepId: 'success' as StepId };
+          if (state.stepId === 'success') return {};
+
+          const flow = getFlow(state.formData);
+          const index = flow.indexOf(state.stepId);
+          if (index === -1 || index === flow.length - 1) return {};
+
+          return { stepId: flow[index + 1] };
         }),
 
       prevStep: () =>
-        set(state => ({
-          currentStep: state.currentStep > 0 ? state.currentStep - 1 : 0,
-        })),
+        set(state => {
+          const flow = getFlow(state.formData);
+          const index = flow.indexOf(state.stepId);
+          if (index <= 0) return { stepId: 'intro' };
 
-      setCurrentStep: step => set({ currentStep: step }),
+          return { stepId: flow[index - 1] };
+        }),
+
+      goToStep: stepId => set({ stepId }),
 
       setStepValid: isValid => set({ isStepValid: isValid }),
 
       resetBrief: () =>
         set({
-          currentStep: 0,
+          stepId: 'intro',
           isStepValid: false,
           files: [],
           formData: INITIAL_FORM_DATA,
@@ -111,6 +122,29 @@ export const useBriefStore = create<BriefState>()(
     }),
     {
       name: 'brief-storage',
+      version: 2,
+      // v1 guardaba currentStep numerico y features como titulos traducidos.
+      // El texto se conserva, las features se descartan porque ya no son
+      // claves validas, y se vuelve al intro porque el indice viejo no
+      // corresponde a ningun paso del flujo nuevo.
+      migrate: persisted => {
+        const old = (persisted ?? {}) as Partial<BriefState> & { currentStep?: number };
+        const { currentStep: _currentStep, ...rest } = old;
+
+        return {
+          ...rest,
+          stepId: 'intro' as StepId,
+          isStepValid: false,
+          formData: {
+            ...INITIAL_FORM_DATA,
+            ...(old.formData ?? {}),
+            features: [],
+            designStatus: '',
+            wantsDesignQuote: false,
+            budget: '',
+          },
+        } as BriefState;
+      },
       partialize: state => {
         const { files, ...rest } = state;
         return rest;

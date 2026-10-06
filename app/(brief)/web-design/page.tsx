@@ -12,15 +12,16 @@ import { useEffect } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 
 export default function Page() {
-  const { currentStep, prevStep, nextStep, isStepValid, formData, resetBrief, setCurrentStep } = useBriefStore();
+  const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
   const { t } = useTranslation();
 
   useEffect(() => {
-    setCurrentStep(0);
-  }, [setCurrentStep]);
+    goToStep('intro');
+  }, [goToStep]);
 
-  const isReviewStep = currentStep === 11;
-  const isLastStep = currentStep === 12;
+  const isIntro = stepId === 'intro';
+  const isReviewStep = stepId === 'review';
+  const isLastStep = stepId === 'success';
 
   const handleAction = async () => {
     if (isReviewStep) {
@@ -109,7 +110,7 @@ export default function Page() {
         <footer className="mt-auto w-full border-t border-gray-100 px-6 py-6 md:px-10">
           <div className="mx-auto grid max-w-7xl grid-cols-2 items-center md:grid-cols-3">
             <div className="flex justify-start">
-              {currentStep > 0 && (
+              {!isIntro && (
                 <button
                   onClick={prevStep}
                   className="font-mono text-sm font-bold tracking-widest text-gray-400 uppercase transition-colors hover:text-black"
@@ -124,7 +125,7 @@ export default function Page() {
             </div>
 
             <div className="flex justify-end">
-              {currentStep > 0 && (
+              {!isIntro && (
                 <button
                   onClick={handleAction}
                   disabled={!isStepValid}

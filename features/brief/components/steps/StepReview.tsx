@@ -3,12 +3,13 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
+import { StepId } from '../../utils/flow';
 import { Paperclip, Pencil } from 'lucide-react';
 import { formatBudgetRange } from '@/utils/functions';
 
 export const StepReview = () => {
   const { t } = useTranslation();
-  const { formData, files, setStepValid, setCurrentStep } = useBriefStore();
+  const { formData, files, setStepValid, goToStep } = useBriefStore();
 
   useEffect(() => {
     setStepValid(true);
@@ -21,7 +22,7 @@ export const StepReview = () => {
   }: {
     title: string;
     children: React.ReactNode;
-    stepTarget: number;
+    stepTarget: StepId;
   }) => (
     <div className="group relative mb-6 border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
       <div className="mb-4 flex items-start justify-between">
@@ -29,7 +30,7 @@ export const StepReview = () => {
           {title}
         </h4>
         <button
-          onClick={() => setCurrentStep(stepTarget)}
+          onClick={() => goToStep(stepTarget)}
           className="group hover:text-green-brutalist flex cursor-pointer items-center gap-1.5 font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase transition-colors"
         >
           <span className="underline underline-offset-2">
@@ -66,7 +67,7 @@ export const StepReview = () => {
 
       <div className="grid grid-cols-1 gap-2">
         {/* CONTACT INFO */}
-        <ReviewSection title={t('brief.steps.review.sections.contact')} stepTarget={1}>
+        <ReviewSection title={t('brief.steps.review.sections.contact')} stepTarget="contact">
           <DataItem label={t('brief.steps.contact.name')} value={formData.name} />
           <DataItem label={t('brief.steps.contact.project')} value={formData.company} />
           <DataItem label={t('brief.steps.contact.email')} value={formData.email} />
@@ -74,7 +75,7 @@ export const StepReview = () => {
         </ReviewSection>
 
         {/* PROJECT DETAILS */}
-        <ReviewSection title={t('brief.steps.review.sections.project')} stepTarget={2}>
+        <ReviewSection title={t('brief.steps.review.sections.project')} stepTarget="type">
           <DataItem
             label={t('brief.steps.type.title')}
             value={t(`brief.steps.type.options.${formData.projectType}.title`)}
@@ -99,13 +100,13 @@ export const StepReview = () => {
         </ReviewSection>
 
         {/* VISION */}
-        <ReviewSection title={t('brief.steps.audience.title')} stepTarget={4}>
+        <ReviewSection title={t('brief.steps.audience.title')} stepTarget="audience">
           <DataItem label={t('brief.steps.audience.targetTitle')} value={formData.targetAudience} />
           <DataItem label={t('brief.steps.audience.competitorsLabel')} value={formData.competitors} />
         </ReviewSection>
 
         {/* Style & references & branding*/}
-        <ReviewSection title={t('brief.steps.review.sections.design')} stepTarget={6}>
+        <ReviewSection title={t('brief.steps.review.sections.design')} stepTarget="style">
           <DataItem
             label={t('brief.steps.style.styleDescription')}
             value={t(`brief.steps.style.options.${formData.visualStyle}.title`)}
@@ -113,7 +114,7 @@ export const StepReview = () => {
           <DataItem label={t('brief.steps.style.description')} value={formData.visualReferences} />
         </ReviewSection>
         {/* branding*/}
-        <ReviewSection title={t('brief.steps.review.sections.design')} stepTarget={6}>
+        <ReviewSection title={t('brief.steps.review.sections.design')} stepTarget="style">
           <DataItem label={t('brief.steps.design.colorsLabel')} value={formData.brandColors} />
 
           <div className="mt-4 flex flex-col gap-1">
@@ -141,7 +142,7 @@ export const StepReview = () => {
         </ReviewSection>
 
         {/* BUDGET & TIMELINE */}
-        <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget={6}>
+        <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget="style">
           <DataItem label="Rango de presupuesto" value={formatBudgetRange(formData.budget)} />
 
           <DataItem
