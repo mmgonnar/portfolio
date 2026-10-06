@@ -43,7 +43,7 @@ export interface BriefData {
   existingSiteUrl?: string;
 
   // Funcionalidades
-  features: string[];
+  features: FeatureKey[];
   featuresDetail?: string;
 
   // Audiencia, opcional

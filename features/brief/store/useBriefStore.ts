@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { BriefData } from '../types/type';
+import { BriefData, FeatureKey } from '../types/type';
 
 interface BriefState {
   formData: BriefData;
@@ -10,7 +10,7 @@ interface BriefState {
   updateField: <K extends keyof BriefData>(field: K, value: BriefData[K]) => void;
   setFiles: (files: File[]) => void;
   addFiles: (files: File[]) => number;
-  toggleFeature: (featureTitle: string) => void;
+  toggleFeature: (feature: FeatureKey) => void;
   nextStep: () => void;
   prevStep: () => void;
   setCurrentStep: (step: number) => void;
@@ -69,15 +69,17 @@ export const useBriefStore = create<BriefState>()(
         return incoming.length - unique.length; // cuántos se ignoraron
       },
 
-      toggleFeature: featureTitle =>
+      // Se guarda la clave, nunca el titulo traducido: un cambio de idioma a
+      // media captura no debe perder lo que el cliente ya selecciono.
+      toggleFeature: feature =>
         set(state => {
-          const currentFeatures = state.formData.features || [];
-          const updatedFeatures = currentFeatures.includes(featureTitle)
-            ? currentFeatures.filter(f => f !== featureTitle)
-            : [...currentFeatures, featureTitle];
+          const current = state.formData.features || [];
+          const updated = current.includes(feature)
+            ? current.filter(f => f !== feature)
+            : [...current, feature];
 
           return {
-            formData: { ...state.formData, features: updatedFeatures },
+            formData: { ...state.formData, features: updated },
           };
         }),
 
