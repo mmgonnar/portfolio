@@ -159,8 +159,24 @@ export const useBriefStore = create<BriefState>()(
           },
         } as BriefState;
       },
+      // Los File no se pueden serializar, por eso quedan fuera.
+      // Al llegar a 'success' se guarda un borrador vacio en vez del enviado:
+      // el estado en memoria sigue intacto para pintar la pantalla de exito,
+      // pero una recarga arranca limpia. Va aqui y no en el submit porque
+      // cualquier set() posterior volveria a escribir el borrador completo.
       partialize: state => {
         const { files, ...rest } = state;
+
+        if (state.stepId === 'success') {
+          return {
+            ...rest,
+            stepId: 'intro' as StepId,
+            lastStepId: 'intro' as StepId,
+            isStepValid: false,
+            formData: INITIAL_FORM_DATA,
+          };
+        }
+
         return rest;
       },
     },

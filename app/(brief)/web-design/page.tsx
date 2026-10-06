@@ -77,11 +77,11 @@ export default function Page() {
       fileList.forEach(file => {
         dataToSend.append('attachments', file);
       });
-      
+
       // Send files - backend expects list, send as JSON
       const fileNames = fileList.map(f => f.name);
       dataToSend.append('files', JSON.stringify(fileNames));
-      
+
       dataToSend.append('locale', formData.locale || 'en');
 
       await apiCallToast(sendBriefData(dataToSend), {
@@ -90,11 +90,9 @@ export default function Page() {
         errorMessage: t('toast.error_msg'),
       });
 
-      // Se borra la copia persistida, no el estado en memoria: la pantalla de
-      // exito sigue necesitando los datos, pero una recarga ya no revive el
-      // brief que acaba de enviarse.
-      useBriefStore.persist.clearStorage();
-
+      // El borrador persistido se limpia en el partialize del store al entrar
+      // en 'success'. Hacerlo aqui no funcionaba: nextStep() vuelve a escribir
+      // el estado completo justo despues y revivia el brief ya enviado.
       nextStep();
     } else {
       nextStep();
