@@ -13,9 +13,9 @@ export const StepProjectDefinition = () => {
   const options: ProjectType[] = [
     'website',
     'web_app',
-    'wordpress',
     'landing',
     'redesign',
+    'dashboard',
     'other',
   ];
 

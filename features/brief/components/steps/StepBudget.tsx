@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import { cn, isUserInMexico } from '@/utils/functions';
+import { BudgetKey } from '../../types/type';
 
 export const StepBudget = () => {
   const { t } = useTranslation();
@@ -14,28 +15,36 @@ export const StepBudget = () => {
     setIsMexico(isUserInMexico());
   }, []);
 
-  const budgetOptions = useMemo(() => {
-    const ranges = isMexico
+  // Los montos viven aqui solo hasta que scope.ts los tome; el idioma sale de
+  // los patrones under/between/plus para no duplicar dinero en dos locales.
+  const budgetOptions: { label: string; short: string; value: BudgetKey }[] = useMemo(() => {
+    const bands: { min?: string; max?: string; short: string; value: BudgetKey }[] = isMexico
       ? [
-          { label: '$10K - $15K MXN', short: '10K-15K', value: 'r1' },
-          { label: '$15K - $20K MXN', short: '15K-20K', value: 'r2' },
-          { label: '$20K - $25K MXN', short: '20K-25K', value: 'r3' },
-          { label: '$25K - $30K MXN', short: '25K-30K', value: 'r4' },
-          { label: '$30K+ MXN', short: '30K+', value: 'r5' },
+          { max: '$15,000', short: '<15K', value: 'r1' },
+          { min: '$15,000', max: '$40,000', short: '15-40K', value: 'r2' },
+          { min: '$40,000', max: '$80,000', short: '40-80K', value: 'r3' },
+          { min: '$80,000', short: '80K+', value: 'r4' },
         ]
       : [
-          { label: '$1K - $3K', short: '1K-3K', value: 'r1' },
-          { label: '$3K - $5K', short: '3K-5K', value: 'r2' },
-          { label: '$5K - $10K', short: '5K-10K', value: 'r3' },
-          { label: '$10K - $25K', short: '10K-25K', value: 'r4' },
-          { label: '$25K+', short: '25K+', value: 'r5' },
+          { max: '$1,200', short: '<1.2K', value: 'r1' },
+          { min: '$1,200', max: '$3,000', short: '1.2-3K', value: 'r2' },
+          { min: '$3,000', max: '$6,000', short: '3-6K', value: 'r3' },
+          { min: '$6,000', short: '6K+', value: 'r4' },
         ];
-    return ranges;
-  }, [isMexico]);
+
+    return bands.map(band => {
+      const key = band.min && band.max ? 'between' : band.max ? 'under' : 'plus';
+      return {
+        label: t(`brief.steps.budget.${key}`, { min: band.min, max: band.max }),
+        short: band.short,
+        value: band.value,
+      };
+    });
+  }, [isMexico, t]);
 
   const initialIndex = useMemo(() => {
     const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
-    return idx !== -1 ? idx : 2;
+    return idx !== -1 ? idx : 1;
   }, [formData.budget, budgetOptions]); // Agregamos dependencias
 
   const [sliderValue, setSliderValue] = useState(initialIndex);
@@ -43,7 +52,7 @@ export const StepBudget = () => {
   useEffect(() => {
     // Si no hay un presupuesto guardado, inicializamos el Store con el valor por defecto del slider (índice 2)
     if (!formData.budget) {
-      updateField('budget', budgetOptions[2].value);
+      updateField('budget', budgetOptions[1].value);
     }
     setStepValid(true);
   }, [formData.budget, updateField, setStepValid, budgetOptions]);
@@ -77,7 +86,7 @@ export const StepBudget = () => {
           <input
             type="range"
             min="0"
-            max="4"
+            max="3"
             step="1"
             value={sliderValue}
             onChange={handleSliderChange}
