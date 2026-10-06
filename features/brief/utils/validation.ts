@@ -49,11 +49,15 @@ export type StepTwoData = z.infer<typeof stepTwoSchema>;
 
 // export type StepThreeSchema = z.infer<typeof stepThreeSchema>;
 
+// El paso de audiencia es opcional: vacio pasa, pero una respuesta a medias
+// no, porque veinte caracteres es lo minimo que dice algo.
+const optionalLongText = z.string().refine(val => val.length === 0 || val.length >= 20, {
+  message: 'form.errors.error_message_short_20',
+});
+
 export const stepFiveSchema = z.object({
-  targetAudience: z.string().min(20, { message: 'form.errors.error_message_short_20' }),
-  competitors: z.string().refine(val => val.length === 0 || val.length >= 20, {
-    message: 'form.error.error_message_short_20',
-  }),
+  targetAudience: optionalLongText,
+  competitors: optionalLongText,
 });
 
 export type StepFiveSchema = z.infer<typeof stepFiveSchema>;

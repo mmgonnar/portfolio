@@ -11,13 +11,13 @@ import BriefTextArea from '../ui/brief-text-area';
 
 export const StepTargetCompetitors = () => {
   const { t } = useTranslation();
-  const { formData, updateField, setStepValid } = useBriefStore();
+  const { formData, updateField, setStepValid, nextStep } = useBriefStore();
   const minLength = 20;
 
   const {
     register,
     watch,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<StepFiveSchema>({
     resolver: zodResolver(stepFiveSchema),
     defaultValues: {
@@ -29,9 +29,10 @@ export const StepTargetCompetitors = () => {
 
   useFormSync(watch, updateField, formData);
 
+  // Paso opcional: siempre se puede avanzar, con o sin respuesta.
   useEffect(() => {
-    setStepValid(isValid);
-  }, [isValid, setStepValid]);
+    setStepValid(true);
+  }, [setStepValid]);
 
   const competitorsVal = watch('competitors') || '';
   const targetAudienceVal = watch('targetAudience') || '';
@@ -86,6 +87,16 @@ export const StepTargetCompetitors = () => {
               {competitorsVal.length} / {minLength} {t('brief.steps.details.counter')}
             </p>
           </div>
+        </div>
+
+        <div className="flex justify-start pt-2">
+          <button
+            type="button"
+            onClick={nextStep}
+            className="cursor-pointer font-mono text-[10px] font-bold tracking-widest text-gray-400 underline underline-offset-4 uppercase transition-colors hover:text-black"
+          >
+            {t('brief.steps.audience.skip')}
+          </button>
         </div>
       </div>
     </BriefContainer>
