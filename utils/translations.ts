@@ -288,7 +288,20 @@ export const enTranslations = {
         under: 'Under {{max}}',
         between: '{{min}} to {{max}}',
         plus: '{{min}}+',
-        scopeNote: 'With this scope, similar projects start from {{amount}}',
+        scope: {
+          titles: {
+            basic: 'Your project has a basic scope',
+            medium: 'Your project has a medium scope',
+            advanced: 'Your project has an advanced scope',
+          },
+          body: "Based on your choices, projects like yours usually start from {{amount}}. This is a reference, not a quote: we'll set the final price together once I review your brief.",
+          drivers: 'What drives it most:',
+          designDriver: 'UI/UX design (additional)',
+          rushDriver: 'Rush delivery',
+          below:
+            "The range you picked is below the reference. That's okay: we can adjust the scope to fit your budget.",
+          fits: '\u2713 Your budget fits this scope.',
+        },
       },
       timeline: {
         title: 'When do you need this completed?',
@@ -635,7 +648,20 @@ export const esTranslations = {
         under: 'Menos de {{max}}',
         between: '{{min}} a {{max}}',
         plus: '{{min}}+',
-        scopeNote: 'Con este alcance, proyectos similares parten desde {{amount}}',
+        scope: {
+          titles: {
+            basic: 'Tu proyecto tiene un alcance básico',
+            medium: 'Tu proyecto tiene un alcance medio',
+            advanced: 'Tu proyecto tiene un alcance avanzado',
+          },
+          body: 'Por lo que elegiste, proyectos como el tuyo suelen partir desde {{amount}}. Es una referencia, no una cotización: el precio final lo definimos juntos cuando revise tu brief.',
+          drivers: 'Lo que más influye:',
+          designDriver: 'Diseño UI/UX (adicional)',
+          rushDriver: 'Entrega urgente',
+          below:
+            'El rango que elegiste está por debajo de la referencia. No pasa nada: podemos ajustar el alcance para que encaje con tu presupuesto.',
+          fits: '\u2713 Tu presupuesto encaja con este alcance.',
+        },
       },
       timeline: {
         title: '¿Para cuándo lo necesitas?',
