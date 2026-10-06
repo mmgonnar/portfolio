@@ -132,7 +132,7 @@ export const enTranslations = {
     error_msg: 'Something went wrong. Please try again.',
   },
   brief: {
-    tag: '< Web Design Brief />',
+    tag: '< Web Project Brief />',
     title: 'A quiet conversation about your ',
     titleAccent: 'project',
     description:
@@ -472,7 +472,7 @@ export const esTranslations = {
     error_msg: 'Algo salió mal. Inténtalo de nuevo.',
   },
   brief: {
-    tag: '< Brief Diseño Web />',
+    tag: '< Brief de Proyecto Web />',
     title: 'Conversemos un poco  sobre tu ',
     titleAccent: 'proyecto',
     description:
