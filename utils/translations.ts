@@ -103,6 +103,8 @@ export const enTranslations = {
     briefLink: 'Fill out the project brief',
   },
   form: {
+    yes: 'Yes',
+    no: 'No',
     heading: '// Send a message',
     name: 'name',
     namePlaceholder: 'Your name',
@@ -441,6 +443,8 @@ export const esTranslations = {
     briefLink: 'Llena el brief del proyecto',
   },
   form: {
+    yes: 'Sí',
+    no: 'No',
     heading: '// Envía un mensaje',
     name: 'nombre',
     namePlaceholder: '¿Cómo te llamas?',
