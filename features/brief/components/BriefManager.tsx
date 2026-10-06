@@ -4,7 +4,7 @@ import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import {
   StepAdditionalNotes,
-  StepBrandIdentity,
+  StepDesign,
   StepBudget,
   StepFeatures,
   StepPersonalData,
@@ -45,7 +45,7 @@ export const BriefManager = () => {
       case 'audience':
         return <StepTargetCompetitors />;
       case 'design':
-        return <StepBrandIdentity />;
+        return <StepDesign />;
       case 'style':
         return <StepReferences />;
       case 'budget':

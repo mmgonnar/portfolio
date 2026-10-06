@@ -33,7 +33,7 @@ export const stepTwoSchema = z
       return true;
     },
     {
-      message: 'form.errors.invalid_url',
+      message: 'form.errors.error_invalid_url',
       path: ['existingSiteUrl'],
     },
   );
@@ -69,15 +69,8 @@ export const stepSixSchema = z.object({
         .filter(u => u);
       return urls.length > 0 && urls.every(u => u.startsWith('http'));
     },
-    { message: 'form.errors.invalid_url' },
+    { message: 'form.errors.error_invalid_url' },
   ),
 });
 
 export type StepSixSchema = z.infer<typeof stepSixSchema>;
-
-export const stepSevenSchema = z.object({
-  brandColors: z.string().min(5, { message: 'form.errors.error_message_colors' }),
-  brandAssetsReady: z.boolean().optional(),
-});
-
-export type StepSevenSchema = z.infer<typeof stepSevenSchema>;

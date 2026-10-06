@@ -4,7 +4,7 @@ export * from './StepProjectDefinition';
 export * from './StepFeatures';
 export * from './StepReferences';
 export * from './StepTargetCompetitors';
-export * from './StepBrandIdentity';
+export * from './step-design';
 export * from './StepTimeline';
 export * from './StepBudget';
 export * from './StepAdditionalNotes';
