@@ -130,6 +130,8 @@ export const enTranslations = {
     sending: 'Sending message...',
     success_msg: "Message sent! I'll get back to you soon",
     error_msg: 'Something went wrong. Please try again.',
+    brief_unconfirmed:
+      "We couldn't confirm your submission. Before retrying, check whether you got the confirmation email, or contact me.",
   },
   brief: {
     tag: '< Web Project Brief />',
@@ -485,6 +487,8 @@ export const esTranslations = {
     sending: 'Enviando mensaje...',
     success_msg: '¡Mensaje enviado! Te contactaré pronto.',
     error_msg: 'Algo salió mal. Inténtalo de nuevo.',
+    brief_unconfirmed:
+      'No pudimos confirmar el envío. Antes de reintentar, revisa si te llegó el correo de confirmación o escríbeme.',
   },
   brief: {
     tag: '< Brief de Proyecto Web />',
