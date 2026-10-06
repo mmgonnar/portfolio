@@ -251,7 +251,7 @@ export const enTranslations = {
         linkPlaceholder: 'https://figma.com/file/...',
         filesLabel: 'Attach the design files (optional)',
         kitFilesLabel: 'Attach your brand kit (optional)',
-        colorsLabel: 'Which colors does your brand use?',
+        colorsLabel: 'Which colors does your brand use? (optional)',
         colorsPlaceholder: 'Eg. blue, red, yellow, black',
         quoteCheckbox: 'I want a quote for UI/UX design (additional service)',
         noneNote:
@@ -595,7 +595,7 @@ export const esTranslations = {
         linkPlaceholder: 'https://figma.com/file/...',
         filesLabel: 'Adjunta los archivos del diseño (opcional)',
         kitFilesLabel: 'Adjunta tu kit de marca (opcional)',
-        colorsLabel: '¿Qué colores usa tu marca?',
+        colorsLabel: '¿Qué colores usa tu marca? (opcional)',
         colorsPlaceholder: 'Ej. azul, rojo, amarillo, negro',
         quoteCheckbox: 'Quiero cotizar diseño UI/UX (servicio adicional)',
         noneNote:

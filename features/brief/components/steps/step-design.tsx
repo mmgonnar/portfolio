@@ -27,17 +27,14 @@ export const StepDesign = () => {
       return;
     }
     // Con el diseño listo lo único que hace falta es dónde verlo. Con kit de
-    // marca se piden los colores, que es lo que no se puede leer de un archivo.
+    // marca no se exige nada: los colores son opcionales porque suelen venir
+    // en el propio kit adjunto.
     if (designStatus === 'ready') {
       setStepValid(isValidUrl(designLink || ''));
       return;
     }
-    if (designStatus === 'brand_kit') {
-      setStepValid((brandColors || '').trim().length >= 5);
-      return;
-    }
     setStepValid(true);
-  }, [designStatus, designLink, brandColors, setStepValid]);
+  }, [designStatus, designLink, setStepValid]);
 
   const dropzoneLabels = {
     title: t('brief.steps.design.dropzone.title'),
