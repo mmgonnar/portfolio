@@ -149,7 +149,7 @@ export const enTranslations = {
       },
     ],
     steps: {
-      step1: {
+      contact: {
         name: 'What´s your Name?',
         namePlaceholder: 'Enter your full name',
         email: 'How can I reach you?',
@@ -159,23 +159,25 @@ export const enTranslations = {
         project: 'And your company or project name?',
         projectPlaceholder: 'Enter your company or project name',
       },
-      step2: {
-        title: 'What type of project are you looking for?',
-        description: 'Select the option that best describes your needs',
+      type: {
+        title: 'What type of project do you need built?',
+        description: 'Select the option that best describes what you want to build',
         options: {
           website: { title: 'Website', desc: 'Corporate, portfolio or informational site' },
-          web_app: { title: 'Web Application', desc: 'Complex functionality & user interactions' },
-          wordpress: {
-            title: 'Wordpress Website',
-            desc: 'Self-managed site with Wordpress',
+          web_app: {
+            title: 'Web application',
+            desc: 'Accounts, custom logic and user interactions',
           },
-          landing: { title: 'Landing Page', desc: 'Single-page conversion focused' },
-          redesign: { title: 'Redesign', desc: 'Refresh an existing digital product' },
+          landing: { title: 'Landing page', desc: 'A single page focused on one conversion' },
+          redesign: { title: 'Redesign', desc: 'Rebuild an existing site or product' },
+          dashboard: {
+            title: 'Dashboard / admin panel',
+            desc: 'Internal panel to manage data and operations',
+          },
           other: { title: 'Other', desc: 'Something unique in mind' },
         },
       },
-
-      step3: {
+      details: {
         title: 'Tell me a bit more about your project.',
         description: 'Describe your project, goals, and any specific requirements',
         projectName: "What is your project's name?",
@@ -185,26 +187,35 @@ export const enTranslations = {
         hasExistingSite: 'Do you have an existing website?',
         existingSiteUrl: 'Current URL',
       },
-      step4: {
+      features: {
         title: 'Which features do you need?',
         description:
-          "Select all that apply. If you're unsure what a term means or need something different, feel free to contact me",
+          'Select all that apply. Responsive design is included by default on every project. If a term is unclear or you need something else, contact me.',
         selectedLabel: 'Selected',
         options: {
-          cms: { title: 'Content Management', desc: 'Edit content yourself' },
-          auth: { title: 'User Authentication', desc: 'Login & accounts' },
-          payments: { title: 'Payment Processing', desc: 'Accept online payments' },
-          analytics: { title: 'Analytics & Tracking', desc: 'Monitor performance' },
-          seo: { title: 'SEO Optimization', desc: 'Search engine visibility' },
-          multi_language: { title: 'Multi-language', desc: 'Multiple language support' },
-          integrations: {
-            title: 'Third-party Integrations',
-            desc: 'Connect with external services',
+          auth: { title: 'User accounts', desc: 'Sign up and log in' },
+          admin_dashboard: {
+            title: 'Admin dashboard',
+            desc: 'A private area to manage your content and data',
           },
-          mobile: { title: 'Mobile-first Design', desc: 'Optimized for all devices' },
+          forms_emails: {
+            title: 'Forms and email',
+            desc: 'Contact forms and automatic notifications',
+          },
+          database: { title: 'Database', desc: 'Store and query your own records' },
+          integrations: {
+            title: 'Integrations',
+            desc: 'Connect with your CRM, email or other services',
+          },
+          seo: { title: 'SEO setup', desc: 'Technical groundwork for search visibility' },
+          multi_language: {
+            title: 'Multiple languages',
+            desc: 'The site works in two or more languages',
+          },
+          deployment: { title: 'Deployment and domain', desc: 'Hosting, setup and going live' },
         },
       },
-      step5: {
+      audience: {
         title: 'Target audience & competitors',
         description: "Describe your project's target audience and mention your main competitors.",
         targetAudience: 'Describe demographics, interests, and key points....',
@@ -212,14 +223,43 @@ export const enTranslations = {
         targetTitle: 'Who is your target audience?',
         competitorsLabel: 'Who is your main competitor?',
         competitors: 'Mention at least 2, either names or social media profiles',
+        skip: 'Skip this step',
       },
-      step0: {
-        title: 'Tell me about your vision.',
-        description: 'Describe your project, goals, and any specific requirements',
-        placeholder: 'My project is about...',
-        counter: 'minimum characters',
+      design: {
+        title: 'What do you have for the design?',
+        description:
+          'This brief is for building your project. Design is a separate service you can request.',
+        options: {
+          ready: {
+            title: 'I have the design ready',
+            desc: 'Figma, XD or similar, ready to build from',
+          },
+          brand_kit: {
+            title: 'I have a brand kit',
+            desc: 'Logo, colors and typography, but no screens',
+          },
+          none: { title: 'I have nothing yet', desc: 'No design and no brand material' },
+        },
+        linkLabel: 'Where can I see the design?',
+        linkPlaceholder: 'https://figma.com/file/...',
+        filesLabel: 'Attach the design files (optional)',
+        kitFilesLabel: 'Attach your brand kit (optional)',
+        colorsLabel: 'Which colors does your brand use?',
+        colorsPlaceholder: 'Eg. blue, red, yellow, black',
+        quoteCheckbox: 'I want a quote for UI/UX design (additional service)',
+        noneNote:
+          'Design is an additional service. Tell me the style you like and I will include a quote for it.',
+        assetsLabel: 'Share here your files',
+        dropzone: {
+          title: 'Drag & Drop',
+          subtitle: 'or click to browse',
+          info: 'Images, PDFs, Documents (Max 10MB each)',
+          files: 'Files shared',
+          duplicate: 'This file was already added',
+          notKept: 'Attachments are not kept if you reload the page',
+        },
       },
-      step6: {
+      style: {
         title: 'Any websites or designs that inspire you?',
         description: "Share URLs and select the aesthetic you're aiming for",
         styleDescription: "Select the aesthetic you're aiming for",
@@ -235,32 +275,15 @@ export const enTranslations = {
           modern: { title: 'Modern', desc: 'Sleek, futuristic, gradients' },
         },
       },
-      step8: {
-        title: "What's your budget range? ",
+      budget: {
+        title: "What's your budget range?",
         description: 'This helps us tailor the right solution for you',
-        ranges: {
-          r1: '$1K - $3K',
-          r2: '$3K - $5K',
-          r3: '$5K - $10K',
-          r4: '$10K - $25K',
-          r5: '$25K+',
-        },
+        under: 'Under {{max}}',
+        between: '{{min}} to {{max}}',
+        plus: '{{min}}+',
+        scopeNote: 'With this scope, similar projects start from {{amount}}',
       },
-      step7: {
-        title: 'Have any files to share?',
-        description: 'Upload logos, brand guidelines, wireframes, or reference images.',
-        dropzone: {
-          title: 'Drag & Drop',
-          subtitle: 'or click to browse',
-          info: 'Images, PDFs, Documents (Max 10MB each)',
-          files: 'Files shared',
-          duplicate: 'This file was already added',
-        },
-        colorsLabel: 'Which ones are the colors of your project or brand?',
-        brandColors: 'Eg. blue, red, yellow, black..',
-        assetsLabel: 'Share here your files',
-      },
-      step9: {
+      timeline: {
         title: 'When do you need this completed?',
         description: 'Select your ideal timeline',
         options: {
@@ -270,42 +293,29 @@ export const enTranslations = {
           flexible: { title: 'Flexible', desc: 'No strict timeline' },
         },
       },
-      step00000: {
-        title: 'Have any files to share?',
-        description: 'Upload logos, brand guidelines, wireframes, or reference images',
-        dropzone: {
-          title: 'Drag & Drop',
-          subtitle: 'or click to browse',
-          info: 'Images, PDFs, Documents (Max 10MB each)',
-          files: 'Files shared',
-        },
-      },
-      step000000: {
-        title: 'Any websites or designs that inspire you?',
-        description: "Share URLs or describe the aesthetic you're aiming for",
-        placeholder: 'https://example.com/...',
-        addMore: '+ Add Link',
-      },
-      step10: {
+      notes: {
         title: 'Is there anything else I should know?',
         description:
           "This is the space for any details, questions, or technical requirements that we haven't covered before",
         placeholder:
           'Eg:  I need the site to be compatible with X tool, or I have questions about...',
       },
-      step11: {
-        title: '¿Todo listo para enviar tu briefing?',
-        description: 'Revisa tus respuestas antes de enviarlas.',
+      review: {
+        title: 'Ready to send your brief?',
+        description: 'Review your answers before sending them.',
         sections: {
-          contact: 'Contact Information',
-          project: 'Project Details',
-          styleReferences: 'Style & References & Branding',
-          budget_time: 'Budget and Time',
-          files: 'Files and References',
+          contact: 'Contact',
+          project: 'Project',
+          features: 'Features',
+          design: 'Design and brand',
+          audience: 'Audience',
+          budget_time: 'Budget and timeline',
+          notes: 'Notes',
         },
         labels: {
           no_data: 'Not provided',
           edit: 'Edit',
+          designQuoteRequested: 'UI/UX design quote requested (additional service)',
         },
       },
     },
@@ -470,7 +480,7 @@ export const esTranslations = {
       },
     ],
     steps: {
-      step1: {
+      contact: {
         name: '¿Cúal es tu nombre?',
         namePlaceholder: 'Ingresa tu nombre completo',
         email: '¿Cómo te puedo contactar?',
@@ -480,26 +490,25 @@ export const esTranslations = {
         project: '¿Cómo se llama tu negocio o proyecto?',
         projectPlaceholder: 'Ingresa el nombre de tu negocio o proyecto',
       },
-      step2: {
-        title: '¿Qué tipo de proyecto buscas?',
-        description: 'Selecciona la opción que mejor describa tus necesidades',
+      type: {
+        title: '¿Qué tipo de proyecto necesitas construir?',
+        description: 'Elige la opción que mejor describe lo que quieres construir',
         options: {
-          website: { title: 'Website', desc: 'Sitio corporativo, portafolio o informativo' },
+          website: { title: 'Sitio web', desc: 'Sitio corporativo, portafolio o informativo' },
           web_app: {
-            title: 'Web Application',
-            desc: 'Funcionalidad compleja e interacción de usuario',
+            title: 'Aplicación web',
+            desc: 'Cuentas, lógica propia e interacción de usuarios',
           },
-          wordpress: {
-            title: 'Sitio en Wordpress',
-            desc: 'Sitio autogestionable en Wordpress',
+          landing: { title: 'Landing page', desc: 'Una sola página enfocada a conversión' },
+          redesign: { title: 'Rediseño', desc: 'Reconstruir un sitio o producto existente' },
+          dashboard: {
+            title: 'Dashboard / panel de administración',
+            desc: 'Panel interno para gestionar datos y operaciones',
           },
-          landing: { title: 'Landing Page', desc: 'Una sola página enfocado en conversión' },
-          redesign: { title: 'Redesign', desc: 'Refrescar un producto digital existente' },
-          other: { title: 'Other', desc: 'Algo único en mente' },
+          other: { title: 'Otro', desc: 'Algo distinto en mente' },
         },
       },
-
-      step3: {
+      details: {
         title: 'Cuéntame mas de tu proyecto',
         description:
           'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente',
@@ -510,42 +519,82 @@ export const esTranslations = {
         hasExistingSite: '¿Tienes un sitio web actualmente?',
         existingSiteUrl: 'URL del sitio',
       },
-      step4: {
+      features: {
         title: '¿Qué funcionalidades necesitas?',
         description:
-          'Selecciona todas las que apliquen. Si no estás seguro de qué significa algún término o necesitas algo diferente, no dudes en escribirme.',
+          'Elige todas las que apliquen. El diseño responsivo va incluido por defecto en todos los proyectos. Si algún término no es claro o necesitas algo distinto, escríbeme.',
         selectedLabel: 'Seleccionado',
         options: {
-          cms: { title: 'Gestión de Contenidos', desc: 'Edita el contenido tú mismo' },
-          auth: { title: 'Autenticación de Usuario', desc: 'Login y cuentas de usuario' },
-          payments: { title: 'Pasarela de Pagos', desc: 'Acepta pagos en línea' },
-          analytics: { title: 'Analytics & Tracking', desc: 'Monitorea el rendimiento' },
-          seo: { title: 'Optimización SEO', desc: 'Visibilidad en buscadores' },
-          multi_language: { title: 'Multi-lenguaje', desc: 'Soporte para múltiples idiomas' },
-          integrations: {
-            title: 'Integraciones de terceros',
-            desc: 'Conexión con servicios externos',
+          auth: { title: 'Cuentas de usuario', desc: 'Registro e inicio de sesión' },
+          admin_dashboard: {
+            title: 'Panel de administración',
+            desc: 'Un área privada para gestionar tu contenido y datos',
           },
-          mobile: { title: 'Diseño Mobile-first', desc: 'Optimizado para todos los dispositivos' },
+          forms_emails: {
+            title: 'Formularios y correo',
+            desc: 'Formularios de contacto y notificaciones automáticas',
+          },
+          database: { title: 'Base de datos', desc: 'Guardar y consultar tus propios registros' },
+          integrations: {
+            title: 'Integraciones',
+            desc: 'Conectar con tu CRM, correo u otros servicios',
+          },
+          seo: { title: 'Configuración SEO', desc: 'Base técnica para visibilidad en buscadores' },
+          multi_language: {
+            title: 'Varios idiomas',
+            desc: 'El sitio funciona en dos o más idiomas',
+          },
+          deployment: {
+            title: 'Despliegue y dominio',
+            desc: 'Hosting, configuración y salida a producción',
+          },
         },
       },
-      step5: {
+      audience: {
         title: 'Audiencia y competidores',
         description: 'Describe la audiencia de tu proyecto y menciona tus principales competidores',
         targetAudience: 'Describe demografía, intereses y puntos de clave.....',
-        counter: 'minimum characters',
+        counter: 'caracteres mínimos',
         targetTitle: '¿Quién es tu audiencia objetivo?',
         competitorsLabel: '¿Quién es tu principal competidor?',
         competitors: 'Menciona al menos 2, ya sea nombres o perfiles de redes sociales',
+        skip: 'Omitir este paso',
       },
-      step0: {
-        title: 'Cuéntame tu visión',
+      design: {
+        title: '¿Qué tienes para el diseño?',
         description:
-          'Describe tu proyecto, objetivos y cualquier requerimiento específico que tengas en mente.',
-        placeholder: 'Mi proyecto trata sobre...',
-        counter: 'caracteres mínimos',
+          'Este brief es para construir tu proyecto. El diseño es un servicio aparte que puedes solicitar.',
+        options: {
+          ready: {
+            title: 'Ya tengo el diseño listo',
+            desc: 'Figma, XD o similar, listo para construir',
+          },
+          brand_kit: {
+            title: 'Tengo un kit de marca',
+            desc: 'Logo, colores y tipografía, pero sin pantallas',
+          },
+          none: { title: 'Todavía no tengo nada', desc: 'Sin diseño ni material de marca' },
+        },
+        linkLabel: '¿Dónde puedo ver el diseño?',
+        linkPlaceholder: 'https://figma.com/file/...',
+        filesLabel: 'Adjunta los archivos del diseño (opcional)',
+        kitFilesLabel: 'Adjunta tu kit de marca (opcional)',
+        colorsLabel: '¿Qué colores usa tu marca?',
+        colorsPlaceholder: 'Ej. azul, rojo, amarillo, negro',
+        quoteCheckbox: 'Quiero cotizar diseño UI/UX (servicio adicional)',
+        noneNote:
+          'El diseño es un servicio adicional. Cuéntame el estilo que te gusta y te incluyo una cotización.',
+        assetsLabel: 'Comparte aqui tus archivos',
+        dropzone: {
+          title: 'Arrastra y suelta archivos',
+          subtitle: 'o haz clic para buscar',
+          info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
+          files: 'Archivos Compartidos',
+          duplicate: 'Este archivo ya fue agregado',
+          notKept: 'Los archivos adjuntos no se conservan si recargas la página',
+        },
       },
-      step6: {
+      style: {
         title: '¿Hay sitios web o diseños que te inspiren?',
         description: 'Comparte URLs y selecciona el estilo que buscas.',
         styleDescription: 'Selecciona el estilo que buscas.',
@@ -561,34 +610,16 @@ export const esTranslations = {
           modern: { title: 'moderno', desc: 'Fulido, futurista, degradados' },
         },
       },
-      step7: {
-        title: '¿Tienes archivos para compartir?',
-        description: 'Sube logos, manuales de marca, wireframes o imágenes de referencia.',
-        dropzone: {
-          title: 'Arrastra y suelta archivos',
-          subtitle: 'o haz clic para buscar',
-          info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
-          files: 'Archivos Compartidos',
-          duplicate: 'Este archivo ya fue agregado',
-        },
-        colorsLabel: '¿Cuáles son los colores de su marca o proyecto?',
-        brandColors: 'Ej. azul, rojo, amarillo, negro..',
-        assetsLabel: 'Comparte aqui tus archivos',
-      },
-
-      step8: {
+      budget: {
         title: '¿Cuál es tu rango de presupuesto?',
         description:
           'Esto me ayuda a proponer la solución tecnológica y de diseño más adecuada para ti.',
-        ranges: {
-          r1: '$10K - $15K',
-          r2: '$15K - $20K',
-          r3: '$20K - $25K',
-          r4: '$25K - $30K',
-          r5: '$30K+',
-        },
+        under: 'Menos de {{max}}',
+        between: '{{min}} a {{max}}',
+        plus: '{{min}}+',
+        scopeNote: 'Con este alcance, proyectos similares parten desde {{amount}}',
       },
-      step9: {
+      timeline: {
         title: '¿Para cuándo lo necesitas?',
         description: 'Selecciona tu cronograma ideal',
         options: {
@@ -598,43 +629,29 @@ export const esTranslations = {
           flexible: { title: 'Flexible', desc: 'Sin fecha límite estricta' },
         },
       },
-      step0000: {
-        title: '¿Tienes archivos para compartir?',
-        description: 'Sube logos, manuales de marca, wireframes o imágenes de referencia.',
-        dropzone: {
-          title: 'Arrastra y suelta archivos',
-          subtitle: 'o haz clic para buscar',
-          info: 'Imágenes, PDFs, Documentos (Max 10MB cada uno)',
-          files: 'Archivos Compartidos',
-        },
-      },
-      step0000000: {
-        title: '¿Tienes alguna referencia visual?',
-        description:
-          'Pega enlaces a sitios web, tableros de Pinterest o perfiles de Dribbble que te inspiren.',
-        placeholder: 'https://dribbble.com/... o cualquier otro enlace',
-        addMore: '+ Agregar otro enlace',
-      },
-      step10: {
+      notes: {
         title: '¿Algo más que deba saber?',
         description:
           'Este es el espacio para cualquier detalle, duda o requerimiento técnico que no hayamos cubierto antes.',
         placeholder:
           'Ej: Necesito que el sitio sea compatible con X herramienta, o tengo dudas sobre...',
       },
-      step11: {
+      review: {
         title: '¿Todo listo para enviar tu briefing?',
         description: 'Revisa tus respuestas antes de enviarlas.',
         sections: {
-          contact: 'Información de Contacto',
-          project: 'Detalles del Proyecto',
-          styleReferences: 'Estilo y referencias & Branding',
-          budget_time: 'Presupuesto y Tiempo',
-          files: 'Archivos y Referencias',
+          contact: 'Contacto',
+          project: 'Proyecto',
+          features: 'Funcionalidades',
+          design: 'Diseño y marca',
+          audience: 'Audiencia',
+          budget_time: 'Presupuesto y tiempos',
+          notes: 'Notas',
         },
         labels: {
           no_data: 'No proporcionado',
           edit: 'Editar',
+          designQuoteRequested: 'Cotización de diseño UI/UX solicitada (servicio adicional)',
         },
       },
     },

@@ -60,7 +60,7 @@ export const StepBudget = () => {
       <div className="space-y-2">
         <div className="flex items-center gap-10">
           <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-            {t('brief.steps.step8.title')}{' '}
+            {t('brief.steps.budget.title')}{' '}
             <span className="font-mono text-2xl font-bold tracking-widest text-gray-400 uppercase">
               {isMexico ? '(MXN)' : '(USD)'}
             </span>

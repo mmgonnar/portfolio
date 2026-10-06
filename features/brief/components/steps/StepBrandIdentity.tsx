@@ -57,17 +57,17 @@ export const StepBrandIdentity = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step7.title')}
+          {t('brief.steps.design.title')}
         </h2>
-        <p className="font-medium text-gray-500">{t('brief.steps.step7.description')}</p>
+        <p className="font-medium text-gray-500">{t('brief.steps.design.description')}</p>
       </div>
 
       <div className="space-y-12 pt-6">
         {/* SECCIÓN DE COLORES */}
         <div className="space-y-4">
           <BriefInput
-            label={t('brief.steps.step7.colorsLabel')}
-            placeholder={t('brief.steps.step7.brandColors')}
+            label={t('brief.steps.design.colorsLabel')}
+            placeholder={t('brief.steps.design.colorsPlaceholder')}
             error={errors.brandColors?.message ? t(errors.brandColors.message) : undefined}
             {...register('brandColors')}
           />
@@ -76,7 +76,7 @@ export const StepBrandIdentity = () => {
         {/* SECCIÓN DE ARCHIVOS */}
         <div className="space-y-4">
           <label className="mb-1 font-mono text-sm font-bold tracking-widest text-neutral-400 uppercase">
-            {t('brief.steps.step7.assetsLabel')}
+            {t('brief.steps.design.assetsLabel')}
           </label>
 
           <div
@@ -95,10 +95,10 @@ export const StepBrandIdentity = () => {
 
             <div className="px-4 text-center">
               <p className="text-xs font-bold tracking-tight text-black uppercase">
-                {t('brief.steps.step7.dropzone.title')}
+                {t('brief.steps.design.dropzone.title')}
               </p>
               <p className="mt-1 text-[10px] tracking-wide text-gray-400 uppercase">
-                {t('brief.steps.step7.dropzone.info')}
+                {t('brief.steps.design.dropzone.info')}
               </p>
             </div>
           </div>
@@ -132,7 +132,7 @@ export const StepBrandIdentity = () => {
               ))}
               {duplicateNotice && (
                 <p className="font-mono text-xs text-amber-600">
-                  {t('brief.steps.step7.dropzone.duplicate')}
+                  {t('brief.steps.design.dropzone.duplicate')}
                 </p>
               )}
             </div>

@@ -10,14 +10,14 @@ export const StepFeatures = () => {
   const { formData, toggleFeature, setStepValid } = useBriefStore();
 
   const featureKeys = [
-    'cms',
     'auth',
-    'payments',
-    'analytics',
+    'admin_dashboard',
+    'forms_emails',
+    'database',
+    'integrations',
     'seo',
     'multi_language',
-    'integrations',
-    'mobile',
+    'deployment',
   ];
 
   const selectedFeatures = formData.features || [];
@@ -30,15 +30,15 @@ export const StepFeatures = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black">
-          {t('brief.steps.step4.title')}
+          {t('brief.steps.features.title')}
         </h2>
-        <p className="max-w-4xl text-gray-500">{t('brief.steps.step4.description')}</p>
+        <p className="max-w-4xl text-gray-500">{t('brief.steps.features.description')}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {featureKeys.map(key => {
-          const title = t(`brief.steps.step4.options.${key}.title`);
-          const desc = t(`brief.steps.step4.options.${key}.desc`);
+          const title = t(`brief.steps.features.options.${key}.title`);
+          const desc = t(`brief.steps.features.options.${key}.desc`);
           const isSelected = selectedFeatures.includes(title);
 
           return (
@@ -56,7 +56,7 @@ export const StepFeatures = () => {
       {selectedFeatures.length > 0 && (
         <div className="animate-in fade-in slide-in-from-left-2 mt-4">
           <p className="font-mono text-[11px] leading-relaxed tracking-wider uppercase">
-            <span className="text-gray-400">{t('brief.steps.step4.selectedLabel')}: </span>
+            <span className="text-gray-400">{t('brief.steps.features.selectedLabel')}: </span>
             <span className="text-green-brutalist">{selectedFeatures.join(', ')}</span>
           </p>
         </div>

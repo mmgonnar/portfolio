@@ -77,9 +77,9 @@ export const StepReferences = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step6.title')}
+          {t('brief.steps.style.title')}
         </h2>
-        <p className="font-medium text-gray-500">{t('brief.steps.step6.description')}</p>
+        <p className="font-medium text-gray-500">{t('brief.steps.style.description')}</p>
       </div>
 
       {/* Grid de Estilos Visuales (Neobrutalista) */}
@@ -87,8 +87,8 @@ export const StepReferences = () => {
         {styles.map(style => (
           <OptionCard
             key={style}
-            title={t(`brief.steps.step6.options.${style}.title`)}
-            desc={t(`brief.steps.step6.options.${style}.desc`)}
+            title={t(`brief.steps.style.options.${style}.title`)}
+            desc={t(`brief.steps.style.options.${style}.desc`)}
             selected={selectedStyle === style}
             onClick={() => {
               setValue('visualStyle', style, { shouldValidate: true });
@@ -101,7 +101,7 @@ export const StepReferences = () => {
       {/* Sección de Referencias (Links) */}
       <div className="flex flex-col gap-6 border-t-2 border-black/5 pt-8">
         <label className="font-mono text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-          {t('brief.steps.step6.references')}
+          {t('brief.steps.style.references')}
         </label>
 
         <div className="space-y-4">
@@ -137,7 +137,7 @@ export const StepReferences = () => {
           className="flex items-center gap-2 self-start font-mono text-[10px] font-bold tracking-widest text-green-600 uppercase underline-offset-8 hover:underline"
         >
           <Plus size={14} />
-          {t('brief.steps.step6.addMore')}
+          {t('brief.steps.style.addMore')}
         </button>
       </div>
     </BriefContainer>

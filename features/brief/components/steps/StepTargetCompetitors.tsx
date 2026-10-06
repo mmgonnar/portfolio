@@ -40,17 +40,17 @@ export const StepTargetCompetitors = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-          {t('brief.steps.step5.title')}
+          {t('brief.steps.audience.title')}
         </h2>
-        <p className="text-gray-500">{t('brief.steps.step5.description')}</p>
+        <p className="text-gray-500">{t('brief.steps.audience.description')}</p>
       </div>
 
       <div className="space-y-10 pt-6">
         {/* SECCIÓN: TARGET AUDIENCE */}
         <div className="space-y-2">
           <BriefTextArea
-            label={t('brief.steps.step5.targetTitle')}
-            placeholder={t('brief.steps.step5.targetAudience')}
+            label={t('brief.steps.audience.targetTitle')}
+            placeholder={t('brief.steps.audience.targetAudience')}
             error={errors.targetAudience?.message ? t(errors.targetAudience.message) : undefined}
             {...register('targetAudience')}
           />
@@ -63,7 +63,7 @@ export const StepTargetCompetitors = () => {
                   : 'text-gray-400',
               )}
             >
-              {targetAudienceVal.length} / {minLength} {t('brief.steps.step3.counter')}
+              {targetAudienceVal.length} / {minLength} {t('brief.steps.details.counter')}
             </p>
           </div>
         </div>
@@ -71,8 +71,8 @@ export const StepTargetCompetitors = () => {
         {/* SECCIÓN: COMPETITORS */}
         <div className="space-y-2">
           <BriefTextArea
-            label={t('brief.steps.step5.competitorsLabel')}
-            placeholder={t('brief.steps.step5.competitors')}
+            label={t('brief.steps.audience.competitorsLabel')}
+            placeholder={t('brief.steps.audience.competitors')}
             // error={errors.competitors?.message ? t(errors.competitors.message) : undefined}
             {...register('competitors')}
           />
@@ -83,7 +83,7 @@ export const StepTargetCompetitors = () => {
                 competitorsVal.length >= minLength ? 'font-bold text-green-600' : 'text-gray-400',
               )}
             >
-              {competitorsVal.length} / {minLength} {t('brief.steps.step3.counter')}
+              {competitorsVal.length} / {minLength} {t('brief.steps.details.counter')}
             </p>
           </div>
         </div>
