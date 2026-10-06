@@ -6,6 +6,8 @@ import { getFlow, StepId } from '../utils/flow';
 interface BriefState {
   formData: BriefData;
   stepId: StepId;
+  /** Dónde se quedó el borrador, para poder ofrecer retomarlo desde el intro. */
+  lastStepId: StepId;
   isStepValid: boolean;
   files: File[];
   updateField: <K extends keyof BriefData>(field: K, value: BriefData[K]) => void;
@@ -53,6 +55,7 @@ export const useBriefStore = create<BriefState>()(
       formData: INITIAL_FORM_DATA,
       files: [],
       stepId: 'intro',
+      lastStepId: 'intro',
       isStepValid: false,
 
       updateField: (field, value) =>
@@ -88,15 +91,18 @@ export const useBriefStore = create<BriefState>()(
       // estilo aparece o desaparece sin que nadie recalcule indices.
       nextStep: () =>
         set(state => {
-          if (state.stepId === 'intro') return { stepId: getFlow(state.formData)[0] };
-          if (state.stepId === 'review') return { stepId: 'success' as StepId };
+          if (state.stepId === 'intro') {
+            const first = getFlow(state.formData)[0];
+            return { stepId: first, lastStepId: first };
+          }
+          if (state.stepId === 'review') return { stepId: 'success', lastStepId: 'success' };
           if (state.stepId === 'success') return {};
 
           const flow = getFlow(state.formData);
           const index = flow.indexOf(state.stepId);
           if (index === -1 || index === flow.length - 1) return {};
 
-          return { stepId: flow[index + 1] };
+          return { stepId: flow[index + 1], lastStepId: flow[index + 1] };
         }),
 
       prevStep: () =>
@@ -105,16 +111,23 @@ export const useBriefStore = create<BriefState>()(
           const index = flow.indexOf(state.stepId);
           if (index <= 0) return { stepId: 'intro' };
 
-          return { stepId: flow[index - 1] };
+          return { stepId: flow[index - 1], lastStepId: flow[index - 1] };
         }),
 
-      goToStep: stepId => set({ stepId }),
+      // Volver al intro no mueve lastStepId: es justo lo que permite ofrecer
+      // retomar el borrador donde se quedó.
+      goToStep: stepId =>
+        set(state => ({
+          stepId,
+          lastStepId: stepId === 'intro' ? state.lastStepId : stepId,
+        })),
 
       setStepValid: isValid => set({ isStepValid: isValid }),
 
       resetBrief: () =>
         set({
           stepId: 'intro',
+          lastStepId: 'intro',
           isStepValid: false,
           files: [],
           formData: INITIAL_FORM_DATA,
@@ -134,6 +147,7 @@ export const useBriefStore = create<BriefState>()(
         return {
           ...rest,
           stepId: 'intro' as StepId,
+          lastStepId: 'intro' as StepId,
           isStepValid: false,
           formData: {
             ...INITIAL_FORM_DATA,

@@ -139,6 +139,11 @@ export const enTranslations = {
     confidential: 'CONFIDENTIAL',
     step: 'Step',
     of: 'of',
+    draft: {
+      continueDraft: 'Continue where you left off',
+      startOver: 'Start over',
+      saved: 'Saved',
+    },
     introCards: [
       {
         one: { title: 'You', desc: 'Contact info' },
@@ -470,6 +475,11 @@ export const esTranslations = {
     confidential: 'CONFIDENCIAL',
     step: 'Paso',
     of: 'de',
+    draft: {
+      continueDraft: 'Continuar donde lo dejaste',
+      startOver: 'Empezar de nuevo',
+      saved: 'Guardado',
+    },
     introCards: [
       {
         one: { title: 'Tú', desc: 'Información de contacto' },

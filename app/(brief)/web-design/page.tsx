@@ -92,6 +92,11 @@ export default function Page() {
         errorMessage: t('toast.error_msg'),
       });
 
+      // Se borra la copia persistida, no el estado en memoria: la pantalla de
+      // exito sigue necesitando los datos, pero una recarga ya no revive el
+      // brief que acaba de enviarse.
+      useBriefStore.persist.clearStorage();
+
       nextStep();
     } else {
       nextStep();

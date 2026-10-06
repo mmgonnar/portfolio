@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../store/useBriefStore';
 import { BriefIntro } from './brief-intro';
 import {
@@ -17,9 +18,11 @@ import {
 } from './steps';
 
 import { BriefProgressBar } from './ui/brief-progress-bar';
+import { SavedIndicator } from './ui/saved-indicator';
 import { StepSuccess } from './ui/StepSuccess';
 
 export const BriefManager = () => {
+  const { t } = useTranslation();
   const stepId = useBriefStore(state => state.stepId);
   const formData = useBriefStore(state => state.formData);
   const goToStep = useBriefStore(state => state.goToStep);
@@ -64,7 +67,14 @@ export const BriefManager = () => {
 
   return (
     <section className="flex w-full flex-col px-6">
-      {stepId !== 'intro' && !isSuccess && <BriefProgressBar />}
+      {stepId !== 'intro' && !isSuccess && (
+        <>
+          <BriefProgressBar />
+          <div className="mb-2 flex justify-end">
+            <SavedIndicator label={t('brief.draft.saved')} watchedValue={formData} />
+          </div>
+        </>
+      )}
 
       <div className="w-full max-w-5xl transition-all duration-300 ease-in-out">{renderStep()}</div>
     </section>
