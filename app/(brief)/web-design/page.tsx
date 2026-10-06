@@ -1,12 +1,11 @@
 'use client';
 
 import { useBriefStore } from '@/features/brief/store/useBriefStore';
-import { Copyright, NeobrutalistButton } from '@/features/footer';
+import { Copyright } from '@/features/footer';
 import { Logo } from '@/features/header';
 import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { sendBriefData } from '@/utils/apiBrief';
 import { apiCallToast, cn, isUserInMexico } from '@/utils/functions';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
@@ -85,7 +84,6 @@ export default function Page() {
       
       dataToSend.append('locale', formData.locale || 'en');
 
-      console.log('Enviando:', Object.fromEntries(dataToSend.entries()));
       await apiCallToast(sendBriefData(dataToSend), {
         loading: t('toast.sending'),
         successMessage: t('toast.success_msg'),
@@ -114,7 +112,12 @@ export default function Page() {
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-start py-8 md:justify-center md:py-0">
+      {/*
+        justify-center centraba verticalmente y un paso mas alto que la ventana
+        se recortaba por arriba, sin forma de alcanzar el boton de siguiente.
+        El contenido crece hacia abajo y la pagina se desplaza.
+      */}
+      <main className="flex flex-1 flex-col items-center justify-start py-8 md:py-12">
         <div className="w-full max-w-5xl">
           <BriefManager />
         </div>
