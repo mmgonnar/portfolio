@@ -4,9 +4,12 @@ export type ScopeLevel = 'basic' | 'medium' | 'advanced';
 export type Currency = 'MXN' | 'USD';
 
 /**
- * Los precios y pesos de este módulo salen de la nota de bóveda "Precios y
- * servicios". Si esa nota cambia, este archivo cambia con ella: es la única
- * copia que el frontend usa para estimar alcance.
+ * Los precios y pesos de este módulo salen de la nota de bóveda:
+ *   ~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Personal/
+ *     02-Areas/Freelance/Precios y servicios.md
+ *
+ * Si esa nota cambia, este archivo cambia con ella: es la única copia que el
+ * frontend usa para estimar alcance.
  */
 export const PROJECT_TYPE_WEIGHT: Record<Exclude<ProjectType, ''>, number> = {
   landing: 1,

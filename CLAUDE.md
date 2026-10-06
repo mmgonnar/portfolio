@@ -99,9 +99,15 @@ Never rewrite a commit that already carries the wrong identity, report it and wa
 ## 6. Prices and scope
 
 Brief prices, scope weights and the "starts from" amounts live in
-`features/brief/utils/scope.ts`. Those numbers come from Mariela's vault note
-"Precios y servicios" and must be kept in sync with it. If the note changes,
-update that module in the same pass, and never hardcode an amount anywhere else.
+`features/brief/utils/scope.ts`. Those numbers come from Mariela's vault note and
+must be kept in sync with it:
+
+```
+~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Personal/02-Areas/Freelance/Precios y servicios.md
+```
+
+If the note changes, update that module in the same pass, and never hardcode an
+amount anywhere else.
 
 Run `npm run i18n:check` after touching `utils/translations.ts`. It fails on a
 key that exists in only one locale, which neither typecheck nor build catches.
