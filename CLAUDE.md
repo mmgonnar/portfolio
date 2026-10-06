@@ -10,7 +10,8 @@ Shared UI lives in `features/ui/components/`. Read that folder first.
 
 Current shared components: NeobrutalistButton, NeobrutalistCard, Modal, CloseButton,
 Label, ContentSection, TerminalBanner, Input, BriefInput, OptionCard, Skeleton,
-FooterDropdrawer, and the dropdrawer primitives.
+StepHeader, FileDropzone, FileChip, FooterDropdrawer, and the dropdrawer
+primitives.
 
 Before adding any button, input, label, card, modal or section heading, confirm none
 of the above already covers it. Copying a class string from another file is a signal
@@ -95,6 +96,22 @@ toggles to the other account.
 Never push, merge or force-push without explicit approval. Commit locally, then ask.
 Never rewrite a commit that already carries the wrong identity, report it and wait.
 
-## 6. Style
+## 6. Prices and scope
+
+Brief prices, scope weights and the "starts from" amounts live in
+`features/brief/utils/scope.ts`. Those numbers come from Mariela's vault note and
+must be kept in sync with it:
+
+```
+~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Personal/02-Areas/Freelance/Precios y servicios.md
+```
+
+If the note changes, update that module in the same pass, and never hardcode an
+amount anywhere else.
+
+Run `npm run i18n:check` after touching `utils/translations.ts`. It fails on a
+key that exists in only one locale, which neither typecheck nor build catches.
+
+## 7. Style
 
 Never use the em dash, use commas.

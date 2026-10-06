@@ -45,23 +45,23 @@ export const StepProjectDetails = () => {
     <BriefContainer>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold tracking-tighter text-black">
-          {t('brief.steps.step3.title')}
+          {t('brief.steps.details.title')}
         </h2>
-        <p className="text-gray-500">{t('brief.steps.step3.description')}</p>
+        <p className="text-gray-500">{t('brief.steps.details.description')}</p>
       </div>
 
       <div className="space-y-6 pt-4">
         <BriefInput
-          label={t('brief.steps.step3.projectName')}
-          placeholder={t('brief.steps.step1.projectPlaceholder')}
+          label={t('brief.steps.details.projectName')}
+          placeholder={t('brief.steps.contact.projectPlaceholder')}
           error={errors.projectName?.message ? t(errors.projectName.message) : undefined}
           {...register('projectName')}
         />
 
         <div className="space-y-2">
           <BriefTextArea
-            label={t('brief.steps.step3.projectDescription')}
-            placeholder={t('brief.steps.step3.projectPlaceholder')}
+            label={t('brief.steps.details.projectDescription')}
+            placeholder={t('brief.steps.details.projectPlaceholder')}
             error={
               errors.projectDescription?.message ? t(errors.projectDescription.message) : undefined
             }
@@ -75,7 +75,7 @@ export const StepProjectDetails = () => {
                 description.length >= minLength ? 'font-bold text-green-600' : 'text-gray-400',
               )}
             >
-              {description.length} / {minLength} {t('brief.steps.step3.counter')}
+              {description.length} / {minLength} {t('brief.steps.details.counter')}
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export const StepProjectDetails = () => {
               </svg>
             </div>
             <label className="mb-1 font-mono text-sm font-bold tracking-widest text-neutral-400 uppercase">
-              {t('brief.steps.step3.hasExistingSite')}
+              {t('brief.steps.details.hasExistingSite')}
             </label>
           </div>
 
@@ -115,7 +115,7 @@ export const StepProjectDetails = () => {
             )}
           >
             <BriefInput
-              label={t('brief.steps.step3.existingSiteUrl')}
+              label={t('brief.steps.details.existingSiteUrl')}
               placeholder="https://..."
               disabled={!hasExistingSite}
               error={

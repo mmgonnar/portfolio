@@ -53,17 +53,3 @@ export function isUserInMexico(): boolean {
     return false;
   }
 }
-
-export function formatBudgetRange(rangeKey: string): string {
-  const isMexico = isUserInMexico();
-
-  const ranges: Record<string, { usd: string; mxn: string }> = {
-    r1: { usd: '$1K - $3K', mxn: '$10K - $15K MXN' },
-    r2: { usd: '$3K - $5K', mxn: '$15K - $20K MXN' },
-    r3: { usd: '$5K - $10K', mxn: '$20K - $25K MXN' },
-    r4: { usd: '$10K - $25K', mxn: '$25K - $30K MXN' },
-    r5: { usd: '$25K+', mxn: '$30K+ MXN' },
-  };
-
-  return ranges[rangeKey]?.[isMexico ? 'mxn' : 'usd'] || rangeKey;
-}
