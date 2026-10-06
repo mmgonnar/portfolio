@@ -293,6 +293,8 @@ export const enTranslations = {
       timeline: {
         title: 'When do you need this completed?',
         description: 'Select your ideal timeline',
+        rushNote:
+          'Rush deliveries may increase the cost, since they require prioritizing your project over others.',
         options: {
           asap: { title: 'ASAP', desc: 'As soon as possible' },
           one_month: { title: '1 Month', desc: 'Within 4 weeks' },
@@ -638,6 +640,8 @@ export const esTranslations = {
       timeline: {
         title: '¿Para cuándo lo necesitas?',
         description: 'Selecciona tu cronograma ideal',
+        rushNote:
+          'Las entregas urgentes pueden aumentar el costo, porque requieren priorizar tu proyecto sobre otros.',
         options: {
           asap: { title: 'ASAP', desc: 'Lo más pronto posible' },
           one_month: { title: '1 Mes', desc: 'En las próximas 4 semanas' },

@@ -36,6 +36,14 @@ export const StepTimeline = () => {
           />
         ))}
       </div>
+
+      {/* La prisa no cambia el alcance ni la referencia de precio, solo avisa
+          que priorizar un proyecto sobre otros tiene un costo. */}
+      {formData.timeline === 'asap' && (
+        <p className="animate-in fade-in slide-in-from-top-1 border-l-2 border-amber-300 pl-4 font-mono text-xs leading-relaxed tracking-wide text-gray-500">
+          {t('brief.steps.timeline.rushNote')}
+        </p>
+      )}
     </BriefContainer>
   );
 };
