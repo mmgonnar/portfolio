@@ -7,14 +7,18 @@ import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { sendBriefData } from '@/utils/apiBrief';
 import { apiCallToast, cn, isUserInMexico } from '@/utils/functions';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { getScope } from '@/features/brief/utils/scope';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
   const { t } = useTranslation();
+  // El estado pinta el boton; la ref es la que bloquea. setState no se aplica
+  // hasta el siguiente render, asi que dos clics en el mismo tick leerian el
+  // estado todavia en false y enviarian el brief dos veces.
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     goToStep('intro');
@@ -27,7 +31,7 @@ export default function Page() {
   const handleAction = async () => {
     // Un segundo clic mientras el envio esta en vuelo no hace nada: duplicaba
     // la fila en Supabase, el PDF y el correo.
-    if (isSubmitting) return;
+    if (submittingRef.current) return;
 
     if (isReviewStep) {
       const { formData, files } = useBriefStore.getState();
@@ -89,6 +93,7 @@ export default function Page() {
 
       dataToSend.append('locale', formData.locale || 'en');
 
+      submittingRef.current = true;
       setIsSubmitting(true);
 
       try {
@@ -105,6 +110,7 @@ export default function Page() {
         // nada. El toast ya explico que paso.
         return;
       } finally {
+        submittingRef.current = false;
         setIsSubmitting(false);
       }
 
