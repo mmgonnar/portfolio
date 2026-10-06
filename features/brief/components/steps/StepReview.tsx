@@ -5,7 +5,8 @@ import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import { StepId } from '../../utils/flow';
 import { Paperclip, Pencil } from 'lucide-react';
-import { formatBudgetRange } from '@/utils/functions';
+import { isUserInMexico } from '@/utils/functions';
+import { formatBudgetBand } from '../../utils/scope';
 
 export const StepReview = () => {
   const { t } = useTranslation();
@@ -143,7 +144,10 @@ export const StepReview = () => {
 
         {/* BUDGET & TIMELINE */}
         <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget="style">
-          <DataItem label="Rango de presupuesto" value={formatBudgetRange(formData.budget)} />
+          <DataItem
+            label={t('brief.steps.budget.title')}
+            value={formatBudgetBand(formData.budget, isUserInMexico() ? 'MXN' : 'USD', t)}
+          />
 
           <DataItem
             label="Timeline esperado"

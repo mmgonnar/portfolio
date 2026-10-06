@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
+import { getScope } from '@/features/brief/utils/scope';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
@@ -49,13 +50,21 @@ export default function Page() {
       });
       dataToSend.append('featuresDetail', formData.featuresDetail || '');
 
-      // Paso 4 - Estilo y Audiencia
+      // Audiencia, estilo y diseño
       dataToSend.append('targetAudience', formData.targetAudience);
       dataToSend.append('competitors', formData.competitors || '');
       dataToSend.append('visualStyle', formData.visualStyle);
       dataToSend.append('visualReferences', formData.visualReferences || '');
       dataToSend.append('brandColors', String(formData.brandColors));
       dataToSend.append('brandAssetsReady', String(formData.brandAssetsReady));
+      dataToSend.append('designStatus', formData.designStatus);
+      dataToSend.append('designLink', formData.designLink || '');
+      dataToSend.append('wantsDesignQuote', String(formData.wantsDesignQuote));
+
+      // El alcance se calcula aquí, scope.ts es la única copia de los pesos
+      const scope = getScope(formData);
+      dataToSend.append('scopeLevel', scope.level);
+      dataToSend.append('scopeWeight', String(scope.weight));
 
       // Paso 5 - Presupuesto y Notas
       dataToSend.append('budget', formData.budget);

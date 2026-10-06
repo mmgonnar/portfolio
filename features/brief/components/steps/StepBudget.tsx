@@ -1,10 +1,12 @@
 'use client';
-import { useEffect, useState, useMemo } from 'react';
+import { StepHeader } from '@/features/ui/components/step-header';
+import { cn } from '@/lib/utils';
+import { isUserInMexico } from '@/utils/functions';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
+import { BUDGET_BANDS, formatBudgetBand, getScope, LEVEL_FLOOR, STARTS_FROM } from '../../utils/scope';
 import BriefContainer from '../ui/brief-container';
-import { cn, isUserInMexico } from '@/utils/functions';
-import { BudgetKey } from '../../types/type';
 
 export const StepBudget = () => {
   const { t } = useTranslation();
@@ -15,67 +17,47 @@ export const StepBudget = () => {
     setIsMexico(isUserInMexico());
   }, []);
 
-  // Los montos viven aqui solo hasta que scope.ts los tome; el idioma sale de
-  // los patrones under/between/plus para no duplicar dinero en dos locales.
-  const budgetOptions: { label: string; short: string; value: BudgetKey }[] = useMemo(() => {
-    const bands: { min?: string; max?: string; short: string; value: BudgetKey }[] = isMexico
-      ? [
-          { max: '$15,000', short: '<15K', value: 'r1' },
-          { min: '$15,000', max: '$40,000', short: '15-40K', value: 'r2' },
-          { min: '$40,000', max: '$80,000', short: '40-80K', value: 'r3' },
-          { min: '$80,000', short: '80K+', value: 'r4' },
-        ]
-      : [
-          { max: '$1,200', short: '<1.2K', value: 'r1' },
-          { min: '$1,200', max: '$3,000', short: '1.2-3K', value: 'r2' },
-          { min: '$3,000', max: '$6,000', short: '3-6K', value: 'r3' },
-          { min: '$6,000', short: '6K+', value: 'r4' },
-        ];
+  const currency = isMexico ? 'MXN' : 'USD';
+  const scope = useMemo(() => getScope(formData), [formData]);
 
-    return bands.map(band => {
-      const key = band.min && band.max ? 'between' : band.max ? 'under' : 'plus';
-      return {
-        label: t(`brief.steps.budget.${key}`, { min: band.min, max: band.max }),
-        short: band.short,
+  const budgetOptions = useMemo(
+    () =>
+      BUDGET_BANDS[currency].map(band => ({
         value: band.value,
-      };
-    });
-  }, [isMexico, t]);
+        short: band.short,
+        label: formatBudgetBand(band.value, currency, t),
+      })),
+    [currency, t],
+  );
 
-  const initialIndex = useMemo(() => {
-    const idx = budgetOptions.findIndex(opt => opt.value === formData.budget);
-    return idx !== -1 ? idx : 1;
-  }, [formData.budget, budgetOptions]); // Agregamos dependencias
-
-  const [sliderValue, setSliderValue] = useState(initialIndex);
+  // Sin presupuesto elegido el slider arranca en el piso del alcance, no en el
+  // centro: es la posición que corresponde a lo que el cliente describió.
+  const floorIndex = budgetOptions.findIndex(opt => opt.value === LEVEL_FLOOR[scope.level]);
+  const savedIndex = budgetOptions.findIndex(opt => opt.value === formData.budget);
+  const [sliderValue, setSliderValue] = useState(savedIndex !== -1 ? savedIndex : floorIndex);
 
   useEffect(() => {
-    // Si no hay un presupuesto guardado, inicializamos el Store con el valor por defecto del slider (índice 2)
     if (!formData.budget) {
-      updateField('budget', budgetOptions[1].value);
+      setSliderValue(floorIndex);
+      updateField('budget', budgetOptions[floorIndex].value);
     }
     setStepValid(true);
-  }, [formData.budget, updateField, setStepValid, budgetOptions]);
+  }, [formData.budget, floorIndex, budgetOptions, updateField, setStepValid]);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value);
     setSliderValue(newValue);
-
     updateField('budget', budgetOptions[newValue].value);
   };
 
   return (
     <BriefContainer>
-      <div className="space-y-2">
-        <div className="flex items-center gap-10">
-          <h2 className="text-3xl font-bold tracking-tighter text-black uppercase">
-            {t('brief.steps.budget.title')}{' '}
-            <span className="font-mono text-2xl font-bold tracking-widest text-gray-400 uppercase">
-              {isMexico ? '(MXN)' : '(USD)'}
-            </span>
-          </h2>
-        </div>
-      </div>
+      <StepHeader title={t('brief.steps.budget.title')}>
+        {' '}
+        <span className="font-mono text-2xl font-bold tracking-widest text-gray-400 uppercase">
+          ({currency})
+        </span>
+      </StepHeader>
 
       <div className="flex flex-col items-center justify-center space-y-12 py-16">
         <h3 className="custom-sm:text-5xl font-mono text-4xl font-black tracking-tighter text-black transition-all duration-300 md:text-6xl">
@@ -86,7 +68,7 @@ export const StepBudget = () => {
           <input
             type="range"
             min="0"
-            max="3"
+            max={budgetOptions.length - 1}
             step="1"
             value={sliderValue}
             onChange={handleSliderChange}
@@ -96,7 +78,7 @@ export const StepBudget = () => {
           <div className="flex w-full justify-between px-2">
             {budgetOptions.map((opt, index) => (
               <span
-                key={`budget-opt-${opt.value}-${index}`}
+                key={opt.value}
                 className={cn(
                   'font-mono tracking-tighter uppercase transition-all duration-300',
                   sliderValue === index ? 'text-green-brutalist font-bold' : 'text-gray-500',
@@ -108,6 +90,10 @@ export const StepBudget = () => {
             ))}
           </div>
         </div>
+
+        <p className="border-l-2 border-gray-200 pl-4 font-mono text-xs leading-relaxed tracking-wide text-gray-500">
+          {t('brief.steps.budget.scopeNote', { amount: STARTS_FROM[currency][scope.level] })}
+        </p>
       </div>
     </BriefContainer>
   );
