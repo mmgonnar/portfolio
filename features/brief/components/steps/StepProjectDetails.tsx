@@ -20,6 +20,7 @@ export const StepProjectDetails = () => {
   const {
     register,
     watch,
+    trigger,
     formState: { errors, isValid },
   } = useForm<StepTwoData>({
     resolver: zodResolver(stepTwoSchema),
@@ -39,6 +40,19 @@ export const StepProjectDetails = () => {
   }, [isValid, setStepValid]);
 
   const hasExistingSite = watch('hasExistingSite');
+
+  /**
+   * react-hook-form solo muestra el error de un campo que el usuario toco. Con
+   * el rediseño marcando la casilla sola, la URL queda vacia y obligatoria sin
+   * que nadie la haya visitado: Siguiente se deshabilita y no se explica por
+   * que. Validarla a proposito cuando la casilla pasa a marcada hace visible el
+   * mensaje desde el primer momento.
+   */
+  useEffect(() => {
+    if (hasExistingSite) {
+      trigger('existingSiteUrl');
+    }
+  }, [hasExistingSite, trigger]);
   const description = watch('projectDescription') || '';
 
   return (
