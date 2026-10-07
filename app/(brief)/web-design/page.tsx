@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useRef, useState } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { getScope } from '@/features/brief/utils/scope';
+import { useSubmitShortcut } from '@/hooks/useSubmitShortcut';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
@@ -122,6 +123,13 @@ export default function Page() {
       nextStep();
     }
   };
+
+  // Mismo criterio que el boton Siguiente, mas las dos pantallas que no tienen
+  // boton: el intro y el exito. Sin esos dos filtros el atajo avanzaria desde
+  // una pantalla donde no existe esa accion.
+  const canAdvance = !isIntro && !isLastStep && isStepValid && !isSubmitting;
+
+  useSubmitShortcut(handleAction, canAdvance);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
