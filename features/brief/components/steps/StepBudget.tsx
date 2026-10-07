@@ -1,11 +1,20 @@
 'use client';
+import Label from '@/features/ui/components/label';
+import NeobrutalistCard from '@/features/ui/components/neobrutalist-card';
 import { StepHeader } from '@/features/ui/components/step-header';
 import { cn } from '@/lib/utils';
 import { isUserInMexico } from '@/utils/functions';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
-import { BUDGET_BANDS, formatBudgetBand, getScope, LEVEL_FLOOR, STARTS_FROM } from '../../utils/scope';
+import {
+  BUDGET_BANDS,
+  formatBudgetBand,
+  getScope,
+  getScopeDrivers,
+  LEVEL_FLOOR,
+  STARTS_FROM,
+} from '../../utils/scope';
 import BriefContainer from '../ui/brief-container';
 
 export const StepBudget = () => {
@@ -19,6 +28,7 @@ export const StepBudget = () => {
 
   const currency = isMexico ? 'MXN' : 'USD';
   const scope = useMemo(() => getScope(formData), [formData]);
+  const drivers = useMemo(() => getScopeDrivers(formData), [formData]);
 
   const budgetOptions = useMemo(
     () =>
@@ -43,6 +53,9 @@ export const StepBudget = () => {
     }
     setStepValid(true);
   }, [formData.budget, floorIndex, budgetOptions, updateField, setStepValid]);
+
+  // Debajo del piso no es un error, solo cambia el mensaje de la tarjeta.
+  const isBelowFloor = sliderValue < floorIndex;
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value);
@@ -90,11 +103,40 @@ export const StepBudget = () => {
             ))}
           </div>
         </div>
-
-        <p className="border-l-2 border-gray-200 pl-4 font-mono text-xs leading-relaxed tracking-wide text-gray-500">
-          {t('brief.steps.budget.scopeNote', { amount: STARTS_FROM[currency][scope.level] })}
-        </p>
       </div>
+
+      {/* El rango siempre se puede elegir: la tarjeta orienta, no bloquea. */}
+      <NeobrutalistCard variant="static" className="gap-5">
+        <h4 className="text-lg font-bold tracking-tight text-black">
+          {t(`brief.steps.budget.scope.titles.${scope.level}`)}
+        </h4>
+
+        <p className="font-sans text-sm leading-relaxed text-gray-600">
+          {t('brief.steps.budget.scope.body', { amount: STARTS_FROM[currency][scope.level] })}
+        </p>
+
+        {drivers.length > 0 && (
+          <div className="space-y-3">
+            <p className="font-mono text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+              {t('brief.steps.budget.scope.drivers')}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {drivers.map(driver => (
+                <Label key={driver.id} labelText={t(driver.labelKey)} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <p
+          className={cn(
+            'border-t border-gray-100 pt-4 font-sans text-sm leading-relaxed',
+            isBelowFloor ? 'text-gray-600' : 'text-green-brutalist font-semibold',
+          )}
+        >
+          {t(isBelowFloor ? 'brief.steps.budget.scope.below' : 'brief.steps.budget.scope.fits')}
+        </p>
+      </NeobrutalistCard>
     </BriefContainer>
   );
 };

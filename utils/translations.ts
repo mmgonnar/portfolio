@@ -130,6 +130,8 @@ export const enTranslations = {
     sending: 'Sending message...',
     success_msg: "Message sent! I'll get back to you soon",
     error_msg: 'Something went wrong. Please try again.',
+    brief_unconfirmed:
+      "We couldn't confirm your submission. Before retrying, check whether you got the confirmation email, or contact me.",
   },
   brief: {
     tag: '< Web Project Brief />',
@@ -288,11 +290,26 @@ export const enTranslations = {
         under: 'Under {{max}}',
         between: '{{min}} to {{max}}',
         plus: '{{min}}+',
-        scopeNote: 'With this scope, similar projects start from {{amount}}',
+        scope: {
+          titles: {
+            basic: 'Your project has a basic scope',
+            medium: 'Your project has a medium scope',
+            advanced: 'Your project has an advanced scope',
+          },
+          body: "Based on your choices, projects like yours usually start from {{amount}}. This is a reference, not a quote: we'll set the final price together once I review your brief.",
+          drivers: 'What drives it most:',
+          designDriver: 'UI/UX design (additional)',
+          rushDriver: 'Rush delivery',
+          below:
+            "The range you picked is below the reference. That's okay: we can adjust the scope to fit your budget.",
+          fits: '\u2713 Your budget fits this scope.',
+        },
       },
       timeline: {
         title: 'When do you need this completed?',
         description: 'Select your ideal timeline',
+        rushNote:
+          'Rush deliveries may increase the cost, since they require prioritizing your project over others.',
         options: {
           asap: { title: 'ASAP', desc: 'As soon as possible' },
           one_month: { title: '1 Month', desc: 'Within 4 weeks' },
@@ -470,6 +487,8 @@ export const esTranslations = {
     sending: 'Enviando mensaje...',
     success_msg: '¡Mensaje enviado! Te contactaré pronto.',
     error_msg: 'Algo salió mal. Inténtalo de nuevo.',
+    brief_unconfirmed:
+      'No pudimos confirmar el envío. Antes de reintentar, revisa si te llegó el correo de confirmación o escríbeme.',
   },
   brief: {
     tag: '< Brief de Proyecto Web />',
@@ -633,11 +652,26 @@ export const esTranslations = {
         under: 'Menos de {{max}}',
         between: '{{min}} a {{max}}',
         plus: '{{min}}+',
-        scopeNote: 'Con este alcance, proyectos similares parten desde {{amount}}',
+        scope: {
+          titles: {
+            basic: 'Tu proyecto tiene un alcance básico',
+            medium: 'Tu proyecto tiene un alcance medio',
+            advanced: 'Tu proyecto tiene un alcance avanzado',
+          },
+          body: 'Por lo que elegiste, proyectos como el tuyo suelen partir desde {{amount}}. Es una referencia, no una cotización: el precio final lo definimos juntos cuando revise tu brief.',
+          drivers: 'Lo que más influye:',
+          designDriver: 'Diseño UI/UX (adicional)',
+          rushDriver: 'Entrega urgente',
+          below:
+            'El rango que elegiste está por debajo de la referencia. No pasa nada: podemos ajustar el alcance para que encaje con tu presupuesto.',
+          fits: '\u2713 Tu presupuesto encaja con este alcance.',
+        },
       },
       timeline: {
         title: '¿Para cuándo lo necesitas?',
         description: 'Selecciona tu cronograma ideal',
+        rushNote:
+          'Las entregas urgentes pueden aumentar el costo, porque requieren priorizar tu proyecto sobre otros.',
         options: {
           asap: { title: 'ASAP', desc: 'Lo más pronto posible' },
           one_month: { title: '1 Mes', desc: 'En las próximas 4 semanas' },

@@ -7,13 +7,18 @@ import LanguageSwitcher from '@/features/header/components/language-switcher';
 import { sendBriefData } from '@/utils/apiBrief';
 import { apiCallToast, cn, isUserInMexico } from '@/utils/functions';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { getScope } from '@/features/brief/utils/scope';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
   const { t } = useTranslation();
+  // El estado pinta el boton; la ref es la que bloquea. setState no se aplica
+  // hasta el siguiente render, asi que dos clics en el mismo tick leerian el
+  // estado todavia en false y enviarian el brief dos veces.
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     goToStep('intro');
@@ -24,6 +29,10 @@ export default function Page() {
   const isLastStep = stepId === 'success';
 
   const handleAction = async () => {
+    // Un segundo clic mientras el envio esta en vuelo no hace nada: duplicaba
+    // la fila en Supabase, el PDF y el correo.
+    if (submittingRef.current) return;
+
     if (isReviewStep) {
       const { formData, files } = useBriefStore.getState();
 
@@ -84,11 +93,26 @@ export default function Page() {
 
       dataToSend.append('locale', formData.locale || 'en');
 
-      await apiCallToast(sendBriefData(dataToSend), {
-        loading: t('toast.sending'),
-        successMessage: t('toast.success_msg'),
-        errorMessage: t('toast.error_msg'),
-      });
+      submittingRef.current = true;
+      setIsSubmitting(true);
+
+      try {
+        await apiCallToast(sendBriefData(dataToSend), {
+          loading: t('toast.sending'),
+          successMessage: t('toast.success_msg'),
+          // Si la peticion falla no sabemos si llego: el mensaje pide
+          // comprobar el correo antes de reintentar, en vez de invitar a
+          // reenviar a ciegas y duplicar el brief.
+          errorMessage: t('toast.brief_unconfirmed'),
+        });
+      } catch {
+        // El borrador se queda intacto para poder reintentar sin recapturar
+        // nada. El toast ya explico que paso.
+        return;
+      } finally {
+        submittingRef.current = false;
+        setIsSubmitting(false);
+      }
 
       // El borrador persistido se limpia en el partialize del store al entrar
       // en 'success'. Hacerlo aqui no funcionaba: nextStep() vuelve a escribir
@@ -143,10 +167,11 @@ export default function Page() {
               {!isIntro && (
                 <button
                   onClick={handleAction}
-                  disabled={!isStepValid}
+                  disabled={!isStepValid || isSubmitting}
+                  aria-busy={isSubmitting}
                   className={cn(
                     'border-2 border-black px-6 py-3 font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all',
-                    isStepValid
+                    isStepValid && !isSubmitting
                       ? cn(
                           'bg-white text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]',
                           'hover:bg-neon hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
@@ -156,7 +181,11 @@ export default function Page() {
                       : 'cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400 shadow-none',
                   )}
                 >
-                  {isReviewStep ? t('button.submitBrief') : t('button.next')}
+                  {isSubmitting
+                    ? t('toast.sending')
+                    : isReviewStep
+                      ? t('button.submitBrief')
+                      : t('button.next')}
                 </button>
               )}
             </div>
