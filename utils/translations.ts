@@ -121,7 +121,8 @@ export const enTranslations = {
       error_message_colors: 'Please add at least 2 colors',
       error_project: 'Project type is required',
       error_goals: 'Please be a bit more descriptive about your goals',
-      error_invalid_url: 'Please, add a valid URL (eg: https://...)',
+      error_invalid_url: 'Please add a valid URL (e.g. https://...)',
+      error_url_required: 'Add the URL of your current site so I can review it',
       error_phone_numbers_only: 'Please, add just numbers',
       error_phone_too_short: 'Phone number is too short',
     },
@@ -194,6 +195,7 @@ export const enTranslations = {
         projectPlaceholder: 'My project is about...',
         counter: 'minimum characters',
         hasExistingSite: 'Do you have an existing website?',
+        redesignHint: 'Checked because you chose a redesign',
         existingSiteUrl: 'Current URL',
       },
       features: {
@@ -479,6 +481,7 @@ export const esTranslations = {
       error_project: 'El tipo de proyecto es obligatorio',
       error_goals: 'Cuéntame un poco más sobre tus objetivos',
       error_invalid_url: 'Por favor, ingresa una URL válida (ej: https://...)',
+      error_url_required: 'Agrega la URL de tu sitio actual para que pueda revisarlo',
       error_phone_numbers_only: 'Por favor, ingresa solo numeros',
       error_phone_too_short: 'Ingresa mínimo 10 digitos',
     },
@@ -552,6 +555,7 @@ export const esTranslations = {
         projectPlaceholder: 'Mi proyecto trata sobre...',
         counter: 'caracteres mínimos',
         hasExistingSite: '¿Tienes un sitio web actualmente?',
+        redesignHint: 'Marcado porque elegiste rediseño',
         existingSiteUrl: 'URL del sitio',
       },
       features: {

@@ -107,6 +107,14 @@ export const StepProjectDetails = () => {
             </label>
           </div>
 
+          {/* La casilla se marco sola al elegir rediseño: conviene decir quien
+              la marco, para que nadie crea que el formulario se equivoco. */}
+          {formData.projectType === 'redesign' && hasExistingSite && (
+            <p className="-mt-4 border-l-2 border-gray-200 pl-4 font-mono text-xs leading-relaxed tracking-wide text-gray-500">
+              {t('brief.steps.details.redesignHint')}
+            </p>
+          )}
+
           {/* El input siempre está en el DOM, pero se opaca y deshabilita si no hay sitio */}
           <div
             className={cn(
