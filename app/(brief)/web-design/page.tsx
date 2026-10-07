@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { getScope } from '@/features/brief/utils/scope';
 import { useSubmitShortcut } from '@/hooks/useSubmitShortcut';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
@@ -19,11 +20,19 @@ export default function Page() {
   // hasta el siguiente render, asi que dos clics en el mismo tick leerian el
   // estado todavia en false y enviarian el brief dos veces.
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // Se resuelve despues de montar para no arriesgar un desajuste de hidratacion:
+  // el servidor no sabe en que plataforma esta el cliente. Hasta entonces se
+  // asume Ctrl, que es la mayoria.
+  const [isMac, setIsMac] = useState(false);
   const submittingRef = useRef(false);
 
   useEffect(() => {
     goToStep('intro');
   }, [goToStep]);
+
+  useEffect(() => {
+    setIsMac(/mac/i.test(navigator.userAgent));
+  }, []);
 
   const isIntro = stepId === 'intro';
   const isReviewStep = stepId === 'review';
@@ -131,6 +140,12 @@ export default function Page() {
 
   useSubmitShortcut(handleAction, canAdvance);
 
+  // useIsMobile mira el viewport, no el dispositivo de entrada. Es una
+  // aproximacion, pero es la que ya existe en el repo y evita anunciar un
+  // atajo de teclado a quien probablemente no tiene teclado.
+  const isMobile = useIsMobile();
+  const showShortcutHint = !isMobile && canAdvance;
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <header id="header" className="mx-auto w-full max-w-7xl shrink-0">
@@ -171,7 +186,7 @@ export default function Page() {
               <Copyright className="text-sm tracking-tighter text-neutral-700 uppercase" />
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex flex-col items-end gap-2">
               {!isIntro && (
                 <button
                   onClick={handleAction}
@@ -195,6 +210,12 @@ export default function Page() {
                       ? t('button.submitBrief')
                       : t('button.next')}
                 </button>
+              )}
+
+              {showShortcutHint && (
+                <span className="font-mono text-[10px] tracking-widest text-gray-400 uppercase">
+                  {t(isMac ? 'brief.shortcut.hintMac' : 'brief.shortcut.hintOther')}
+                </span>
               )}
             </div>
           </div>

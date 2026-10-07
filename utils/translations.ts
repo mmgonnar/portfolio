@@ -135,6 +135,10 @@ export const enTranslations = {
       "We couldn't confirm your submission. Before retrying, check whether you got the confirmation email, or contact me.",
   },
   brief: {
+    shortcut: {
+      hintMac: '\u2318 Enter',
+      hintOther: 'Ctrl + Enter',
+    },
     tag: '< Web Project Brief />',
     title: 'A quiet conversation about your ',
     titleAccent: 'project',
@@ -494,6 +498,10 @@ export const esTranslations = {
       'No pudimos confirmar el envío. Antes de reintentar, revisa si te llegó el correo de confirmación o escríbeme.',
   },
   brief: {
+    shortcut: {
+      hintMac: '\u2318 Enter',
+      hintOther: 'Ctrl + Enter',
+    },
     tag: '< Brief de Proyecto Web />',
     title: 'Conversemos un poco  sobre tu ',
     titleAccent: 'proyecto',
