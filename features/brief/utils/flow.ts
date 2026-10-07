@@ -25,8 +25,10 @@ const BASE_FLOW: StepId[] = [
   'audience',
   'design',
   'style',
-  'budget',
+  // El tiempo va antes del presupuesto: saber si corre prisa cambia como se
+  // lee el rango, y la urgencia se menciona en la tarjeta de alcance.
   'timeline',
+  'budget',
   'notes',
   'review',
 ];
@@ -43,8 +45,7 @@ export const needsStyleStep = (formData: Pick<BriefData, 'designStatus' | 'wants
   formData.designStatus === 'none' ||
   (formData.designStatus === 'brand_kit' && formData.wantsDesignQuote);
 
-export const getFlow = (
-  formData: Pick<BriefData, 'designStatus' | 'wantsDesignQuote'>,
-): StepId[] => BASE_FLOW.filter(id => id !== 'style' || needsStyleStep(formData));
+export const getFlow = (formData: Pick<BriefData, 'designStatus' | 'wantsDesignQuote'>): StepId[] =>
+  BASE_FLOW.filter(id => id !== 'style' || needsStyleStep(formData));
 
 export const isOptionalStep = (stepId: StepId) => OPTIONAL_STEPS.includes(stepId);

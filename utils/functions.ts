@@ -22,7 +22,11 @@ export function apiCallToast<T>(
       }
       return successMessage;
     },
-    error: (error: Error) => error.message || errorMessage,
+    // El mensaje configurado gana sobre el del error. Antes era al reves, asi
+    // que el usuario veia cosas como "Failed to fetch" o el texto que
+    // devolviera el servidor, y el errorMessage que pasaba cada llamada no se
+    // usaba nunca.
+    error: (error: Error) => errorMessage || error.message,
   });
 }
 

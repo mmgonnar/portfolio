@@ -86,6 +86,64 @@ export const getScopeLevel = (weight: number): ScopeLevel => {
   return 'advanced';
 };
 
+/** Una razon por la que el alcance subio, ya ordenada para mostrarse. */
+export interface ScopeDriver {
+  id: string;
+  /** Clave i18n, porque el texto lo traduce el paso que la pinta. */
+  labelKey: string;
+  weight: number;
+}
+
+/** Cuantos chips caben en la tarjeta de alcance. */
+const MAX_DRIVERS = 5;
+
+/**
+ * Lo que mas pesa en el alcance, de mayor a menor y sin numeros: el cliente no
+ * necesita ver la aritmetica, solo que su eleccion tiene consecuencias.
+ *
+ * La entrega urgente va siempre al final y no suma peso. Encarece el proyecto
+ * por prioridad, no por tamano, asi que no mueve el nivel ni el "desde".
+ */
+export const getScopeDrivers = (
+  formData: ScopeInput & Pick<BriefData, 'timeline'>,
+): ScopeDriver[] => {
+  const weighted: ScopeDriver[] = [];
+
+  if (formData.projectType !== '') {
+    weighted.push({
+      id: 'projectType',
+      labelKey: `brief.steps.type.options.${formData.projectType}.title`,
+      weight: PROJECT_TYPE_WEIGHT[formData.projectType],
+    });
+  }
+
+  for (const feature of formData.features || []) {
+    weighted.push({
+      id: feature,
+      labelKey: `brief.steps.features.options.${feature}.title`,
+      weight: FEATURE_WEIGHT[feature],
+    });
+  }
+
+  if (formData.wantsDesignQuote) {
+    weighted.push({
+      id: 'designQuote',
+      labelKey: 'brief.steps.budget.scope.designDriver',
+      weight: DESIGN_QUOTE_WEIGHT,
+    });
+  }
+
+  weighted.sort((a, b) => b.weight - a.weight);
+
+  const isRush = formData.timeline === 'asap';
+  if (!isRush) return weighted.slice(0, MAX_DRIVERS);
+
+  return [
+    ...weighted.slice(0, MAX_DRIVERS - 1),
+    { id: 'rush', labelKey: 'brief.steps.budget.scope.rushDriver', weight: 0 },
+  ];
+};
+
 export const getScope = (formData: ScopeInput) => {
   const weight = getScopeWeight(formData);
   return { weight, level: getScopeLevel(weight) };

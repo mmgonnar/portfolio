@@ -40,7 +40,11 @@ export const StepReview = () => {
           <span className="underline underline-offset-2">
             {t('brief.steps.review.labels.edit')}
           </span>
-          <Pencil size={10} strokeWidth={3} className="transition-transform group-hover:-rotate-12" />
+          <Pencil
+            size={10}
+            strokeWidth={3}
+            className="transition-transform group-hover:-rotate-12"
+          />
         </button>
       </div>
       <div className="space-y-4">{children}</div>
@@ -186,11 +190,7 @@ export const StepReview = () => {
           />
         </ReviewSection>
 
-        <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget="budget">
-          <DataItem
-            label={t('brief.steps.budget.title')}
-            value={formatBudgetBand(formData.budget, isUserInMexico() ? 'MXN' : 'USD', t)}
-          />
+        <ReviewSection title={t('brief.steps.review.sections.budget_time')} stepTarget="timeline">
           <DataItem
             label={t('brief.steps.timeline.title')}
             value={
@@ -198,6 +198,10 @@ export const StepReview = () => {
                 ? t(`brief.steps.timeline.options.${formData.timeline}.title`)
                 : undefined
             }
+          />
+          <DataItem
+            label={t('brief.steps.budget.title')}
+            value={formatBudgetBand(formData.budget, isUserInMexico() ? 'MXN' : 'USD', t)}
           />
         </ReviewSection>
 

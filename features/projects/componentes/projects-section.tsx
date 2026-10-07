@@ -12,7 +12,16 @@ import { fetchProjects, type ProjectRaw } from '../utils/apiProjects';
 import { projectLayouts } from '../utils/layout-config';
 import { mapTechnologies } from '../utils/technologies-map';
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  /**
+   * Avisa cuando la grid real ya esta en pantalla. El banner decorativo del
+   * padre se coloca con un desplazamiento fijo pensado para esa grid, asi que
+   * mientras se carga no debe pintarse: caeria encima de los esqueletos.
+   */
+  onReady?: (ready: boolean) => void;
+}
+
+export default function ProjectsSection({ onReady }: ProjectsSectionProps) {
   const { i18n } = useTranslation();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -63,6 +72,10 @@ export default function ProjectsSection() {
         clearTimeout(timer);
       });
   }, [i18n.language]);
+
+  useEffect(() => {
+    onReady?.(!loading && projects.length > 0);
+  }, [loading, projects.length, onReady]);
 
   const { modalOpen, selectedProject, toggleModal } = useModal();
   const modalRef = useRef<HTMLDivElement>(null);
