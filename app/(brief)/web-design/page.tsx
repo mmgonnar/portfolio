@@ -11,7 +11,6 @@ import { useEffect, useRef, useState } from 'react';
 import { BriefManager } from '@/features/brief/components/BriefManager';
 import { getScope } from '@/features/brief/utils/scope';
 import { useSubmitShortcut } from '@/hooks/useSubmitShortcut';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Page() {
   const { stepId, prevStep, nextStep, isStepValid, goToStep } = useBriefStore();
@@ -140,11 +139,11 @@ export default function Page() {
 
   useSubmitShortcut(handleAction, canAdvance);
 
-  // useIsMobile mira el viewport, no el dispositivo de entrada. Es una
-  // aproximacion, pero es la que ya existe en el repo y evita anunciar un
-  // atajo de teclado a quien probablemente no tiene teclado.
-  const isMobile = useIsMobile();
-  const showShortcutHint = !isMobile && canAdvance;
+  // Un title nativo no ocupa espacio ni altera el boton, y el navegador ya lo
+  // oculta en tactil, donde no hay puntero que lo invoque.
+  const shortcutTooltip = t(
+    isMac ? 'brief.shortcut.tooltipMac' : 'brief.shortcut.tooltipOther',
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -186,12 +185,14 @@ export default function Page() {
               <Copyright className="text-sm tracking-tighter text-neutral-700 uppercase" />
             </div>
 
-            <div className="flex flex-col items-end gap-2">
+            <div className="flex justify-end">
               {!isIntro && (
                 <button
                   onClick={handleAction}
                   disabled={!isStepValid || isSubmitting}
                   aria-busy={isSubmitting}
+                  title={shortcutTooltip}
+                  aria-keyshortcuts="Meta+Enter Control+Enter"
                   className={cn(
                     'border-2 border-black px-6 py-3 font-mono text-xs font-bold tracking-[0.2em] uppercase transition-all',
                     isStepValid && !isSubmitting
@@ -210,12 +211,6 @@ export default function Page() {
                       ? t('button.submitBrief')
                       : t('button.next')}
                 </button>
-              )}
-
-              {showShortcutHint && (
-                <span className="font-mono text-[10px] tracking-widest text-gray-400 uppercase">
-                  {t(isMac ? 'brief.shortcut.hintMac' : 'brief.shortcut.hintOther')}
-                </span>
               )}
             </div>
           </div>

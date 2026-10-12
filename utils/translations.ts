@@ -136,8 +136,8 @@ export const enTranslations = {
   },
   brief: {
     shortcut: {
-      hintMac: '\u2318 Enter',
-      hintOther: 'Ctrl + Enter',
+      tooltipMac: 'Shortcut: \u2318 Enter',
+      tooltipOther: 'Shortcut: Ctrl + Enter',
     },
     tag: '< Web Project Brief />',
     title: 'A quiet conversation about your ',
@@ -499,8 +499,8 @@ export const esTranslations = {
   },
   brief: {
     shortcut: {
-      hintMac: '\u2318 Enter',
-      hintOther: 'Ctrl + Enter',
+      tooltipMac: 'Atajo: \u2318 Enter',
+      tooltipOther: 'Atajo: Ctrl + Enter',
     },
     tag: '< Brief de Proyecto Web />',
     title: 'Conversemos un poco  sobre tu ',
