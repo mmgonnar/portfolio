@@ -69,7 +69,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 🛠️ Stack Tecnológico
 
-- **Framework**: Next.js 15.5.6
+- **Framework**: Next.js 15.5.27
 - **UI Library**: React 19.1.0
 - **Lenguaje**: TypeScript 5
 - **Estilos**: Tailwind CSS 4
