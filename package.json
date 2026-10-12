@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@11.19.0",
   "scripts": {
     "predev": "kill -9 $(lsof -ti tcp:3000) || true",
     "dev": "next dev --turbopack",
