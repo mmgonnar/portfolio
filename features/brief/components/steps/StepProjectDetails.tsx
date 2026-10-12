@@ -20,6 +20,7 @@ export const StepProjectDetails = () => {
   const {
     register,
     watch,
+    trigger,
     formState: { errors, isValid },
   } = useForm<StepTwoData>({
     resolver: zodResolver(stepTwoSchema),
@@ -39,6 +40,19 @@ export const StepProjectDetails = () => {
   }, [isValid, setStepValid]);
 
   const hasExistingSite = watch('hasExistingSite');
+
+  /**
+   * react-hook-form solo muestra el error de un campo que el usuario toco. Con
+   * el rediseño marcando la casilla sola, la URL queda vacia y obligatoria sin
+   * que nadie la haya visitado: Siguiente se deshabilita y no se explica por
+   * que. Validarla a proposito cuando la casilla pasa a marcada hace visible el
+   * mensaje desde el primer momento.
+   */
+  useEffect(() => {
+    if (hasExistingSite) {
+      trigger('existingSiteUrl');
+    }
+  }, [hasExistingSite, trigger]);
   const description = watch('projectDescription') || '';
 
   return (
@@ -106,6 +120,14 @@ export const StepProjectDetails = () => {
               {t('brief.steps.details.hasExistingSite')}
             </label>
           </div>
+
+          {/* La casilla se marco sola al elegir rediseño: conviene decir quien
+              la marco, para que nadie crea que el formulario se equivoco. */}
+          {formData.projectType === 'redesign' && hasExistingSite && (
+            <p className="-mt-4 border-l-2 border-gray-200 pl-4 font-mono text-xs leading-relaxed tracking-wide text-gray-500">
+              {t('brief.steps.details.redesignHint')}
+            </p>
+          )}
 
           {/* El input siempre está en el DOM, pero se opaca y deshabilita si no hay sitio */}
           <div
