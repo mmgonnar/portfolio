@@ -17,7 +17,17 @@ Before adding any button, input, label, card, modal or section heading, confirm 
 of the above already covers it. Copying a class string from another file is a signal
 that you are duplicating a component.
 
-## 2. If nothing fits, propose, do not hand-build
+## 2. If a base component almost fits, extend it, do not work around it
+
+When a shared component covers the need except for a missing prop, size, state or variant:
+
+- Do not hand-build a copy, do not override its look through className, and do not wrap it to fake the missing behavior.
+- Stop and bring it to Mariela with: the component and file, what is missing, the proposed prop (name, type, default), every current consumer and whether each one looks identical after the change (the default must keep today's behavior), and an effort estimate.
+- Wait for approval. Then change the base component first, in its own commit, and only then migrate the caller.
+- className on a shared component is only for placement: margin, width, alignment, grid or flex position. Never for colors, shadow, border, typography or animation.
+- If you find existing hand-built copies of a base component while working on something else, list them in your report. Do not fix them silently, they become their own task.
+
+## 3. If nothing fits, propose, do not hand-build
 
 Do not silently invent one-off markup. Stop and propose a reusable component:
 
@@ -29,7 +39,7 @@ Do not silently invent one-off markup. Stop and propose a reusable component:
 Then wait for Mariela to approve before creating it. A component used in two places
 is a shared component, not a copy.
 
-## 3. Where things live
+## 4. Where things live
 
 ```
 /app                      routes only
@@ -56,7 +66,7 @@ Import shared UI directly from `@/features/ui/components/<name>`. Never re-expor
 shared component from another feature's `index.ts`, and never import one through a
 feature that does not own it.
 
-## 4. i18n
+## 5. i18n
 
 Every user-facing string goes through `utils/translations.ts`. No hardcoded copy in
 components, including placeholders, alt text and aria labels.
@@ -71,7 +81,7 @@ When you add a key, verify both locales before committing.
 Shared components receive label strings as props. They do not call `t()` themselves,
 so key paths stay with the feature that owns them.
 
-## 5. Git identity
+## 6. Git identity
 
 Personal repo. Everything must be authored by mmgonnar.
 
@@ -96,7 +106,7 @@ toggles to the other account.
 Never push, merge or force-push without explicit approval. Commit locally, then ask.
 Never rewrite a commit that already carries the wrong identity, report it and wait.
 
-## 6. Prices and scope
+## 7. Prices and scope
 
 Brief prices, scope weights and the "starts from" amounts live in
 `features/brief/utils/scope.ts`. Those numbers come from Mariela's vault note and
@@ -112,6 +122,6 @@ amount anywhere else.
 Run `npm run i18n:check` after touching `utils/translations.ts`. It fails on a
 key that exists in only one locale, which neither typecheck nor build catches.
 
-## 7. Style
+## 8. Style
 
 Never use the em dash, use commas.
