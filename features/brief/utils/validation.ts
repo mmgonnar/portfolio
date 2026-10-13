@@ -21,17 +21,18 @@ export const stepTwoSchema = z
     hasExistingSite: z.boolean(),
     existingSiteUrl: z.string().optional().or(z.literal('')),
   })
+  // Dos reglas en vez de una: vacio y mal escrito son errores distintos y el
+  // mensaje tiene que decir cual es. Con el rediseño marcando la casilla sola,
+  // el caso comun pasa a ser un campo vacio que el cliente no ha tocado.
+  .refine(data => !data.hasExistingSite || (data.existingSiteUrl ?? '').trim().length > 0, {
+    message: 'form.errors.error_url_required',
+    path: ['existingSiteUrl'],
+  })
   .refine(
-    data => {
-      if (data.hasExistingSite) {
-        return (
-          data.existingSiteUrl &&
-          data.existingSiteUrl.length > 0 &&
-          /^https?:\/\/.+\..+/.test(data.hasExistingSite ? data.existingSiteUrl : '')
-        );
-      }
-      return true;
-    },
+    data =>
+      !data.hasExistingSite ||
+      (data.existingSiteUrl ?? '').trim().length === 0 ||
+      /^https?:\/\/.+\..+/.test(data.existingSiteUrl ?? ''),
     {
       message: 'form.errors.error_invalid_url',
       path: ['existingSiteUrl'],
