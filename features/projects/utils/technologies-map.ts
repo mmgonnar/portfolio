@@ -58,12 +58,34 @@ const techIconMap: Record<string, string> = {
   Resend: resend,
 };
 
-export function mapTechnologies(techNames: string[]): IconItem[] {
-  return techNames
+/**
+ * Maximo de iconos por proyecto.
+ *
+ * Medido en la tarjeta colapsada a 360px, el ancho de telefono mas estrecho que
+ * soportamos: la fila dispone de 224px y cada icono ocupa 30px con 8px de hueco,
+ * asi que entran 6 (6 x 30 + 5 x 8 = 220). Con 7 o mas los iconos se encogian en
+ * la tarjeta y se cortaban en el modal.
+ *
+ * La lista vive en Supabase, columna `projects.technologies`: esa es la fuente de
+ * verdad. Aqui no se recorta nada, solo se avisa en desarrollo.
+ */
+export const MAX_TECH_ICONS = 6;
+
+export function mapTechnologies(techNames: string[], projectTitle?: string): IconItem[] {
+  const icons = techNames
     .map(name => {
       const icon = techIconMap[name];
       if (!icon) return null;
       return { icon, name };
     })
     .filter((item): item is IconItem => item !== null);
+
+  if (process.env.NODE_ENV !== 'production' && icons.length > MAX_TECH_ICONS) {
+    console.warn(
+      `[projects] "${projectTitle ?? 'sin titulo'}" tiene ${icons.length} iconos de tecnologia, ` +
+        `el maximo es ${MAX_TECH_ICONS}. Ajusta projects.technologies en Supabase.`
+    );
+  }
+
+  return icons;
 }

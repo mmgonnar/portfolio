@@ -27,6 +27,13 @@ export interface NeobrutalistCardProps {
    * panel de contenido, como las secciones de la revisión del brief.
    */
   variant?: 'interactive' | 'static';
+  /**
+   * Por defecto la tarjeta ocupa todo el alto de su celda (h-full). Ponerlo en
+   * false cuando la celda puede crecer por otro motivo y la tarjeta no debe
+   * estirarse con ella, como las tarjetas de proyecto cuando el modal abre y
+   * ensancha la fila del grid.
+   */
+  fill?: boolean;
 }
 export interface LabelProps {
   children?: ReactNode;

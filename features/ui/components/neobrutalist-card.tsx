@@ -8,6 +8,7 @@ export default function NeobrutalistCard({
   className,
   onClick,
   variant = 'interactive',
+  fill = true,
 }: NeobrutalistCardProps) {
   return (
     <div
@@ -15,7 +16,8 @@ export default function NeobrutalistCard({
       className={cn(
         'rounded-none border-4 border-black bg-white text-black shadow-[8px_8px_0_#000] outline-none',
         'flex flex-col font-mono',
-        'h-full w-full',
+        'w-full',
+        fill && 'h-full',
         variant === 'interactive'
           ? [
               'cursor-pointer p-4 text-[18px] font-semibold transition duration-300 ease-in-out',

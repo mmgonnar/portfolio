@@ -52,9 +52,9 @@ export default function ProjectModal({ project }: ProjectModalProps) {
         )}
       </div>
       <div className="mt-2 mb-4 flex items-center justify-between border-t border-black/10 pt-2">
-        <div className="line-clamp-1 flex gap-2 px-4">
+        <div className="flex gap-2 px-4">
           {project.technologies.map((item, i) => (
-            <Image key={i} src={item.icon} width={30} height={30} alt={item.name} />
+            <Image key={i} src={item.icon} width={30} height={30} alt={item.name} className="shrink-0" />
           ))}
         </div>
 

@@ -22,6 +22,7 @@ export const backendSkills = [
   { name: 'Express.js' },
   { name: 'Python' },
   { name: 'MongoDB' },
+  { name: 'PostgreSQL' },
   { name: 'Supabase' },
   { name: 'REST APIs' },
 ];

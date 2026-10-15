@@ -15,13 +15,21 @@ export default function ProjectCard({
   modalOpen,
 }: ProjectCardProps) {
   return (
+    // En reposo las tarjetas llenan su fila (h-full) para que todas midan lo
+    // mismo. Al abrir el modal, este entra al grid como un item mas y ensancha
+    // su fila: ahi dejamos de llenarla, porque si no la tarjeta se estiraba con
+    // la fila y su contenido, centrado, quedaba empujado hacia abajo.
     <NeobrutalistCard
+      fill={!modalOpen}
       onClick={onClick}
       className={cn(
         'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 md:w-full md:grid-cols-[1fr_auto]',
         className,
         modalOpen ? 'opacity-100' : 'opacity-100',
-        'transition-all duration-500 ease-in-out'
+        // Solo transform y sombra. transition-all animaba tambien el alto, asi
+        // que al cerrar el modal la tarjeta tardaba medio segundo en recuperar
+        // su tamano y durante ese rato los iconos cruzaban la sombra.
+        'transition-[transform,box-shadow] duration-300 ease-in-out'
       )}
     >
       <div
@@ -65,7 +73,7 @@ export default function ProjectCard({
               height={30}
               alt={item.name}
               id="icon__project"
-              className="overflow-hidden"
+              className="shrink-0 overflow-hidden"
             />
           ))}
         </div>
