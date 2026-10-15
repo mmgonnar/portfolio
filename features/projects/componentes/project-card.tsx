@@ -15,12 +15,12 @@ export default function ProjectCard({
   modalOpen,
 }: ProjectCardProps) {
   return (
-    // fill={false}: al abrir el modal, este entra al grid como un item mas y
-    // ensancha su fila. Con h-full la tarjeta se estiraba con la fila y su
-    // contenido, centrado, quedaba empujado hacia abajo. Sin h-full conserva su
-    // alto propio y la fila puede crecer sin arrastrarla.
+    // En reposo las tarjetas llenan su fila (h-full) para que todas midan lo
+    // mismo. Al abrir el modal, este entra al grid como un item mas y ensancha
+    // su fila: ahi dejamos de llenarla, porque si no la tarjeta se estiraba con
+    // la fila y su contenido, centrado, quedaba empujado hacia abajo.
     <NeobrutalistCard
-      fill={false}
+      fill={!modalOpen}
       onClick={onClick}
       className={cn(
         'm-auto grid cursor-pointer grid-cols-1 justify-center gap-5 p-6 md:w-full md:grid-cols-[1fr_auto]',
