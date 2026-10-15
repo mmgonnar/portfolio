@@ -30,32 +30,30 @@ export const enTranslations = {
   bannerText: {
     helloWorld: 'Hello world! I am',
     description:
-      'Fullstack Web Developer with a strong background in graphic design, 2 years of experience building projects with React, Next.js, TypeScript, and the MERN stack, and over 5 years of experience in digital marketing and web design. Available for remote roles.',
+      'Fullstack Web Developer with a background in graphic design. I build custom websites and web apps with TypeScript, React, Next.js and Python (FastAPI), caring as much about how they look as how they work. Currently open to freelance web design and development projects for small businesses.',
     findMe: 'Find me in:',
   },
   aboutMe: {
     title: 'About me',
     description:
-      'Frontend-oriented with a strong UX/UI background, I translate visual prototypes into scalable, bilingual, user-centered interfaces. \n\nOn the backend, I build servers with Node.js and FastAPI, design databases (MongoDB, Supabase) and integrate REST APIs with JWT. \n\nI understand the business context behind the code. \nCertified English: C2 (TOEFL iBT).',
+      'I started in graphic design and spent years building websites and digital tools for companies before moving fully into development. That background still shapes how I work: I pay attention to visual hierarchy, interface states and the details that make something easy to use.\n\nToday I build end to end: interfaces with React and Next.js, APIs with Node.js and FastAPI, and data with PostgreSQL (Supabase) and MongoDB. I verify instead of assuming, and I document what I build.\n\nI work in Spanish and English (C2, TOEFL iBT), and I understand the business behind each project, which helps me build what clients actually need.',
   },
   skills: {
     title: 'Skills',
-    text: 'Technical expertise focused on fullstack development, with a design background and product-oriented mindset.',
+    text: 'What I use to build websites and web apps, from interface design to the database.',
     uiDesign: 'ui/design',
     front: 'frontend',
     back: 'backend',
     other: 'tools',
-    design:
-      'Created user-centric visual interfaces, with experience in graphic design and digital prototyping',
-    frontend:
-      'Development of dynamic and responsive interfaces, optimized for accessibility and performance.',
-    backend: 'Building scalable APIs and managing databases for robust applications.',
-    tools: 'Version control, API testing, and content management for complete projects.',
+    design: 'Interface design and prototyping in Figma, grounded in graphic design.',
+    frontend: 'Responsive interfaces with React, Next.js and TypeScript.',
+    backend: 'APIs with Node.js and FastAPI, and PostgreSQL, Supabase and MongoDB databases.',
+    tools: 'Git, API testing in Postman and deployment on Vercel.',
   },
   projects: {
     title: 'Featured Projects',
     description:
-      'A curated selection of digital solutions built with a full-stack mindset. From robust server-side architecture to intuitive user interfaces, always prioritizing scalability, performance, and an exceptional user experience.',
+      'Web development projects I built end to end, from the backend to the interface. Each one solved a concrete problem.',
     projectDescription: {
       classaid:
         'Educational platform to optimize class management, attendance tracking, and teacher workflow efficiency.',
@@ -393,33 +391,30 @@ export const esTranslations = {
   bannerText: {
     helloWorld: '¡Hola mundo! Soy',
     description:
-      'Desarrolladora Web Fullstack con formación en diseño gráfico, 2 años de experiencia desarrollando proyectos con React, Next.js, TypeScript y el stack MERN, y más de 5 años de trayectoria en marketing digital y diseño web. Disponible para trabajo remoto.',
+      'Desarrolladora Web Fullstack con formación en diseño gráfico. Construyo sitios y aplicaciones web a medida con TypeScript, React, Next.js y Python (FastAPI), cuidando tanto cómo se ven como cómo funcionan. Actualmente abierta a proyectos freelance de diseño y desarrollo web para pymes y emprendedores.',
     findMe: 'Encuéntrame en:',
   },
   aboutMe: {
     title: 'Acerca de mi',
     description:
-      'Orientada al frontend con una sólida base en UX/UI, traduzco prototipos visuales en interfaces escalables, bilingües y centradas en el usuario. \n\n En backend, construyo servidores con Node.js y FastAPI, diseño bases de datos (MongoDB, Supabase) e integro REST APIs con JWT. \n\nEntiendo el contexto de negocio detrás del código. Inglés certificado: C2 (TOEFL iBT).',
+      'Empecé en el diseño gráfico y pasé años creando sitios y herramientas digitales para empresas antes de dedicarme por completo al desarrollo. Esa base sigue presente en cómo trabajo: cuido la jerarquía visual, los estados de la interfaz y los detalles que hacen que algo sea fácil de usar.\n\nHoy construyo de punta a punta: interfaces con React y Next.js, APIs con Node.js y FastAPI, y datos con PostgreSQL (Supabase) y MongoDB. Verifico en lugar de asumir y documento lo que construyo.\n\nTrabajo en español e inglés (C2, TOEFL iBT) y entiendo el negocio detrás de cada proyecto, lo que me ayuda a construir lo que el cliente realmente necesita.',
   },
   skills: {
     title: 'Habilidades',
-    text: 'Especialización técnica enfocada en desarrollo fullstack, con formación en diseño y criterio de producto.',
+    text: 'Lo que uso para construir sitios y aplicaciones web, del diseño de la interfaz a la base de datos.',
     uiDesign: 'ui/diseño',
     front: 'frontend',
     back: 'backend',
     other: 'herramientas',
-    design:
-      'Creación de interfaces visuales centradas en el usuario, con experiencia en diseño gráfico y prototipado digital.',
-    frontend:
-      'Desarrollo de interfaces dinámicas y responsivas, optimizadas para accesibilidad y rendimiento.',
-    backend:
-      'Construcción de APIs escalables y manejo de bases de datos para aplicaciones robustas.',
-    tools: 'Control de versiones, pruebas de APIs y gestión de contenido para proyectos completos.',
+    design: 'Diseño de interfaces y prototipado en Figma, con base en diseño gráfico.',
+    frontend: 'Interfaces responsivas con React, Next.js y TypeScript.',
+    backend: 'APIs con Node.js y FastAPI, y bases de datos PostgreSQL, Supabase y MongoDB.',
+    tools: 'Git, pruebas de APIs en Postman y despliegue en Vercel.',
   },
   projects: {
     title: 'Proyectos Destacados',
     description:
-      'Una selección de soluciones digitales desarrolladas con un enfoque integral. Desde la arquitectura del lado del servidor hasta interfaces de usuario intuitivas, priorizando siempre la escalabilidad, el rendimiento y una experiencia de usuario excepcional.',
+      'Proyectos de desarrollo web que construí de punta a punta, del backend a la interfaz. Cada uno resolvió un problema concreto.',
     projectDescription: {
       classaid:
         'Plataforma educativa para optimizar la gestión de clases, asistencia y seguimiento del progreso docente.',
