@@ -4,7 +4,7 @@ import LinkedinIcon from '../assets/linkedin.svg';
 
 export const findMeIcons = [
   {
-    name: 'Github icon',
+    name: 'Github',
     href: 'https://github.com/mmgonnar',
     icon: GithubIcon,
   },
@@ -13,7 +13,7 @@ export const findMeIcons = [
     href: 'https://www.linkedin.com/in/mmgonnar/',
     icon: LinkedinIcon,
   },
-  { name: 'Email icon', href: 'mailto:mm.gonnar@gmail.com', icon: MailIcon },
+  { name: 'Email', href: 'mailto:mm.gonnar@gmail.com', icon: MailIcon },
 ];
 
 import nextjsIcon from '@/features/projects/assets/nextjs_icon_dark.svg';
