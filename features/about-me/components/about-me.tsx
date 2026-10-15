@@ -23,7 +23,7 @@ export default function AboutMe() {
         <NeobrutalistButton href="/" text={t('button.knowMeBetter')} />
       </div>
       <div>
-        <Image width={400} height={400} src={AboutMeImg} alt="asdad" />
+        <Image width={400} height={400} src={AboutMeImg} alt="" />
       </div>
     </section>
   );
