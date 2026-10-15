@@ -58,7 +58,7 @@ export default function ProjectsSection({ onReady }: ProjectsSectionProps) {
             logo_url: item.logo_url,
             href: item.live_url,
             repository_url: item.repository_url,
-            technologies: mapTechnologies(item.technologies),
+            technologies: mapTechnologies(item.technologies, item.title),
             className: layout.className,
             classNameModal: layout.classNameModal,
           };
