@@ -17,7 +17,7 @@ export default function FindMe() {
             <Link key={item.name} href={item.href} target="_blank">
               <Image
                 src={item.icon}
-                alt="Email"
+                alt={`${item.name} icon`}
                 className="w-7 shrink-0 transition duration-200 hover:scale-110"
               />
             </Link>

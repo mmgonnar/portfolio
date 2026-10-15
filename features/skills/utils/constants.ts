@@ -19,11 +19,11 @@ export const frontendSkills = [
 
 export const backendSkills = [
   { name: 'Node.js' },
-  { name: 'Expres.js' },
+  { name: 'Express.js' },
   { name: 'Python' },
   { name: 'MongoDB' },
   { name: 'Supabase' },
-  { name: 'Rest APIS' },
+  { name: 'REST APIs' },
 ];
 
 export const otherSkills = [

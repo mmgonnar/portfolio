@@ -21,6 +21,7 @@ export const enTranslations = {
     next: 'Next',
     submitBrief: 'Submit Brief ;)',
     backHome: 'Back to home',
+    openMenu: 'Open menu',
   },
   language: {
     changeLanguage: 'change language',
@@ -162,7 +163,7 @@ export const enTranslations = {
     ],
     steps: {
       contact: {
-        name: 'What´s your Name?',
+        name: "What's your Name?",
         namePlaceholder: 'Enter your full name',
         email: 'How can I reach you?',
         emailPlaceholder: 'Enter your email address',
@@ -382,6 +383,7 @@ export const esTranslations = {
     next: 'Siguiente',
     submitBrief: 'Enviar Brief ;)',
     backHome: 'Regresar a Inicio',
+    openMenu: 'Abrir menú',
   },
   language: {
     changeLanguage: 'cambiar idioma',
@@ -522,7 +524,7 @@ export const esTranslations = {
     ],
     steps: {
       contact: {
-        name: '¿Cúal es tu nombre?',
+        name: '¿Cuál es tu nombre?',
         namePlaceholder: 'Ingresa tu nombre completo',
         email: '¿Cómo te puedo contactar?',
         emailPlaceholder: 'Ingresa tu correo',
