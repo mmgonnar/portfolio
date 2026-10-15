@@ -122,6 +122,12 @@ amount anywhere else.
 Run `npm run i18n:check` after touching `utils/translations.ts`. It fails on a
 key that exists in only one locale, which neither typecheck nor build catches.
 
+Project tech icons live in Supabase, column `projects.technologies`, and a project
+shows at most 6. Six is what fits in one row of the collapsed card at 360px, the
+narrowest phone we support. The cap is `MAX_TECH_ICONS` in
+`features/projects/utils/technologies-map.ts`, which warns in development when a
+project exceeds it. Never truncate the list in the UI, fix the data instead.
+
 ## 8. Style
 
 Never use the em dash, use commas.

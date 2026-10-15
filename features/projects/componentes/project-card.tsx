@@ -73,7 +73,7 @@ export default function ProjectCard({
               height={30}
               alt={item.name}
               id="icon__project"
-              className="overflow-hidden"
+              className="shrink-0 overflow-hidden"
             />
           ))}
         </div>
