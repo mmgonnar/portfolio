@@ -18,7 +18,6 @@ export default function Form({ toggleModal }: { toggleModal: () => void }) {
   } = useContactForm(toggleModal);
 
   const handleFormSubmit = (data: ContactFormData) => {
-    console.log('📝 FORM - Form submitted with data:', data);
     onSubmit(data);
   };
 
