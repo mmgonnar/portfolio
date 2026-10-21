@@ -3,7 +3,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --breakpoint-custom-md: 59rem;
   --color-green-brutalist: #008857;
   --color-neon: #00e593;
   --breakpoint-custom-lg: 68rem;
