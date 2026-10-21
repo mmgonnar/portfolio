@@ -37,14 +37,12 @@ export const useContactForm = (onSuccess: () => void) => {
 
   // ESTA es la función que hace el trabajo sucio
   const onSubmit = async (data: ContactFormData) => {
-    console.log('📧 CONTACT FORM - Submitting data:', data);
     try {
       await apiCallToast(api.sendContact(data), {
         loading: t('toast.sending'),
         successMessage: t('toast.success_msg'),
         errorMessage: t('toast.error_msg'),
       });
-      console.log('✅ CONTACT FORM - Success!');
       formMethods.reset();
       onSuccess();
     } catch (error) {
