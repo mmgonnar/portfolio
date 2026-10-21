@@ -26,7 +26,7 @@ export const StepReferences = () => {
     register,
     watch,
     setValue,
-    formState: { errors, isValid },
+    formState: { isValid },
   } = useForm<StepSixSchema>({
     resolver: zodResolver(stepSixSchema),
     defaultValues: {
@@ -69,9 +69,6 @@ export const StepReferences = () => {
     const newLinks = links.filter((_, i) => i !== idx);
     setLinks(newLinks.length ? newLinks : ['']);
   };
-
-  console.log('ERRORES:', errors);
-  console.log('¿ES VÁLIDO?:', isValid);
 
   return (
     <BriefContainer>
