@@ -5,6 +5,7 @@
 @theme inline {
   --color-green-brutalist: #008857;
   --color-neon: #00e593;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --breakpoint-custom-lg: 68rem;
   --breakpoint-custom-md: 54rem;
   --breakpoint-custom-sm: 28rem;
@@ -47,7 +48,6 @@
 
 @layer base {
   :root {
-    --font-inter: 'Inter', sans-serif;
     --font-consolas: 'Consolas', 'Monaco', 'Courier New', monospace;
   }
 
