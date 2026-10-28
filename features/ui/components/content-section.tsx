@@ -6,7 +6,14 @@ export default function ContentSection({ title, text, align, id, className }: Co
   return (
     <div id={id} className={cn(alignmets[align], className)}>
       <h3 className="pb-6 text-4xl font-bold">{title}</h3>
-      <p className="max-w-2xl pb-8 text-xl text-pretty whitespace-pre-wrap">{text}</p>
+      <p
+        className={cn(
+          'max-w-2xl pb-8 text-xl whitespace-pre-wrap',
+          align === 'center' ? 'text-balance' : 'text-pretty',
+        )}
+      >
+        {text}
+      </p>
     </div>
   );
 }
