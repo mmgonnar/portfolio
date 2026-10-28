@@ -51,6 +51,14 @@
     --font-consolas: 'Consolas', 'Monaco', 'Courier New', monospace;
   }
 
+  body {
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    letter-spacing: normal;
+  }
+
   /* Clase personalizada para Consolas */
   .font-consolas {
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
