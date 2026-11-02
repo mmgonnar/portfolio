@@ -11,9 +11,7 @@ Captured on 2026-10-02 from the deployed backend, one request per locale, then
 pretty printed with a 2 space indent so diffs stay readable:
 
 ```sh
-curl -s "https://portfolio-backend-tarb.onrender.com/projects?lang=es" -o /tmp/es.json
-curl -s "https://portfolio-backend-tarb.onrender.com/projects?lang=en" -o /tmp/en.json
-node -e "const fs=require('fs');for(const l of ['es','en'])fs.writeFileSync('features/projects/data/projects-snapshot.'+l+'.json',JSON.stringify(JSON.parse(fs.readFileSync('/tmp/'+l+'.json','utf8')),null,2)+'\n')"
+npm run sync:content
 ```
 
 Once task 2.3 lands, this becomes:

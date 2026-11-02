@@ -12,7 +12,8 @@
     "i18n:check": "node scripts/check-i18n.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "format:staged": "prettier --write --ignore-unknown"
+    "format:staged": "prettier --write --ignore-unknown",
+    "sync:content": "node scripts/sync-content.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
