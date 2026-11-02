@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { languagesTools } from '../utils/constants';
+import { carouselTools } from '@/lib/skills';
 
 export function ToolsCarousel() {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
@@ -38,7 +38,7 @@ export function ToolsCarousel() {
         <div className="flex w-max items-center">
           {/* BLOQUE 1: Contenedor original */}
           <div className="animate-marquee flex shrink-0 items-center gap-6 pr-6 md:gap-8 md:pr-8">
-            {languagesTools.map((item, index) => (
+            {carouselTools.map((item, index) => (
               <motion.div
                 key={`b1-${index}`}
                 className="relative flex shrink-0 flex-col items-center"
@@ -78,9 +78,9 @@ export function ToolsCarousel() {
             className="animate-marquee flex shrink-0 items-center gap-6 pr-6 md:gap-8 md:pr-8"
             aria-hidden="true"
           >
-            {languagesTools.map((item, index) => {
+            {carouselTools.map((item, index) => {
               // Ajustamos el índice para que el hover del clon también active el tooltip
-              const cloneIndex = index + languagesTools.length;
+              const cloneIndex = index + carouselTools.length;
               return (
                 <motion.div
                   key={`b2-${index}`}
