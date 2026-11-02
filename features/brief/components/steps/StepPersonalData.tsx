@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import { StepOneData, stepOneSchema } from '../../utils/validation';
 import BriefInput from '@/features/ui/components/brief-input';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useFormSync } from '@/hooks/useFormSync';
 
 export const StepPersonalData = () => {

@@ -26,15 +26,15 @@ const BriefInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProp
 
         {type === 'textarea' ? (
           <textarea
-            {...(props as any)}
-            ref={ref as any}
+            {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
+            ref={ref as React.Ref<HTMLTextAreaElement>}
             placeholder={placeholder}
             className={cn(styles, 'min-h-[120px] resize-none')}
           />
         ) : (
           <input
             {...props}
-            ref={ref as any}
+            ref={ref as React.Ref<HTMLInputElement>}
             type={type}
             placeholder={placeholder}
             className={styles}

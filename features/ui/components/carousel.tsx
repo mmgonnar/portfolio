@@ -4,8 +4,6 @@ import * as React from 'react';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
 // import { Button } from '@/components/ui/button';
 
@@ -154,7 +152,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
-  const { orientation, carouselRef, api } = useCarousel();
+  const { orientation, api } = useCarousel();
   //const [carouselRef, api] = useEmblaCarousel();
   //   console.log(api);
   //   api?.on('slideFocus', (...params) => {
@@ -163,7 +161,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
   //   api?.on('slidesChanged', (...params) => {
   //     console.log(params);
   //   });
-  api?.on('slidesInView', (...params) => {
+  api?.on('slidesInView', () => {
     //console.log(api.slidesInView());
   });
 

@@ -5,7 +5,6 @@ import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
 import BriefInput from '@/features/ui/components/brief-input';
 import { Trash2, Plus } from 'lucide-react';
-import { cn } from '@/utils/functions';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFormSync } from '@/hooks/useFormSync';
@@ -23,7 +22,6 @@ export const StepReferences = () => {
   const [links, setLinks] = useState<string[]>(initialLinks);
 
   const {
-    register,
     watch,
     setValue,
     formState: { isValid },

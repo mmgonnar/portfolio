@@ -4,11 +4,6 @@ import { TypeAnimation } from 'react-type-animation';
 import DescriptionSection from './description-section';
 import NameSection from './name-section';
 import TerminalBanner from '../../ui/components/terminal-banner';
-import { ToolsCarousel } from './tools-carousel';
-
-interface BannerProps {
-  text?: string;
-}
 
 export default function Banner() {
   return (

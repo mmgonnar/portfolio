@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import BriefContainer from '../ui/brief-container';
-import BriefInput from '@/features/ui/components/brief-input';
 import BriefTextArea from '../ui/brief-text-area';
 
 export const StepAdditionalNotes = () => {
