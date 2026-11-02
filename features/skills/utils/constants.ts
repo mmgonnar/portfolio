@@ -1,66 +1,36 @@
 import { ChevronsLeftRightEllipsisIcon, Palette, SquareChevronRight, Wrench } from 'lucide-react';
 
-export const designSkills = [
-  { name: 'Figma' },
-  { name: 'UX/UI' },
-  { name: 'Illustrator' },
-  { name: 'Photoshop' },
-];
+import { skillsInCategory } from '@/lib/skills';
 
-export const frontendSkills = [
-  { name: 'HTML' },
-  { name: 'CSS' },
-  { name: 'JavaScript' },
-  { name: 'TypeScript' },
-  { name: 'React.js' },
-  { name: 'Next.js' },
-  { name: 'Tailwind v4' },
-];
-
-export const backendSkills = [
-  { name: 'Node.js' },
-  { name: 'Express.js' },
-  { name: 'Python' },
-  { name: 'MongoDB' },
-  { name: 'PostgreSQL' },
-  { name: 'Supabase' },
-  { name: 'REST APIs' },
-];
-
-export const otherSkills = [
-  { name: 'Git' },
-  { name: 'GitFlow' },
-  { name: 'SemVer' },
-  { name: 'Postman' },
-  { name: 'Vercel' },
-  { name: 'Scrum' },
-  { name: 'Kanban' },
-  { name: 'Zoho CRM' },
-];
-
+/**
+ * Presentacion de las cuatro tarjetas de la seccion Skills.
+ *
+ * `title` y `description` son claves de `utils/translations.ts`. Los chips ya no
+ * se escriben aqui: salen de `lib/skills`, la lista unica de skills y herramientas.
+ */
 export const skillCards = [
   {
     title: 'skills.uiDesign',
     description: 'skills.design',
-    map: designSkills,
+    map: skillsInCategory('design'),
     icon: Palette,
   },
   {
     title: 'skills.front',
     description: 'skills.frontend',
-    map: frontendSkills,
+    map: skillsInCategory('frontend'),
     icon: ChevronsLeftRightEllipsisIcon,
   },
   {
     title: 'skills.back',
     description: 'skills.backend',
-    map: backendSkills,
+    map: skillsInCategory('backend'),
     icon: SquareChevronRight,
   },
   {
     title: 'skills.other',
     description: 'skills.tools',
-    map: otherSkills,
+    map: skillsInCategory('tools'),
     icon: Wrench,
   },
 ];

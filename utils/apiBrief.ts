@@ -1,10 +1,12 @@
 // API_URL = 'http://127.0.0.1:8000';
-const API_URL = process.env.NEXT_PUBLIC_RENDER_URI || 'http://127.0.0.1:8000';
+
+import { API_URL, API_TIMEOUT_MS } from './api-config';
 
 export const sendBriefData = async (data: FormData) => {
   const response = await fetch(`${API_URL}/api/v1/send-brief`, {
     method: 'POST',
     body: data,
+    signal: AbortSignal.timeout(API_TIMEOUT_MS),
   });
 
   const responseText = await response.text();
