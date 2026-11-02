@@ -19,10 +19,7 @@ export default function Modal({
 
   return (
     <div onClick={toggleModal} className={cn('z-10 h-full', className)}>
-      <div
-        className={cn(classNameBackground)}
-        onClick={e => e.stopPropagation()}
-      >
+      <div className={cn(classNameBackground)} onClick={e => e.stopPropagation()}>
         <NeobrutalistCard
           className="relative h-full p-0 hover:transition-none"
           onClick={e => e.stopPropagation()}

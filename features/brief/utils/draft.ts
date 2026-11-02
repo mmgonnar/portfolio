@@ -7,11 +7,11 @@ import { BriefData } from '../types/type';
 export const hasBriefDraft = (formData: BriefData): boolean =>
   Boolean(
     formData.name ||
-      formData.email ||
-      formData.company ||
-      formData.projectName ||
-      formData.projectDescription ||
-      formData.projectType ||
-      formData.features.length > 0 ||
-      formData.designStatus,
+    formData.email ||
+    formData.company ||
+    formData.projectName ||
+    formData.projectDescription ||
+    formData.projectType ||
+    formData.features.length > 0 ||
+    formData.designStatus,
   );

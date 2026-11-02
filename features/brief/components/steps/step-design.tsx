@@ -137,9 +137,7 @@ export const StepDesign = () => {
             <div
               className={cn(
                 'flex h-5 w-5 shrink-0 items-center justify-center border-2 transition-colors',
-                wantsDesignQuote
-                  ? 'border-green-brutalist bg-green-brutalist'
-                  : 'border-gray-200',
+                wantsDesignQuote ? 'border-green-brutalist bg-green-brutalist' : 'border-gray-200',
               )}
             >
               {wantsDesignQuote && <Check className="h-3 w-3 text-white" strokeWidth={4} />}
