@@ -21,7 +21,7 @@ export interface ContetnSectionProps {
 export interface NeobrutalistCardProps {
   children: ReactNode;
   className?: string;
-  onClick?: (e: any) => any;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   /**
    * 'static' quita el cursor, el hover y el centrado: la tarjeta pasa a ser un
    * panel de contenido, como las secciones de la revisión del brief.
@@ -40,7 +40,7 @@ export interface LabelProps {
   labelText: string;
   variant?: keyof typeof labelVariants;
   icon?: keyof typeof labelIcons;
-  className?: String;
+  className?: string;
 }
 
 export type SkillItem = {
@@ -86,7 +86,7 @@ export interface InputsProps extends React.InputHTMLAttributes<
   required?: boolean;
   placeholder?: string;
   name?: string;
-  error?: any;
+  error?: React.ReactNode;
   description?: string;
   // ref: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   // ...props: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;

@@ -35,7 +35,7 @@ export default function Form({ toggleModal }: { toggleModal: () => void }) {
             label={t(field.label)}
             type={field.type}
             placeholder={t(field.placeholder)}
-            {...register(field.name as any)}
+            {...register(field.name)}
           />
           {errors[field.name as keyof ContactFormData] && (
             <p className="absolute left-1 mt-[6px] text-xs font-bold text-red-500">

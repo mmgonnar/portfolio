@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { ModalProps } from '../types/type';
 import NeobrutalistCard from './neobrutalist-card';
 import { cn } from '@/utils/functions';

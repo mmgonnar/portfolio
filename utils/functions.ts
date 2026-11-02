@@ -3,6 +3,15 @@ import { twMerge } from 'tailwind-merge';
 import { toast } from 'react-hot-toast';
 import { ApiCallToastOptions } from './types';
 
+/**
+ * Forma minima que el backend devuelve cuando responde 200 con un fallo
+ * logico dentro del cuerpo, en vez de lanzar.
+ */
+type ApiCallResult = {
+  success?: boolean;
+  message?: string;
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -13,9 +22,10 @@ export function apiCallToast<T>(
 ) {
   return toast.promise(fetch, {
     loading: loading,
-    success: (response: any) => {
-      if (response && response.success === false) {
-        throw new Error(response.message || errorMessage);
+    success: (response: T) => {
+      const result = response as ApiCallResult | null;
+      if (result && result.success === false) {
+        throw new Error(result.message || errorMessage);
       }
       if (redirectTo && router) {
         router.push(redirectTo);

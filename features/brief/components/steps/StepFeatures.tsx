@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useBriefStore } from '../../store/useBriefStore';
 import { OptionCard } from '@/features/ui/components/OptionCard';
@@ -22,7 +22,7 @@ export const StepFeatures = () => {
   const { t } = useTranslation();
   const { formData, toggleFeature, setStepValid } = useBriefStore();
 
-  const selectedFeatures = formData.features || [];
+  const selectedFeatures = useMemo(() => formData.features || [], [formData.features]);
 
   useEffect(() => {
     setStepValid(selectedFeatures.length > 0);
