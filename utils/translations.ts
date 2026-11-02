@@ -55,16 +55,6 @@ export const enTranslations = {
     title: 'Featured Projects',
     description:
       'Web development projects I built end to end, from the backend to the interface. Each one solved a concrete problem.',
-    projectDescription: {
-      classaid:
-        'Educational platform to optimize class management, attendance tracking, and teacher workflow efficiency.',
-      around:
-        'Interactive social network for sharing locations through a dynamic content management system.',
-      highschool:
-        'Modern institutional website for High School No. 4, optimizing academic communication and information delivery.',
-      portfolio:
-        'A high-performance distributed system combining a Next.js 15 frontend with a Python-based FastAPI backend and Supabase cloud storage.',
-    },
     checkSite: 'Check Site',
     architecture: 'Architecture',
     technicalDetails: 'Technical Details',
@@ -417,16 +407,6 @@ export const esTranslations = {
     title: 'Proyectos Destacados',
     description:
       'Proyectos de desarrollo web que construí de punta a punta, del backend a la interfaz. Cada uno resolvió un problema concreto.',
-    projectDescription: {
-      classaid:
-        'Plataforma educativa para optimizar la gestión de clases, asistencia y seguimiento del progreso docente.',
-      around:
-        'Red social interactiva para compartir locaciones mediante un sistema de contenido dinámico.',
-      highschool:
-        'Sitio institucional moderno para la Preparatoria No. 4, optimizando la comunicación y difusión académica.',
-      portfolio:
-        'Sistema distribuido de alto rendimiento que combina un frontend en Next.js 15 con un backend en Python (FastAPI) y almacenamiento en Supabase.',
-    },
     checkSite: 'Visitar Sitio',
     architecture: 'Arquitectura',
     technicalDetails: 'Detalles Técnicos',
