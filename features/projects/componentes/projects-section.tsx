@@ -11,6 +11,8 @@ import { Project } from '../types/types';
 import { fetchProjects, type ProjectRaw } from '../utils/apiProjects';
 import { projectLayouts } from '../utils/layout-config';
 import { mapTechnologies } from '../utils/technologies-map';
+import snapshotEn from '../data/projects-snapshot.en.json';
+import snapshotEs from '../data/projects-snapshot.es.json';
 
 interface ProjectsSectionProps {
   /**
@@ -19,6 +21,24 @@ interface ProjectsSectionProps {
    * mientras se carga no debe pintarse: caeria encima de los esqueletos.
    */
   onReady?: (ready: boolean) => void;
+}
+
+function toProject(item: ProjectRaw): Project {
+  const layout = projectLayouts[item.id] ?? {};
+  return {
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    architecture: item.architecture,
+    technical_details: item.technical_details,
+    image_url: item.image_url,
+    logo_url: item.logo_url,
+    href: item.live_url,
+    repository_url: item.repository_url,
+    technologies: mapTechnologies(item.technologies, item.title),
+    className: layout.className,
+    classNameModal: layout.classNameModal,
+  };
 }
 
 export default function ProjectsSection({ onReady }: ProjectsSectionProps) {
@@ -32,13 +52,15 @@ export default function ProjectsSection({ onReady }: ProjectsSectionProps) {
     setLoading(true);
     setSlowLoading(false);
 
+    let showedCache = false;
     const cached = sessionStorage.getItem(`projects_${lang}`);
+    const snapshot = lang === 'es' ? snapshotEs : snapshotEn;
     if (cached) {
       try {
         const parsed: Project[] = JSON.parse(cached);
         setProjects(parsed);
+        showedCache = true;
         setLoading(false);
-        return;
       } catch {}
     }
 
@@ -46,27 +68,16 @@ export default function ProjectsSection({ onReady }: ProjectsSectionProps) {
 
     fetchProjects(lang)
       .then((raw: ProjectRaw[]) => {
-        const mapped: Project[] = raw.map(item => {
-          const layout = projectLayouts[item.id] ?? {};
-          return {
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            architecture: item.architecture,
-            technical_details: item.technical_details,
-            image_url: item.image_url,
-            logo_url: item.logo_url,
-            href: item.live_url,
-            repository_url: item.repository_url,
-            technologies: mapTechnologies(item.technologies, item.title),
-            className: layout.className,
-            classNameModal: layout.classNameModal,
-          };
-        });
+        const mapped: Project[] = raw.map(toProject);
         setProjects(mapped);
         sessionStorage.setItem(`projects_${lang}`, JSON.stringify(mapped));
       })
-      .catch(() => setProjects([]))
+      .catch(() => {
+        if (!showedCache) {
+          const mapped: Project[] = snapshot.map(toProject);
+          setProjects(mapped);
+        }
+      })
       .finally(() => {
         setLoading(false);
         clearTimeout(timer);
