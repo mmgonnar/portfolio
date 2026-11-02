@@ -1,6 +1,5 @@
 'use client';
 
-import LanguageSwitcher from '@/features/header/components/language-switcher';
 import Link from 'next/link';
 import { Github, Linkedin, Instagram, Mail, Globe, ExternalLink } from 'lucide-react';
 import { Logo } from '@/features/header';

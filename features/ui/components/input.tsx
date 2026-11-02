@@ -17,7 +17,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProps>(
         {type === 'textarea' ? (
           <textarea
             {...props}
-            ref={ref as any}
+            ref={ref as React.Ref<HTMLTextAreaElement>}
             placeholder={placeholder}
             rows={4}
             className={styles}
@@ -25,7 +25,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputsProps>(
         ) : (
           <input
             {...props}
-            ref={ref as any}
+            ref={ref as React.Ref<HTMLInputElement>}
             type={type}
             placeholder={placeholder}
             className={styles}

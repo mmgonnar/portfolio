@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 
 import { NeobrutalistButton } from '@/features/header';
 import ContentSection from '@/features/ui/components/content-section';

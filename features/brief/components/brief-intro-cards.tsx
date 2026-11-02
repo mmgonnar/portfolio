@@ -1,6 +1,5 @@
 'use client';
 
-import BriefInput from '@/features/ui/components/brief-input';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 
