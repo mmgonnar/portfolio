@@ -1,5 +1,6 @@
 //const API_URL = 'http://127.0.0.1:8000';
-const API_URL = process.env.NEXT_PUBLIC_RENDER_URI || 'http://127.0.0.1:8000';
+
+import { API_URL, API_TIMEOUT_MS } from './api-config';
 
 export interface ContactMessage {
   name: string;
@@ -16,6 +17,7 @@ export const api = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+      signal: AbortSignal.timeout(API_TIMEOUT_MS),
     });
 
     if (!response.ok) {
