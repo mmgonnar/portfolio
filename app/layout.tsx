@@ -3,28 +3,34 @@ import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 import LanguageProvider from '@/context/language-provider';
-import { SITE_URL } from '@/lib/site';
-import { enTranslations } from '@/utils/translations';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-// Los metadatos se resuelven en el servidor, antes de que i18next detecte el
-// idioma del visitante, asi que usan la copia EN: el mismo idioma con el que
-// el HTML llega del servidor (lang="en").
-const siteTitle = `${enTranslations.data.name} | Fullstack Web Developer`;
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: siteTitle,
-    template: `%s | ${enTranslations.data.name}`,
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: enTranslations.bannerText.description,
+  description: SITE_DESCRIPTION,
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
   icons: {
     icon: '/favicon.ico',
