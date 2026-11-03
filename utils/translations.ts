@@ -58,30 +58,6 @@ export const enTranslations = {
     checkSite: 'Check Site',
     architecture: 'Architecture',
     technicalDetails: 'Technical Details',
-    projectTitle: {
-      classAid: 'ClassAid',
-      around: 'Web Project Around Us',
-      highschool: "'Pablo Neruda' Highschool No. 4",
-      portfolio: 'Portfolio UI',
-    },
-    features: {
-      classaid: {
-        f1: 'Next.js 14 and MongoDB Atlas architecture for scalable data management.',
-        f2: 'Responsive Tailwind CSS interface with advanced loading states and modular logic.',
-      },
-      around: {
-        f1: 'React 19 and Node.js stack featuring secure JWT token-based authentication.',
-        f2: 'Optimized Vite frontend with protected routes and integrated data validation.',
-      },
-      highschool: {
-        f1: 'Feature-based architecture using Next.js 15, React 19, and robust TypeScript integration.',
-        f2: 'Modular interface with Shadcn UI, reusable components, and mobile-first responsive design.',
-      },
-      portfolio: {
-        f1: 'Distributed architecture: Next.js 15 frontend integrated with a Python (FastAPI) backend.',
-        f2: 'Scalable ecosystem featuring multi-language i18n, strict TypeScript typing and Supabase persistence.',
-      },
-    },
   },
 
   contact: {
@@ -410,30 +386,6 @@ export const esTranslations = {
     checkSite: 'Visitar Sitio',
     architecture: 'Arquitectura',
     technicalDetails: 'Detalles Técnicos',
-    projectTitle: {
-      classAid: 'ClassAid',
-      around: 'Proyecto Web Around Us',
-      highschool: "Preparatoria No.4 'Pablo Neruda'",
-      portfolio: 'Portafolio UI',
-    },
-    features: {
-      classaid: {
-        f1: 'Arquitectura Fullstack con Next.js 14 y MongoDB Atlas para una gestión de datos escalable.',
-        f2: 'Interfaz responsiva en Tailwind CSS con estados de carga optimizados y lógica modular.',
-      },
-      around: {
-        f1: 'Stack React 19 y Node.js con autenticación segura mediante tokens JWT.',
-        f2: 'Frontend optimizado con Vite, rutas protegidas y validación de datos integrada.',
-      },
-      highschool: {
-        f1: 'Arquitectura basada en features utilizando Next.js 15, React 19 y TypeScript.',
-        f2: 'Interfaz modular con Shadcn UI, componentes reutilizables y diseño mobile-first responsivo.',
-      },
-      portfolio: {
-        f1: 'Arquitectura distribuida: Frontend en Next.js 15 integrado con un backend en Python (FastAPI).',
-        f2: 'Ecosistema escalable con soporte multiidioma i18n, tipado estricto con TypeScript y persistencia en Supabase.',
-      },
-    },
   },
   contact: {
     title: 'Contacto',
