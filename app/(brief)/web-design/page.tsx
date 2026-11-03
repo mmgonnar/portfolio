@@ -141,9 +141,7 @@ export default function Page() {
 
   // Un title nativo no ocupa espacio ni altera el boton, y el navegador ya lo
   // oculta en tactil, donde no hay puntero que lo invoque.
-  const shortcutTooltip = t(
-    isMac ? 'brief.shortcut.tooltipMac' : 'brief.shortcut.tooltipOther',
-  );
+  const shortcutTooltip = t(isMac ? 'brief.shortcut.tooltipMac' : 'brief.shortcut.tooltipOther');
 
   return (
     <div className="flex min-h-screen flex-col bg-white">

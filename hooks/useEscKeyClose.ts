@@ -7,7 +7,7 @@ export const useEscapeKeyClose = (handleClose: () => void, isOpen: boolean) => {
         handleClose();
       }
     },
-    [handleClose]
+    [handleClose],
   );
 
   useEffect(() => {

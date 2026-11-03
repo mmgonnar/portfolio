@@ -25,7 +25,7 @@ export default function NeobrutalistCard({
               'hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0_#000]',
             ]
           : 'p-6',
-        className
+        className,
       )}
     >
       {children}

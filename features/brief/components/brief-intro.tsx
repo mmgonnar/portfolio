@@ -52,7 +52,7 @@ export const BriefIntro = () => {
               <button
                 type="button"
                 onClick={handleBegin}
-                className="cursor-pointer font-mono text-xs font-bold tracking-widest text-gray-400 underline underline-offset-4 uppercase transition-colors hover:text-black"
+                className="cursor-pointer font-mono text-xs font-bold tracking-widest text-gray-400 uppercase underline underline-offset-4 transition-colors hover:text-black"
               >
                 {t('brief.draft.startOver')}
               </button>

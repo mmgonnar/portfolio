@@ -15,15 +15,12 @@ const skeletonVariants = cva('animate-pulse bg-muted rounded-md shrink-0', {
   },
 });
 
-type SkeletonProps = {} & React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof skeletonVariants>
+type SkeletonProps = {} & React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof skeletonVariants>;
 
 function Skeleton({ className, variant, ...props }: SkeletonProps) {
   return (
-    <div
-      className={cn(skeletonVariants({ variant, className }))}
-      aria-hidden="true"
-      {...props}
-    />
+    <div className={cn(skeletonVariants({ variant, className }))} aria-hidden="true" {...props} />
   );
 }
 Skeleton.displayName = 'Skeleton';
@@ -31,7 +28,7 @@ Skeleton.displayName = 'Skeleton';
 type SkeletonTextProps = {
   lines?: number;
   lastLineWidth?: 'full' | '3/4' | '1/2' | '1/3';
-} & SkeletonProps
+} & SkeletonProps;
 
 function SkeletonText({
   lines = 3,
@@ -53,10 +50,7 @@ function SkeletonText({
         <Skeleton
           key={i}
           variant={variant}
-          className={cn(
-            'h-4',
-            i === lines - 1 ? widthMap[lastLineWidth] : 'w-full',
-          )}
+          className={cn('h-4', i === lines - 1 ? widthMap[lastLineWidth] : 'w-full')}
           {...props}
         />
       ))}
@@ -67,14 +61,9 @@ SkeletonText.displayName = 'SkeletonText';
 
 type SkeletonAvatarProps = {
   size?: 'sm' | 'default' | 'lg';
-} & SkeletonProps
+} & SkeletonProps;
 
-function SkeletonAvatar({
-  size = 'default',
-  className,
-  variant,
-  ...props
-}: SkeletonAvatarProps) {
+function SkeletonAvatar({ size = 'default', className, variant, ...props }: SkeletonAvatarProps) {
   const sizeMap = {
     sm: 'h-8 w-8',
     default: 'h-10 w-10',
@@ -84,7 +73,7 @@ function SkeletonAvatar({
   return (
     <Skeleton
       variant={variant}
-      className={cn('rounded-full shrink-0', sizeMap[size], className)}
+      className={cn('shrink-0 rounded-full', sizeMap[size], className)}
       {...props}
     />
   );
@@ -94,7 +83,7 @@ SkeletonAvatar.displayName = 'SkeletonAvatar';
 type SkeletonButtonProps = {
   size?: 'sm' | 'default' | 'lg' | 'icon';
   width?: string;
-} & SkeletonProps
+} & SkeletonProps;
 
 function SkeletonButton({
   size = 'default',
@@ -113,12 +102,7 @@ function SkeletonButton({
   return (
     <Skeleton
       variant={variant}
-      className={cn(
-        sizeMap[size],
-        size !== 'icon' && (width ?? 'w-24'),
-        'rounded-md',
-        className,
-      )}
+      className={cn(sizeMap[size], size !== 'icon' && (width ?? 'w-24'), 'rounded-md', className)}
       {...props}
     />
   );
@@ -139,7 +123,7 @@ type SkeletonCardProps = {
   showFooter?: boolean;
   showImage?: boolean;
   imageHeight?: string;
-} & SkeletonProps
+} & SkeletonProps;
 
 function SkeletonCard({
   showFooter = true,
@@ -151,27 +135,21 @@ function SkeletonCard({
 }: SkeletonCardProps) {
   return (
     <div
-      className={cn(
-        'rounded-xl border border-border bg-card p-6 space-y-4',
-        className,
-      )}
+      className={cn('border-border bg-card space-y-4 rounded-xl border p-6', className)}
       aria-hidden="true"
       {...props}
     >
       {showImage && (
         <Skeleton
           variant={variant}
-          className={cn(
-            'w-full rounded-lg -mx-6 -mt-6 rounded-b-none',
-            imageHeight,
-          )}
+          className={cn('-mx-6 -mt-6 w-full rounded-lg rounded-b-none', imageHeight)}
           style={{ width: 'calc(100% + 3rem)' }}
         />
       )}
 
       <div className="flex items-center gap-3">
         <SkeletonAvatar variant={variant} />
-        <div className="flex flex-col gap-2 flex-1">
+        <div className="flex flex-1 flex-col gap-2">
           <Skeleton variant={variant} className="h-4 w-1/2" />
           <Skeleton variant={variant} className="h-3 w-1/3" />
         </div>
@@ -193,7 +171,7 @@ SkeletonCard.displayName = 'SkeletonCard';
 type SkeletonTableProps = {
   rows?: number;
   columns?: number;
-} & SkeletonProps
+} & SkeletonProps;
 
 function SkeletonTable({
   rows = 5,
@@ -203,15 +181,8 @@ function SkeletonTable({
   ...props
 }: SkeletonTableProps) {
   return (
-    <div
-      className={cn('w-full space-y-3', className)}
-      aria-hidden="true"
-      {...props}
-    >
-      <div
-        className="grid gap-4"
-        style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-      >
+    <div className={cn('w-full space-y-3', className)} aria-hidden="true" {...props}>
+      <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
         {Array.from({ length: columns }).map((_, i) => (
           <Skeleton key={i} variant={variant} className="h-4 w-3/4" />
         ))}

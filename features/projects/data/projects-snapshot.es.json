@@ -29,14 +29,7 @@
     "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_mmgn.svg",
     "repository_url": "https://github.com/mmgonnar/portfolio_backend",
     "live_url": "https://www.mmgonnar.com/",
-    "technologies": [
-      "Next.js 15",
-      "Python",
-      "FastAPI",
-      "TypeScript",
-      "Supabase",
-      "Resend"
-    ],
+    "technologies": ["Next.js 15", "Python", "FastAPI", "TypeScript", "Supabase", "Resend"],
     "created_at": "2026-05-15T00:00:00+00:00"
   },
   {
@@ -49,14 +42,7 @@
     "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_classaid.svg",
     "repository_url": "https://github.com/mmgonnar/classaid_frontend",
     "live_url": "https://classaidfrontend.vercel.app/",
-    "technologies": [
-      "Next.js",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "JWT",
-      "Tailwind CSS"
-    ],
+    "technologies": ["Next.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
     "created_at": "2025-12-01T00:00:00+00:00"
   },
   {
@@ -69,14 +55,7 @@
     "logo_url": "https://mszggpdjafkzgnzthfne.supabase.co/storage/v1/object/public/project-images/logo_aus.svg",
     "repository_url": "https://github.com/mmgonnar/web_project_api_full",
     "live_url": "https://18-web-project-api-full-frontend.vercel.app",
-    "technologies": [
-      "React 19",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT",
-      "Vite"
-    ],
+    "technologies": ["React 19", "Node.js", "Express", "MongoDB", "JWT", "Vite"],
     "created_at": "2025-06-01T00:00:00+00:00"
   }
 ]

@@ -93,7 +93,7 @@ export const StepTargetCompetitors = () => {
           <button
             type="button"
             onClick={nextStep}
-            className="cursor-pointer font-mono text-[10px] font-bold tracking-widest text-gray-400 underline underline-offset-4 uppercase transition-colors hover:text-black"
+            className="cursor-pointer font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase underline underline-offset-4 transition-colors hover:text-black"
           >
             {t('brief.steps.audience.skip')}
           </button>

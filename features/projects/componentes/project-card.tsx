@@ -29,7 +29,7 @@ export default function ProjectCard({
         // Solo transform y sombra. transition-all animaba tambien el alto, asi
         // que al cerrar el modal la tarjeta tardaba medio segundo en recuperar
         // su tamano y durante ese rato los iconos cruzaban la sombra.
-        'transition-[transform,box-shadow] duration-300 ease-in-out'
+        'transition-[transform,box-shadow] duration-300 ease-in-out',
       )}
     >
       <div
@@ -55,16 +55,10 @@ export default function ProjectCard({
             </div>
           )}
         </div>
-        <p
-          id="card__description"
-          className="line-clamp-2 text-sm font-normal"
-        >
+        <p id="card__description" className="line-clamp-2 text-sm font-normal">
           {description}
         </p>
-        <div
-          id="card__container"
-          className="m-auto flex w-full items-center justify-start gap-2"
-        >
+        <div id="card__container" className="m-auto flex w-full items-center justify-start gap-2">
           {technologies.map((item, i) => (
             <Image
               key={i}

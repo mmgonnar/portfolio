@@ -24,7 +24,7 @@ export default function CloseButton({
         'absolute z-50 p-1',
         'cursor-pointer text-xl font-bold transition-all hover:scale-110 active:scale-90',
         positions[variant],
-        className
+        className,
       )}
     >
       <span className="flex h-6 w-6 items-center justify-center">X</span>

@@ -8,11 +8,7 @@ export default function Logo() {
   return (
     <div>
       <Link href="/">
-        <Image
-          src={Logotipo}
-          alt="Portfolio's logo"
-          className="w-30 shrink-0 md:w-full"
-        />
+        <Image src={Logotipo} alt="Portfolio's logo" className="w-30 shrink-0 md:w-full" />
       </Link>
     </div>
   );
