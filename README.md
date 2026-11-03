@@ -76,7 +76,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **UI Components**: Radix UI, Shadcn UI
 - **Animaciones**: Framer Motion
 - **i18n**: react-i18next
-- **Carousel**: Embla Carousel
 - **Iconos**: Lucide React
 
 ## 📚 Learn More
