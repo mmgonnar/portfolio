@@ -2,7 +2,8 @@
 import { useTranslation } from 'react-i18next';
 import { Check } from 'lucide-react';
 import BriefContainer from '../ui/brief-container';
-import { Copyright, NeobrutalistButton } from '@/features/footer';
+import { Copyright } from '@/features/footer';
+import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
 
 export const StepSuccess = () => {
   const { t } = useTranslation();

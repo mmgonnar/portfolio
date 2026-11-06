@@ -1,6 +1,6 @@
 'use client';
 
-import { NeobrutalistButton } from '@/features/footer';
+import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
 import Input from '@/features/ui/components/input';
 import { useTranslation } from 'react-i18next';
 import { useContactForm } from '../hooks/useContactForm';
