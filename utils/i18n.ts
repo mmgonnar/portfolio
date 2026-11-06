@@ -17,9 +17,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    lng: 'en',
     fallbackLng: 'en',
     detection: {
-      order: ['htmlTag', 'localStorage', 'navigator'],
+      order: ['localStorage', 'htmlTag', 'navigator'],
       caches: ['localStorage'],
     },
     interpolation: {

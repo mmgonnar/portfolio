@@ -14,6 +14,7 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
       document.documentElement.lang = lng?.startsWith('es') ? 'es' : 'en';
     };
 
+    i18n.changeLanguage();
     syncHtmlLang(i18n.language);
     i18n.on('languageChanged', syncHtmlLang);
     return () => {
