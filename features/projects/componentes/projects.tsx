@@ -2,7 +2,8 @@
 
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ContentSection, ProjectsSection } from '../index';
+import ContentSection from '@/features/ui/components/content-section';
+import { ProjectsSection } from '../index';
 import TerminalBanner from '@/features/ui/components/terminal-banner';
 import { useModal } from '@/hooks/useModa';
 import { cn } from '@/utils/functions';

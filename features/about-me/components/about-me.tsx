@@ -1,6 +1,6 @@
 'use client';
 
-import { NeobrutalistButton } from '@/features/header';
+import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
 import ContentSection from '@/features/ui/components/content-section';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';

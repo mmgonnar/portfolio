@@ -1,7 +1,7 @@
 'use client';
 
-import { NeobrutalistButton } from '@/features/footer';
-import { Modal } from '@/features/projects';
+import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
+import Modal from '@/features/ui/components/modal';
 import ContentSection from '@/features/ui/components/content-section';
 import TerminalBanner from '@/features/ui/components/terminal-banner';
 import { buttonActions } from '@/features/ui/utils/constants';

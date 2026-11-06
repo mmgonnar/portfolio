@@ -2,7 +2,9 @@
 
 import { useTranslation } from 'react-i18next';
 import { buttonActions } from '@/features/ui/utils/constants';
-import { NeobrutalistButton, Logo, Navbar } from '../index';
+import NeobrutalistButton from '@/features/ui/components/neobrutalist-button';
+import Logo from './logo';
+import Navbar from './navbar';
 import LanguageSwitcher from './language-switcher';
 
 export default function Header() {
